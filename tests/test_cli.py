@@ -2,7 +2,7 @@ import copy
 import tempfile
 from pathlib import Path
 import unittest
-from jevhammer_benchmark.cli import inject, select_sites, validate_visits, split, read_json, write_json
+from jevhammer_benchmark.cli import inject, select_sites, validate_visits, split, read_json, write_json, package_directory
 from types import SimpleNamespace
 
 
@@ -34,6 +34,15 @@ class Driver(unittest.TestCase):
             a, b = [read_json(root / "split" / f"{n}.json")["sites"] for n in ["development", "test"]]
             self.assertFalse({r["declaration"] for r in a} & {r["declaration"] for r in b})
             self.assertEqual(len(a) + len(b), 12)
+
+    def test_quoted_dependency(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            expected = root / ".lake/packages/premise-selection"
+            expected.mkdir(parents=True)
+            self.assertEqual(package_directory(root, {}, {"type": "git", "name": "«premise-selection»"}), expected)
+            with self.assertRaises(ValueError):
+                package_directory(root, {}, {"type": "git", "name": "missing"})
 
     def test_sampling_deterministic(self):
         data = [dict(site=str(i), eligible=i != 0, module=f"M{i % 3}") for i in range(30)]

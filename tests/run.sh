@@ -3,7 +3,11 @@ set -euo pipefail
 python -m unittest discover -s tests -v
 lake build JevHammerBenchmarkTests JevHammerBenchmark.Selector JevHammerBenchmark.Neural
 scratch=$(mktemp -d)
-trap 'rm -rf "$scratch"' EXIT
+trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$scratch"; else echo "Test evidence retained: $scratch" >&2; fi' EXIT
+if python -m jevhammer_benchmark discover --modules Mathlib.Data.Nat.Basic --output "$scratch/import-cycle" "$@"; then
+  echo 'ERROR: accepted a source already imported by the harness' >&2
+  exit 1
+fi
 python -m jevhammer_benchmark discover --source BenchmarkFixture=tests/fixtures/Small.lean --count 32 --output "$scratch/dataset" "$@"
 python -m jevhammer_benchmark split --dataset "$scratch/dataset/dataset.json" --output "$scratch/splits"
 python -m jevhammer_benchmark holdouts --dataset "$scratch/dataset/dataset.json" --output "$scratch/holdouts.json"

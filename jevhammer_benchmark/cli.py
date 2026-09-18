@@ -83,6 +83,18 @@ def inject(source, imports):
     return source[:position] + addition + source[position:], len(addition.encode())
 
 
+def package_directory(project, manifest, package):
+    if package["type"] == "path":
+        root = project / package["dir"]
+    else:
+        directory = package["name"].replace("«", "").replace("»", "")
+        root = project / manifest.get("packagesDir", ".lake/packages") / directory
+    root = root / (package.get("subDir") or "")
+    if not root.is_dir():
+        raise ValueError(f"missing dependency source directory: {root}; run lake update")
+    return root
+
+
 def project_info(project):
     source_hashes = {}
     for directory, dirs, files in os.walk(project):
@@ -98,8 +110,7 @@ def project_info(project):
     manifest = read_json(project / "lake-manifest.json")
     dependency_hashes = {}
     for package in manifest["packages"]:
-        root = project / (package["dir"] if package["type"] == "path" else
-                          str(Path(manifest.get("packagesDir", ".lake/packages")) / package["name"]))
+        root = package_directory(project, manifest, package)
         files = {}
         for folder, children, names in os.walk(root):
             children[:] = sorted(n for n in children if n not in {".lake", ".git"})
@@ -120,8 +131,7 @@ def source_path(project, module):
     candidates = [project / relative]
     manifest = read_json(project / "lake-manifest.json")
     for package in manifest["packages"]:
-        root = (project / package["dir"]) if package["type"] == "path" else (
-            project / manifest.get("packagesDir", ".lake/packages") / package["name"])
+        root = package_directory(project, manifest, package)
         candidates.append(root / relative)
     available = [p for p in candidates if p.is_file()]
     if len(available) != 1:
