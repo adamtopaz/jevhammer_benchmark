@@ -2,8 +2,8 @@
 
 Recorded 2026-09-18. These documents capture the agreed requirements before
 implementation. Proposed interfaces and workflows are designs, not existing APIs.
-These are the initial design notes for the public `jevhammer_benchmark`
-repository; no benchmark or selector implementation is being introduced yet.
+The benchmark and initial sparse selector are now implemented. These notes
+retain the broader research requirements; consult the root README for shipped APIs.
 
 - [Benchmark design](benchmark-design.md): public repository boundaries,
   configurable methods, source-location evaluation, metrics, and reproducibility.
@@ -40,4 +40,4 @@ repository; no benchmark or selector implementation is being introduced yet.
 The public repositories are [jevhammer_benchmark](https://github.com/adamtopaz/jevhammer_benchmark)
 and [jevselector](https://github.com/adamtopaz/jevselector). Numerical
 preparation/latency targets remain to be established from baseline measurements.
-A license decision is required before distributing the implemented libraries.
+All four libraries use Apache-2.0, as requested.

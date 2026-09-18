@@ -1,7 +1,10 @@
 # Implementation sequence and acceptance checks
 
-Status: proposed work order, recorded 2026-09-18. Notes come first; implementation
-and live benchmark collection have not started in these new repositories.
+Status: work order recorded 2026-09-18. The public benchmark foundation,
+source-location replay, and initial generic statement-index preparation are
+implemented. Neural service integration is supplied, but historical baseline
+migration, performance parity, and large live comparisons remain research work.
+The acceptance targets below are not all achieved by the initial release.
 
 ## 1. Public benchmark foundation
 

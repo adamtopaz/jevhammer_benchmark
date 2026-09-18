@@ -1,29 +1,129 @@
 # jevhammer_benchmark
 
-Public benchmarking infrastructure for [JevHammer](https://github.com/adamtopaz/jevhammer),
-with Mathlib as the initial benchmark library.
+Public, reproducible source-location benchmarks for
+[JevHammer](https://github.com/adamtopaz/jevhammer). Compare named premise
+selectors, tactic sets, and search configurations at actual intermediate Lean
+goals. Successful proofs are saved as expression certificates and independently
+kernel-checked against the original source goals, without API calls.
 
-**Status: design stage.** This repository currently contains planning notes.
-The runner, package configuration, and installation workflow are not implemented.
+Live comparison arms use **Jev for proof-state guidance**. Offline mock ranking
+is available for infrastructure tests and is explicitly labeled in reports.
+The repository includes Sine Qua Non baselines, a prepared
+[JevSelector](https://github.com/adamtopaz/jevselector) adapter, and an opt-in
+neural premise-service adapter. No new performance-parity claim is made here.
 
-The intended library will compare custom premise selectors, tactic collections,
-and JevHammer configurations at reproducible source locations. It will record
-proof coverage, timing, resource use, and Jev usage, with independent offline
-verification of successful proofs.
+## Install and run offline
 
-Start with the [design notes](notes/README.md), including the
-[benchmark contract](notes/benchmark-design.md) and
-[implementation sequence](notes/implementation-plan.md).
+Requires Lean **4.33.0**, Lake, Python **3.10+**, and Git. Mathlib and all Lean
+dependencies are pinned in the Lake manifest.
 
-Public reuse is a requirement: installation and reproduction must not depend on
-private research checkouts, undocumented local setup, or machine-specific paths.
-Large datasets, artifacts, caches, and results will be separate from the source
-repository. Local development retains a 32 GB RAM ceiling, using a shared 24 GB
-zero-swap scope for heavy work.
+```sh
+git clone https://github.com/adamtopaz/jevhammer_benchmark
+cd jevhammer_benchmark
+lake update
+lake exe cache get
+lake build
+python -m pip install .
 
-Related repositories:
+jevbench discover --source BenchmarkFixture=tests/fixtures/Small.lean \
+  --count 32 --output runs/fixture
+jevbench run --dataset runs/fixture/dataset.json --mock \
+  --methods JevHammerBenchmark.Methods.localOnly JevHammerBenchmark.Methods.expanded \
+  --output runs/offline
+jevbench replay runs/offline
+jevbench report runs/offline
+```
 
-- [JevPilot](https://github.com/adamtopaz/jevpilot): the Jev client.
-- [JevHammer](https://github.com/adamtopaz/jevhammer): the configurable proof engine.
-- [jevselector](https://github.com/adamtopaz/jevselector): planned generic selector
-  preparation and CPU premise selection, with optional holdouts.
+Read `runs/offline/REPORT.md` and `summary.json`. Replaying creates a new immutable
+verification attempt; it never overwrites an earlier attempt. Reports count
+only verified certificates. The supplied fixture includes multiple goals,
+universes, local definitions, and earlier current-file theorems.
+
+Linux CLI commands automatically enter a **24 GB zero-swap cgroup**. On other
+systems use a bounded container/job and `--external-memory-limit`. That flag is
+an explicit operator declaration; it does not impose a limit by itself. Limits
+above 32 GB are rejected. Put manual Lake builds and any locally hosted selector
+services inside the same bounded job. One source process runs at a time.
+
+## Mathlib and live Jev
+
+```sh
+jevbench discover --modules Mathlib.Topology.Basic Mathlib.LinearAlgebra.Basis.Basic \
+  --count 32 --seed 0 --output runs/mathlib
+# Set TYPESAFE_API_KEY through your environment/secret manager.
+jevbench run --dataset runs/mathlib/dataset.json \
+  --methods JevHammerBenchmark.Methods.sineReranked JevHammerBenchmark.Methods.expandedReranked \
+  --config '{"maxMillis":6000,"maxNodes":12,"maxCalls":3}' \
+  --max-requests 192 --max-input-tokens 2000000 --output runs/live
+```
+
+Live runs require explicit request and reported-input-token budgets. Requests
+are reserved before network IO, retries are disabled, and failed/unknown usage
+is retained. The token budget prevents subsequent calls after the cumulative
+reported usage reaches it; one request may cross that threshold. Budget-blocked
+trials are reported separately. Cheap goals can close without making a Jev call.
+All requests/responses and source goals are retained locally; keep private
+project runs private. Never place credentials in Lean options or run metadata.
+
+`--config` accepts JevHammer config fields; other controls include module process
+`--timeout`, trial `--heartbeats`, `--threads`, and memory limits. No large live
+benchmark is run by installation or CI.
+
+## Custom methods
+
+Declare a public `JevHammerBenchmark.Method` in a module built by your Lake
+project, import it during discovery, then select its fully qualified name:
+
+```lean
+module
+public meta import JevHammerBenchmark
+public meta section
+open JevHammerBenchmark
+
+def myMethod : Method := {
+  selector := Methods.sineSelector
+  selectorName := "Sine Qua Non"
+  tactics := { JevHammer.defaultTactics with
+    close := .fixed #["omega", "simp_all"] }
+  tacticSetName := "my arithmetic configuration"
+  config := { maxMillis := 3000, guidePremises := true } }
+```
+
+```sh
+jevbench discover --project . --import MyMethods --modules MyLibrary.Examples \
+  --output runs/custom
+jevbench run --dataset runs/custom/dataset.json --methods myMethod --mock --output runs/custom-run
+```
+
+`Method.warmup` performs goal-independent initialization outside the goal clock.
+`Method.validate` receives **all** evaluation owners and supplies provenance or
+rejects the run before trials. This lets selectors enforce training holdouts
+without changing the runner. Both hooks are still inside the process/resource
+limits. Their Lean state is restored; custom callbacks must manage their own IO.
+
+## Holdouts and integrations
+
+```sh
+jevbench split --dataset runs/mathlib/dataset.json --test-fraction 0.25 --output runs/split
+jevbench holdouts --dataset runs/mathlib/dataset.json --output runs/holdouts.json
+```
+
+Splitting groups every location of a declaration together. Prepare selectors
+with the appropriate evaluation union excluded; keep the final test partition
+untouched while choosing methods.
+
+- [Prepared CPU selector](integrations/selector/README.md): generic preparation,
+  admission checks, and a paired selector comparison.
+- [Neural selector](integrations/neural/README.md): optional explicit service,
+  pinned historical model/corpus metadata, and comparison limitations.
+- [Protocol and output format](docs/protocol.md): isolation, timing, replay,
+  sampling, usage, resource limits, and failure handling.
+- [Contributing](CONTRIBUTING.md) and [research plans](notes/README.md).
+
+The current release implements the benchmark and preparation foundations. It
+has not yet established that the sparse selector matches the strongest historical
+pipeline, nor rerun a full LeanHammer comparison in this harness. Full LeanHammer
+has additional proof engines; the neural-selector adapter is not that tactic.
+
+Run the complete offline suite inside a bounded job with `bash tests/run.sh`.
+Licensed under the [Apache License, Version 2.0](LICENSE).

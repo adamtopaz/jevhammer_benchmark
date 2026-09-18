@@ -1,0 +1,6 @@
+{
+  "model": {"id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2", "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"},
+  "corpus": {"id": "l3lab/lean-premises", "revision": "e79b5207564003baf97876230c46f74496c68dcb", "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"},
+  "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+  "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint"
+}
