@@ -104,8 +104,9 @@ limits. Their Lean state is restored; custom callbacks must manage their own IO.
 ## Holdouts and integrations
 
 The [broad Mathlib cohort](datasets/mathlib-broad-v1/README.md) supplies a
-reproducible module manifest, prior-exposure exclusions, declaration caps, and
-module-stratified development/evaluation partitions.
+frozen set of 256 locations across 34 modules and 17 subject areas, with
+prior-exposure exclusions and declaration caps. Its module-stratified partitions
+contain 134 development locations and 122 reserved evaluation locations.
 
 ```sh
 jevbench split --dataset runs/mathlib/dataset.json --test-fraction 0.25 --output runs/split
@@ -122,6 +123,8 @@ untouched while choosing methods.
   artifact or neural service, with optional Jev premise reranking.
 - [Live Sine versus sparse pilot](docs/sine-baseline-2026-09-18.md): 32 matched
   Mathlib locations with Jev state guidance and independently replayed proofs.
+- [Broad live comparison](docs/mathlib-broad-v1-results.md): 134 matched locations,
+  complete proof replay, per-location results, and a separate reserved split.
 - [Neural selector](integrations/neural/README.md): optional explicit service,
   pinned historical model/corpus metadata, and comparison limitations.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,

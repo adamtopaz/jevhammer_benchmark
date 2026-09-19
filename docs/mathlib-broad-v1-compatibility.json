@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "kind": "offline-admission-and-source-consistency-check",
+  "status": "complete",
+  "selectorCommit": "41e1afac56702e2294bb036f6572f57348db15cf",
+  "datasetSha256": "1ec906f33bdf89822ad4bfe9af60227621bc2c087e9c52e5aea3867346313933",
+  "locations": 134,
+  "modules": 34,
+  "configurationOverrides": {
+    "maxMillis": 0,
+    "maxCalls": 0
+  },
+  "guidance": "mock",
+  "requests": 0,
+  "sourceConsistencyPass": "complete",
+  "performanceMeasurement": false,
+  "failure": null
+}

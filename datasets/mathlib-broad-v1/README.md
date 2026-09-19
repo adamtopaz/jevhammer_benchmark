@@ -17,6 +17,12 @@ The [full dataset](dataset.json), [per-module summary](summary.json), and
 [combined preparation holdouts](holdouts.json) are portable files in this repo.
 Use the matching source revision: the driver enforces project/dependency hashes.
 
+The [completed development comparison](../../docs/mathlib-broad-v1-results.md)
+recorded all 268 paired trials: Sine Qua Non verified 49/134 locations and sparse
+verified 58/134. All 107 successful trials replayed independently. The report
+includes per-location outcomes and the earlier incomplete attempt; the reserved
+evaluation split has not been attempted.
+
 ## Module selection
 
 `modules.json` contains two candidate files from each of Algebra, Analysis,
@@ -124,11 +130,14 @@ current-file premises excludes cataloged current-file declarations. This is a
 general correction for editing and re-elaboration; no goals or modules were
 removed, and no tactic settings were tuned.
 
-Rediscover under the corrected dependency and verify that all sampled sites,
-goals, owners and split assignments are identical before refreshing dependency
-fingerprints. Check compatibility across the development partition without live
-Jev calls, then repeat the entire paired live run. Retain the incomplete attempt
-and its usage separately. The reserved evaluation partition stays untouched.
+Rediscovery under the corrected dependency reproduced every sampled site, goal,
+owner and split assignment exactly; only dependency/resource fingerprints were
+refreshed. The [offline compatibility check](../../docs/mathlib-broad-v1-compatibility.json)
+then passed admission and source consistency at all 134 development locations
+across 34 modules. It used a zero goal budget and made no Jev calls, so it is not
+a performance measurement. The entire paired live comparison was repeated, with
+the incomplete attempt and its usage retained separately. The reserved
+evaluation partition stays untouched.
 
 The comparison reuses the [prepared artifact](preparation.json): fitting and the
 188-owner exclusion set did not change. Its provenance references the original

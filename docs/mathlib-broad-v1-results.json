@@ -1,0 +1,308 @@
+{
+  "schema": 1,
+  "kind": "live-jev-development-comparison",
+  "date": "2026-09-18",
+  "benchmarkCommit": "78b4eb8d2420bad75538ebfa50523ed36ee155da",
+  "leanVersion": "4.33.0",
+  "pins": {
+    "jevselector": "41e1afac56702e2294bb036f6572f57348db15cf",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "jevhammer": "603573da7aa272dcaf2ef9860e7c886210a1433a",
+    "jevpilot": "0d5973766a48ba1be44c9f61e994a6956f9ec4b1"
+  },
+  "model": "jev-1.13.0",
+  "dataset": {
+    "path": "../datasets/mathlib-broad-v1/development.json",
+    "sha256": "1ec906f33bdf89822ad4bfe9af60227621bc2c087e9c52e5aea3867346313933",
+    "fullLocations": 256,
+    "evaluatedLocations": 134,
+    "evaluatedOwners": 99,
+    "reservedLocations": 122,
+    "reservedOwners": 89,
+    "modules": [
+      "Mathlib.Algebra.GroupWithZero.ProdHom",
+      "Mathlib.Algebra.Module.LinearMap.Index",
+      "Mathlib.Analysis.BoxIntegral.Partition.Tagged",
+      "Mathlib.Analysis.Complex.Poisson",
+      "Mathlib.CategoryTheory.ShrinkYoneda",
+      "Mathlib.CategoryTheory.Sites.SheafOfTypes",
+      "Mathlib.Combinatorics.Additive.PluenneckeRuzsa",
+      "Mathlib.Combinatorics.SimpleGraph.Walk.Basic",
+      "Mathlib.Computability.DFA",
+      "Mathlib.Computability.NFA",
+      "Mathlib.Data.Finset.Sym",
+      "Mathlib.Data.Finsupp.MonomialOrder.DegLex",
+      "Mathlib.Dynamics.Ergodic.Extreme",
+      "Mathlib.Dynamics.TopologicalEntropy.Subset",
+      "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+      "Mathlib.FieldTheory.JacobsonNoether",
+      "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+      "Mathlib.Geometry.Polygon.Basic",
+      "Mathlib.LinearAlgebra.Basis.VectorSpace",
+      "Mathlib.LinearAlgebra.Matrix.Permutation",
+      "Mathlib.MeasureTheory.Function.AEEqOfLIntegral",
+      "Mathlib.MeasureTheory.Measure.Haar.Quotient",
+      "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+      "Mathlib.NumberTheory.TsumDivisorsAntidiagonal",
+      "Mathlib.Order.Filter.Tendsto",
+      "Mathlib.Order.Hom.Lex",
+      "Mathlib.Probability.Distributions.Gamma",
+      "Mathlib.Probability.Kernel.Composition.ParallelComp",
+      "Mathlib.RingTheory.Grassmannian",
+      "Mathlib.RingTheory.RamificationInertia.Ramification",
+      "Mathlib.SetTheory.Cardinal.SchroederBernstein",
+      "Mathlib.SetTheory.Lists",
+      "Mathlib.Topology.Algebra.Category.ProfiniteGrp.Completion",
+      "Mathlib.Topology.Category.TopCat.Limits.Basic"
+    ],
+    "subjectAreas": 17,
+    "imports": [
+      "JevHammerBenchmark",
+      "JevHammerBenchmark.Selector",
+      "JevHammerBenchmark.Neural"
+    ],
+    "samplingSeed": 1,
+    "split": {
+      "name": "development",
+      "seed": 1,
+      "stratifyByModule": true,
+      "singleOwnerModulesInDevelopment": [],
+      "parentSha256": "00685ae5b671a065224aa6c52b9d1f6eb829cad500295e47594b5cd94fac5e6a"
+    }
+  },
+  "sparseArtifactSha256": "39b500a9776a562f3982897acf5790c4ecbb87f716a5728203cfff1b3360e1ed",
+  "selectorConfig": {
+    "depthFactor": 1.5,
+    "maxCandidates": 1024,
+    "includeCurrentFile": true
+  },
+  "hammerConfig": {
+    "beamWidth": 4,
+    "guidePremises": false,
+    "maxCalls": 3,
+    "maxCandidates": 24,
+    "maxDepth": 3,
+    "maxMillis": 6000,
+    "maxNodes": 12,
+    "maxPremises": 100,
+    "model": "jev-1.13.0",
+    "premiseCount": 8,
+    "refreshPremises": true,
+    "tacticHeartbeats": 15000,
+    "timeoutSeconds": 5
+  },
+  "bounds": {
+    "maxRequests": 804,
+    "maxInputTokens": 8375000,
+    "outerHeartbeats": 200000,
+    "threads": 2
+  },
+  "memoryLimitBytes": 24000000000,
+  "swapLimitBytes": 0,
+  "cgroupMemoryEvents": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "summary": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "jev",
+    "methods": {
+      "JevHammerBenchmark.Methods.expanded": {
+        "sites": 134,
+        "recorded": 134,
+        "onTimeVerified": 49,
+        "rawVerified": 49,
+        "lateVerified": 0,
+        "elapsedMs": 429134,
+        "budgetBlocked": 0,
+        "rankFailures": 14
+      },
+      "JevHammerBenchmark.Prepared.sparse": {
+        "sites": 134,
+        "recorded": 134,
+        "onTimeVerified": 58,
+        "rawVerified": 58,
+        "lateVerified": 0,
+        "elapsedMs": 410550,
+        "budgetBlocked": 0,
+        "rankFailures": 11
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.Methods.expanded",
+        "b": "JevHammerBenchmark.Prepared.sparse",
+        "gained": 0,
+        "lost": 9,
+        "declarationBootstrap95": [
+          -0.12307692307692308,
+          -0.022727272727272728
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 397,
+      "inputTokens": 1982119,
+      "outputTokens": 51170,
+      "unknownUsage": 14
+    }
+  },
+  "metrics": {
+    "JevHammerBenchmark.Methods.expanded": {
+      "goalMedianMs": 3364.5,
+      "retrievalTotalMs": 3661,
+      "retrievalPerTrialMedianMs": 26.0,
+      "warmupMs": [
+        84,
+        35,
+        174,
+        74,
+        45,
+        36,
+        40,
+        41,
+        51,
+        50,
+        37,
+        49,
+        132,
+        103,
+        107,
+        85,
+        114,
+        106,
+        64,
+        153,
+        115,
+        135,
+        170,
+        88,
+        30,
+        31,
+        88,
+        193,
+        102,
+        138,
+        36,
+        35,
+        92,
+        45
+      ],
+      "warmupMedianMs": 84.5,
+      "stateRankCalls": 215,
+      "premiseRankCalls": 0,
+      "requests": 215,
+      "reportedUsage": {
+        "input_tokens": 1015449,
+        "output_tokens": 27673
+      },
+      "unknownUsageRequests": 10,
+      "rankFailures": 14,
+      "apiErrors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 4,
+        "TypeSafe HTTP 400": 10
+      }
+    },
+    "JevHammerBenchmark.Prepared.sparse": {
+      "goalMedianMs": 3292.5,
+      "retrievalTotalMs": 18663,
+      "retrievalPerTrialMedianMs": 133.0,
+      "warmupMs": [
+        4008,
+        3980,
+        3969,
+        3974,
+        4004,
+        3964,
+        4004,
+        3981,
+        4283,
+        4006,
+        4033,
+        4054,
+        4013,
+        4123,
+        3951,
+        3950,
+        4081,
+        3967,
+        3975,
+        3960,
+        3961,
+        3964,
+        3960,
+        3966,
+        3993,
+        3975,
+        3972,
+        3995,
+        3966,
+        3967,
+        3974,
+        4126,
+        4179,
+        4106
+      ],
+      "warmupMedianMs": 3977.5,
+      "stateRankCalls": 182,
+      "premiseRankCalls": 0,
+      "requests": 182,
+      "reportedUsage": {
+        "input_tokens": 966670,
+        "output_tokens": 23497
+      },
+      "unknownUsageRequests": 4,
+      "rankFailures": 11,
+      "apiErrors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 7,
+        "TypeSafe HTTP 400": 4
+      }
+    }
+  },
+  "earlierIncompleteAttempt": {
+    "path": "mathlib-broad-v1-incomplete.json",
+    "usage": {
+      "attempts": 373,
+      "inputTokens": 1860120,
+      "outputTokens": 47315,
+      "unknownUsage": 16
+    }
+  },
+  "trialResults": {
+    "path": "mathlib-broad-v1-trials.jsonl",
+    "sha256": "6680e544c9c1e60873205ed6f42a4020a16cdc9340be2c4ee5ec0ad6c7adcafe"
+  },
+  "checks": {
+    "expectedTrials": 268,
+    "recordedTrials": 268,
+    "successfulTrialsIndependentlyReplayed": 107,
+    "replayStatus": "complete",
+    "runtimePanics": 0,
+    "moduleFailures": {},
+    "reservedEvaluationTrials": 0
+  },
+  "localEvidenceSha256": {
+    "run.json": "c135601341da0ae3c2ec2f0e676e2d8510b1b70029e0f5360131a31d9f598810",
+    "trials.jsonl": "5a09517114c8424c3b4ec18366ed0d4991c2f59b7cf2e7f5f20339096db0b810",
+    "decisions.jsonl": "ae042db162fc7c748b205d3524d3c8696beed2dbc5c84d0f41adfceba697bc28",
+    "warmup.jsonl": "1ec29fe4be433f36dac22a4ee9c2e4ce028078da63411b87ed81be650a31c6c4",
+    "summary.json": "98e0fc931570f5ef27d766dca7822f11896c01f29164fb2c987143825d78da97",
+    "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+    "replay-1/replay.jsonl": "5e853fc9107bebe0b2e89651239b298aa2e9c43feb6c2c7e16440a616abb3d7a"
+  },
+  "limitations": [
+    "One complete development run after a general compatibility correction; the earlier incomplete attempt is documented separately. No identical-version repeats to estimate timing or service variation. Reserved evaluation was not attempted.",
+    "A stratified, size-filtered sample from 34 modules; not a uniform sample of all Mathlib.",
+    "Both arms use live Jev state guidance, identical expanded tactics, and no premise reranking.",
+    "Retrieval time is cumulative per trial, including refreshes. The arms can explore different states and make different query counts.",
+    "Warmup occurs once per method per module and is excluded from goal time.",
+    "All ranking failures remain in the measured original-order fallback pipeline. Reported tokens omit usage unavailable on HTTP errors.",
+    "Sine uses compiled imported-statement statistics; sparse uses a whole-Mathlib statement-symbol IDF index with all 188 benchmark owners excluded.",
+    "This is not a full LeanHammer or neural-premise-selector comparison."
+  ]
+}
