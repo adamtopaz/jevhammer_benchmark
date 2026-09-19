@@ -35,3 +35,25 @@ For development/test partitions use `jevbench split`, then derive exclusions
 from the full evaluation union when one artifact serves both. Freeze candidates
 before looking at the final test partition. A whole-Mathlib production artifact
 is supported by JevSelector but rejected here for overlapping evaluation data.
+
+## Experimental proof-neighbor models
+
+On the `research/cpu-selector` branch, `JevHammerBenchmark.Research` also provides
+`neighbors` and `proofHybrid`. These use a dependency companion prepared from the
+exact eligible theorem set of the sparse index:
+
+```sh
+jevselector dependencies --project . --modules Mathlib \
+  --index artifacts/selector/index.json --output artifacts/dependencies \
+  --memory-limit 16000000000
+export JEVSELECTOR_DEPENDENCIES="$PWD/artifacts/dependencies/dependencies.json"
+```
+
+The adapter caches the dependency model separately, validates its linked index
+and imported premise hashes during warmup, and rejects evaluation overlap before
+trials. Neither method reads proof bodies during selection. Both retain Jev
+proof-state guidance; the dependency selector itself runs entirely on the CPU.
+Use a dataset admitted with the `JevHammerBenchmark.Research` import and the
+matching source fingerprint. See the [research protocol](../../notes/cpu-selector-research.md)
+for the fixed candidate screen and paired neural reference. These methods are
+research candidates, not established improvements.

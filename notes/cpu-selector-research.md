@@ -50,3 +50,29 @@ to warmup or retrieval. Use a fresh service deployment for this screen.
 The four-arm run allows 408 Jev requests and 4,000,000 reported input tokens,
 under the same shared 16 GB zero-swap cap. Independently replay every success.
 Publish all configurations and failures; do not select only a favorable arm.
+
+## Proof-neighbor screen, frozen before outcomes
+
+The next model transfers direct proof dependencies from the 32 most similar
+eligible training statements. Preparation excludes all cohort owners before
+reading any example proof, omits recursively hidden helper dependencies, and
+fits dependency-frequency weights only on eligible examples. Its complete
+fixed recipe is in jevselector's `notes/experiment-02.md`.
+
+After measuring full-library preparation and query costs, compare
+`Research.neighbors`, `Research.proofHybrid`, `Research.target`, and
+`Research.neuralWarm` at the same 34 development locations. Target-weighted
+retrieval replaces sparse as the inexpensive reference because it had the
+highest CPU-selector coverage in the first screen. The two new methods use
+direct dependency votes and fusion with original sparse retrieval, respectively.
+No candidate has access to excluded owners' proof bodies, and every returned
+premise is checked against the real environment and caller filter.
+
+Re-admit identical locations and goals under the updated sources; use a fresh
+neural service deployment. Keep the same tactic configuration, six-second limit,
+three-call budget, and Jev proof-state guidance without premise reranking.
+Allow at most 408 requests and 4,000,000 reported input tokens. Run all local
+services and Lean processes together in one 16 GB zero-swap cgroup; independently
+replay all successes. Dependency/index caches are shared across compatible
+methods within each module process, so per-method initialization is ordered and
+must be reported separately. No reserved evaluation data will be inspected.

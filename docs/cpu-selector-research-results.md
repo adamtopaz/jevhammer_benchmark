@@ -125,3 +125,29 @@ evaluation partition remains untouched.
 
 [Full configurations, costs, and evidence](cpu-selector-candidates-v1.json) and
 [all per-location outcomes](cpu-selector-candidates-v1-trials.jsonl).
+
+## Proof-neighbor preparation and CPU profiling
+
+The new CPU model retrieves 32 similar eligible theorem statements and votes for
+the public lemmas directly used by their proofs. Its optional fusion combines
+these votes with original sparse retrieval. Exclusions are enforced before
+reading examples and fitting label frequencies; private/helper bodies are not
+recursively opened. Runtime suggestions must be available in the current Lean
+environment. No neural training or Jev call is used for preparation or retrieval.
+
+Preparing the dependency companion for the existing excluded Mathlib index took
+**282.25 seconds**: **254,885 proofs**, **1,536,554 edges**, **145,736 labels**,
+and a **65.17 MB** artifact. Peak memory was **8.01 GB** under the 16 GB zero-swap
+cap, with no memory-limit/OOM events. This excludes the original statement-index
+preparation cost. [Preparation measurements](cpu-selector-dependency-preparation-v1.json).
+
+| Method | Median query | p95 query | Combined index/model load |
+|---|---:|---:|---:|
+| Direct proof-neighbor votes | 45.0 ms | 95.4 ms | 7.89 s |
+| Sparse + proof-neighbor fusion | 164.5 ms | 278.1 ms | 6.35 s |
+
+These use the same 32 deterministic theorem types and three repetitions as the
+earlier CPU profiles. Direct voting meets the provisional 200 ms p95 target;
+fusion misses it. The scope peaked at 2.81 GB with no memory events. These are
+cost measurements only; neither candidate has a proof-coverage result yet.
+[Query profile evidence](cpu-selector-profile-dependencies-v1.json).

@@ -74,3 +74,20 @@ embeddings outside the goal clock. See the
 [research protocol](../../notes/cpu-selector-research.md) for initialization,
 resource, and reporting requirements. This screen is exploratory development;
 the reserved evaluation locations are not included.
+
+`research-v2.json` re-admits the same locations and goals with the proof-neighbor
+implementation. Prepare and export `JEVSELECTOR_DEPENDENCIES` as described in
+the [selector integration](../../integrations/selector/README.md), then run:
+
+```sh
+jevbench run --dataset datasets/sparse-jev-v1/research-v2.json \
+  --methods JevHammerBenchmark.Research.target JevHammerBenchmark.Research.neighbors \
+    JevHammerBenchmark.Research.proofHybrid JevHammerBenchmark.Research.neuralWarm \
+  --config '{"guidePremises":false}' --memory-limit 16000000000 \
+  --max-requests 408 --max-input-tokens 4000000 --output runs/cpu-selector-neighbors
+```
+
+Both neural services must run inside the same shared 16 GB scope as this command.
+The linked dependency model and statement index must both exclude all owners in
+the full broad cohort. See the research protocol for the fixed voting/fusion
+parameters and the cold-initialization accounting policy.

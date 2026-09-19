@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "ca390e58f59d99b69158fdfd001b4e22f9a0cc2a",
+  "dependencyArtifactSha256": "be321d93c38cb7a3c285c81547226bc3e5fa27ad6afe1d7d300740d43750ae90",
+  "sampleCount": 32,
+  "repeats": 3,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "methods": {
+    "neighbors": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "neighbors",
+      "loadMs": 7892,
+      "queries": 96,
+      "medianMs": 44.982633,
+      "p95Ms": 95.425801,
+      "meanMs": 47.61680117708334,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2761695232",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "1527d2a016558d5a96d0fb3d9510e1cd7b06feb526fe1141e18ba8dd8e2a5aad"
+    },
+    "proof-hybrid": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "proof-hybrid",
+      "loadMs": 6351,
+      "queries": 96,
+      "medianMs": 164.531885,
+      "p95Ms": 278.0534,
+      "meanMs": 173.74421430208335,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2808946688",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "cf86c68af1ac879fb7610d2d8c6dc2830f749ea569542a1c9a313359369739f5"
+    }
+  },
+  "limitations": [
+    "Deterministically sampled full theorem types, not the source proof-state cohort.",
+    "No proofs attempted and no model calls; this measures selector cost only.",
+    "Each method loads the same excluded artifacts in a fresh Lean process; methods run serially.",
+    "Resource peaks are cumulative within the shared profile scope."
+  ]
+}
