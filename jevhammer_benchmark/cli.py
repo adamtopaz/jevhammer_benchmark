@@ -164,6 +164,11 @@ def process(command, project, log, env=None, timeout=600):
             raise
     if code:
         raise RuntimeError(f"command failed ({code}); see {log}")
+    # Lean's panic! can return a default value and leave the process exit code
+    # at zero. Such a run is not a clean measurement even if certificates replay.
+    with Path(log).open(errors="replace") as handle:
+        if any(line.startswith("PANIC at ") for line in handle):
+            raise RuntimeError(f"Lean runtime panic; see {log}")
 
 
 def lean_file(project, source, log, env=None, timeout=600, options=(), module_name="JevBenchImports"):

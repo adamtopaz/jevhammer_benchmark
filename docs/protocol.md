@@ -27,6 +27,8 @@ This is coverage over the sampled eligible tactic locations, not all theorems.
 Additional tactic imports can also violate a file's `assert_not_exists` import
 invariants or meta-import restrictions; those are recorded as module failures,
 never silently removed from a successful discovery.
+Runtime panic diagnostics also fail the module, even if Lean exits with status
+zero after recovering a default value. Logs remain available for diagnosis.
 
 Selection is deterministic, round-robin by module after seeded hash ordering.
 Declaration-grouped development/test splitting prevents the same owner from

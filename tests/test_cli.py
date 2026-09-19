@@ -1,12 +1,21 @@
 import copy
+import sys
 import tempfile
 from pathlib import Path
 import unittest
-from jevhammer_benchmark.cli import inject, select_sites, validate_visits, split, read_json, write_json, package_directory
+from jevhammer_benchmark.cli import inject, select_sites, validate_visits, split, read_json, write_json, package_directory, process
 from types import SimpleNamespace
 
 
 class Driver(unittest.TestCase):
+    def test_zero_exit_panic_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            log = root / "process.log"
+            process([sys.executable, "-c", "print('ordinary output')"], root, log)
+            with self.assertRaisesRegex(RuntimeError, "Lean runtime panic"):
+                process([sys.executable, "-c", "print('PANIC at example: bad offset')"], root, log)
+
     def test_import_injection(self):
         for text, marker in [("/- a /- b -/ -/\nmodule\npublic import Foo\n", "module\npublic meta import Bar\n"),
                              ("-- comment\nimport Foo\n", "import Bar\nimport Foo")]:

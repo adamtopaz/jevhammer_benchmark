@@ -6,7 +6,7 @@ testDriver = "JevHammerBenchmarkTests"
 [[require]]
 name = "jevhammer"
 git = "https://github.com/adamtopaz/jevhammer"
-rev = "0fbfd57"
+rev = "603573d"
 
 [[require]]
 name = "mathlib"
