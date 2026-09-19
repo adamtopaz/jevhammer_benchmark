@@ -151,3 +151,40 @@ earlier CPU profiles. Direct voting meets the provisional 200 ms p95 target;
 fusion misses it. The scope peaked at 2.81 GB with no memory events. These are
 cost measurements only; neither candidate has a proof-coverage result yet.
 [Query profile evidence](cpu-selector-profile-dependencies-v1.json).
+
+## Proof-neighbor screen: complete, no coverage improvement
+
+The four methods ran on the same re-admitted 34 development locations, with the
+same tactics, six-second budgets, and Jev proof-state guidance. No premise
+reranking was used. Both neural services started fresh, and the reference warmed
+imported/earlier current-file statements outside the goal clock as before.
+
+| Method | On-time verified | Total goal time | Retrieval time |
+|---|---:|---:|---:|
+| Target-weighted | 13/34 | 120.498 s | 5.668 s |
+| Direct proof-neighbor votes | 12/34 | 138.081 s | 4.409 s |
+| Sparse + proof-neighbor fusion | 12/34 | 126.539 s | 9.869 s |
+| Warmed neural reference | **14/34** | 121.789 s | 10.428 s |
+
+Direct voting gained one location and lost three against neural; its paired 95%
+interval is −17.6 to +5.9 percentage points. Fusion gained none and lost two
+(−14.7 to 0.0 points). Neither candidate improves coverage. Target weighting also
+lost one net location against neural in this fresh run, underscoring that its
+earlier tie was not evidence of superiority. Keep the dependency preparation and
+retrieval APIs as experimental infrastructure; do not promote these configurations.
+
+All **136 expected trials** were recorded, and **all 51 successful proofs
+independently replayed**. There were no late proofs, module failures, or blocked
+trials. All 15 ranking failures remain included: 4 target, 7 direct voting,
+3 fusion, and 1 neural. The run made 226 Jev requests, with 1,230,897 reported
+input tokens, 29,524 output tokens, and unknown usage for eight HTTP errors.
+Combined peak RAM was **9.19 GB** under the shared 16 GB zero-swap limit, with
+no limit/OOM events. The reserved evaluation partition remains untouched.
+
+The next implementation aggregates premise-usage features across all eligible
+examples instead of transferring from only 32 neighbors. Its CPU cost and proof
+coverage have not yet been measured. Structural statement features remain another
+documented hypothesis. The research objective is still open.
+
+[Complete configurations and evidence](cpu-selector-neighbors-v1.json),
+[all per-location outcomes](cpu-selector-neighbors-v1-trials.jsonl).
