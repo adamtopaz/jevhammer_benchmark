@@ -30,3 +30,23 @@ The current public adapter does not provide Sine fallback on neural failure.
 Diagnose service/compatibility failures before interpreting incomplete results.
 Changes to methods or dependencies require dataset re-admission with identical
 selected locations and observed goals, not silently changing fingerprints.
+
+## First candidate screen, frozen before outcomes
+
+Use the same 34 source locations with the new selector dependency and
+`JevHammerBenchmark.Research` import, after offline re-admission checks every
+selected location and goal. Compare `Prepared.sparse`, `Research.target`,
+`Research.ensemble`, and `Research.neuralWarm`. All four retain Jev state guidance
+and disable premise reranking. Search/tactic defaults remain identical.
+
+The candidate parameters are fixed in jevselector's `notes/experiment-01.md`.
+The neural reference warms both imported and earlier current-file statements
+outside the goal clock, explicitly recorded as initialization, to avoid
+disadvantaging it with a cold local-statement embedding cache. The goal itself
+is still embedded at query time. This is a new initialization policy, not an
+identical repeat of the baseline adapter. No target theorem/proof is available
+to warmup or retrieval. Use a fresh service deployment for this screen.
+
+The four-arm run allows 408 Jev requests and 4,000,000 reported input tokens,
+under the same shared 16 GB zero-swap cap. Independently replay every success.
+Publish all configurations and failures; do not select only a favorable arm.
