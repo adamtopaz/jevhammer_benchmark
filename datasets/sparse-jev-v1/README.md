@@ -47,3 +47,30 @@ assert len({site["module"] for site in dataset["sites"]}) == 34
 write_json(Path("runs/sparse-jev-subset.json"), dataset)
 PY
 ```
+
+## CPU selector research branch
+
+`research-v1.json` preserves exactly the same 34 selected locations, owners, and
+goal texts under the updated selector dependency and the additional
+`JevHammerBenchmark.Research` import. All locations passed offline source
+re-admission with zero model calls. Its project fingerprint belongs to the
+`research/cpu-selector` branch; the original dataset remains unchanged.
+
+With the excluded sparse index and an explicitly configured neural service
+(including deployment provenance), run the frozen four-arm screen:
+
+```sh
+jevbench run --dataset datasets/sparse-jev-v1/research-v1.json \
+  --methods JevHammerBenchmark.Prepared.sparse \
+    JevHammerBenchmark.Research.target JevHammerBenchmark.Research.ensemble \
+    JevHammerBenchmark.Research.neuralWarm \
+  --config '{"guidePremises":false}' --memory-limit 16000000000 \
+  --max-requests 408 --max-input-tokens 4000000 --output runs/cpu-selector-candidates
+```
+
+The neural service and benchmark must share the same 16 GB zero-swap process
+tree. The neural reference additionally warms earlier current-file statement
+embeddings outside the goal clock. See the
+[research protocol](../../notes/cpu-selector-research.md) for initialization,
+resource, and reporting requirements. This screen is exploratory development;
+the reserved evaluation locations are not included.

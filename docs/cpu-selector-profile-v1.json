@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "7192e218e9aa4bcca7079f4f13bb099f70d3d5ad",
+  "sampleCount": 32,
+  "repeats": 3,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "methods": {
+    "sparse": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "sparse",
+      "loadMs": 3833,
+      "queries": 96,
+      "medianMs": 66.57127,
+      "p95Ms": 130.078359,
+      "meanMs": 73.25237046875,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "6637514752",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "19f179403b81c99d3b5b170ea32f2279057666f4db68e72ba31c9958db641c03"
+    },
+    "target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "target",
+      "loadMs": 3969,
+      "queries": 96,
+      "medianMs": 66.949048,
+      "p95Ms": 131.918922,
+      "meanMs": 73.50816614583333,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "6637514752",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "8dadc026d954fc2110dd54397c3a798213c6d61149c7d2ed0da6580efb7749a3"
+    },
+    "ensemble": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "ensemble",
+      "loadMs": 4300,
+      "queries": 96,
+      "medianMs": 217.272161,
+      "p95Ms": 341.957655,
+      "meanMs": 229.93854683333333,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "6637514752",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "97b06f273a5320916482091914032795efe4cda82ee6ff645118011523d5986d"
+    }
+  },
+  "limitations": [
+    "Deterministically sampled full theorem types, not the source proof-state cohort.",
+    "No proofs attempted and no model calls; this measures selector cost only.",
+    "Each method loads the same excluded artifact in a fresh Lean process; methods run serially.",
+    "Resource peaks are cumulative within the shared profile scope."
+  ]
+}

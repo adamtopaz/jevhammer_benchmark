@@ -68,3 +68,21 @@ and [all second-run trials](cpu-selector-neural-retrieval-reference-trials.jsonl
 Across both runs there are 136 recorded trials and 53 independently replayed
 successful trials, on the same 34 development locations. This is a baseline
 milestone; no new-selector improvement has been demonstrated yet.
+
+## First candidate CPU profiles
+
+On 32 deterministic theorem-type queries from the full Mathlib catalog, repeated
+three times per method, using the excluded artifact and two CPU threads:
+
+| Method | Median query | p95 query | Cold index load |
+|---|---:|---:|---:|
+| Original sparse | 66.6 ms | 130.1 ms | 3.833 s |
+| Target-weighted | 66.9 ms | 131.9 ms | 3.969 s |
+| Reciprocal-rank fusion | 217.3 ms | 342.0 ms | 4.300 s |
+
+Target weighting has similar measured cost to the default. Fusion is slower and
+misses the provisional 200 ms p95 target; retain its proof-coverage experiment
+to measure the tradeoff before deciding whether to optimize or reject it. These
+are latency profiles, not proof results. No model calls were made. The shared
+16 GB zero-swap scope peaked at 6.64 GB with no limit/OOM events.
+[Machine-readable profiles](cpu-selector-profile-v1.json).
