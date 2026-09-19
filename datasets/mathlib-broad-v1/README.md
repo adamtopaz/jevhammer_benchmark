@@ -1,10 +1,21 @@
 # Mathlib broad benchmark v1
 
-This cohort expands the three-module pilot to 17 subject areas. Module selection,
-site sampling, exclusions and split rules are fixed before running either tactic.
-The goal is 256 source locations, with at most two per owning declaration, and
-approximately half reserved for later evaluation. Only development is used for
-the initial live Sine Qua Non versus sparse comparison.
+This frozen cohort contains **256 source locations from 188 declarations across
+34 modules in 17 subject areas**, sampled from 2,916 eligible locations (3,012
+discovered). Every module elaborated successfully. At most two locations come
+from any one declaration.
+
+| Partition | Locations | Declarations | Modules |
+|---|---:|---:|---:|
+| [Development](development.json) | 134 | 99 | 34 |
+| [Reserved evaluation](test.json) | 122 | 89 | 34 |
+
+The partitions share no owning declarations. Module selection, site sampling,
+exclusions and split rules were fixed before running either tactic. Only
+development is used for the initial live Sine Qua Non versus sparse comparison.
+The [full dataset](dataset.json), [per-module summary](summary.json), and
+[combined preparation holdouts](holdouts.json) are portable files in this repo.
+Use the matching source revision: the driver enforces project/dependency hashes.
 
 ## Module selection
 
@@ -75,6 +86,8 @@ For N development locations, allow at most 6N requests across both arms and
 62,500N reported input tokens. Retries remain disabled. Warmup is separate from
 the goal clock; every successful trial must replay independently. Report
 failures, late successes and fallback decisions without dropping trials.
+For the frozen 134-location development partition these limits are **804
+requests** and **8,375,000 reported input tokens**.
 
 Use a single 24,000,000,000-byte zero-swap scope, two Lean threads, and serial
 module execution. The reserved evaluation partition receives no tactic trials

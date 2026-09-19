@@ -1,0 +1,559 @@
+{
+  "name": "mathlib-broad-v1",
+  "discovered": 3012,
+  "eligible": 2916,
+  "sampled": 256,
+  "owners": 188,
+  "goalCountDistribution": {
+    "1": 243,
+    "2": 9,
+    "3": 2,
+    "4": 2
+  },
+  "modules": [
+    {
+      "module": "Mathlib.Algebra.GroupWithZero.ProdHom",
+      "area": "Algebra",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.Algebra.Module.LinearMap.Index",
+      "area": "Algebra",
+      "all": {
+        "sites": 8,
+        "owners": 5
+      },
+      "development": {
+        "sites": 5,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Analysis.BoxIntegral.Partition.Tagged",
+      "area": "Analysis",
+      "all": {
+        "sites": 8,
+        "owners": 5
+      },
+      "development": {
+        "sites": 5,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Analysis.Complex.Poisson",
+      "area": "Analysis",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.CategoryTheory.ShrinkYoneda",
+      "area": "CategoryTheory",
+      "all": {
+        "sites": 8,
+        "owners": 8
+      },
+      "development": {
+        "sites": 4,
+        "owners": 4
+      },
+      "test": {
+        "sites": 4,
+        "owners": 4
+      }
+    },
+    {
+      "module": "Mathlib.CategoryTheory.Sites.SheafOfTypes",
+      "area": "CategoryTheory",
+      "all": {
+        "sites": 8,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Combinatorics.Additive.PluenneckeRuzsa",
+      "area": "Combinatorics",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.Combinatorics.SimpleGraph.Walk.Basic",
+      "area": "Combinatorics",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.Computability.DFA",
+      "area": "Computability",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 3,
+        "owners": 3
+      },
+      "test": {
+        "sites": 5,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.Computability.NFA",
+      "area": "Computability",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.Data.Finset.Sym",
+      "area": "Data",
+      "all": {
+        "sites": 8,
+        "owners": 8
+      },
+      "development": {
+        "sites": 4,
+        "owners": 4
+      },
+      "test": {
+        "sites": 4,
+        "owners": 4
+      }
+    },
+    {
+      "module": "Mathlib.Data.Finsupp.MonomialOrder.DegLex",
+      "area": "Data",
+      "all": {
+        "sites": 8,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Dynamics.Ergodic.Extreme",
+      "area": "Dynamics",
+      "all": {
+        "sites": 8,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Dynamics.TopologicalEntropy.Subset",
+      "area": "Dynamics",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 5,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+      "area": "FieldTheory",
+      "all": {
+        "sites": 8,
+        "owners": 7
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 4
+      }
+    },
+    {
+      "module": "Mathlib.FieldTheory.JacobsonNoether",
+      "area": "FieldTheory",
+      "all": {
+        "sites": 8,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+      "area": "Geometry",
+      "all": {
+        "sites": 7,
+        "owners": 4
+      },
+      "development": {
+        "sites": 3,
+        "owners": 2
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Geometry.Polygon.Basic",
+      "area": "Geometry",
+      "all": {
+        "sites": 8,
+        "owners": 4
+      },
+      "development": {
+        "sites": 4,
+        "owners": 2
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.LinearAlgebra.Basis.VectorSpace",
+      "area": "LinearAlgebra",
+      "all": {
+        "sites": 8,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.LinearAlgebra.Matrix.Permutation",
+      "area": "LinearAlgebra",
+      "all": {
+        "sites": 8,
+        "owners": 7
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 4
+      }
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Function.AEEqOfLIntegral",
+      "area": "MeasureTheory",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.MeasureTheory.Measure.Haar.Quotient",
+      "area": "MeasureTheory",
+      "all": {
+        "sites": 7,
+        "owners": 6
+      },
+      "development": {
+        "sites": 3,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+      "area": "NumberTheory",
+      "all": {
+        "sites": 7,
+        "owners": 4
+      },
+      "development": {
+        "sites": 4,
+        "owners": 2
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.NumberTheory.TsumDivisorsAntidiagonal",
+      "area": "NumberTheory",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Order.Filter.Tendsto",
+      "area": "Order",
+      "all": {
+        "sites": 7,
+        "owners": 7
+      },
+      "development": {
+        "sites": 3,
+        "owners": 3
+      },
+      "test": {
+        "sites": 4,
+        "owners": 4
+      }
+    },
+    {
+      "module": "Mathlib.Order.Hom.Lex",
+      "area": "Order",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Probability.Distributions.Gamma",
+      "area": "Probability",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Probability.Kernel.Composition.ParallelComp",
+      "area": "Probability",
+      "all": {
+        "sites": 7,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.RingTheory.Grassmannian",
+      "area": "RingTheory",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.RingTheory.RamificationInertia.Ramification",
+      "area": "RingTheory",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 5,
+        "owners": 3
+      },
+      "test": {
+        "sites": 2,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.SetTheory.Cardinal.SchroederBernstein",
+      "area": "SetTheory",
+      "all": {
+        "sites": 6,
+        "owners": 3
+      },
+      "development": {
+        "sites": 2,
+        "owners": 1
+      },
+      "test": {
+        "sites": 4,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.SetTheory.Lists",
+      "area": "SetTheory",
+      "all": {
+        "sites": 7,
+        "owners": 6
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 3
+      }
+    },
+    {
+      "module": "Mathlib.Topology.Algebra.Category.ProfiniteGrp.Completion",
+      "area": "Topology",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    },
+    {
+      "module": "Mathlib.Topology.Category.TopCat.Limits.Basic",
+      "area": "Topology",
+      "all": {
+        "sites": 7,
+        "owners": 5
+      },
+      "development": {
+        "sites": 4,
+        "owners": 3
+      },
+      "test": {
+        "sites": 3,
+        "owners": 2
+      }
+    }
+  ]
+}
