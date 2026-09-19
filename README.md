@@ -118,6 +118,8 @@ untouched while choosing methods.
   pinned historical model/corpus metadata, and comparison limitations.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,
   sampling, usage, resource limits, and failure handling.
+- [Initial validation](docs/validation.md): offline checks, Mathlib preparation,
+  and CPU costs; separate from live proof-quality comparisons.
 - [Contributing](CONTRIBUTING.md) and [research plans](notes/README.md).
 
 The current release implements the benchmark and preparation foundations. It

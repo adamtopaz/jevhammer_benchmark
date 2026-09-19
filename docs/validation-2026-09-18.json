@@ -1,0 +1,117 @@
+{
+  "kind": "offline-integration-validation",
+  "date": "2026-09-18",
+  "benchmarkCommit": "809ad64cb72bdd0c3d9db504aec5274f30278d9b",
+  "leanVersion": "4.33.0",
+  "pins": {
+    "jevselector": "2e8281313d1c25ee8f22503c21a67048081aa161",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "jevhammer": "603573da7aa272dcaf2ef9860e7c886210a1433a"
+  },
+  "resources": {
+    "memoryMaxBytes": 24000000000,
+    "swapMaxBytes": 0,
+    "leanThreads": 2,
+    "serialized": true
+  },
+  "dataset": {
+    "modules": [
+      "Mathlib.Topology.Basic",
+      "Mathlib.LinearAlgebra.Basis.Basic",
+      "Mathlib.RingTheory.Ideal.Basic"
+    ],
+    "imports": [
+      "JevHammerBenchmark",
+      "JevHammerBenchmark.Selector",
+      "JevHammerBenchmark.Neural"
+    ],
+    "seed": 0,
+    "discovered": 260,
+    "eligible": 250,
+    "sampled": 32,
+    "owners": 25
+  },
+  "run": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "mock",
+    "methods": {
+      "JevHammerBenchmark.Prepared.sparseReranked": {
+        "sites": 32,
+        "recorded": 32,
+        "onTimeVerified": 13,
+        "rawVerified": 13,
+        "lateVerified": 0,
+        "elapsedMs": 77321,
+        "budgetBlocked": 0,
+        "rankFailures": 0
+      },
+      "JevHammerBenchmark.Methods.expandedReranked": {
+        "sites": 32,
+        "recorded": 32,
+        "onTimeVerified": 10,
+        "rawVerified": 10,
+        "lateVerified": 0,
+        "elapsedMs": 69244,
+        "budgetBlocked": 0,
+        "rankFailures": 0
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.Prepared.sparseReranked",
+        "b": "JevHammerBenchmark.Methods.expandedReranked",
+        "gained": 3,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.23333333333333334
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "unknownUsage": 0
+    }
+  },
+  "preparation": {
+    "indexSha256": "bdef7b455146f3ae87ebc7600bd6c445010405a6e00214f61b41aed33bbb2aec",
+    "recipe": {
+      "algorithm": "statement-symbol-idf-v1",
+      "modules": [
+        "Mathlib"
+      ],
+      "scopes": [
+        "Mathlib"
+      ],
+      "proofInformation": "none",
+      "heldoutStatementStatistics": "excluded",
+      "statementCatalog": "retained; runtime availability and caller filter required"
+    },
+    "declarations": 255050,
+    "eligible": 255029,
+    "excluded": 46,
+    "symbols": 59179,
+    "artifactBytes": 155686860,
+    "extractionSeconds": 198.6946048879763,
+    "totalSeconds": 202.5805353409378
+  },
+  "nativeLatency": {
+    "schema": 1,
+    "kind": "query-latency-only",
+    "loadMs": 3734,
+    "queries": 48,
+    "medianMs": 46.560889,
+    "p95Ms": 104.122656,
+    "meanMs": 47.12656027083333
+  },
+  "limitations": [
+    "Mock ranking preserves candidate order; no Jev API or neural selector calls.",
+    "Latency profiles use theorem types, not this proof-state cohort; they measure cost only.",
+    "Preparation and profiling used the same statement catalog and fitting eligibility.",
+    "Preparation excludes toolchain and Mathlib cache downloads.",
+    "Matching the strongest historical neural-selector pipeline remains unproved."
+  ]
+}
