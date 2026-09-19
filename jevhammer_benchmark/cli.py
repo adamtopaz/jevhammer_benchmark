@@ -256,18 +256,50 @@ def phase(project, output, dataset, name, *, methods=(), overrides=None, mock=Tr
     return failures
 
 
-def select_sites(discovered, count, seed):
+def load_exclusions(paths):
+    declarations, modules, records = set(), set(), []
+    for path in paths:
+        data = read_json(path)
+        if data.get("schema") != 1:
+            raise ValueError("expected a schema-1 exclusion manifest")
+        for key, target in [("declarations", declarations), ("modules", modules)]:
+            values = data.get(key, [])
+            if not isinstance(values, list) or any(not isinstance(v, str) or not v for v in values):
+                raise ValueError(f"exclusion {key} must be an array of nonempty names")
+            target.update(values)
+        records.append({"name": Path(path).name, "sha256": digest(Path(path).read_bytes()),
+                        "manifest": data})
+    return declarations, modules, records
+
+
+def excluded_site(row, declarations, modules):
+    name = row.get("declaration", "")
+    return row["module"] in modules or name in declarations or any(
+        name[:i] in declarations for i, char in enumerate(name) if char == ".")
+
+
+def select_sites(discovered, count, seed, *, excluded_declarations=(), excluded_modules=(),
+                 max_per_declaration=0):
+    if count <= 0 or max_per_declaration < 0:
+        raise ValueError("count must be positive and the declaration cap nonnegative")
+    excluded_declarations, excluded_modules = set(excluded_declarations), set(excluded_modules)
     groups = defaultdict(list)
     for row in discovered:
-        if row["eligible"]:
+        if row["eligible"] and not excluded_site(row, excluded_declarations, excluded_modules):
             groups[row["module"]].append(row)
     for group in groups.values():
         group.sort(key=lambda r: digest(f"{seed}:{r['site']}".encode()))
     selected = []
+    owner_counts = Counter()
     while len(selected) < count and any(groups.values()):
         for module in sorted(groups):
+            while groups[module] and max_per_declaration and \
+                    owner_counts[groups[module][0]["declaration"]] >= max_per_declaration:
+                groups[module].pop(0)
             if groups[module] and len(selected) < count:
-                selected.append(groups[module].pop(0))
+                row = groups[module].pop(0)
+                selected.append(row)
+                owner_counts[row.get("declaration", row["site"])] += 1
     return selected
 
 
@@ -275,6 +307,7 @@ def discover(args):
     resources = ensure_bounded(args)
     project, output = args.project.absolute(), fresh_output(args.output)
     imports = list(dict.fromkeys(["JevHammerBenchmark", *map(valid_name, args.imports)]))
+    excluded_declarations, excluded_modules, exclusions = load_exclusions(args.exclude)
     build(project, output, args.imports)
     modules = list(args.modules)
     if args.modules_file:
@@ -298,14 +331,23 @@ def discover(args):
     failures = phase(project, output, dataset, "discover", threads=args.threads,
                      timeout=args.timeout, lean_options=args.lean_option)
     discovered = rows(output / "discovery.jsonl")
-    dataset["sites"] = select_sites(discovered, args.count, args.seed)
+    dataset["sites"] = select_sites(discovered, args.count, args.seed,
+                                    excluded_declarations=excluded_declarations,
+                                    excluded_modules=excluded_modules,
+                                    max_per_declaration=args.max_per_declaration)
     dataset["discovered"] = len(discovered)
     dataset["eligible"] = sum(r["eligible"] for r in discovered)
+    dataset["sampling"] = {
+        "requested": args.count, "maxPerDeclaration": args.max_per_declaration,
+        "exclusions": exclusions,
+        "eligibleAfterExclusions": sum(r["eligible"] and not excluded_site(
+            r, excluded_declarations, excluded_modules) for r in discovered)}
     dataset["failures"] = failures
     dataset["resources"] = {"initial": resources, "final": resource_snapshot()}
     dataset["status"] = "complete" if not failures and dataset["sites"] else "incomplete"
     write_json(output / "dataset.json", dataset)
-    print(f"Selected {len(dataset['sites'])} of {dataset['eligible']} eligible locations")
+    print(f"Selected {len(dataset['sites'])} of {dataset['sampling']['eligibleAfterExclusions']} "
+          f"eligible locations after exclusions ({dataset['eligible']} before exclusions)")
     if dataset["status"] != "complete":
         raise RuntimeError(f"discovery incomplete; see {output / 'dataset.json'}")
 
@@ -473,13 +515,35 @@ def split(args):
                     key=lambda n: digest(f"{args.seed}:{n}".encode()))
     if len(owners) < 2:
         raise ValueError("splitting requires at least two declarations")
-    count = max(1, min(len(owners) - 1, round(len(owners) * args.test_fraction)))
-    test = set(owners[:count])
+    stratified = getattr(args, "stratify_by_module", False)
+    groups = defaultdict(list)
+    if stratified:
+        owner_modules = defaultdict(set)
+        for row in dataset["sites"]:
+            owner_modules[row["declaration"]].add(row["module"])
+        for owner in owners:
+            if len(owner_modules[owner]) != 1:
+                raise ValueError("an owning declaration occurs in multiple modules")
+            groups[next(iter(owner_modules[owner]))].append(owner)
+    else:
+        groups[""] = owners
+    test = set()
+    single_owner_modules = []
+    for module, group in sorted(groups.items()):
+        if len(group) == 1:
+            single_owner_modules.append(module)
+            continue  # Keep single-owner strata in development; never split an owner.
+        count = max(1, min(len(group) - 1, round(len(group) * args.test_fraction)))
+        test.update(group[:count])
+    if not test or len(test) == len(owners):
+        raise ValueError("cannot create nonempty grouped partitions with these strata")
     output = fresh_output(args.output)
     for name in ["development", "test"]:
         part = dict(dataset)
         part["sites"] = [r for r in dataset["sites"] if (r["declaration"] in test) == (name == "test")]
         part["partition"] = {"name": name, "seed": args.seed,
+                             "stratifyByModule": stratified,
+                             "singleOwnerModulesInDevelopment": single_owner_modules,
                              "parentSha256": digest(Path(args.dataset).read_bytes())}
         write_json(output / f"{name}.json", part)
 
@@ -505,6 +569,10 @@ def parser():
             p.add_argument("--lean-option", action="append", default=[], help="name=value, never credentials")
             p.add_argument("--count", type=int, default=32)
             p.add_argument("--seed", type=int, default=0)
+            p.add_argument("--exclude", type=Path, action="append", default=[],
+                           help="schema-1 declaration/module exclusions; may be repeated")
+            p.add_argument("--max-per-declaration", type=int, default=0,
+                           help="maximum sampled locations per owning declaration; 0 means unlimited")
         elif name == "run":
             p.add_argument("--dataset", type=Path, required=True)
             p.add_argument("--methods", nargs="+", default=["JevHammerBenchmark.Methods.sine"])
@@ -524,6 +592,8 @@ def parser():
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--test-fraction", type=float, default=0.25)
+    p.add_argument("--stratify-by-module", action="store_true",
+                   help="split declarations within each module; singleton strata stay in development")
     return result
 
 

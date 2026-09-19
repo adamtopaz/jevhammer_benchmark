@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "name": "mathlib-broad-v1",
+  "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "moduleSeed": "jevbench-broad-v1",
+  "modulesPerArea": 2,
+  "minSourceBytes": 3000,
+  "maxSourceBytes": 30000,
+  "minLexicalByTokens": 12,
+  "excludeText": [
+    "deprecated_module",
+    "assert_not_exists"
+  ],
+  "areas": [
+    {
+      "area": "Algebra",
+      "candidates": 374,
+      "selected": [
+        {
+          "module": "Mathlib.Algebra.Module.LinearMap.Index",
+          "sourceSha256": "8ffc27d3b2f6d8709d4dab5bc3a413a5e1e39e359c91e0d43b77658bae6689c8",
+          "sourceBytes": 5190,
+          "byTokens": 19
+        },
+        {
+          "module": "Mathlib.Algebra.GroupWithZero.ProdHom",
+          "sourceSha256": "85351f47e1976fcafc81240b984b82110e4471437673713fd5f6f9b00ab93703",
+          "sourceBytes": 7084,
+          "byTokens": 19
+        }
+      ]
+    },
+    {
+      "area": "Analysis",
+      "candidates": 437,
+      "selected": [
+        {
+          "module": "Mathlib.Analysis.Complex.Poisson",
+          "sourceSha256": "80d9b31017a3d621205809ae2033fee82d9e9db0111be5240a52184a2635920f",
+          "sourceBytes": 18879,
+          "byTokens": 64
+        },
+        {
+          "module": "Mathlib.Analysis.BoxIntegral.Partition.Tagged",
+          "sourceSha256": "e123ed5591679e8fbff485a4307c62b93299618db2753a3e9ba7f6502bdbcbe7",
+          "sourceBytes": 16695,
+          "byTokens": 17
+        }
+      ]
+    },
+    {
+      "area": "CategoryTheory",
+      "candidates": 459,
+      "selected": [
+        {
+          "module": "Mathlib.CategoryTheory.Sites.SheafOfTypes",
+          "sourceSha256": "998fd5f68beff126893223857d0d3ed1d51e9921fcfc1f97ce74b48ab39cd7f7",
+          "sourceBytes": 11063,
+          "byTokens": 18
+        },
+        {
+          "module": "Mathlib.CategoryTheory.ShrinkYoneda",
+          "sourceSha256": "b0446a51ae484d8cebe1d64b7b6e2bd148c28554a05f74c7f405b6b4613004d3",
+          "sourceBytes": 20026,
+          "byTokens": 49
+        }
+      ]
+    },
+    {
+      "area": "Combinatorics",
+      "candidates": 105,
+      "selected": [
+        {
+          "module": "Mathlib.Combinatorics.Additive.PluenneckeRuzsa",
+          "sourceSha256": "7b5264ed552cd024ce2d55cbf5ab8b447f799bbc324da2c078c109c04b03b734",
+          "sourceBytes": 13542,
+          "byTokens": 36
+        },
+        {
+          "module": "Mathlib.Combinatorics.SimpleGraph.Walk.Basic",
+          "sourceSha256": "36577256af7797dbd7b9097d4324487d71fb952b4cf17a3299a688d764fe274a",
+          "sourceBytes": 20267,
+          "byTokens": 74
+        }
+      ]
+    },
+    {
+      "area": "Computability",
+      "candidates": 10,
+      "selected": [
+        {
+          "module": "Mathlib.Computability.DFA",
+          "sourceSha256": "f63c62965486b35eda1377515932c14708e3231bfbefb65b07a9da46ea289e43",
+          "sourceBytes": 13704,
+          "byTokens": 33
+        },
+        {
+          "module": "Mathlib.Computability.NFA",
+          "sourceSha256": "f27871a72d9e54d36cc2c0ed9f30477b9c1cd83fe63bef7f4d0831bcd07fc191",
+          "sourceBytes": 14458,
+          "byTokens": 46
+        }
+      ]
+    },
+    {
+      "area": "Data",
+      "candidates": 166,
+      "selected": [
+        {
+          "module": "Mathlib.Data.Finset.Sym",
+          "sourceSha256": "55f94daba61f025a37e966033b62d271c47f1e58bdae64f9f80e96ee409be3c0",
+          "sourceBytes": 11132,
+          "byTokens": 31
+        },
+        {
+          "module": "Mathlib.Data.Finsupp.MonomialOrder.DegLex",
+          "sourceSha256": "846f2550bacbb25e02bdc4b57977e15c4eac685093e4b42ecab0ef022d1b5109",
+          "sourceBytes": 9556,
+          "byTokens": 22
+        }
+      ]
+    },
+    {
+      "area": "Dynamics",
+      "candidates": 15,
+      "selected": [
+        {
+          "module": "Mathlib.Dynamics.Ergodic.Extreme",
+          "sourceSha256": "5252581a03c05b29d2c6b097493100e8b021df5941541f10a645d410d9cd2563",
+          "sourceBytes": 5622,
+          "byTokens": 14
+        },
+        {
+          "module": "Mathlib.Dynamics.TopologicalEntropy.Subset",
+          "sourceSha256": "3c8b63f705527ed08a669f88d878a471811a3ff5058920a41da168405e164a52",
+          "sourceBytes": 9662,
+          "byTokens": 13
+        }
+      ]
+    },
+    {
+      "area": "FieldTheory",
+      "candidates": 47,
+      "selected": [
+        {
+          "module": "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+          "sourceSha256": "24456525f601d4007fde2057ca2a84d1134f6155a0782f6bb1e1d64090e63273",
+          "sourceBytes": 10095,
+          "byTokens": 14
+        },
+        {
+          "module": "Mathlib.FieldTheory.JacobsonNoether",
+          "sourceSha256": "49a4b975b20bb24bb66c36ee3aa2672c8d5f6d651d73530755ea2fba55a8785e",
+          "sourceBytes": 10100,
+          "byTokens": 22
+        }
+      ]
+    },
+    {
+      "area": "Geometry",
+      "candidates": 72,
+      "selected": [
+        {
+          "module": "Mathlib.Geometry.Manifold.MFDeriv.Defs",
+          "sourceSha256": "e880741b0a01fb64731956685a7b2e99e79295b2fbeb4752cdc7ff092ddf5b05",
+          "sourceBytes": 18977,
+          "byTokens": 23
+        },
+        {
+          "module": "Mathlib.Geometry.Polygon.Basic",
+          "sourceSha256": "88c666c6d936856962069aacdb5158224b504be63ef88b462fdb4de48e42b813",
+          "sourceBytes": 5460,
+          "byTokens": 14
+        }
+      ]
+    },
+    {
+      "area": "LinearAlgebra",
+      "candidates": 188,
+      "selected": [
+        {
+          "module": "Mathlib.LinearAlgebra.Basis.VectorSpace",
+          "sourceSha256": "cdbe0fd512f13ea3e563290d2896c89e3882ed0040ecc7c3314676a8f278728a",
+          "sourceBytes": 16992,
+          "byTokens": 46
+        },
+        {
+          "module": "Mathlib.LinearAlgebra.Matrix.Permutation",
+          "sourceSha256": "665bbd2e7676c6d0af2a755812279d2cf546aca162ed00adfc402e3fb1a332b8",
+          "sourceBytes": 4177,
+          "byTokens": 13
+        }
+      ]
+    },
+    {
+      "area": "MeasureTheory",
+      "candidates": 160,
+      "selected": [
+        {
+          "module": "Mathlib.MeasureTheory.Function.AEEqOfLIntegral",
+          "sourceSha256": "f5d0b44bb86459a5394e316f4af5646e98f4c487d59aa16aeb9816f572a08e4d",
+          "sourceBytes": 11574,
+          "byTokens": 19
+        },
+        {
+          "module": "Mathlib.MeasureTheory.Measure.Haar.Quotient",
+          "sourceSha256": "20a7a7e30f3b4fc43623e8c2cf7ef5a4534f2f8d1d9c9744caededde5a77d1c5",
+          "sourceBytes": 25093,
+          "byTokens": 29
+        }
+      ]
+    },
+    {
+      "area": "NumberTheory",
+      "candidates": 147,
+      "selected": [
+        {
+          "module": "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+          "sourceSha256": "783652029fe18c08c993eacf1c40b9ad6cc855f78acec062ea6ab2fa1c3686cb",
+          "sourceBytes": 26915,
+          "byTokens": 89
+        },
+        {
+          "module": "Mathlib.NumberTheory.TsumDivisorsAntidiagonal",
+          "sourceSha256": "82bc157250d2f701af7dc418afa3878ca5fc42769f5a25cff05665010baa9353",
+          "sourceBytes": 7719,
+          "byTokens": 29
+        }
+      ]
+    },
+    {
+      "area": "Order",
+      "candidates": 85,
+      "selected": [
+        {
+          "module": "Mathlib.Order.Hom.Lex",
+          "sourceSha256": "413949ee467822926a8fa6121a82ba66ed0412769fac6972fbec20dd2fb6cee7",
+          "sourceBytes": 7769,
+          "byTokens": 17
+        },
+        {
+          "module": "Mathlib.Order.Filter.Tendsto",
+          "sourceSha256": "76800f92ca0414bd4f31e94719ac9cac2985bd2b083035380c3e32111e0405ce",
+          "sourceBytes": 14382,
+          "byTokens": 24
+        }
+      ]
+    },
+    {
+      "area": "Probability",
+      "candidates": 95,
+      "selected": [
+        {
+          "module": "Mathlib.Probability.Kernel.Composition.ParallelComp",
+          "sourceSha256": "0bfe3fe21d772058297a74a3d1ce8154bf474419b9f5a5c8df2a4f45c3809c2b",
+          "sourceBytes": 7240,
+          "byTokens": 21
+        },
+        {
+          "module": "Mathlib.Probability.Distributions.Gamma",
+          "sourceSha256": "ac9c245c4531a55f0812334bdb32253cc3066adf3fadb1d097317b8c1c01e3c8",
+          "sourceBytes": 6252,
+          "byTokens": 16
+        }
+      ]
+    },
+    {
+      "area": "RingTheory",
+      "candidates": 322,
+      "selected": [
+        {
+          "module": "Mathlib.RingTheory.Grassmannian",
+          "sourceSha256": "11f0db2eb0bc8a68d9203a9ca9fdbf4cb1eabe82b558b9bb8bf588590729fd19",
+          "sourceBytes": 8555,
+          "byTokens": 16
+        },
+        {
+          "module": "Mathlib.RingTheory.RamificationInertia.Ramification",
+          "sourceSha256": "13d5910c3e400232ceeb0cc8a7c7d5f42b0f8751808399d8deeb9c17ccaadd27",
+          "sourceBytes": 13587,
+          "byTokens": 19
+        }
+      ]
+    },
+    {
+      "area": "SetTheory",
+      "candidates": 31,
+      "selected": [
+        {
+          "module": "Mathlib.SetTheory.Cardinal.SchroederBernstein",
+          "sourceSha256": "94b80b5ff4b7af13fa0fcfedb49aec9b474aac4d8a5b2192a0870eaa88a20d40",
+          "sourceBytes": 6352,
+          "byTokens": 21
+        },
+        {
+          "module": "Mathlib.SetTheory.Lists",
+          "sourceSha256": "b52394cb228fcb8d55e92b4751690230267f91f5d5625c0fea15575a64b39835",
+          "sourceBytes": 16438,
+          "byTokens": 38
+        }
+      ]
+    },
+    {
+      "area": "Topology",
+      "candidates": 259,
+      "selected": [
+        {
+          "module": "Mathlib.Topology.Algebra.Category.ProfiniteGrp.Completion",
+          "sourceSha256": "d378eec632eb5d6d12460bf65e063fbe4581adb0bc3ccd6c03d0db46c226f24f",
+          "sourceBytes": 8717,
+          "byTokens": 16
+        },
+        {
+          "module": "Mathlib.Topology.Category.TopCat.Limits.Basic",
+          "sourceSha256": "955e6eb895a3dba6d641632d87913ff252c990e7eb825c99fd69a3e5e4341503",
+          "sourceBytes": 13599,
+          "byTokens": 37
+        }
+      ]
+    }
+  ],
+  "imports": [
+    "JevHammerBenchmark",
+    "JevHammerBenchmark.Selector",
+    "JevHammerBenchmark.Neural"
+  ],
+  "importClosureSha256": "89a365d7e76c6015634dd272024fc7b487cf18ea4045b44ae1bfc4d2bd432184",
+  "priorExposureSha256": "6959d3298ca164df3968b7733eaea1e7f5747dbd0f8b2e7117d3bcbb113bba8c",
+  "requestedSites": 256,
+  "siteSeed": 1,
+  "maxPerDeclaration": 2,
+  "splitSeed": 1,
+  "testFraction": 0.5,
+  "stratifyByModule": true
+}

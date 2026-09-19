@@ -103,6 +103,10 @@ limits. Their Lean state is restored; custom callbacks must manage their own IO.
 
 ## Holdouts and integrations
 
+The [broad Mathlib cohort](datasets/mathlib-broad-v1/README.md) supplies a
+reproducible module manifest, prior-exposure exclusions, declaration caps, and
+module-stratified development/evaluation partitions.
+
 ```sh
 jevbench split --dataset runs/mathlib/dataset.json --test-fraction 0.25 --output runs/split
 jevbench holdouts --dataset runs/mathlib/dataset.json --output runs/holdouts.json

@@ -31,8 +31,19 @@ Runtime panic diagnostics also fail the module, even if Lean exits with status
 zero after recovering a default value. Logs remain available for diagnosis.
 
 Selection is deterministic, round-robin by module after seeded hash ordering.
+`discover --exclude FILE` accepts repeatable schema-1 declaration/module
+exclusion manifests (the same name lists as `holdouts`). Declaration exclusions
+also remove named children; module exclusions are exact names. Input manifests
+and their checksums are retained with the dataset. Unknown exclusions are allowed
+here because earlier evaluation can cover modules outside the current discovery.
+`--max-per-declaration N` limits sampled locations per owner; zero is unlimited.
+Eligibility counts before and after exclusions are recorded separately. The
+requested count is an upper bound if the remaining pool is too small.
 Declaration-grouped development/test splitting prevents the same owner from
 appearing in both partitions. Method order is deterministically rotated by site.
+`split --stratify-by-module` assigns declarations within each module instead of
+globally. Each module with at least two owners appears in both partitions;
+single-owner strata remain in development and are listed in partition metadata.
 Shared runtime caches can still affect timings; repeat runs before making strong
 latency claims. Source modules run serially in separate processes.
 
