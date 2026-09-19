@@ -118,7 +118,7 @@ private def checkClosed (proof type : Expr) (excluded : String) : MetaM Unit := 
 
 /-- Verify an exact expression certificate and optionally bind its target to
 the actual source goal's closed type. No pretty-printing or proof search. -/
-def verify (j : Json) (expected : Expr) (excluded : String := "") : MetaM Unit := do
+private def checkedProof (j : Json) (expected : Expr) (excluded : String) : MetaM Expr := do
   let (proof, type) ← ofExcept (decode j)
   checkClosed proof type excluded
   for e in [proof, type] do
@@ -130,5 +130,30 @@ def verify (j : Json) (expected : Expr) (excluded : String := "") : MetaM Unit :
   let levels ← params.mapM fun _ => mkFreshLevelMVar
   let specialized := type.instantiateLevelParams params.toList levels.toList
   unless ← isDefEq specialized expected do throwError "certificate does not prove this source goal"
+  let proofParams := (collectLevelParams {} proof).params
+  let proofLevels := proofParams.map fun p =>
+    if let some i := params.findIdx? (· == p) then levels[i]! else Level.zero
+  return ← instantiateMVars (proof.instantiateLevelParams proofParams.toList proofLevels.toList)
+
+def verify (j : Json) (expected : Expr) (excluded : String := "") : MetaM Unit := do
+  discard <| checkedProof j expected excluded
+
+/-- Replay into the actual metavariable, so a witness chosen for one goal also
+constrains every dependent sibling. Checking each goal's type separately is
+insufficient when the source goals share metavariables. -/
+def assign (j : Json) (goal : MVarId) (excluded : String := "") : MetaM Unit := goal.withContext do
+  let expected ← instantiateMVars <|
+    ← mkForallFVars (← getLCtx).getFVars (← goal.getType)
+  let closed ← checkedProof j expected excluded
+  let mut args := #[]
+  for localDecl in ← getLCtx do
+    if localDecl.value?.isNone then args := args.push localDecl.toExpr
+  let proof ← instantiateMVars (mkAppN closed args)
+  unless ← isDefEq (← inferType proof) (← goal.getType) do
+    throwError "replayed proof does not inhabit the source goal"
+  if ← goal.isAssigned then
+    unless ← isDefEq (.mvar goal) proof do throwError "inconsistent shared goal assignment"
+  else
+    goal.assign proof
 
 end JevHammerBenchmark.Certificate

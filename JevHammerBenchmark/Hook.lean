@@ -70,10 +70,7 @@ private def replay (s : Settings) (node : Mathlib.TacticAnalysis.TacticNode)
         unless certificates.size == node.tacI.goalsBefore.length do
           throwError "certificate goal count differs from the source"
         for (goal, certificate) in node.tacI.goalsBefore.zip certificates.toList do
-          goal.withContext do
-            let expected ← instantiateMVars <|
-              ← mkForallFVars (← getLCtx).getFVars (← goal.getType)
-            Certificate.verify certificate expected owner
+          Certificate.assign certificate goal owner
     catch e => error ← e.toMessageData.toString
     record s "replay.jsonl" <| Json.mkObj [
       ("site", toJson site), ("method", row.getObjValD "method"),

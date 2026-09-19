@@ -29,3 +29,13 @@ theorem withLet (n : Nat) : n + 0 = n := by
   simp
 
 end BenchmarkUniverses
+
+namespace BenchmarkPrivate
+
+private theorem previous (p : Prop) (hp : p) : p := by
+  exact hp
+
+theorem usingPrevious (p : Prop) (hp : p) : p := by
+  exact previous p hp
+
+end BenchmarkPrivate
