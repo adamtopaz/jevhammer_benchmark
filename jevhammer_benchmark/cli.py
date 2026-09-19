@@ -166,6 +166,26 @@ def process(command, project, log, env=None, timeout=600):
         raise RuntimeError(f"command failed ({code}); see {log}")
 
 
+def lean_file(project, source, log, env=None, timeout=600, options=(), module_name="JevBenchImports"):
+    # `lake env lean` alone does not load precompiled dependency plugins.
+    # Lake's external-file setup supplies them; preserve the real source module
+    # name so private declarations and generated auxiliaries retain their owner.
+    setup_log = log.with_suffix(".setup.log")
+    process(["lake", "setup-file", str(source)], project, setup_log, env, timeout)
+    lines = [line for line in setup_log.read_text().splitlines() if line.startswith("{")]
+    if not lines:
+        raise RuntimeError(f"missing Lake module setup; see {setup_log}")
+    setup = json.loads(lines[-1])
+    setup["name"] = module_name
+    for option in options:
+        if option.startswith("-D"):
+            setup.get("options", {}).pop(option[2:].split("=", 1)[0], None)
+    setup_file = log.with_suffix(".setup.json")
+    write_json(setup_file, setup)
+    process(["lake", "env", "lean", "--setup", str(setup_file), *options, str(source)],
+            project, log, env, timeout)
+
+
 def build(project, output, imports):
     process(["lake", "build", "JevHammerBenchmark", *imports], project,
             output / "logs/build.log")
@@ -176,7 +196,7 @@ def imported_modules(project, output, imports):
     probe.write_text("".join("import " + valid_name(m) + "\n" for m in imports) +
         'open Lean Elab Command\nrun_cmd do\n  IO.println ("JEVBENCH_IMPORTS:" ++ (toJson ((← getEnv).header.moduleNames.map Name.toString)).compress)\n')
     log = output / "logs" / "imports.log"
-    process(["lake", "env", "lean", str(probe)], project, log)
+    lean_file(project, probe, log)
     for line in log.read_text().splitlines():
         if line.startswith("JEVBENCH_IMPORTS:"):
             return set(json.loads(line.split(":", 1)[1]))
@@ -219,12 +239,13 @@ def phase(project, output, dataset, name, *, methods=(), overrides=None, mock=Tr
         if name != "run" or mock:
             env.pop("TYPESAFE_API_KEY", None)
         try:
-            process(["lake", "env", "lean", f"-j{threads}", "-M0",
-                     "--root", str(output / "work"), "-DElab.async=false",
-                     "-DmaxHeartbeats=0", "-Dlinter.tacticAnalysis.jevHammerBenchmark=true",
-                     *["-D" + option for option in lean_options],
-                     str(output / "work" / Path(*module.split(".")).with_suffix(".lean"))],
-                    project, output / "logs" / f"{name}-{module}.log", env, timeout)
+            lean_file(project,
+                      output / "work" / Path(*module.split(".")).with_suffix(".lean"),
+                      output / "logs" / f"{name}-{module}.log", env, timeout,
+                      [f"-j{threads}", "-M0", "--root", str(output / "work"),
+                       "-DElab.async=false", "-DmaxHeartbeats=0",
+                       "-Dlinter.tacticAnalysis.jevHammerBenchmark=true",
+                       *["-D" + option for option in lean_options]], module)
         except (RuntimeError, subprocess.TimeoutExpired) as error:
             failures[module] = str(error)
     return failures

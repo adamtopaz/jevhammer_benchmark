@@ -12,7 +12,9 @@ TacticAnalysis nodes. Identifiers combine module, original UTF-8 byte span, and
 pretty-printed before-goal hash. The dataset additionally stores the full goal,
 owning declaration, goal count, source SHA-256, imports, Lean options, project
 source/dependency fingerprints, and runner hashes. Collection and replay require
-exact location/context matches and the same project snapshot.
+exact location/context matches and the same project snapshot. Generated files
+use Lake module setup (including native plugins) with the original module name
+restored, so private declarations retain their source identities.
 
 Each arm receives a fresh `ContextInfo.runMetaM` context with `mctxBefore` and the
 preceding source command's environment. The completed owning declaration and
