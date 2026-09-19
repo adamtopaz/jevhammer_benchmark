@@ -7,6 +7,11 @@ It has prior development exposure; no reserved evaluation locations are included
 The [protocol](../../notes/sparse-jev-pilot.md) specifies two matched comparisons
 with 100 and 32 retrieved candidates. Jev guides proof states in every arm.
 
+The [completed pilot](../../docs/sparse-jev-pilot-2026-09-19.md) found no coverage
+gain from eager reranking: 13 versus 12 successes at 100 candidates, and 13 versus
+13 at 32. All 51 successful trials independently replayed. Detailed timing,
+premise/state usage, and every location's outcome are published with the report.
+
 Prepare a holdout-safe index using the full broad cohort's exclusion manifest:
 
 ```sh

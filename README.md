@@ -125,6 +125,8 @@ untouched while choosing methods.
   Mathlib locations with Jev state guidance and independently replayed proofs.
 - [Broad live comparison](docs/mathlib-broad-v1-results.md): 134 matched locations,
   complete proof replay, per-location results, and a separate reserved split.
+- [Sparse + Jev premise-ranking pilot](docs/sparse-jev-pilot-2026-09-19.md): matched
+  100- and 32-candidate comparisons with separate premise/state request costs.
 - [Neural selector](integrations/neural/README.md): optional explicit service,
   pinned historical model/corpus metadata, and comparison limitations.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,

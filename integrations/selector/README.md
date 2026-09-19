@@ -3,6 +3,8 @@
 `JevHammerBenchmark.Selector` supplies `Prepared.sparse` and
 `Prepared.sparseReranked`. Both use the expanded Mathlib tactic set; the second
 also asks Jev to rerank retrieved premises. Jev guides proof states in both.
+The [live reranking pilot](../../docs/sparse-jev-pilot-2026-09-19.md) compares
+these methods at 100 and 32 candidates, including their shared call-budget cost.
 The lightweight Lean dependency is pinned in the root Lake manifest; the adapter
 is an opt-in import. Install the preparation CLI separately:
 

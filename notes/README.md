@@ -11,6 +11,8 @@ retain the broader research requirements; consult the root README for shipped AP
   holdouts, artifact provenance, CPU inference, and candidate approaches.
 - [Implementation sequence](implementation-plan.md): milestones, validation,
   migration of the historical baseline, and acceptance criteria.
+- [Sparse + Jev pilot](sparse-jev-pilot.md): frozen premise-ranking experiments,
+  matched budgets, development subset, and reporting requirements.
 
 ## Agreed direction
 

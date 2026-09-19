@@ -1,0 +1,592 @@
+{
+  "schema": 1,
+  "kind": "live-jev-development-pilot",
+  "date": "2026-09-19",
+  "benchmarkCommit": "ecee56a3e54788eb3afd4f5be98ef56d06338cde",
+  "datasetSha256": "6d195062458bac7f8aa5cd10aea67303b2e6eaf6a452d9dc7575e354169825ac",
+  "sites": 34,
+  "owners": 34,
+  "modules": 34,
+  "reservedEvaluationTrials": 0,
+  "sparseArtifactSha256": "39b500a9776a562f3982897acf5790c4ecbb87f716a5728203cfff1b3360e1ed",
+  "memoryLimitBytes": 24000000000,
+  "swapLimitBytes": 0,
+  "comparisons": {
+    "100": {
+      "summary": {
+        "schema": 1,
+        "status": "complete",
+        "guidance": "jev",
+        "methods": {
+          "JevHammerBenchmark.Prepared.sparse": {
+            "sites": 34,
+            "recorded": 34,
+            "onTimeVerified": 13,
+            "rawVerified": 13,
+            "lateVerified": 0,
+            "elapsedMs": 119350,
+            "budgetBlocked": 0,
+            "rankFailures": 4
+          },
+          "JevHammerBenchmark.Prepared.sparseReranked": {
+            "sites": 34,
+            "recorded": 34,
+            "onTimeVerified": 12,
+            "rawVerified": 12,
+            "lateVerified": 0,
+            "elapsedMs": 145530,
+            "budgetBlocked": 0,
+            "rankFailures": 0
+          }
+        },
+        "paired": [
+          {
+            "a": "JevHammerBenchmark.Prepared.sparse",
+            "b": "JevHammerBenchmark.Prepared.sparseReranked",
+            "gained": 1,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.08823529411764706
+            ]
+          }
+        ],
+        "usage": {
+          "attempts": 129,
+          "inputTokens": 1513352,
+          "outputTokens": 93055,
+          "unknownUsage": 3
+        }
+      },
+      "metrics": {
+        "JevHammerBenchmark.Prepared.sparse": {
+          "config": {
+            "beamWidth": 4,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "goalMedianMs": 4281.5,
+          "retrievalTotalMs": 4858,
+          "retrievalPerTrialMedianMs": 143.5,
+          "warmupMs": [
+            251,
+            4679,
+            252,
+            262,
+            254,
+            5148,
+            263,
+            246,
+            4091,
+            3979,
+            248,
+            3982,
+            231,
+            240,
+            4090,
+            244,
+            239,
+            4081,
+            250,
+            3999,
+            4106,
+            236,
+            3985,
+            3977,
+            3966,
+            3970,
+            4015,
+            3999,
+            228,
+            231,
+            252,
+            259,
+            3967,
+            3973
+          ],
+          "allCalls": {
+            "requests": 55,
+            "elapsedMs": 21526,
+            "medianMs": 345,
+            "reportedInputTokens": 290774,
+            "reportedOutputTokens": 6595,
+            "unknownUsageRequests": 3,
+            "errors": {
+              "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1,
+              "TypeSafe HTTP 400": 3
+            }
+          },
+          "premiseCalls": {
+            "requests": 0,
+            "elapsedMs": 0,
+            "medianMs": null,
+            "reportedInputTokens": 0,
+            "reportedOutputTokens": 0,
+            "unknownUsageRequests": 0,
+            "errors": {}
+          },
+          "stateCalls": {
+            "requests": 55,
+            "elapsedMs": 21526,
+            "medianMs": 345,
+            "reportedInputTokens": 290774,
+            "reportedOutputTokens": 6595,
+            "unknownUsageRequests": 3,
+            "errors": {
+              "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1,
+              "TypeSafe HTTP 400": 3
+            }
+          },
+          "locationsWithPremiseCalls": 0,
+          "locationsWithStateCalls": 25,
+          "premiseQuestionCounts": {},
+          "successfulPremiseBatches": 0,
+          "top16SetChangedBatches": 0,
+          "top16OrderChangedBatches": 0,
+          "top16NewMembersMean": null
+        },
+        "JevHammerBenchmark.Prepared.sparseReranked": {
+          "config": {
+            "beamWidth": 4,
+            "guidePremises": true,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "goalMedianMs": 5520.5,
+          "retrievalTotalMs": 4958,
+          "retrievalPerTrialMedianMs": 141.5,
+          "warmupMs": [
+            5062,
+            242,
+            4970,
+            5051,
+            4801,
+            250,
+            4919,
+            4173,
+            245,
+            241,
+            4034,
+            248,
+            4209,
+            4052,
+            301,
+            4459,
+            4125,
+            253,
+            4085,
+            226,
+            239,
+            4073,
+            236,
+            239,
+            228,
+            255,
+            244,
+            229,
+            3953,
+            3967,
+            3972,
+            4041,
+            239,
+            251
+          ],
+          "allCalls": {
+            "requests": 74,
+            "elapsedMs": 44845,
+            "medianMs": 641.0,
+            "reportedInputTokens": 1222578,
+            "reportedOutputTokens": 86460,
+            "unknownUsageRequests": 0,
+            "errors": {}
+          },
+          "premiseCalls": {
+            "requests": 50,
+            "elapsedMs": 36482,
+            "medianMs": 704.0,
+            "reportedInputTokens": 1138772,
+            "reportedOutputTokens": 84700,
+            "unknownUsageRequests": 0,
+            "errors": {}
+          },
+          "stateCalls": {
+            "requests": 24,
+            "elapsedMs": 8363,
+            "medianMs": 340.5,
+            "reportedInputTokens": 83806,
+            "reportedOutputTokens": 1760,
+            "unknownUsageRequests": 0,
+            "errors": {}
+          },
+          "locationsWithPremiseCalls": 28,
+          "locationsWithStateCalls": 24,
+          "premiseQuestionCounts": {
+            "100": 50
+          },
+          "successfulPremiseBatches": 50,
+          "top16SetChangedBatches": 50,
+          "top16OrderChangedBatches": 50,
+          "top16NewMembersMean": 9.8
+        }
+      },
+      "bounds": {
+        "maxRequests": 204,
+        "maxInputTokens": 4000000,
+        "outerHeartbeats": 200000,
+        "threads": 2
+      },
+      "successfulTrialsIndependentlyReplayed": 25,
+      "memoryEvents": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "localEvidenceSha256": {
+        "run.json": "fec8c3b4d096d5613a9fa35395c401e2a5f7a6d2e4fe35f159321dfe5c40d989",
+        "trials.jsonl": "6a6fb44ede57fab686f384671dc1fb254ec7e204730f4b8f024414927d959ca7",
+        "decisions.jsonl": "b7c016ae884f327af77c4869e0152fc88f5bb2b196923910e42edb1e6b9ff9a8",
+        "summary.json": "c3ce93838530d94e0f1ba2d4d8b8c2f5c0d2758d52054c415236e3ffef40603f",
+        "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1"
+      }
+    },
+    "32": {
+      "summary": {
+        "schema": 1,
+        "status": "complete",
+        "guidance": "jev",
+        "methods": {
+          "JevHammerBenchmark.Prepared.sparse": {
+            "sites": 34,
+            "recorded": 34,
+            "onTimeVerified": 13,
+            "rawVerified": 13,
+            "lateVerified": 0,
+            "elapsedMs": 119890,
+            "budgetBlocked": 0,
+            "rankFailures": 2
+          },
+          "JevHammerBenchmark.Prepared.sparseReranked": {
+            "sites": 34,
+            "recorded": 34,
+            "onTimeVerified": 13,
+            "rawVerified": 13,
+            "lateVerified": 0,
+            "elapsedMs": 127775,
+            "budgetBlocked": 0,
+            "rankFailures": 1
+          }
+        },
+        "paired": [
+          {
+            "a": "JevHammerBenchmark.Prepared.sparse",
+            "b": "JevHammerBenchmark.Prepared.sparseReranked",
+            "gained": 0,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "usage": {
+          "attempts": 129,
+          "inputTokens": 766669,
+          "outputTokens": 35287,
+          "unknownUsage": 2
+        }
+      },
+      "metrics": {
+        "JevHammerBenchmark.Prepared.sparse": {
+          "config": {
+            "beamWidth": 4,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 32,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "goalMedianMs": 4336.0,
+          "retrievalTotalMs": 4573,
+          "retrievalPerTrialMedianMs": 139.0,
+          "warmupMs": [
+            238,
+            3991,
+            235,
+            244,
+            244,
+            3992,
+            261,
+            244,
+            4002,
+            3966,
+            252,
+            3990,
+            230,
+            231,
+            4072,
+            231,
+            233,
+            4008,
+            244,
+            3985,
+            4106,
+            231,
+            4169,
+            4179,
+            3957,
+            3966,
+            3972,
+            3974,
+            227,
+            233,
+            249,
+            256,
+            3985,
+            5134
+          ],
+          "allCalls": {
+            "requests": 54,
+            "elapsedMs": 20326,
+            "medianMs": 341.0,
+            "reportedInputTokens": 291980,
+            "reportedOutputTokens": 6612,
+            "unknownUsageRequests": 2,
+            "errors": {
+              "TypeSafe HTTP 400": 2
+            }
+          },
+          "premiseCalls": {
+            "requests": 0,
+            "elapsedMs": 0,
+            "medianMs": null,
+            "reportedInputTokens": 0,
+            "reportedOutputTokens": 0,
+            "unknownUsageRequests": 0,
+            "errors": {}
+          },
+          "stateCalls": {
+            "requests": 54,
+            "elapsedMs": 20326,
+            "medianMs": 341.0,
+            "reportedInputTokens": 291980,
+            "reportedOutputTokens": 6612,
+            "unknownUsageRequests": 2,
+            "errors": {
+              "TypeSafe HTTP 400": 2
+            }
+          },
+          "locationsWithPremiseCalls": 0,
+          "locationsWithStateCalls": 25,
+          "premiseQuestionCounts": {},
+          "successfulPremiseBatches": 0,
+          "top16SetChangedBatches": 0,
+          "top16OrderChangedBatches": 0,
+          "top16NewMembersMean": null
+        },
+        "JevHammerBenchmark.Prepared.sparseReranked": {
+          "config": {
+            "beamWidth": 4,
+            "guidePremises": true,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 32,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "goalMedianMs": 4896.0,
+          "retrievalTotalMs": 4626,
+          "retrievalPerTrialMedianMs": 137.5,
+          "warmupMs": [
+            3975,
+            242,
+            4068,
+            3982,
+            3967,
+            247,
+            4019,
+            4005,
+            247,
+            240,
+            4023,
+            250,
+            4033,
+            4025,
+            242,
+            3966,
+            3970,
+            242,
+            3966,
+            227,
+            239,
+            4038,
+            238,
+            248,
+            228,
+            250,
+            239,
+            230,
+            4049,
+            3981,
+            3983,
+            3984,
+            232,
+            271
+          ],
+          "allCalls": {
+            "requests": 75,
+            "elapsedMs": 30498,
+            "medianMs": 418,
+            "reportedInputTokens": 474689,
+            "reportedOutputTokens": 28675,
+            "unknownUsageRequests": 0,
+            "errors": {
+              "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+            }
+          },
+          "premiseCalls": {
+            "requests": 50,
+            "elapsedMs": 21827,
+            "medianMs": 434.5,
+            "reportedInputTokens": 392277,
+            "reportedOutputTokens": 26900,
+            "unknownUsageRequests": 0,
+            "errors": {}
+          },
+          "stateCalls": {
+            "requests": 25,
+            "elapsedMs": 8671,
+            "medianMs": 328,
+            "reportedInputTokens": 82412,
+            "reportedOutputTokens": 1775,
+            "unknownUsageRequests": 0,
+            "errors": {
+              "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+            }
+          },
+          "locationsWithPremiseCalls": 28,
+          "locationsWithStateCalls": 25,
+          "premiseQuestionCounts": {
+            "32": 50
+          },
+          "successfulPremiseBatches": 50,
+          "top16SetChangedBatches": 50,
+          "top16OrderChangedBatches": 50,
+          "top16NewMembersMean": 5.74
+        }
+      },
+      "bounds": {
+        "maxRequests": 204,
+        "maxInputTokens": 4000000,
+        "outerHeartbeats": 200000,
+        "threads": 2
+      },
+      "successfulTrialsIndependentlyReplayed": 26,
+      "memoryEvents": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "localEvidenceSha256": {
+        "run.json": "732835fe566f2460d0aff02813993d832bb688e250ef6cedef328889166ea2a4",
+        "trials.jsonl": "9002053c75d9f93ee9edc12b9161b7247ad20115542b0a1d6153b609214f5c36",
+        "decisions.jsonl": "e144cd8501aee9d26d8773bac8a692629d6d36611d33d9c3d16d745d781362b2",
+        "summary.json": "71827b0f46951d49ed27bd032517a30054de7325e815ccd1276cadec7b9af3b7",
+        "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1"
+      }
+    }
+  },
+  "limitations": [
+    "Small previously exposed development subset; reserved evaluation remains unused.",
+    "One run per candidate cap, with no identical-configuration repeats.",
+    "Premise and proof-state ranking share three calls and the six-second wall budget.",
+    "Both arms retain live Jev proof-state guidance; neither calls another neural service.",
+    "The two cap comparisons run sequentially, each with a fresh matched control.",
+    "Per-arm warmup is affected by sharing the same index cache within a source process.",
+    "Retrieval totals include refreshes; different search paths can make different numbers of queries.",
+    "Ranking failures retain original candidate order and remain included in measurements."
+  ],
+  "trialResults": {
+    "path": "sparse-jev-pilot-2026-09-19-trials.jsonl",
+    "sha256": "6e849f5692ef80ea4b0b10a418540c1d5747e72071fba955fb2ab374816f4e16"
+  },
+  "leanToolchain": "leanprover/lean4:v4.33.0",
+  "model": "jev-1.13.0",
+  "dependencyPins": {
+    "\u00abpremise-selection\u00bb": {
+      "url": "https://github.com/hanwenzhu/premise-selection",
+      "revision": "5d24284dab7d61e3b80bfd5efc6bf2597bafe97b"
+    },
+    "jevselector": {
+      "url": "https://github.com/adamtopaz/jevselector",
+      "revision": "41e1afac56702e2294bb036f6572f57348db15cf"
+    },
+    "mathlib": {
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    "jevhammer": {
+      "url": "https://github.com/adamtopaz/jevhammer",
+      "revision": "603573da7aa272dcaf2ef9860e7c886210a1433a"
+    },
+    "plausible": {
+      "url": "https://github.com/leanprover-community/plausible",
+      "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+    },
+    "LeanSearchClient": {
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+    },
+    "importGraph": {
+      "url": "https://github.com/leanprover-community/import-graph",
+      "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+    },
+    "proofwidgets": {
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+    },
+    "aesop": {
+      "url": "https://github.com/leanprover-community/aesop",
+      "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+    },
+    "Qq": {
+      "url": "https://github.com/leanprover-community/quote4",
+      "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+    },
+    "batteries": {
+      "url": "https://github.com/leanprover-community/batteries",
+      "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+    },
+    "jevpilot": {
+      "url": "https://github.com/adamtopaz/jevpilot",
+      "revision": "0d5973766a48ba1be44c9f61e994a6956f9ec4b1"
+    },
+    "Cli": {
+      "url": "https://github.com/leanprover/lean4-cli",
+      "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+    }
+  }
+}
