@@ -60,6 +60,20 @@ module. A declaration and all its sampled locations stay in one partition.
 Single-owner modules, if any survive discovery, stay entirely in development.
 Exclude the union of both partitions when preparing the shared sparse artifact.
 
+To use the shipped manifests after the repository's standard installation:
+
+```sh
+jevselector prepare --modules Mathlib --scope Mathlib \
+  --exclude datasets/mathlib-broad-v1/holdouts.json --output artifacts/mathlib-broad
+export JEVSELECTOR_INDEX="$PWD/artifacts/mathlib-broad/index.json"
+# Supply TYPESAFE_API_KEY through your environment/secret manager.
+jevbench run --dataset datasets/mathlib-broad-v1/development.json \
+  --methods JevHammerBenchmark.Methods.expanded JevHammerBenchmark.Prepared.sparse \
+  --max-requests 804 --max-input-tokens 8375000 --output runs/mathlib-broad-live
+```
+
+To reproduce discovery and splitting instead:
+
 ```sh
 jevbench discover --modules-file datasets/mathlib-broad-v1/modules.json \
   --exclude datasets/mathlib-broad-v1/prior-exposure.json \
