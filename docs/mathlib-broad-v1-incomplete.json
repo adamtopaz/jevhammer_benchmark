@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "incomplete",
+  "benchmarkCommit": "3d21e107961767d3076d891b844365fb2961544d",
+  "selectorCommit": "aa77f05459cfc136dc88655e86d347b8ac110701",
+  "datasetSha256": "720d79461bb82509e3013ba5e913e5653cbfb023a9a4628045104425b2af05ac",
+  "expectedTrials": 268,
+  "recordedTrials": 253,
+  "recordedByMethod": {
+    "JevHammerBenchmark.Methods.expanded": 128,
+    "JevHammerBenchmark.Prepared.sparse": 125
+  },
+  "failure": "Current-file statement hashes can differ after fresh elaboration; sparse warmup rejected two source modules.",
+  "failedModules": [
+    "Mathlib.Data.Finset.Sym",
+    "Mathlib.RingTheory.RamificationInertia.Ramification"
+  ],
+  "rankingErrors": {
+    "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 7,
+    "TypeSafe HTTP 400": 16
+  },
+  "usage": {
+    "attempts": 373,
+    "inputTokens": 1860120,
+    "outputTokens": 47315,
+    "unknownUsage": 16
+  },
+  "replayStatus": "not attempted because collection was incomplete",
+  "reservedEvaluationTrials": 0,
+  "evidenceSha256": {
+    "run.json": "57a764bd36f85659d6ae3dcfb8b3065dff4e320e15c9cea8a04ee9d3755914b5",
+    "trials.jsonl": "1cc16d5adde3d776b6b5f444ef556310f3518d1890583d2e07f4f69d4dcd07dd",
+    "decisions.jsonl": "ed80cb720534dc4a76e0925d1fe7a7c2a0726e06d08f00be7f0b432dc3f9b1eb",
+    "summary.json": "206719f4ce06c7135526e8017cbded639778bdd7066f3613adea6c1bec8a9aaf"
+  },
+  "resolution": "JevSelector 41e1afac56702e2294bb036f6572f57348db15cf uses live features for all current-file premises and retains strict imported-statement checks. Repeat the full development comparison after offline compatibility checks; retain the frozen sites and split."
+}

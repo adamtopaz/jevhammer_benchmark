@@ -91,7 +91,8 @@ jevselector prepare --modules Mathlib --scope Mathlib \
 ## Initial comparison protocol
 
 Use `JevHammerBenchmark.Methods.expanded` and
-`JevHammerBenchmark.Prepared.sparse`, unchanged from the 32-location live pilot.
+`JevHammerBenchmark.Prepared.sparse`, with the same tactic settings as the
+32-location live pilot and the current-file compatibility correction below.
 Both use live `jev-1.13.0` proof-state guidance, the same Mathlib tactics, six
 seconds per location, at most three Jev calls per trial, and no premise reranking.
 Freeze code before collection; do not tune methods using this run's outcomes.
@@ -107,3 +108,29 @@ Use a single 24,000,000,000-byte zero-swap scope, two Lean threads, and serial
 module execution. The reserved evaluation partition receives no tactic trials
 during this expansion. Full LeanHammer and neural-selector comparisons remain
 separate experiments.
+
+## Compatibility correction before the complete comparison
+
+The [first live attempt](../../docs/mathlib-broad-v1-incomplete.json) recorded
+253 of 268 expected trials. Sparse warmup rejected freshly elaborated statements
+in two modules: their raw expression hashes differed from the compiled catalog
+because elaboration produced different auxiliary names or instance terms.
+Collection was incomplete, so no comparative success rates were accepted.
+
+JevSelector `41e1afac56702e2294bb036f6572f57348db15cf` recomputes all current-file
+premise features from the live environment and retains strict hash checks for
+imported declarations. Its regression tests also ensure that disabling
+current-file premises excludes cataloged current-file declarations. This is a
+general correction for editing and re-elaboration; no goals or modules were
+removed, and no tactic settings were tuned.
+
+Rediscover under the corrected dependency and verify that all sampled sites,
+goals, owners and split assignments are identical before refreshing dependency
+fingerprints. Check compatibility across the development partition without live
+Jev calls, then repeat the entire paired live run. Retain the incomplete attempt
+and its usage separately. The reserved evaluation partition stays untouched.
+
+The comparison reuses the [prepared artifact](preparation.json): fitting and the
+188-owner exclusion set did not change. Its provenance references the original
+dataset fingerprint, preserved in Git history. Re-preparing with the current
+dependency records new provenance while using the same fitting recipe.

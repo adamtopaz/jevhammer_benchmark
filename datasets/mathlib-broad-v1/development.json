@@ -4,8 +4,8 @@
     "sources": {
       "JevHammerBenchmark.lean": "0aa82f1dd3448d2c49c6e97c975282b3974bc75a4e237f513f6b5a7a4004c900",
       "JevHammerBenchmarkTests.lean": "da009616e3365b90636577b81c6f956a7e29e771649370dc4db3979ecc4f0510",
-      "lake-manifest.json": "93b11b8eeb0cd378712fadfd89b02ce44ce8c38b0915bca9124ba3931787b9c5",
-      "lakefile.toml": "66f73e6212b113772328e00fa523437ca3fb8138fefab68d8acf5ff88a41f009",
+      "lake-manifest.json": "f726ef32460e005c670f9e83a41d399edd69a712701d72f5e864b66047e652d2",
+      "lakefile.toml": "d98bef3bcef3fc7bbed20a0aea81fd67a1ac7b359392a527e627a37812759d38",
       "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
       "JevHammerBenchmark/Certificate.lean": "26b07dea1da6b44f95a3ebc78212972eb73c94d34701429273e3a3f81086993b",
       "JevHammerBenchmark/Hook.lean": "c40acbc464f2aaa9d83f963958153a228c1b3ee32e1bc028d821df21ef618e76",
@@ -23,7 +23,7 @@
     },
     "dependencySources": {
       "«premise-selection»": "49cacdc7f89a07085f4ff5bfad0df807a05af018c28d92af8b4f33f25c22906f",
-      "jevselector": "e1af72f523f63d5de3f627800daa9f09654a278db0088a418414c50559c71ad9",
+      "jevselector": "6b584654f4e27d3ada951d5e4be18ae2a2379ef0a3017f43ef6cb1b6f5dc49c7",
       "mathlib": "35c5ae6cf072614cb2df4c951429d35cbebb3193bad3697fbe492cdd7e62dc3a",
       "jevhammer": "c06a8ce0ebf20dc584f10ba6643defa80fa2d4b37fca0cc90c65161bbadc0fa4",
       "plausible": "8b71152cba11a70c8521a0dc65822a329936e22431314b3f828f20c87b286e29",
@@ -64,10 +64,10 @@
           "type": "git",
           "subDir": null,
           "scope": "",
-          "rev": "aa77f05459cfc136dc88655e86d347b8ac110701",
+          "rev": "41e1afac56702e2294bb036f6572f57348db15cf",
           "name": "jevselector",
           "manifestFile": "lake-manifest.json",
-          "inputRev": "aa77f05",
+          "inputRev": "41e1afa",
           "inherited": false,
           "configFile": "lakefile.toml"
         },
@@ -2850,7 +2850,7 @@
     "final": {
       "memoryMax": 24000000000,
       "swapMax": "0",
-      "memory.peak": "600633344",
+      "memory.peak": "622243840",
       "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
     }
   },
@@ -2861,6 +2861,6 @@
     "seed": 1,
     "stratifyByModule": true,
     "singleOwnerModulesInDevelopment": [],
-    "parentSha256": "2b00d77bec305ecfb3fd39f911644ee418ecb560418611381762de5da7d5a847"
+    "parentSha256": "00685ae5b671a065224aa6c52b9d1f6eb829cad500295e47594b5cd94fac5e6a"
   }
 }
