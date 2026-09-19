@@ -86,3 +86,42 @@ to measure the tradeoff before deciding whether to optimize or reject it. These
 are latency profiles, not proof results. No model calls were made. The shared
 16 GB zero-swap scope peaked at 6.64 GB with no limit/OOM events.
 [Machine-readable profiles](cpu-selector-profile-v1.json).
+
+## Four-way candidate screen: complete
+
+All four methods ran on the same 34 development locations, with Jev proof-state
+guidance, no premise reranking, and identical six-second search/tactic settings.
+The neural reference explicitly warmed the imported and earlier current-file
+statement catalog outside the goal clock. This is the initialization policy
+frozen for this screen, not an identical repeat of the earlier neural adapter.
+
+| Method | On-time verified | Raw replayed | Total goal time | Retrieval time |
+|---|---:|---:|---:|---:|
+| Original sparse | 13/34 | 13 | 120.848 s | 4.797 s |
+| Target-weighted | **14/34** | 14 | 119.546 s | 4.849 s |
+| Reciprocal-rank fusion | 12/34 | 13 | 127.270 s | 10.286 s |
+| Warmed neural reference | **14/34** | 14 | 121.770 s | 10.675 s |
+
+Target weighting gained one location and lost none against its concurrent sparse
+control. Against neural it gained one and lost one: equal coverage, different
+solved sets. The paired 95% interval for target minus sparse is 0.0 to +8.8
+percentage points, and for target minus neural it is −8.8 to +8.8 points. This is
+a small development improvement over the matched sparse control, **not a
+significant improvement over the neural reference**, nor a new best across the
+different earlier runs (the earlier neural-only run solved 15).
+
+All **136 expected trials** were recorded and **54 successful proofs independently
+replayed**. Fusion's late proof is excluded from on-time coverage. There were no
+module failures or budget-blocked trials. The methods had respectively 3, 6, 3,
+and 1 ranking failures, all retained with fallback in the outcomes and timings.
+The run used 215 Jev requests, 1,199,076 reported input tokens, and 27,354 reported
+output tokens, with unavailable usage for eight HTTP errors. Peak combined RAM
+was **9.47 GB**, below the 16 GB zero-swap cap, with no limit/OOM events.
+
+Retain target weighting as a cheap candidate for broader testing. Fusion adds
+latency without a coverage gain in this screen; do not promote it. Continue with
+proof-neighbor transfer as the next substantive hypothesis. The reserved
+evaluation partition remains untouched.
+
+[Full configurations, costs, and evidence](cpu-selector-candidates-v1.json) and
+[all per-location outcomes](cpu-selector-candidates-v1-trials.jsonl).
