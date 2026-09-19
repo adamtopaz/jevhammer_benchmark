@@ -114,6 +114,8 @@ untouched while choosing methods.
 
 - [Prepared CPU selector](integrations/selector/README.md): generic preparation,
   admission checks, and a paired selector comparison.
+- [Sine Qua Non baseline](integrations/selector/sine-qua-non.md): no external
+  artifact or neural service, with optional Jev premise reranking.
 - [Neural selector](integrations/neural/README.md): optional explicit service,
   pinned historical model/corpus metadata, and comparison limitations.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,

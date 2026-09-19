@@ -2,6 +2,7 @@ module
 
 public meta import JevHammerBenchmark.Method
 public meta import Lean.LibrarySuggestions.Default
+public meta import JevSelector.SineQuaNon
 public meta import Aesop
 public meta import Mathlib.Tactic.Contrapose
 public meta import Mathlib.Tactic.Ext
@@ -13,7 +14,9 @@ public meta section
 namespace JevHammerBenchmark.Methods
 open Lean Meta LibrarySuggestions JevHammer
 
-def sineSelector : Selector := (sineQuaNonSelector 1.5).intersperse currentFile
+def sineConfig : JevSelector.SineQuaNon.Config := {}
+
+def sineSelector : Selector := JevSelector.SineQuaNon.selector sineConfig
 
 def mathlibTactics : TacticSet := {
   defaultTactics with
@@ -23,7 +26,13 @@ def mathlibTactics : TacticSet := {
 def sine : Method := {
   selector := sineSelector
   selectorName := "Sine Qua Non + current file"
-  warmup := do discard <| SineQuaNon.sineQuaNonTheorems ``True }
+  warmup := JevSelector.SineQuaNon.warmup
+  validate := fun _ => pure <| Json.mkObj [
+    ("algorithm", toJson "Lean.LibrarySuggestions.sineQuaNonSelector"),
+    ("wrapper", toJson "JevSelector.SineQuaNon.selector"),
+    ("config", toJson sineConfig), ("leanVersion", toJson Lean.versionString),
+    ("statistics", toJson "compiled imported theorem statements"),
+    ("proofInformation", toJson "none"), ("externalTrainingArtifact", Json.null)] }
 
 def sineReranked : Method := {
   sine with
