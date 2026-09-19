@@ -76,3 +76,30 @@ services and Lean processes together in one 16 GB zero-swap cgroup; independentl
 replay all successes. Dependency/index caches are shared across compatible
 methods within each module process, so per-method initialization is ordered and
 must be reported separately. No reserved evaluation data will be inspected.
+
+## Learned premise-usage screen, frozen before outcomes
+
+The next model aggregates statement symbols across all eligible proofs using each
+premise. It fits smoothed sparse likelihood profiles with mass 20 and retains each
+label's 64 strongest feature corrections, preserving full normalization. The
+formulation and pruning policy are fixed in jevselector's experiment-04 note.
+This fitting pass reuses the exact excluded statement/dependency artifacts and
+does not inspect additional proof bodies. Runtime lookup uses only CPU postings.
+
+After preparation and query-cost checks, compare `Research.usage`,
+`Research.target`, and `Research.neuralWarm` at the same 34 development locations,
+re-admitted under the new sources. Keep identical six-second budgets, tactics,
+three-call limits, and Jev state guidance without premise reranking. Start fresh
+neural services and retain the same catalog warmup policy. Permit at most 306
+requests and 3,000,000 reported input tokens in a shared 16 GB zero-swap scope.
+Independently replay every success and publish all failures. The reserved
+evaluation split remains untouched. Do not combine structural features or Jev
+premise reranking into this first usage-model screen.
+
+The first usage query preflight exposed a generic feature-key serialization bug:
+printed hygienic names need not parse as identifiers. The corrected selector
+keeps feature keys as opaque strings. This changes sparse query behavior as well,
+so re-admit and rerun target retrieval under the same fixed revision as usage.
+The failed preflight attempted no proof goals and made no model calls. Existing
+artifact bytes and training exclusions remain unchanged; preserve the failed log
+and report the reader revision with the successful profile and benchmark.

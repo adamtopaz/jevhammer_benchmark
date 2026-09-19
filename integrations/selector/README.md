@@ -57,3 +57,21 @@ Use a dataset admitted with the `JevHammerBenchmark.Research` import and the
 matching source fingerprint. See the [research protocol](../../notes/cpu-selector-research.md)
 for the fixed candidate screen and paired neural reference. These methods are
 research candidates, not established improvements.
+
+`Research.usage` uses learned sparse profiles of the statements whose eligible
+proofs use each premise. It fits from the same two artifacts without new Lean
+extraction:
+
+```sh
+jevselector usage --index artifacts/selector/index.json \
+  --dependencies artifacts/dependencies/dependencies.json \
+  --output artifacts/usage --memory-limit 16000000000
+export JEVSELECTOR_USAGE="$PWD/artifacts/usage/usage.json"
+```
+
+This frozen adapter requires the initial smoothing mass 20 and top-64 feature
+policy; other configurations can be used through JevSelector's generic API with
+their own named benchmark method. Pin the Python CLI to the same research commit
+as the Lake package. The model has an independent cache and holdout/statement
+validation. This variant remains experimental until its matched proof screen is
+complete; fitting speed alone does not establish retrieval quality.

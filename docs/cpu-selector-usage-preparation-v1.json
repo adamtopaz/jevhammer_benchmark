@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "4537978880",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "usageSha256": "3b53c483a8f590b3b49a621087bdd5821a4467c40bc4967df41d853d81a04157",
+  "recipe": {
+    "algorithm": "smoothed-premise-usage-v1",
+    "smoothingMass": 20.0,
+    "maxFeatures": 64,
+    "queryFeatures": "unique known statement constants",
+    "featurePruning": "largest positive corrections; full label normalizer retained"
+  },
+  "examples": 254885,
+  "premises": 145736,
+  "symbols": 59171,
+  "featureEdges": 4971407,
+  "artifactBytes": 251890819,
+  "totalSeconds": 14.080730946967378,
+  "kind": "full-library-premise-usage-fitting",
+  "selectorCommit": "b3e4794fb235a52b08ab8a303252b41cfa640d81",
+  "statementIndexSha256": "39b500a9776a562f3982897acf5790c4ecbb87f716a5728203cfff1b3360e1ed",
+  "dependencyArtifactSha256": "be321d93c38cb7a3c285c81547226bc3e5fa27ad6afe1d7d300740d43750ae90",
+  "excludedOwners": 188,
+  "reservedEvaluationTrials": 0,
+  "limitations": [
+    "Incremental fitting from existing excluded artifacts; prior statement and proof extraction costs are separate.",
+    "No proof-coverage claim."
+  ]
+}

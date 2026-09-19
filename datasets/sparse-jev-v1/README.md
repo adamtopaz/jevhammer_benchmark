@@ -91,3 +91,18 @@ Both neural services must run inside the same shared 16 GB scope as this command
 The linked dependency model and statement index must both exclude all owners in
 the full broad cohort. See the research protocol for the fixed voting/fusion
 parameters and the cold-initialization accounting policy.
+
+`research-v3.json` preserves the same locations and goals under the corrected
+opaque-feature reader and learned usage-model adapter. Prepare/export
+`JEVSELECTOR_USAGE` using the selector integration, then compare:
+
+```sh
+jevbench run --dataset datasets/sparse-jev-v1/research-v3.json \
+  --methods JevHammerBenchmark.Research.target JevHammerBenchmark.Research.usage \
+    JevHammerBenchmark.Research.neuralWarm \
+  --config '{"guidePremises":false}' --memory-limit 16000000000 \
+  --max-requests 306 --max-input-tokens 3000000 --output runs/cpu-selector-usage
+```
+
+The neural services and benchmark must again share one 16 GB zero-swap scope.
+This is a fresh development screen. The reserved evaluation split is untouched.

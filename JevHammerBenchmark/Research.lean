@@ -39,6 +39,27 @@ def proofHybrid : Method := {
   selector := fun goal cfg => do (← dependencyIndex).hybridSelector {} goal cfg
   selectorName := "JevSelector proof-hybrid-v1: sparse+proof-neighbors, rankOffset=16, poolFactor=2, maxPool=256" }
 
+initialize usageCache : IO.Ref (Option (String × JevSelector.UsageIndex)) ← IO.mkRef none
+
+def usageIndex : IO JevSelector.UsageIndex := do
+  let some path ← IO.getEnv "JEVSELECTOR_USAGE"
+    | throw <| IO.userError "set JEVSELECTOR_USAGE to a prepared usage.json"
+  if let some (previous, model) ← usageCache.get then
+    unless previous == path do throw <| IO.userError "usage artifact path changed during a run"
+    return model
+  let model ← JevSelector.loadUsage (← Prepared.index) path
+  unless model.artifact.smoothingMass == 20 && model.artifact.maxFeatures == 64 do
+    throw <| IO.userError "usage-v1 requires smoothing mass 20 and top 64 corrections"
+  usageCache.set (some (path, model))
+  return model
+
+def usage : Method := {
+  Prepared.sparse with
+  selector := fun goal cfg => do (← usageIndex).selector {} goal cfg
+  selectorName := "JevSelector usage-v1: smoothing mass 20, top 64 feature corrections, full normalizer"
+  warmup := do (← usageIndex).validateEnvironment
+  validate := fun owners => do (← usageIndex).validateHoldouts owners }
+
 /-- Strong reference with both imported and earlier current-file statement
 embeddings warmed outside the goal clock. The actual goal is embedded only
 when the selector runs. Initialization cost is recorded by the harness. -/

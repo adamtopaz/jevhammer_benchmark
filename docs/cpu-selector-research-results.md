@@ -149,7 +149,7 @@ preparation cost. [Preparation measurements](cpu-selector-dependency-preparation
 These use the same 32 deterministic theorem types and three repetitions as the
 earlier CPU profiles. Direct voting meets the provisional 200 ms p95 target;
 fusion misses it. The scope peaked at 2.81 GB with no memory events. These are
-cost measurements only; neither candidate has a proof-coverage result yet.
+cost measurements only; the paired proof results are reported below.
 [Query profile evidence](cpu-selector-profile-dependencies-v1.json).
 
 ## Proof-neighbor screen: complete, no coverage improvement
@@ -188,3 +188,31 @@ documented hypothesis. The research objective is still open.
 
 [Complete configurations and evidence](cpu-selector-neighbors-v1.json),
 [all per-location outcomes](cpu-selector-neighbors-v1-trials.jsonl).
+
+## Learned premise-usage model: cost measured, coverage pending
+
+The new model aggregates the statement features of all eligible proofs using
+each premise. It fits sparse smoothed likelihood profiles by counting, with
+smoothing mass 20 and at most 64 positive corrections per label. Fitting reuses
+the excluded artifacts and takes **14.08 s**, producing **145,736 profiles** and
+**4,971,407 feature edges** in **251.89 MB**. Peak RAM was **4.54 GB**, with no
+limit/OOM events. Prior statement/proof extraction costs are separate.
+[Fitting measurements](cpu-selector-usage-preparation-v1.json).
+
+The first full-library profile failed before querying because printed hygienic
+constant names were reparsed as identifiers and collapsed to anonymous. The
+fixed reader preserves opaque feature strings in both usage and sparse lookup.
+Its regression suite passes. The same artifact bytes can be reused, but the
+matched target reference must also run under corrected selector `63c3d60`.
+
+| Method | Median query | p95 query | Cold index/model load |
+|---|---:|---:|---:|
+| Learned usage profiles | **39.1 ms** | **74.1 ms** | 20.71 s |
+| Corrected target-weighted retrieval | 66.8 ms | 132.1 ms | 2.66 s |
+
+The profile uses 32 deterministic theorem types with three repetitions, without
+proof attempts or model calls. Both warm costs meet the provisional target, but
+usage loading is substantially slower. Peak scope memory was 5.01 GB with no
+memory events. [Profile and failed-preflight evidence](cpu-selector-profile-usage-v1.json).
+The next live three-arm screen compares usage, target, and warmed neural retrieval
+at the same 34 development locations; no coverage result is available yet.

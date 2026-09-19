@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "63c3d60edca0daa712ba26824719c6f4e3016282",
+  "usageFittingCommit": "b3e4794fb235a52b08ab8a303252b41cfa640d81",
+  "usageArtifactSha256": "3b53c483a8f590b3b49a621087bdd5821a4467c40bc4967df41d853d81a04157",
+  "sampleCount": 32,
+  "repeats": 3,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "methods": {
+    "usage": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "usage",
+      "loadMs": 20708,
+      "queries": 96,
+      "medianMs": 39.063046,
+      "p95Ms": 74.067047,
+      "meanMs": 41.121400666666666,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "5011066880",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "aafa57225ca36f8d2e27ef8580bdbb0db66dab96750529718c7796563117ac80"
+    },
+    "target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "target",
+      "loadMs": 2662,
+      "queries": 96,
+      "medianMs": 66.81421,
+      "p95Ms": 132.067303,
+      "meanMs": 73.75792403125,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "5011066880",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "e4bf4fb7405023345c07a3e4f1eeb8329c7d664c75bd205422d07c34f02e3a41"
+    }
+  },
+  "limitations": [
+    "Theorem-type queries only, not proof-state coverage.",
+    "Methods run serially in fresh Lean processes; memory peaks are cumulative within their shared scope.",
+    "Both methods use corrected opaque feature keys.",
+    "Usage cold loading is substantial and reported separately."
+  ],
+  "failedPreflight": {
+    "selectorCommit": "b3e4794fb235a52b08ab8a303252b41cfa640d81",
+    "reason": "Printed hygienic feature names were reparsed as identifiers, collapsing some to anonymous.",
+    "profileLogSha256": "f8ccfc48eeb1492319986bde06bebe673625a8e2854aaa89865a4d7c44e14bcd",
+    "completedQueries": 0,
+    "proofTrials": 0,
+    "modelCalls": 0
+  }
+}
