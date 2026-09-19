@@ -116,6 +116,8 @@ untouched while choosing methods.
   admission checks, and a paired selector comparison.
 - [Sine Qua Non baseline](integrations/selector/sine-qua-non.md): no external
   artifact or neural service, with optional Jev premise reranking.
+- [Live Sine versus sparse pilot](docs/sine-baseline-2026-09-18.md): 32 matched
+  Mathlib locations with Jev state guidance and independently replayed proofs.
 - [Neural selector](integrations/neural/README.md): optional explicit service,
   pinned historical model/corpus metadata, and comparison limitations.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,

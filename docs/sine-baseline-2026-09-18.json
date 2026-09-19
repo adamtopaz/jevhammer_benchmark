@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "kind": "live-jev-development-pilot",
+  "date": "2026-09-18",
+  "benchmarkCommit": "8754b4f1ec0c8f44a1cfdfdee9c42bcb5f50ef1b",
+  "leanVersion": "4.33.0",
+  "pins": {
+    "jevselector": "aa77f05459cfc136dc88655e86d347b8ac110701",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "jevhammer": "603573da7aa272dcaf2ef9860e7c886210a1433a"
+  },
+  "model": "jev-1.13.0",
+  "dataset": {
+    "sha256": "2c55e4c6e4ae6b7844248a429d137a233a1e617d20e91cfce4c9e102318fd7e0",
+    "modules": [
+      "Mathlib.Topology.Basic",
+      "Mathlib.LinearAlgebra.Basis.Basic",
+      "Mathlib.RingTheory.Ideal.Basic"
+    ],
+    "imports": [
+      "JevHammerBenchmark",
+      "JevHammerBenchmark.Selector",
+      "JevHammerBenchmark.Neural"
+    ],
+    "seed": 0,
+    "discovered": 260,
+    "eligible": 250,
+    "sampled": 32,
+    "owners": 25
+  },
+  "sparseArtifactSha256": "bdef7b455146f3ae87ebc7600bd6c445010405a6e00214f61b41aed33bbb2aec",
+  "selectorConfig": {
+    "depthFactor": 1.5,
+    "maxCandidates": 1024,
+    "includeCurrentFile": true
+  },
+  "hammerConfig": {
+    "beamWidth": 4,
+    "guidePremises": false,
+    "maxCalls": 3,
+    "maxCandidates": 24,
+    "maxDepth": 3,
+    "maxMillis": 6000,
+    "maxNodes": 12,
+    "maxPremises": 100,
+    "model": "jev-1.13.0",
+    "premiseCount": 8,
+    "refreshPremises": true,
+    "tacticHeartbeats": 15000,
+    "timeoutSeconds": 5
+  },
+  "bounds": {
+    "maxRequests": 192,
+    "maxInputTokens": 2000000,
+    "outerHeartbeats": 200000,
+    "threads": 2
+  },
+  "memoryLimitBytes": 24000000000,
+  "swapLimitBytes": 0,
+  "summary": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "jev",
+    "methods": {
+      "JevHammerBenchmark.Methods.expanded": {
+        "sites": 32,
+        "recorded": 32,
+        "onTimeVerified": 13,
+        "rawVerified": 13,
+        "lateVerified": 0,
+        "elapsedMs": 80826,
+        "budgetBlocked": 0,
+        "rankFailures": 0
+      },
+      "JevHammerBenchmark.Prepared.sparse": {
+        "sites": 32,
+        "recorded": 32,
+        "onTimeVerified": 14,
+        "rawVerified": 14,
+        "lateVerified": 0,
+        "elapsedMs": 87739,
+        "budgetBlocked": 0,
+        "rankFailures": 1
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.Methods.expanded",
+        "b": "JevHammerBenchmark.Prepared.sparse",
+        "gained": 1,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.15151515151515152,
+          0.06896551724137931
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 105,
+      "inputTokens": 554652,
+      "outputTokens": 16094,
+      "unknownUsage": 0
+    }
+  },
+  "metrics": {
+    "JevHammerBenchmark.Methods.expanded": {
+      "goalMedianMs": 2211.0,
+      "retrievalTotalMs": 626,
+      "retrievalPerTrialMedianMs": 20.0,
+      "warmupMs": [
+        40,
+        49,
+        50
+      ],
+      "warmupMedianMs": 49,
+      "stateRankCalls": 56,
+      "premiseRankCalls": 0,
+      "requests": 56,
+      "reportedUsage": {
+        "input_tokens": 298469,
+        "output_tokens": 8570
+      },
+      "rankFailures": 0,
+      "apiErrors": {}
+    },
+    "JevHammerBenchmark.Prepared.sparse": {
+      "goalMedianMs": 2260.5,
+      "retrievalTotalMs": 3505,
+      "retrievalPerTrialMedianMs": 105.0,
+      "warmupMs": [
+        3968,
+        3982,
+        3978
+      ],
+      "warmupMedianMs": 3978,
+      "stateRankCalls": 49,
+      "premiseRankCalls": 0,
+      "requests": 49,
+      "reportedUsage": {
+        "input_tokens": 256183,
+        "output_tokens": 7524
+      },
+      "rankFailures": 1,
+      "apiErrors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+      }
+    }
+  },
+  "checks": {
+    "successfulTrialsIndependentlyReplayed": 27,
+    "replayStatus": "complete",
+    "runtimePanics": 0,
+    "moduleFailures": {}
+  },
+  "limitations": [
+    "Single 32-location development pilot with prior infrastructure exposure; not a final confirmation.",
+    "Both arms use live Jev state guidance, identical expanded tactics, and no premise reranking.",
+    "Retrieval time is cumulative per arm, including refreshes; query counts and explored states can differ.",
+    "Warmup is measured separately and excluded from each goal clock.",
+    "One malformed Jev response in the sparse arm triggered the documented original-order fallback; retained in the results.",
+    "Sine Qua Non uses compiled imported-statement statistics; sparse IDF uses a held-out whole-library fit."
+  ]
+}
