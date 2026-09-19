@@ -39,3 +39,6 @@ theorem usingPrevious (p : Prop) (hp : p) : p := by
   exact previous p hp
 
 end BenchmarkPrivate
+
+-- Unnamed examples have no persistent owner for grouping or training holdouts.
+example : True := by trivial

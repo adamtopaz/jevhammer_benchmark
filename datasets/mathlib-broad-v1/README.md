@@ -28,6 +28,12 @@ missing locations must be diagnosed and recorded before finalizing the cohort.
 Any compatibility changes to this candidate list must be published, without
 consulting tactic success rates. Original failed discovery evidence is retained.
 
+The first discovery completed all 34 modules but exposed unnamed `example`
+parents in the eligible pool. Eligibility was strengthened to require an owner
+that persists after its source command; otherwise it cannot identify a training
+exclusion. The same module list, seed, cap and split rules are rediscovered under
+that check. No tactic trials were run on the preliminary sample.
+
 ## Prior exposure and split
 
 `prior-exposure.json` joins actual legacy trial sites to their recorded manifests

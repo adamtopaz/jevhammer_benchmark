@@ -9,6 +9,15 @@ if python -m jevhammer_benchmark discover --modules Mathlib.Data.Nat.Basic --out
   exit 1
 fi
 python -m jevhammer_benchmark discover --source BenchmarkFixture=tests/fixtures/Small.lean --count 32 --output "$scratch/dataset" "$@"
+python - "$scratch/dataset" <<'PY'
+import json, sys
+from pathlib import Path
+root = Path(sys.argv[1])
+rows = [json.loads(line) for line in (root / 'discovery.jsonl').read_text().splitlines()]
+examples = [row for row in rows if row['declaration'] == '_example']
+assert examples and all(not row['eligible'] for row in examples)
+assert len(json.loads((root / 'dataset.json').read_text())['sites']) == 14
+PY
 python -m jevhammer_benchmark split --dataset "$scratch/dataset/dataset.json" --output "$scratch/splits"
 python -m jevhammer_benchmark holdouts --dataset "$scratch/dataset/dataset.json" --output "$scratch/holdouts.json"
 python -m jevhammer_benchmark run --dataset "$scratch/dataset/dataset.json" --mock --methods JevHammerBenchmark.Methods.localOnly JevHammerBenchmark.Methods.expanded --output "$scratch/run" "$@"

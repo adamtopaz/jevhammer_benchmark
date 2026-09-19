@@ -20,7 +20,7 @@ Each arm receives a fresh `ContextInfo.runMetaM` context with `mctxBefore` and t
 preceding source command's environment. The completed owning declaration and
 its generated auxiliaries are unavailable. All goals and local expression
 constants must be present in that environment. Nodes inside speculative/failing
-branches, empty goals, anonymous owners, and contexts that cannot be certified
+branches, empty goals, anonymous or nonpersistent owners (including `example`), and contexts that cannot be certified
 this way are excluded; both discovered and eligible counts are retained. A first
 command without a prior environment snapshot may be excluded conservatively.
 This is coverage over the sampled eligible tactic locations, not all theorems.

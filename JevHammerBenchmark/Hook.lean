@@ -153,10 +153,16 @@ def pass : Mathlib.TacticAnalysis.Config where
       if (← seen.get).contains site then continue
       seen.modify (·.insert site)
       let parent := node.ctxI.parentDecl?.getD .anonymous
+      -- `example` uses a synthetic `_example` parent, not Name.anonymous.
+      -- Require an owner that survives the completed command so declaration
+      -- grouping and preparation exclusions have an actual constant identity.
+      -- The completed environment is used ONLY for this identity check; search
+      -- and certificate replay still receive the preceding-command environment.
+      let ownerAvailable := !parent.isAnonymous && (← getEnv).contains parent
       let before? ← beforeCommand.get
       let before := before?.getD node.ctxI.env
       let available ← ctx.runMetaM decl.lctx do
-        let mut ok := before?.isSome && !parent.isAnonymous && !before.contains parent
+        let mut ok := before?.isSome && ownerAvailable && !before.contains parent
         for goal in node.tacI.goalsBefore do
           let goalAvailable ← goal.withContext do
             let mut expressions := #[(← goal.getType)]
