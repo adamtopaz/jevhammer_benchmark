@@ -14,6 +14,10 @@ run_cmd liftTermElabM do
     { (inferInstance : MonadExceptOf Exception TermElabM) with tryCatch := tryCatchRuntimeEx }
   let some path ← IO.getEnv "JEVSELECTOR_GRAPH_PROFILE_OUTPUT"
     | throwError "missing graph profile output"
+  let previewText := (← IO.getEnv "JEVSELECTOR_GRAPH_PROFILE_PREVIEW_CANDIDATES").getD "0"
+  let some previewCount := previewText.toNat?
+    | throwError "graph preview count must be a nonnegative integer"
+  let graphOptions := { GraphStudy.graphOptions with maxPreviewCandidates := previewCount }
   let phase : String → IO Unit := fun name => do
     let log ← IO.FS.Handle.mk (path ++ ".phases.jsonl") .append
     log.putStrLn (Json.mkObj [("phase", toJson name), ("monoMs", toJson (← IO.monoMsNow))]).compress
@@ -63,7 +67,7 @@ run_cmd liftTermElabM do
             let indices := (List.range choices.size).toArray
             let first := indices.filter fun j => choices[j]!.getObjValD "direction" == .str mode
             return first ++ indices.filter (fun j => !first.contains j)
-          let select := if mode == "base" then base else graph.guided GraphStudy.graphOptions rank base
+          let select := if mode == "base" then base else graph.guided graphOptions rank base
           let start ← IO.monoNanosNow
           let mut error := ""
           let suggestions ← try
@@ -80,6 +84,7 @@ run_cmd liftTermElabM do
           -- Persist partial diagnostics even if a later query times out.
           IO.FS.writeFile path <| (Json.mkObj [("schema", toJson (1 : Nat)),
             ("kind", toJson "cpu-only-graph-cost"), ("loadMs", toJson loadMs),
+            ("previewCandidates", toJson previewCount),
             ("validationMs", toJson validationMs),
             ("graphInitMs", toJson graphInitMs), ("shapeInitMs", toJson shapeInitMs),
             ("graphEntries", toJson graph.entries.size), ("modelCalls", toJson (0 : Nat)),

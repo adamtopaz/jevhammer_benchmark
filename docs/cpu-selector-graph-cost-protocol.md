@@ -156,3 +156,27 @@ that cost plus actual Jev latency. The bounded overhead now warrants a small
 proof screen, not a claim that the research goal has been achieved. Peak memory
 was 4,553,039,872 bytes with no memory events. See the
 [full matched report](cpu-selector-profile-graph-v4.json).
+
+
+## Destination-preview cost gate
+
+After the original graph proof screen completed (14/34 versus CPU 16/34),
+selector `397bef6` adds an opt-in preview of destination statements to each
+model choice. It passes the full offline suite. No preview proof result exists.
+Freeze two serial native profiles using this revision and the same 32 statement
+types, three repeats and four direction modes as v4:
+
+1. v5: `JEVSELECTOR_GRAPH_PROFILE_PREVIEW_CANDIDATES=0`. Require every ordered
+   suggestion list, callback/choice count, payload size and error to match v4.
+2. v6: `JEVSELECTOR_GRAPH_PROFILE_PREVIEW_CANDIDATES=3`, with 480 type characters
+   per preview. Require the same fixed-direction suggestions and call/choice
+   counts as v5; measure the intentionally increased payload size separately.
+
+The profiler defaults to zero previews and records the configured preview count.
+Use the existing native Lake setup helper, independent per-mode structural caches
+from the same fixed `True` warmup, and the unchanged CPU index. Report loading,
+graph and structural initialization, query median/p95, errors, payload bytes,
+ranking identity, and peak memory. Both runs make zero model calls and zero
+proof trials. Keep one 16 GB zero-swap scope active at a time, with two threads.
+Do not infer proof quality from deterministic output preservation. A subsequent
+matched proof comparison must freeze its own adapters, admission and protocol.
