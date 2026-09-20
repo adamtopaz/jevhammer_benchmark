@@ -22,7 +22,7 @@ name = "JevHammerBenchmarkTests"
 [[require]]
 name = "jevselector"
 git = "https://github.com/adamtopaz/jevselector"
-rev = "8b9ffbe9644afe5e982dab35088d2fd6f09449cc"
+rev = "e793bad2e447f5b5aa96efd92979e074d6dfa142"
 
 [[require]]
 name = "premise-selection"
