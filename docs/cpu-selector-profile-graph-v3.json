@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "kind": "cpu-only-graph-cost",
+  "modelCalls": 0,
+  "goalProofTrials": 0,
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "profileSourceSha256": "cf28d5ce936eefdbbe2797d067d9ae04536fc5e28eb4b58d9f0c37f62c472ee1",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "268324864",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "4636672000",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "profiles": {
+    "base": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 175.64286299999998,
+      "p95Ms": 304.211975,
+      "rankCallbacks": 0,
+      "maxChoices": 0,
+      "medianChoiceBytes": 0.0,
+      "errorKinds": []
+    },
+    "none": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 676.663065,
+      "p95Ms": 2153.993663,
+      "rankCallbacks": 96,
+      "maxChoices": 24,
+      "medianChoiceBytes": 5958.5,
+      "errorKinds": []
+    },
+    "forward": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 782.5430025000001,
+      "p95Ms": 2382.002654,
+      "rankCallbacks": 96,
+      "maxChoices": 24,
+      "medianChoiceBytes": 5958.5,
+      "errorKinds": []
+    },
+    "backward": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 684.8173555000001,
+      "p95Ms": 2228.31375,
+      "rankCallbacks": 96,
+      "maxChoices": 24,
+      "medianChoiceBytes": 5958.5,
+      "errorKinds": []
+    }
+  },
+  "benchmarkCommit": "744baa9831f328021549a945d691947089f48209",
+  "selectorCommit": "0ce4ccd9a38d471f2e40f311e2a90e0ee5ede28a",
+  "hammerCommit": "2e3df668acbef581c81adccf70e629119cd28760",
+  "benchmarkWorkingDiff": "",
+  "plugins": [
+    "libjevselector_JevSelector.so"
+  ],
+  "setupSha256": "3ba61197fb011428cb4a9e4178fb775a332046fd772402c6c3b7f414a73de93f",
+  "graphEntries": 376987,
+  "graphInitMs": 67840,
+  "loadMs": 2839,
+  "proofTrials": 0,
+  "shapeInitMs": 30687,
+  "validationMs": 244,
+  "rankingChanges": {
+    "none": {
+      "validPairs": 96,
+      "sameOrder": 96,
+      "meanTop8Overlap": 1.0
+    },
+    "forward": {
+      "validPairs": 96,
+      "sameOrder": 0,
+      "meanTop8Overlap": 0.5546875
+    },
+    "backward": {
+      "validPairs": 96,
+      "sameOrder": 6,
+      "meanTop8Overlap": 0.57421875
+    }
+  },
+  "phases": [
+    {
+      "monoMs": 1053381800,
+      "phase": "loading"
+    },
+    {
+      "monoMs": 1053384639,
+      "phase": "validation"
+    },
+    {
+      "monoMs": 1053384883,
+      "phase": "graph"
+    },
+    {
+      "monoMs": 1053452723,
+      "phase": "structural"
+    },
+    {
+      "monoMs": 1053483410,
+      "phase": "queries"
+    },
+    {
+      "monoMs": 1053750854,
+      "phase": "complete"
+    }
+  ],
+  "queriesSha256": "f59e77c2df8e12ea2215fbe00e9fa1db4749470deda481ad56205607664f5130",
+  "limitations": [
+    "Fixed 32 public statement types, three repeats, not proof coverage or held-out evaluation.",
+    "Deterministic injected directions: zero model calls; Jev request latency is excluded.",
+    "Immutable graph shared; structural query caches independent from fixed warmup.",
+    "No-expansion should preserve the CPU base exactly; other ranking changes do not establish quality gains.",
+    "Full initialization is reported separately from queries."
+  ],
+  "publicQueries": {
+    "path": "cpu-selector-profile-graph-v3-queries.jsonl",
+    "sha256": "20a4a9fc7d48461518e9eeea5fc4772b2ff18f896ead0998af6b1abaabec0a15"
+  },
+  "repeatStability": {
+    "base": {
+      "groups": 32,
+      "unstableGroups": 0
+    },
+    "none": {
+      "groups": 32,
+      "unstableGroups": 0
+    },
+    "forward": {
+      "groups": 32,
+      "unstableGroups": 0
+    },
+    "backward": {
+      "groups": 32,
+      "unstableGroups": 0
+    }
+  }
+}

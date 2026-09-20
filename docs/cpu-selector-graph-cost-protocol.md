@@ -97,3 +97,37 @@ and records the setup/plugin evidence. Do not report either discarded launcher's
 timings as production latency. The canonical old/new graph equality and
 functional regressions remain valid; their small-environment timings were also
 from direct interpreted launches.
+
+## First complete native result
+
+The corrected v3 run completed all 384 queries with zero failures and no model
+or proof calls. It indexed 376,987 signatures in 67.840 seconds; statement
+loading, validation and structural initialization took 2.839, 0.244 and 30.687
+seconds. Peak memory was 4,636,672,000 bytes, with no memory events.
+
+| Mode | Median ms | p95 ms |
+|---|---:|---:|
+| CPU base | 175.64 | 304.21 |
+| No expansion | 676.66 | 2,153.99 |
+| Forward | 782.54 | 2,382.00 |
+| Backward | 684.82 | 2,228.31 |
+
+No expansion preserved the complete base order on all 96 queries. Forward and
+backward traversal changed the top-eight ranking substantially (mean overlap
+55.47% and 57.42%); these are not quality gains. Each traversal made one mock
+callback per query, with at most 24 choices and a median 5,958.5 bytes of choice
+and question text, excluding the goal/context payload. See the
+[full native report](cpu-selector-profile-graph-v3.json) and per-query digests.
+
+These costs are too high to interpret as a fast extension to the CPU selector.
+Code review identified repeated construction of the import-name array inside
+the signature deny predicate. Check a direct module lookup against exact graphs
+and all selector regressions before timing that isolated change. Keep the
+scoring recipe and query cases fixed; proof comparisons remain pending.
+
+The isolated v4 follow-up pins selector `d6f4e25`. Native canonical snapshots
+remained byte identical and the complete selector offline suite passed. Keep
+all v3 cases, graph limits, modes and native setup unchanged. Require every
+ordered suggestion array and callback/choice count to match v3 before treating
+v4 as a performance-only comparison. Report failures rather than selectively
+retrying queries. The run remains CPU-only, with zero proof/model calls.
