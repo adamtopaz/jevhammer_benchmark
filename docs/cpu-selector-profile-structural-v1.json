@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "2270359ae0ac96c97a914ae03a39345b1201ae42",
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "sampleCount": 32,
+  "repeats": 3,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "methods": {
+    "public-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "target",
+      "loadMs": 2934,
+      "queries": 96,
+      "structuralInitMs": 0,
+      "medianMs": 78.36043,
+      "p95Ms": 144.661072,
+      "meanMs": 83.3701258125,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2898944000",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "7d62d8c3d03db5735fb4cb3e58a20d8f4cc7a2b476a09514c5f46b6621927d81"
+    },
+    "structural": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "structural",
+      "loadMs": 2770,
+      "queries": 96,
+      "structuralInitMs": 27544,
+      "medianMs": 6.11625,
+      "p95Ms": 91.653392,
+      "meanMs": 19.081370177083333,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "4652601344",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "cdb1ee4de024d58476627bf3b0657600ec62ad7be6b238cc179bbec3d0294137"
+    },
+    "structural-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "structural-target",
+      "loadMs": 2921,
+      "queries": 96,
+      "structuralInitMs": 27557,
+      "medianMs": 159.665701,
+      "p95Ms": 289.052977,
+      "meanMs": 155.28714009375,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "4714295296",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "0bacee61afb68d50f7eab04527b8b49e8fa7cffa725a807a32da77f207dd7da3"
+    }
+  },
+  "limitations": [
+    "Identical 32 public statement types and three repeats per method; includes non-theorems.",
+    "Latency profiling only, not proof coverage. No model calls.",
+    "Structural initialization plus fixed True warmup is reported separately; lazy expansion for actual query shapes remains in query time.",
+    "Structural-only retrieval uses no fitted artifact; the statement index selects the common query types.",
+    "Methods run serially in fresh Lean processes; memory peaks are cumulative within their shared scope."
+  ]
+}

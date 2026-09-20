@@ -333,3 +333,32 @@ remains open.
 
 [Complete configurations and evidence](cpu-selector-public-closure-v1.json),
 [all per-location outcomes](cpu-selector-public-closure-v1-trials.jsonl).
+
+## Structural signatures: CPU costs, proof coverage pending
+
+The new signature index initializes from actual imported public types, without
+proof values or fitted data. It uses Lean's lazy discrimination tree, includes
+both directions of iff declarations, and ranks by pattern specificity. Updated
+deny policies, actual availability, type hashes, state restoration, and independent
+query caches have native regression coverage. All 19 Python tests and the native
+artifact/selector integration checks pass.
+
+| Method | Median query | p95 query | Structural initialization |
+|---|---:|---:|---:|
+| Public-catalog target | 78.36 ms | 144.66 ms | — |
+| Structural signatures | **6.12 ms** | **91.65 ms** | 27.54 s |
+| Public target + structural fusion | 159.67 ms | 289.05 ms | 27.56 s |
+
+These use identical 32 public statement types × 3 repeats. Artifact loading was
+2.77–2.93 s separately; pure structural selection uses the artifact only to choose
+the profile queries. Structural initialization includes fixed `True` warmup;
+actual-query lazy expansion remains timed. The serial scope peaked at **4.71 GB**
+under the 16 GB zero-swap bound, without memory events. Fusion exceeds the
+provisional 200 ms p95 target; its extra cost is explicit, not a quality claim.
+[Complete CPU measurements](cpu-selector-profile-structural-v1.json).
+
+The [frozen five-arm pilot](cpu-selector-structural-protocol.md) compares public
+target, structural-only, their fusion, warmed neural, and the same structural
+fusion applied to neural. Per-method mutable caches prevent cross-arm warming
+on evaluation goals. The same 34 development goals are re-admitted; reserved
+evaluation remains unused. No structural proof-coverage result is available yet.

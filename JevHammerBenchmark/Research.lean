@@ -107,6 +107,52 @@ def publicNeighbors : Method := {
   warmup := do (← publicDependencyIndex).validateEnvironment
   validate := fun owners => do (← publicDependencyIndex).validateHoldouts owners }
 
+initialize structuralBaseCache : IO.Ref (Option JevSelector.StructuralIndex) ← IO.mkRef none
+initialize structuralMethodCaches : IO.Ref (Std.HashMap String JevSelector.StructuralIndex) ←
+  IO.mkRef {}
+
+/-- Only the fixed synthetic warmup is shared. Each competing method owns its
+subsequent lazy refinement, so no evaluation-goal lookup warms another arm. -/
+def structuralIndex (key : String) : MetaM JevSelector.StructuralIndex := do
+  if let some idx := (← structuralMethodCaches.get)[key]? then return idx
+  let base ← match ← structuralBaseCache.get with
+    | some idx => pure idx
+    | none => do
+      let idx ← JevSelector.StructuralIndex.create
+      idx.warmup
+      structuralBaseCache.set (some idx)
+      pure idx
+  let idx ← base.freshCache
+  structuralMethodCaches.modify (·.insert key idx)
+  return idx
+
+def structuralSelector (key : String) : Selector := fun goal cfg => do
+  (← structuralIndex key).selector {} goal cfg
+
+def structuralProvenance (owners : Array Name) : MetaM Json := pure <| Json.mkObj [
+  ("kind", toJson "available-signature-patterns"), ("proofTraining", toJson "none"),
+  ("fittedStatistics", toJson "none"), ("evaluationOwners", toJson owners.size),
+  ("queryHeartbeats", toJson (10000 : Nat)),
+  ("cachePolicy", toJson "independent method caches from fixed True warmup")]
+
+def structural : Method := {
+  Prepared.sparse with
+  selector := structuralSelector "structural"
+  selectorName := "JevSelector structural: signatures only, specificity order, heartbeats=10000"
+  warmup := do discard <| structuralIndex "structural"
+  validate := structuralProvenance }
+
+def structuralPublic : Method := {
+  publicTarget with
+  selector := JevSelector.fuse #[publicTarget.selector, structuralSelector "public-fusion"] {}
+  selectorName := "JevSelector public target + structural: rankOffset=16, poolFactor=2, maxPool=256"
+  warmup := do
+    publicTarget.warmup
+    discard <| structuralIndex "public-fusion"
+  validate := fun owners => do
+    return Json.mkObj [("sparse", ← publicTarget.validate owners),
+      ("structural", ← structuralProvenance owners)] }
+
 /-- Strong reference with both imported and earlier current-file statement
 embeddings warmed outside the goal clock. The actual goal is embedded only
 when the selector runs. Initialization cost is recorded by the harness. -/
@@ -127,5 +173,16 @@ def closingNeural : Method := {
   neuralWarm with
   selector := JevSelector.closingFirst neuralWarm.selector
   selectorName := "Warmed LeanPremise neural + closing-first: pool=100, probes=64, heartbeats=1000, subgoals=4" }
+
+def structuralNeural : Method := {
+  neuralWarm with
+  selector := JevSelector.fuse #[neuralWarm.selector, structuralSelector "neural-fusion"] {}
+  selectorName := "Warmed LeanPremise neural + structural: rankOffset=16, poolFactor=2, maxPool=256"
+  warmup := do
+    neuralWarm.warmup
+    discard <| structuralIndex "neural-fusion"
+  validate := fun owners => do
+    return Json.mkObj [("neural", ← neuralWarm.validate owners),
+      ("structural", ← structuralProvenance owners)] }
 
 end JevHammerBenchmark.Research
