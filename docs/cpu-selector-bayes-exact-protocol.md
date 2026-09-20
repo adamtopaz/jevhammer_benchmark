@@ -86,3 +86,26 @@ python -m jevhammer_benchmark run \
   --memory-limit 16000000000 --threads 2 \
   --output runs/cpu-selector-bayes-exact-v1
 ```
+
+## Completed result: no promotion
+
+All 204 trials completed under frozen benchmark `c48b636` and selector
+`e793bad`. All 81 successful proofs independently replayed, with none late.
+On-time counts in table order were **16, 12, 10, 15, 13, 15 out of 34**.
+Exhaustive postings lost two successes versus sampling for both standalone
+Bayes and sparse/Bayes fusion, and gained none. The strongest exhaustive
+candidate, sparse/Bayes, lost three versus the CPU control and gained none.
+It does not meet the promotion rule.
+
+CPU control gained three and lost two versus neural control: +2.94 percentage
+points, with declaration-bootstrap 95% interval **−8.82 to +14.71 points**.
+This does not establish CPU superiority. The larger 134-location development
+comparison remains CPU 63, neural 63, and neural/conclusion fusion 64.
+
+All ten ranking/API failures remain included. The run used 318 Jev requests,
+2,306,014 reported input tokens, 116,993 output tokens, and six requests with
+unknown usage. No trial was budget-blocked. Peak aggregate memory was
+9,724,121,088 bytes, with no memory events under the 16,000,000,000-byte,
+zero-swap limit. Services stopped after replay. Reserved evaluation remains
+untouched. See the [complete report](cpu-selector-bayes-exact-v1.json) and
+[all trial outcomes](cpu-selector-bayes-exact-v1-trials.jsonl).

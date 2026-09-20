@@ -1,0 +1,750 @@
+{
+  "schema": 1,
+  "kind": "live-development-candidate-screen",
+  "benchmarkCommit": "c48b6369c958e74bfb4c9cdd769e362f22b1cb27",
+  "selectorCommit": "e793bad2e447f5b5aa96efd92979e074d6dfa142",
+  "publicIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "bayesProfileCommit": "8b9ffbe9644afe5e982dab35088d2fd6f09449cc",
+  "bayesArtifactSha256": "e6c60bf2da82c61296da74a36797cfe799e07d5c5fb07a1a719bba353d8642f4",
+  "theoremDependencySha256": "a74115a01c104630d0491c084c02f307b2a44281fdb8e4ffc2045d6a1156d84e",
+  "cacheIsolation": "separate mutable method caches from fixed True warmup",
+  "cpuControl": "JevHammerBenchmark.RerankStudy.cpuNative",
+  "neuralControl": "JevHammerBenchmark.RerankStudy.neuralReranked",
+  "sourceSelection": "fixed controls; standalone Bayes meets query cost target; sparse/Bayes was best learned fusion in completed pilot; isolate posting cap in both pairs",
+  "guidePremisesPolicy": "false for CPU arms; true for neural arms; three shared Jev calls; states enabled in all arms",
+  "fusion": "flat RRF, rankOffset16, poolFactor2, maxPool256",
+  "postingCaps": {
+    "sampled": 20000,
+    "exhaustive": 0
+  },
+  "postingCostReport": "docs/cpu-selector-profile-bayes-postings-v1.json",
+  "dataset": "datasets/sparse-jev-v1/research-bayes-exact-v1.json",
+  "datasetSha256": "116e8d6458e357a558313b25005c07eea86c7f25ce2d565718a2810db1f535c7",
+  "summary": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "jev",
+    "methods": {
+      "JevHammerBenchmark.BayesExactStudy.cpuControl": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 16,
+        "rawVerified": 16,
+        "lateVerified": 0,
+        "elapsedMs": 118964,
+        "budgetBlocked": 0,
+        "rankFailures": 1
+      },
+      "JevHammerBenchmark.BayesExactStudy.sampled": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 12,
+        "rawVerified": 12,
+        "lateVerified": 0,
+        "elapsedMs": 134171,
+        "budgetBlocked": 0,
+        "rankFailures": 2
+      },
+      "JevHammerBenchmark.BayesExactStudy.exhaustive": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 10,
+        "rawVerified": 10,
+        "lateVerified": 0,
+        "elapsedMs": 138802,
+        "budgetBlocked": 0,
+        "rankFailures": 1
+      },
+      "JevHammerBenchmark.BayesExactStudy.sampledTarget": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 15,
+        "rawVerified": 15,
+        "lateVerified": 0,
+        "elapsedMs": 119922,
+        "budgetBlocked": 0,
+        "rankFailures": 4
+      },
+      "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 13,
+        "rawVerified": 13,
+        "lateVerified": 0,
+        "elapsedMs": 124027,
+        "budgetBlocked": 0,
+        "rankFailures": 2
+      },
+      "JevHammerBenchmark.BayesExactStudy.neuralControl": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 15,
+        "rawVerified": 15,
+        "lateVerified": 0,
+        "elapsedMs": 136692,
+        "budgetBlocked": 0,
+        "rankFailures": 0
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesExactStudy.sampled",
+        "gained": 4,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.029411764705882353,
+          0.23529411764705882
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesExactStudy.exhaustive",
+        "gained": 6,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.058823529411764705,
+          0.3235294117647059
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesExactStudy.sampledTarget",
+        "gained": 1,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.08823529411764706
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget",
+        "gained": 3,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.17647058823529413
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesExactStudy.neuralControl",
+        "gained": 3,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.08823529411764706,
+          0.14705882352941177
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.sampled",
+        "b": "JevHammerBenchmark.BayesExactStudy.exhaustive",
+        "gained": 2,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.14705882352941177
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.sampled",
+        "b": "JevHammerBenchmark.BayesExactStudy.sampledTarget",
+        "gained": 0,
+        "lost": 3,
+        "declarationBootstrap95": [
+          -0.17647058823529413,
+          0.0
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.sampled",
+        "b": "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget",
+        "gained": 1,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.14705882352941177,
+          0.058823529411764705
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.sampled",
+        "b": "JevHammerBenchmark.BayesExactStudy.neuralControl",
+        "gained": 2,
+        "lost": 5,
+        "declarationBootstrap95": [
+          -0.23529411764705882,
+          0.058823529411764705
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.exhaustive",
+        "b": "JevHammerBenchmark.BayesExactStudy.sampledTarget",
+        "gained": 0,
+        "lost": 5,
+        "declarationBootstrap95": [
+          -0.2647058823529412,
+          -0.058823529411764705
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.exhaustive",
+        "b": "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget",
+        "gained": 0,
+        "lost": 3,
+        "declarationBootstrap95": [
+          -0.17647058823529413,
+          0.0
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.exhaustive",
+        "b": "JevHammerBenchmark.BayesExactStudy.neuralControl",
+        "gained": 0,
+        "lost": 5,
+        "declarationBootstrap95": [
+          -0.2647058823529412,
+          -0.058823529411764705
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.sampledTarget",
+        "b": "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget",
+        "gained": 2,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.14705882352941177
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.sampledTarget",
+        "b": "JevHammerBenchmark.BayesExactStudy.neuralControl",
+        "gained": 2,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.11764705882352941,
+          0.11764705882352941
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget",
+        "b": "JevHammerBenchmark.BayesExactStudy.neuralControl",
+        "gained": 1,
+        "lost": 3,
+        "declarationBootstrap95": [
+          -0.17647058823529413,
+          0.029411764705882353
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 318,
+      "inputTokens": 2306014,
+      "outputTokens": 116993,
+      "unknownUsage": 6
+    }
+  },
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "9724121088",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "metrics": {
+    "JevHammerBenchmark.BayesExactStudy.cpuControl": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 7312,
+      "goalMedianMs": 4352.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 42,
+      "warmupMs": [
+        301,
+        317,
+        5619,
+        309,
+        307,
+        325,
+        4148,
+        310,
+        4047,
+        320,
+        320,
+        4520,
+        295,
+        3770,
+        3335,
+        3517,
+        4506,
+        304,
+        310,
+        4556,
+        293,
+        5127,
+        314,
+        3069,
+        299,
+        1211,
+        309,
+        322,
+        4449,
+        317,
+        317,
+        323,
+        306,
+        3430
+      ],
+      "requests": 42,
+      "reportedInputTokens": 247119,
+      "reportedOutputTokens": 6090,
+      "errors": {
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.BayesExactStudy.sampled": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 6776,
+      "goalMedianMs": 3802.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 53,
+      "warmupMs": [
+        37,
+        16,
+        20655,
+        26,
+        26,
+        18,
+        25,
+        18,
+        19383,
+        17,
+        23,
+        19405,
+        20734,
+        43,
+        45,
+        21989,
+        21026,
+        39,
+        19812,
+        19638,
+        47,
+        19661,
+        20984,
+        45,
+        16,
+        22,
+        21160,
+        58,
+        57,
+        57,
+        20,
+        19706,
+        36,
+        32
+      ],
+      "requests": 53,
+      "reportedInputTokens": 230960,
+      "reportedOutputTokens": 6504,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1,
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.BayesExactStudy.exhaustive": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 6967,
+      "goalMedianMs": 4430.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 54,
+      "warmupMs": [
+        37,
+        16,
+        57,
+        26,
+        25,
+        18,
+        18260,
+        18,
+        24,
+        24,
+        23,
+        32,
+        62,
+        44,
+        43,
+        42,
+        55,
+        39,
+        25,
+        43,
+        23570,
+        61,
+        74,
+        20389,
+        21398,
+        21753,
+        40,
+        57,
+        42,
+        57,
+        21,
+        19,
+        36,
+        32
+      ],
+      "requests": 54,
+      "reportedInputTokens": 234064,
+      "reportedOutputTokens": 6618,
+      "errors": {
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.BayesExactStudy.sampledTarget": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 13437,
+      "goalMedianMs": 3794.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 48,
+      "warmupMs": [
+        20182,
+        322,
+        346,
+        20599,
+        326,
+        328,
+        350,
+        329,
+        355,
+        322,
+        22482,
+        367,
+        350,
+        332,
+        337,
+        339,
+        341,
+        345,
+        332,
+        340,
+        339,
+        346,
+        392,
+        337,
+        314,
+        322,
+        355,
+        19945,
+        22019,
+        366,
+        335,
+        342,
+        19996,
+        18534
+      ],
+      "requests": 48,
+      "reportedInputTokens": 237800,
+      "reportedOutputTokens": 6057,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 2,
+        "TypeSafe HTTP 400": 2
+      }
+    },
+    "JevHammerBenchmark.BayesExactStudy.exhaustiveTarget": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 13761,
+      "goalMedianMs": 4426.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 50,
+      "warmupMs": [
+        333,
+        19871,
+        353,
+        343,
+        21944,
+        20656,
+        341,
+        21163,
+        352,
+        20883,
+        340,
+        369,
+        354,
+        20371,
+        21355,
+        335,
+        346,
+        21834,
+        346,
+        350,
+        353,
+        347,
+        389,
+        349,
+        314,
+        336,
+        351,
+        375,
+        327,
+        23381,
+        20485,
+        343,
+        358,
+        354
+      ],
+      "requests": 50,
+      "reportedInputTokens": 260566,
+      "reportedOutputTokens": 6871,
+      "errors": {
+        "TypeSafe HTTP 400": 1,
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+      }
+    },
+    "JevHammerBenchmark.BayesExactStudy.neuralControl": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": true,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 12155,
+      "goalMedianMs": 5661.0,
+      "premiseRankCalls": 49,
+      "stateRankCalls": 22,
+      "warmupMs": [
+        43748,
+        2115,
+        2940,
+        6358,
+        3114,
+        5441,
+        1801,
+        9553,
+        2608,
+        2494,
+        1855,
+        1739,
+        5938,
+        832,
+        1323,
+        5818,
+        1985,
+        3948,
+        3401,
+        1290,
+        4562,
+        1667,
+        8529,
+        925,
+        1441,
+        2084,
+        4944,
+        6195,
+        3384,
+        6149,
+        1898,
+        7460,
+        4334,
+        3602
+      ],
+      "requests": 71,
+      "reportedInputTokens": 1095505,
+      "reportedOutputTokens": 84853,
+      "errors": {}
+    }
+  },
+  "successfulTrialsIndependentlyReplayed": 81,
+  "reservedEvaluationTrials": 0,
+  "limitations": [
+    "34 previously exposed development locations; one matched posting-cap ablation, no superiority claim.",
+    "Exhaustive query postings still use the unchanged top64-feature artifact; this is not an unpruned Bayes model.",
+    "Neural imported and earlier current-file statements warmed outside the goal clock; costs recorded separately.",
+    "Statement and Bayes arrays shared immutably within each source process; CPU/neural structural query refinement is isolated. Per-arm initialization attribution is order-dependent.",
+    "All arms use Jev proof-state guidance; CPU arms use native order and neural arms use Jev premise reranking under a shared three-call budget. All CPU variants share the selected native premise ordering.",
+    "Model/API failures remain in results. Third-party neural training overlap is unknown."
+  ],
+  "evidenceSha256": {
+    "run.json": "9259526171b86524bfd7b2ad12a63b36004b1cb6337a811858ffbf96d6774105",
+    "summary.json": "bef383b37bb0830a6d9157d5c1a74f9ea777aa3b3cd732ce8dd04fc4729c2a8c",
+    "trials.jsonl": "5bc109355f87ba4cba0f5dfa8c48a146a47e4d6070dd4aeb43db31ca5fb29acc",
+    "decisions.jsonl": "9864b2aca3321e4edff0384ff7e7eef8a7f4ff8470f27f8eac0db69372528183",
+    "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+    "replay-1/replay.jsonl": "5ad530648aa7d641d761e26eac06633fc3fad6e00fdfa0ad28fdcf169745eecf"
+  },
+  "neuralProvenance": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+    "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 2,
+      "embeddingValidation": {
+        "model": {
+          "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+          "revision": "b9f33df6b8b615122872bf76eac91911fcf26468",
+          "requestedRevision": "v4.33.0",
+          "files": [
+            ".gitattributes",
+            "1_Pooling/config.json",
+            "README.md",
+            "config.json",
+            "config_sentence_transformers.json",
+            "merges.txt",
+            "model.safetensors",
+            "modules.json",
+            "onnx/model.onnx",
+            "sentence_bert_config.json",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "vocab.json"
+          ]
+        },
+        "indices": [
+          0,
+          13187,
+          26374,
+          39561,
+          52748,
+          65935,
+          79122,
+          92309,
+          105496,
+          118683,
+          131870,
+          145057,
+          158244,
+          171431,
+          184618,
+          197805,
+          210993,
+          224180,
+          237367,
+          250554,
+          263741,
+          276928,
+          290115,
+          303302,
+          316489,
+          329676,
+          342863,
+          356050,
+          369237,
+          382424,
+          395611,
+          408799
+        ],
+        "maxAbsoluteError": 2.1979212760925293e-07,
+        "minimumCosine": 0.9999998807907104,
+        "corpusSize": 408800,
+        "device": "cpu",
+        "dtype": "float32",
+        "passed": true
+      },
+      "memoryLimitBytes": 16000000000,
+      "swapLimitBytes": 0,
+      "launcherSha256": "0b03470eae6e20bf94692d365b6864f0cbe25bbc9faed05cd9365431ade3841b",
+      "cpuEmbedSha256": "ea501fd4d49d60ae0515748e52b6284add48e697b83445031b29b50c29c2cad6",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39"
+    }
+  },
+  "publicTrials": {
+    "path": "cpu-selector-bayes-exact-v1-trials.jsonl",
+    "sha256": "ce15de39f06796be63b0b9d162483be1fc96af6071a9e61e484aabefa2dcb613"
+  }
+}

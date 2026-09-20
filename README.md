@@ -133,6 +133,8 @@ untouched while choosing methods.
   100- and 32-candidate comparisons with separate premise/state request costs.
 - [Neural selector](integrations/neural/README.md): optional explicit service,
   pinned historical model/corpus metadata, and comparison limitations.
+- [CPU selector research status](docs/cpu-selector-research-status.md): broader
+  CPU/neural results, retrieval costs, and why superiority remains unproven.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,
   sampling, usage, resource limits, and failure handling.
 - [Initial validation](docs/validation.md): offline checks, Mathlib preparation,
