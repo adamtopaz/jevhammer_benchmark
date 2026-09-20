@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "7415607296",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "indexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "recipe": {
+    "algorithm": "statement-symbol-idf-v1",
+    "modules": [
+      "Mathlib"
+    ],
+    "scopes": [
+      "Mathlib"
+    ],
+    "proofInformation": "none",
+    "heldoutStatementStatistics": "excluded",
+    "catalogPolicy": "public-constants",
+    "trainingOwners": "eligible original theorems only",
+    "statementCatalog": "retained; runtime availability and caller filter required"
+  },
+  "declarations": 318231,
+  "eligible": 254885,
+  "candidateOnly": 63162,
+  "excluded": 288,
+  "symbols": 59171,
+  "artifactBytes": 183776793,
+  "extractionSeconds": 228.22368668194395,
+  "totalSeconds": 232.66365648503415,
+  "kind": "full-library-public-catalog-preparation",
+  "selectorCommit": "dbcf4f765a87fe6caa515e322da1d150a63c83ae",
+  "audit": {
+    "identicalEligibleOwners": true,
+    "identicalExclusions": true,
+    "identicalFittedSymbolWeights": true,
+    "identicalOriginalTheoremRows": true
+  },
+  "exclusions": "datasets/mathlib-broad-v1/holdouts.json",
+  "excludedOwners": 188,
+  "reservedEvaluationTrials": 0
+}

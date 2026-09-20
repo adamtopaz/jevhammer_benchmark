@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "f601085bab31337b3aa829511b83bea123e88e09",
+  "sampleCount": 32,
+  "repeats": 3,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "methods": {
+    "target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "target",
+      "loadMs": 2388,
+      "queries": 96,
+      "medianMs": 65.616653,
+      "p95Ms": 128.187771,
+      "meanMs": 72.0173994375,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2168164352",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "8e1a82bbaf39657cd69da9ba674dbc565bfab84fa596427bab93d802fa2de2c2",
+      "indexSha256": "39b500a9776a562f3982897acf5790c4ecbb87f716a5728203cfff1b3360e1ed"
+    },
+    "closing-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "closing-target",
+      "loadMs": 2476,
+      "queries": 96,
+      "medianMs": 105.902191,
+      "p95Ms": 216.914622,
+      "meanMs": 117.86456946875,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2168164352",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "6861320d16d159eadb5d60ad03bc9a244b0d8d43c30a3541d98bdf64a0d850b6",
+      "indexSha256": "39b500a9776a562f3982897acf5790c4ecbb87f716a5728203cfff1b3360e1ed"
+    },
+    "public-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "target",
+      "loadMs": 2841,
+      "queries": 96,
+      "medianMs": 83.395785,
+      "p95Ms": 152.398941,
+      "meanMs": 87.823312875,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2382069760",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "f9ecd8122484f265a94732cd6ebf50efa7b6f5bb5b32cedbdb6e346596b88300",
+      "indexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5"
+    },
+    "public-neighbors": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "neighbors",
+      "loadMs": 7387,
+      "queries": 96,
+      "medianMs": 52.734753,
+      "p95Ms": 86.349842,
+      "meanMs": 53.58251254166667,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "3850293248",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "97283834b61a5975ac15277036f6021a261e344cecaef3fffbd2098a1ff2e2f2",
+      "indexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5"
+    }
+  },
+  "limitations": [
+    "Statement-type queries only; these are not proof-success measurements.",
+    "The target and closure profiles use the same 32 theorem types.",
+    "Public-catalog methods sample 32 types from their wider catalog, including non-theorems; these are not matched query types against the original catalog.",
+    "Methods run serially in fresh Lean processes; memory peaks are cumulative within the shared scope.",
+    "Cold loading is reported separately; no Jev or neural requests are made."
+  ]
+}

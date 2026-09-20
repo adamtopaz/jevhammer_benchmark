@@ -10,6 +10,11 @@ def target : Method := {
   selector := fun goal cfg => do (← Prepared.index).targetSelector goal cfg
   selectorName := "JevSelector target-v1: target=4, context=1, pivot=0.75" }
 
+def closingTarget : Method := {
+  target with
+  selector := JevSelector.closingFirst target.selector
+  selectorName := "JevSelector target + closing-first: pool=100, probes=64, heartbeats=1000, subgoals=4" }
+
 def ensemble : Method := {
   Prepared.sparse with
   selector := fun goal cfg => do (← Prepared.index).ensembleSelector {} goal cfg
@@ -60,6 +65,48 @@ def usage : Method := {
   warmup := do (← usageIndex).validateEnvironment
   validate := fun owners => do (← usageIndex).validateHoldouts owners }
 
+initialize publicCache : IO.Ref (Option (String × JevSelector.Index)) ← IO.mkRef none
+
+def publicIndex : IO JevSelector.Index := do
+  let some path ← IO.getEnv "JEVSELECTOR_PUBLIC_INDEX"
+    | throw <| IO.userError "set JEVSELECTOR_PUBLIC_INDEX to an expanded public catalog"
+  if let some (previous, idx) ← publicCache.get then
+    unless previous == path do throw <| IO.userError "public catalog path changed during a run"
+    return idx
+  let idx ← JevSelector.load path
+  unless idx.artifact.publicConstants do
+    throw <| IO.userError "public-catalog method requires publicConstants = true"
+  publicCache.set (some (path, idx))
+  return idx
+
+def publicTarget : Method := {
+  Prepared.sparse with
+  selector := fun goal cfg => do (← publicIndex).targetSelector goal cfg
+  selectorName := "JevSelector public-catalog target: definitions/constructors, theorem-only IDF"
+  warmup := do (← publicIndex).validateEnvironment
+  validate := fun owners => do (← publicIndex).validateHoldouts owners }
+
+initialize publicDependencyCache : IO.Ref (Option (String × JevSelector.DependencyIndex)) ← IO.mkRef none
+
+def publicDependencyIndex : IO JevSelector.DependencyIndex := do
+  let some path ← IO.getEnv "JEVSELECTOR_PUBLIC_DEPENDENCIES"
+    | throw <| IO.userError "set JEVSELECTOR_PUBLIC_DEPENDENCIES to a public-label model"
+  if let some (previous, model) ← publicDependencyCache.get then
+    unless previous == path do throw <| IO.userError "public-label path changed during a run"
+    return model
+  let model ← JevSelector.loadDependencies (← publicIndex) path
+  unless model.artifact.publicLabels do
+    throw <| IO.userError "public-label method requires publicLabels = true"
+  publicDependencyCache.set (some (path, model))
+  return model
+
+def publicNeighbors : Method := {
+  Prepared.sparse with
+  selector := fun goal cfg => do (← publicDependencyIndex).selector {} goal cfg
+  selectorName := "JevSelector public-label neighbors: 32 eligible theorem examples, direct public labels"
+  warmup := do (← publicDependencyIndex).validateEnvironment
+  validate := fun owners => do (← publicDependencyIndex).validateHoldouts owners }
+
 /-- Strong reference with both imported and earlier current-file statement
 embeddings warmed outside the goal clock. The actual goal is embedded only
 when the selector runs. Initialization cost is recorded by the harness. -/
@@ -75,5 +122,10 @@ def neuralWarm : Method := {
       let modules ← Cloud.getIndexedImportedModules
       let premises ← Cloud.getUnindexedPremises
       discard <| Cloud.selectPremisesCore "⊢ True" #[] modules premises 1 }
+
+def closingNeural : Method := {
+  neuralWarm with
+  selector := JevSelector.closingFirst neuralWarm.selector
+  selectorName := "Warmed LeanPremise neural + closing-first: pool=100, probes=64, heartbeats=1000, subgoals=4" }
 
 end JevHammerBenchmark.Research

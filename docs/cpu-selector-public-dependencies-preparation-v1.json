@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "3668328448",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "dependenciesSha256": "3649b32cb44cfaf40c2a4f8fdc33fbc2857c538d6fb4c061b3a32c81da94e585",
+  "examples": 254885,
+  "premises": 187655,
+  "edges": 5249157,
+  "artifactBytes": 129555030,
+  "recipe": {
+    "algorithm": "direct-proof-neighbors-v1",
+    "modules": [
+      "Mathlib"
+    ],
+    "proofInformation": "direct permitted-constant references in eligible theorem proof values",
+    "labelPolicy": "public-constants",
+    "excludedProofBodies": "never read",
+    "helperProofBodies": "never traversed",
+    "definitionBodies": "never read",
+    "labelStatistics": "eligible examples only"
+  },
+  "totalSeconds": 739.2779667299474,
+  "kind": "full-library-public-label-preparation",
+  "selectorCommit": "dbcf4f765a87fe6caa515e322da1d150a63c83ae",
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "audit": {
+    "identicalEligibleOwners": true,
+    "allOriginalTheoremEdgesRetained": true,
+    "identicalOriginalLabelHashesAndWeights": true
+  },
+  "exclusions": "datasets/mathlib-broad-v1/holdouts.json",
+  "excludedOwners": 188,
+  "reservedEvaluationTrials": 0
+}

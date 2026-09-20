@@ -251,3 +251,43 @@ reranking remain separate hypotheses. The research goal remains unfulfilled.
 
 [Complete evidence](cpu-selector-usage-v1.json),
 [all per-location outcomes](cpu-selector-usage-v1-trials.jsonl).
+
+## Public catalogs and closure ranking: cost measured, proof screen pending
+
+The public-constant catalog has **318,231 rows**, including **63,162 eligible
+candidate-only constants**, while retaining **254,885 theorem training owners**.
+Preparation took **232.66 s** and produced **183.78 MB**. Its public-label companion
+contains **187,655 premises** and **5,249,157 direct edges**, taking **739.28 s**
+and **129.56 MB**. Definition/helper bodies remain unopened. Exhaustive artifact
+audits confirm unchanged original theorem rows, owners, exclusions, fitted
+symbol weights, original dependency edges, and original label hashes/weights.
+[Statement preparation](cpu-selector-public-catalog-preparation-v1.json),
+[label preparation](cpu-selector-public-dependencies-preparation-v1.json).
+
+`closingFirst` is a generic CPU wrapper: retrieve up to 100 names, probe the first
+64 filtered candidates, and promote those that close by application plus local
+assumptions or reflexivity. Probes have a 1,000-heartbeat limit and at most four
+subgoals. It restores Lean state and returns only names; no model calls or training
+are hidden in the wrapper. Native integration checks and 19 Python tests pass.
+
+| Method | Median query | p95 query | Cold load |
+|---|---:|---:|---:|
+| Original target ranking | 65.62 ms | 128.19 ms | 2.39 s |
+| Target + closure ranking | 105.90 ms | 216.91 ms | 2.48 s |
+| Public-catalog target | 83.40 ms | 152.40 ms | 2.84 s |
+| Public-label neighbors | 52.73 ms | 86.35 ms | 7.39 s |
+
+Each profile has 32 deterministic statement types × 3 repetitions. The first
+two use identical types; the public-catalog pair samples different types from
+the expanded catalog, including non-theorems. These are latency profiles, not
+source-goal proof measurements. Closure p95 slightly exceeds the provisional
+200 ms target but is affordable enough for one proof screen; parameters remain
+unchanged. The serial scope peaked at **3.85 GB** with no memory events under
+the **16 GB, zero-swap cap**. [Profile evidence](cpu-selector-profile-public-closure-v1.json).
+
+The [frozen six-arm screen](cpu-selector-public-closure-protocol.md) compares these
+four methods with warmed neural retrieval and equally closure-ranked neural
+retrieval, using the same 34 development goals, six-second limits, tactic sets,
+and Jev proof-state guidance. Re-admission verifies unchanged source goals.
+The reserved evaluation split remains untouched. No coverage improvement has
+yet been established for either intervention.
