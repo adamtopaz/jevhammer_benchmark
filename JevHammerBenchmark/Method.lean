@@ -12,6 +12,8 @@ deriving instance ToJson, FromJson for JevHammer.Config
 and select their fully qualified names in the driver; no runner changes needed. -/
 structure Method where
   selector : LibrarySuggestions.Selector
+  /-- Optional selector decisions share JevHammer's proof-search budget. -/
+  selectorFactory : Option JevHammer.SelectorFactory := none
   tactics : JevHammer.TacticSet := JevHammer.defaultTactics
   config : JevHammer.Config := {}
   /-- Human-readable identities supplement the compiled method's source hash. -/
@@ -42,6 +44,7 @@ def Method.runWarmup (method : Method) (owners : Array Name) : MetaM Json :=
 def methodInfo (name : String) (method : Method) : Json := Json.mkObj [
   ("name", toJson name), ("selector", toJson method.selectorName),
   ("tactics", toJson method.tacticSetName), ("config", toJson method.config),
+  ("selectorGuidance", toJson method.selectorFactory.isSome),
   ("warmupHeartbeats", toJson method.warmupHeartbeats)]
 
 def loadMethod (name : String) : MetaM Method := do

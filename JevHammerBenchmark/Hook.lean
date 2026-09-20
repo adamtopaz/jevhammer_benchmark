@@ -105,7 +105,7 @@ private def trial (s : Settings) (node : Mathlib.TacticAnalysis.TacticNode)
         let ranker ← budgetedRanker s.outputDir site methodName method.config
           s.maxRequests s.maxInputTokens s.mock blocked
         JevHammer.solve node.tacI.goalsBefore method.selector ranker stats
-          method.config method.tactics
+          method.config method.tactics method.selectorFactory
         node.tacI.goalsBefore.toArray.mapM (closeProof original)
   catch e => error ← e.toMessageData.toString
   let elapsed := (← IO.monoMsNow) - start

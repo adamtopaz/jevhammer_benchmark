@@ -105,6 +105,13 @@ of the source context and the trial's heartbeat budget. Set it to zero to disabl
 only the initialization heartbeat limit; module timeouts and memory limits still
 apply. Reports record this setting alongside warmup costs.
 
+`Method.selectorFactory` optionally decorates the standard selector with
+JevHammer's budgeted ranking callback. Selector decisions share the same clock,
+Jev request allowance, and usage ledger as proof-state decisions. Reports mark
+`selectorGuidance` and record `stats.selectorRankCalls` as a subset of premise
+ranking calls. Warmup and validation hooks never receive this callback; initialize
+only goal-independent data there. Include the factory recipe in `selectorName`.
+
 ## Holdouts and integrations
 
 The [broad Mathlib cohort](datasets/mathlib-broad-v1/README.md) supplies a

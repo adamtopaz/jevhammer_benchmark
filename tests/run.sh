@@ -3,6 +3,8 @@ set -euo pipefail
 python -m unittest discover -s tests -v
 lake build JevHammerBenchmarkTests JevHammerBenchmark.Selector JevHammerBenchmark.Neural
 lake env lean WarmupBudgetTests.lean
+lake build JevHammerBenchmark.GraphStudy
+lake env lean SelectorGuidanceTests.lean
 scratch=$(mktemp -d)
 trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$scratch"; else echo "Test evidence retained: $scratch" >&2; fi' EXIT
 if python -m jevhammer_benchmark discover --modules Mathlib.Data.Nat.Basic --output "$scratch/import-cycle" "$@"; then
@@ -47,4 +49,24 @@ fi
 python - "$scratch/run/summary.json" <<'PY'
 import json, sys
 assert json.load(open(sys.argv[1]))['status'] == 'incomplete'
+PY
+
+# The public Method factory must reach the real hook, statistics and replay.
+python -m jevhammer_benchmark discover --source GuidedFixture=tests/fixtures/Guided.lean --count 4 --output "$scratch/guided-dataset" "$@"
+python -m jevhammer_benchmark run --dataset "$scratch/guided-dataset/dataset.json" --mock --methods GuidedFixture.method --max-requests 4 --output "$scratch/guided-run" "$@"
+python -m jevhammer_benchmark replay "$scratch/guided-run" "$@"
+python - "$scratch/guided-run" <<'PY'
+import json, sys
+from pathlib import Path
+root = Path(sys.argv[1])
+summary = json.loads((root / 'summary.json').read_text())
+assert summary['status'] == 'complete'
+rows = [json.loads(line) for line in (root / 'trials.jsonl').read_text().splitlines()]
+assert rows
+for row in rows:
+    assert row['solved'] and row['onTime'] and row['selectorGuidance']
+    assert row['stats']['selectorRankCalls'] == row['stats']['premiseRankCalls'] == row['stats']['rankCalls'] == 1
+assert all(row['stats']['model'] == 'OFFLINE-MOCK' for row in rows)
+# Mock rankings do not perform or record billable network requests.
+assert json.loads((root / 'usage.json').read_text())['attempts'] == 0
 PY
