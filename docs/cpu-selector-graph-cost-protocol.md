@@ -36,7 +36,14 @@ To reproduce after building `JevHammerBenchmark.GraphStudy` and Mathlib:
 ```sh
 JEVSELECTOR_PUBLIC_INDEX=/path/to/index.json \
 JEVSELECTOR_GRAPH_PROFILE_OUTPUT=/path/to/queries.json \
-  lake env lean -j2 -M0 -DmaxHeartbeats=0 GraphCostProfile.lean
+  python - <<'PY'
+import os
+from pathlib import Path
+from jevhammer_benchmark.cli import lean_file
+lean_file(Path.cwd(), Path("GraphCostProfile.lean").resolve(),
+          Path("/tmp/graph-profile.log"), dict(os.environ), 600,
+          ["-j2", "-M0", "-DmaxHeartbeats=0"], "GraphCostProfile")
+PY
 ```
 
 Place this command in an externally bounded job as above. Disabling the outer
@@ -72,3 +79,21 @@ program reaches execution promptly. These checks used zero model calls.
 Keep the same 384-query recipe and all production graph bounds for the
 separate `cpu-selector-profile-graph-v2` run. Its initialization and query costs
 are the next evidence needed before a proof screen.
+
+## Launcher correction before interpreting costs
+
+The v2 diagnostic completed graph construction and began queries, but its
+unchanged CPU base ran much slower than established profiles. Inspection found
+that the new launcher used `lake env lean` directly, omitting Lake's compiled
+dependency plugin setup. Both v1 and v2 therefore measured interpreted execution
+and are unsuitable for comparisons with the production harness. V2 was explicitly
+stopped; its [partial diagnostic report](cpu-selector-profile-graph-v2.json) is
+retained. No proof trials or model calls occurred.
+
+Use the existing `lean_file` helper, as in the corrected reproduction command
+above. It obtains Lake's setup file and passes the plugin configuration to Lean.
+The distinct v3 run keeps selector `0ce4ccd`, the same 384 queries and bounds,
+and records the setup/plugin evidence. Do not report either discarded launcher's
+timings as production latency. The canonical old/new graph equality and
+functional regressions remain valid; their small-environment timings were also
+from direct interpreted launches.

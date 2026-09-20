@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "incomplete",
+  "kind": "cpu-only-graph-cost",
+  "modelCalls": 0,
+  "goalProofTrials": 0,
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "profileSourceSha256": "cf28d5ce936eefdbbe2797d067d9ae04536fc5e28eb4b58d9f0c37f62c472ee1",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "197918720",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "4347813888",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "profiles": {},
+  "benchmarkCommit": "3956d32265d8b9cf99682d4fdd0d146f31b607ca",
+  "selectorCommit": "0ce4ccd9a38d471f2e40f311e2a90e0ee5ede28a",
+  "hammerCommit": "2e3df668acbef581c81adccf70e629119cd28760",
+  "benchmarkWorkingDiff": "",
+  "error": "",
+  "phases": [
+    {
+      "monoMs": 1052791426,
+      "phase": "loading"
+    },
+    {
+      "monoMs": 1052806072,
+      "phase": "validation"
+    },
+    {
+      "monoMs": 1052806492,
+      "phase": "graph"
+    },
+    {
+      "monoMs": 1052899563,
+      "phase": "structural"
+    },
+    {
+      "monoMs": 1052934422,
+      "phase": "queries"
+    }
+  ],
+  "stopReason": "Intentionally stop nonrepresentative cost run: direct lake env lean omitted Lake --setup and compiled plugin paths used by production benchmark and established cost profiles. Preserve partial diagnostics; use existing lean_file helper for a distinct new run.",
+  "partialQueryCounts": {
+    "base": 96,
+    "none": 96,
+    "forward": 39,
+    "backward": 0
+  },
+  "queryErrors": 0,
+  "performanceComparable": false,
+  "limitations": [
+    "Direct lake env lean omitted compiled plugins; these interpreter costs cannot be compared with established native cost profiles.",
+    "The run was deliberately interrupted after detecting this launcher defect.",
+    "No model calls or proof trials occurred."
+  ]
+}
