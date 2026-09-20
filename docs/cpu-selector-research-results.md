@@ -291,3 +291,45 @@ retrieval, using the same 34 development goals, six-second limits, tactic sets,
 and Jev proof-state guidance. Re-admission verifies unchanged source goals.
 The reserved evaluation split remains untouched. No coverage improvement has
 yet been established for either intervention.
+
+## Public-catalog and closure screen: complete, small exploratory gain
+
+All **204 trials** completed, and **all 82 successes independently replayed**.
+There were no late successes, blocked trials, or module failures. Every arm used
+the same six-second budget, Mathlib tactics, and Jev proof-state guidance, without
+Jev premise reranking. Neural services started fresh with the frozen warmup policy.
+
+| Method | On-time verified | Total goal time | Retrieval time |
+|---|---:|---:|---:|
+| Original target ranking | 14/34 | 118.923 s | 5.629 s |
+| Public-catalog target | **15/34** | **113.456 s** | 5.399 s |
+| Public-label neighbors | 12/34 | 124.376 s | 5.003 s |
+| Target + closure ranking | 13/34 | 122.517 s | 7.838 s |
+| Warmed neural reference | 14/34 | 120.244 s | 10.614 s |
+| Neural + closure ranking | 14/34 | 122.997 s | 14.109 s |
+
+The expanded catalog gained one location and lost none against the original
+target selector. Against either neural arm it gained two and lost one, with a
+paired declaration-bootstrap 95% interval of **−5.9 to +11.8 percentage points**.
+This is a one-goal exploratory lead, not statistically established superiority.
+Retain the expanded catalog as a promising CPU candidate for larger development
+validation; do not claim the research objective is achieved.
+
+Public-label voting still trails neural by two locations and has the slowest
+preparation of these candidates. Closure ranking added cost and no coverage to
+neural; it lost one location when applied to target retrieval. Neither is promoted
+as an improved configuration. Candidate parameters were unchanged during the run.
+
+All **23 ranking/API errors** remain in the results (3, 5, 5, 4, 1, 5 by arm).
+The run made **326 Jev requests**, with **1,836,304 reported input tokens**,
+**43,911 output tokens**, and unknown usage for **15** requests. Combined peak
+memory was **12.85 GB**, with no memory events under the shared **16 GB zero-swap
+cap**. Services stopped after replay. No reserved evaluation trial was run.
+
+The next candidate uses Lean's signature discrimination tree as an additional
+premise source; implementation is under validation. Its initialization and query
+costs must be measured before proof evaluation. The significant-improvement goal
+remains open.
+
+[Complete configurations and evidence](cpu-selector-public-closure-v1.json),
+[all per-location outcomes](cpu-selector-public-closure-v1-trials.jsonl).
