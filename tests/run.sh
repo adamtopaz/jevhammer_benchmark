@@ -5,6 +5,8 @@ lake build JevHammerBenchmarkTests JevHammerBenchmark.Selector JevHammerBenchmar
 lake env lean WarmupBudgetTests.lean
 lake build JevHammerBenchmark.GraphStudy
 lake env lean SelectorGuidanceTests.lean
+lake build JevHammerBenchmark.GraphPreviewStudy
+lake env lean GraphPreviewStudyTests.lean
 scratch=$(mktemp -d)
 trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$scratch"; else echo "Test evidence retained: $scratch" >&2; fi' EXIT
 if python -m jevhammer_benchmark discover --modules Mathlib.Data.Nat.Basic --output "$scratch/import-cycle" "$@"; then
