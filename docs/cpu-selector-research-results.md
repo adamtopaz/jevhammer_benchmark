@@ -486,3 +486,47 @@ fusion exceeds the 200 ms p95 target. These are latency measurements, not proof
 coverage. An explicit import/plugin overlay used validated selector `ae41248`
 (documentation revision `ed067b0`) without changing the proof benchmark's pin.
 [Full profile and binary-artifact provenance](cpu-selector-profile-rewrites-v1.json).
+
+## Matched-warmup premise reranking
+
+All **136 trials** completed at the same 34 exposed development locations.
+Every one of the **57 successful proofs independently replayed**. One proof in
+the neural-reranked arm was late and is excluded from the on-time result.
+
+| Method | On-time verified | Total goal time | Retrieval time | Reported input tokens |
+|---|---:|---:|---:|---:|
+| CPU fusion, native order | **16/34 (47.1%)** | 116.441 s | 6.728 s | 240,565 |
+| CPU fusion, Jev reranked | 13/34 (38.2%) | 137.314 s | 6.532 s | 1,064,223 |
+| Neural fusion, native order | 13/34 (38.2%) | 125.498 s | 11.889 s | 291,528 |
+| Neural fusion, Jev reranked | **14/34 (41.2%)** | 139.348 s | 11.773 s | 1,118,159 |
+
+Benchmark `2a5fffb` and selector `b8b0a95` used six seconds and three shared Jev
+calls per goal, with Jev proof-state guidance in every arm. Both neural arms
+warmed imported and earlier current-file statement embeddings outside the clock;
+goal embeddings remained timed. Each method had independent mutable structural
+query caches. Shared initialization and warmup costs are reported separately;
+per-arm startup attribution is order-dependent.
+
+Native CPU order gained three and lost none against CPU reranking. Against the
+stronger reranked neural arm, it gained three and lost one: **+5.9 points**, with
+paired declaration-bootstrap 95% interval **−2.94 to +17.65 points**. This small,
+previously exposed pilot does not establish superiority. In the larger completed
+development comparison, CPU fusion did not beat neural fusion.
+
+The native CPU/neural arms made **42/46 state-ranking calls** and no premise
+calls; the reranked arms made **49/50 premise calls** and **24/23 state calls**.
+Reranking used roughly four times the input tokens while leaving fewer calls for
+state guidance. These observations do not isolate ranking quality from the
+shared-budget tradeoff. All **7 ranking/API errors** remain counted (2/3/2/0).
+There were **234 requests**, **2,714,475 reported input tokens**, **184,811 output
+tokens**, and one request with unknown usage. No trials were budget-blocked.
+Peak memory was **11.01 GB**, without memory events under **16 GB, zero swap**;
+services stopped after replay. The 122 reserved evaluation locations are untouched.
+
+The predeclared coverage-then-goal-time rule chooses native CPU order and Jev
+reranking for neural fusion in the next rewrite-source screen. Those settings
+will be shared by each control and its rewrite variant, with CPU settings for
+the signature-only ablation. They are development choices, not unseen-goal claims.
+
+[Complete configurations, paired intervals, request kinds, and costs](cpu-selector-rerank-v1.json),
+[all 136 per-location outcomes](cpu-selector-rerank-v1-trials.jsonl).
