@@ -147,3 +147,16 @@ audit. Check unchanged identities, configurations and original record bytes
 before combining collection phases; independently replay the combined proof
 set. Record both code revisions and resource phases. This is an amended
 pilot collection, not an uninterrupted repeat or evidence of superiority.
+
+## Outcome
+
+The amended screen and independent replay are complete: 170 trials, 70 replayed
+successes, one late neural-control proof excluded. On-time counts are CPU control
+16/34, Bayes 12/34, sparse/Bayes 15/34, triple fusion 13/34, and neural control
+13/34. No Bayes variant improves on the CPU control, so none earns promotion.
+CPU versus neural gained four and lost one, with 95% declaration-bootstrap
+interval −2.94 to +20.59 percentage points; this exposed pilot does not establish
+superiority. Full configurations, costs, errors, usage, recovery audit, and
+all outcomes are in [the results](cpu-selector-bayes-v1.json) and
+[trial records](cpu-selector-bayes-v1-trials.jsonl). The 122 reserved evaluation
+locations remain untouched.

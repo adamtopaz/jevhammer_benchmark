@@ -1,0 +1,777 @@
+{
+  "schema": 1,
+  "kind": "live-development-candidate-screen",
+  "benchmarkCommit": "dba2010f30fe21af1a1e9263c6caa35a00929556",
+  "selectorCommit": "8b9ffbe9644afe5e982dab35088d2fd6f09449cc",
+  "publicIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "bayesProfileCommit": "8b9ffbe9644afe5e982dab35088d2fd6f09449cc",
+  "bayesArtifactSha256": "e6c60bf2da82c61296da74a36797cfe799e07d5c5fb07a1a719bba353d8642f4",
+  "theoremDependencySha256": "a74115a01c104630d0491c084c02f307b2a44281fdb8e4ffc2045d6a1156d84e",
+  "cacheIsolation": "separate mutable method caches from fixed True warmup",
+  "cpuControl": "JevHammerBenchmark.RerankStudy.cpuNative",
+  "neuralControl": "JevHammerBenchmark.RerankStudy.neuralReranked",
+  "sourceSelection": "full-development source coverage then retrieval; matched-warmup guidance coverage then goal time",
+  "guidePremisesPolicy": "false for CPU arms; true for neural arms; three shared Jev calls; states enabled in all arms",
+  "fusion": "flat RRF, rankOffset16, poolFactor2, maxPool256",
+  "dataset": "datasets/sparse-jev-v1/research-bayes-v1.json",
+  "datasetSha256": "c0616b50befb00b0e22c426f5d4b2b5ad9bed3c7a01c68c3bbaacd01646510de",
+  "summary": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "jev",
+    "methods": {
+      "JevHammerBenchmark.BayesStudy.cpuControl": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 16,
+        "rawVerified": 16,
+        "lateVerified": 0,
+        "elapsedMs": 117871,
+        "budgetBlocked": 0,
+        "rankFailures": 4
+      },
+      "JevHammerBenchmark.BayesStudy.bayes": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 12,
+        "rawVerified": 12,
+        "lateVerified": 0,
+        "elapsedMs": 133063,
+        "budgetBlocked": 0,
+        "rankFailures": 2
+      },
+      "JevHammerBenchmark.BayesStudy.bayesTarget": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 15,
+        "rawVerified": 15,
+        "lateVerified": 0,
+        "elapsedMs": 117808,
+        "budgetBlocked": 0,
+        "rankFailures": 2
+      },
+      "JevHammerBenchmark.BayesStudy.bayesStructuralTarget": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 13,
+        "rawVerified": 13,
+        "lateVerified": 0,
+        "elapsedMs": 126243,
+        "budgetBlocked": 0,
+        "rankFailures": 2
+      },
+      "JevHammerBenchmark.BayesStudy.neuralControl": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 13,
+        "rawVerified": 14,
+        "lateVerified": 1,
+        "elapsedMs": 140094,
+        "budgetBlocked": 0,
+        "rankFailures": 1
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.BayesStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesStudy.bayes",
+        "gained": 4,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.029411764705882353,
+          0.23529411764705882
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesStudy.bayesTarget",
+        "gained": 1,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.08823529411764706
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesStudy.bayesStructuralTarget",
+        "gained": 3,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.17647058823529413
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.cpuControl",
+        "b": "JevHammerBenchmark.BayesStudy.neuralControl",
+        "gained": 4,
+        "lost": 1,
+        "declarationBootstrap95": [
+          -0.029411764705882353,
+          0.20588235294117646
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.bayes",
+        "b": "JevHammerBenchmark.BayesStudy.bayesTarget",
+        "gained": 0,
+        "lost": 3,
+        "declarationBootstrap95": [
+          -0.17647058823529413,
+          0.0
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.bayes",
+        "b": "JevHammerBenchmark.BayesStudy.bayesStructuralTarget",
+        "gained": 1,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.14705882352941177,
+          0.058823529411764705
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.bayes",
+        "b": "JevHammerBenchmark.BayesStudy.neuralControl",
+        "gained": 3,
+        "lost": 4,
+        "declarationBootstrap95": [
+          -0.17647058823529413,
+          0.11764705882352941
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.bayesTarget",
+        "b": "JevHammerBenchmark.BayesStudy.bayesStructuralTarget",
+        "gained": 2,
+        "lost": 0,
+        "declarationBootstrap95": [
+          0.0,
+          0.14705882352941177
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.bayesTarget",
+        "b": "JevHammerBenchmark.BayesStudy.neuralControl",
+        "gained": 3,
+        "lost": 1,
+        "declarationBootstrap95": [
+          -0.058823529411764705,
+          0.17647058823529413
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.BayesStudy.bayesStructuralTarget",
+        "b": "JevHammerBenchmark.BayesStudy.neuralControl",
+        "gained": 2,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.11764705882352941,
+          0.11764705882352941
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 263,
+      "inputTokens": 2054252,
+      "outputTokens": 111585,
+      "unknownUsage": 5
+    }
+  },
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "10612797440",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "recoveryFinal": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "12219166720",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "metrics": {
+    "JevHammerBenchmark.BayesStudy.cpuControl": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 7066,
+      "goalMedianMs": 4507.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 42,
+      "warmupMs": [
+        7283,
+        314,
+        296,
+        304,
+        1529,
+        312,
+        3290,
+        4197,
+        1419,
+        1446,
+        313,
+        7724,
+        292,
+        312,
+        4675,
+        306,
+        4631,
+        283,
+        7627,
+        4149,
+        302,
+        3154,
+        313,
+        5885,
+        287,
+        7395,
+        320,
+        304,
+        1996,
+        298,
+        302,
+        304,
+        289,
+        309
+      ],
+      "requests": 42,
+      "reportedInputTokens": 244343,
+      "reportedOutputTokens": 5945,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 3,
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.BayesStudy.bayes": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 6327,
+      "goalMedianMs": 3815.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 53,
+      "warmupMs": [
+        37,
+        22676,
+        51,
+        23,
+        17,
+        19705,
+        17,
+        17366,
+        19,
+        19676,
+        29,
+        17631,
+        19292,
+        20485,
+        19324,
+        36,
+        16998,
+        41,
+        18473,
+        72,
+        19413,
+        19,
+        34,
+        48,
+        19335,
+        18375,
+        19028,
+        32,
+        24,
+        33,
+        43,
+        35,
+        18,
+        18
+      ],
+      "requests": 53,
+      "reportedInputTokens": 212066,
+      "reportedOutputTokens": 6313,
+      "errors": {
+        "TypeSafe HTTP 400": 2
+      }
+    },
+    "JevHammerBenchmark.BayesStudy.bayesTarget": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 12936,
+      "goalMedianMs": 3940.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 47,
+      "warmupMs": [
+        17298,
+        326,
+        24248,
+        329,
+        20498,
+        338,
+        330,
+        357,
+        19834,
+        335,
+        20436,
+        358,
+        327,
+        337,
+        340,
+        20444,
+        352,
+        19520,
+        374,
+        345,
+        330,
+        339,
+        19796,
+        19847,
+        338,
+        365,
+        339,
+        19369,
+        19612,
+        324,
+        343,
+        337,
+        302,
+        329
+      ],
+      "requests": 47,
+      "reportedInputTokens": 233910,
+      "reportedOutputTokens": 6048,
+      "errors": {
+        "TypeSafe HTTP 400": 1,
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+      }
+    },
+    "JevHammerBenchmark.BayesStudy.bayesStructuralTarget": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 14382,
+      "goalMedianMs": 4586.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 48,
+      "warmupMs": [
+        361,
+        321,
+        360,
+        21503,
+        329,
+        333,
+        17129,
+        351,
+        346,
+        336,
+        331,
+        367,
+        328,
+        339,
+        343,
+        340,
+        334,
+        4786,
+        370,
+        19393,
+        3247,
+        16671,
+        344,
+        339,
+        4865,
+        373,
+        339,
+        3724,
+        332,
+        22770,
+        26025,
+        23889,
+        20243,
+        20150
+      ],
+      "requests": 48,
+      "reportedInputTokens": 246401,
+      "reportedOutputTokens": 6658,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1,
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.BayesStudy.neuralControl": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": true,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 12456,
+      "goalMedianMs": 5869.0,
+      "premiseRankCalls": 50,
+      "stateRankCalls": 23,
+      "warmupMs": [
+        40913,
+        2052,
+        8624,
+        3079,
+        4400,
+        2963,
+        9431,
+        2636,
+        1388,
+        703,
+        3074,
+        1191,
+        4672,
+        4092,
+        2010,
+        3665,
+        1925,
+        1236,
+        1656,
+        8514,
+        901,
+        2845,
+        4914,
+        1357,
+        3396,
+        1495,
+        7531,
+        1214,
+        2215,
+        44971,
+        6027,
+        1946,
+        439,
+        1010
+      ],
+      "requests": 73,
+      "reportedInputTokens": 1117532,
+      "reportedOutputTokens": 86621,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+      }
+    }
+  },
+  "recovery": {
+    "reason": "All five unattempted locations exceeded inherited cold warmup heartbeats before any trial; generic independent warmup budget repair only.",
+    "benchmarkCommit": "7579a469d8dbeb1450fcb6bcf0f6dcff1ff62e0a",
+    "recoveryDatasetSha256": "d8a1a5f5e7051c3adf93702ee9ce3a9eeb7028d35fce0641885454968fdf12a4",
+    "originalSha256": {
+      "run.json": "90d1274ea0f5117e823a38caca6a0504fd68f21fa483cf969ca90f10ccc9e265",
+      "dataset.json": "c0616b50befb00b0e22c426f5d4b2b5ad9bed3c7a01c68c3bbaacd01646510de",
+      "trials.jsonl": "2f6dcd691713016bd4dca51c6a9902d4e62068b408c9a97454c9fbf60d58ce30",
+      "decisions.jsonl": "e38943e07298b04958282135e44d7afe9385d778b15a04dd012100186d319485",
+      "warmup.jsonl": "bef3bdf577802fa87508be0e2954f1386a84786eb50709b1a71f3de48f1a6771",
+      "visited.jsonl": "3fa9c6ce972366066bb41237574369c778262e547177805551f25a74ef6f4f54",
+      "usage.json": "d85bd5488d4955682febd502b0c2cfed06e3a5034c8d822abdd25ebbb801f63f",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "summary.json": "f8f33ec03ed451b4446f6c106f3374a6c3fe5b6fe18501e2ab87c66424b60269",
+      "partial-replay-audit.json": "c783657f8885e438e8ff9442b84332e37688c12d2bbbc32c00b62c373da5a13b"
+    },
+    "completedTrialsBefore": 145,
+    "remainingTrials": 25,
+    "remainingModules": [
+      "Mathlib.Analysis.BoxIntegral.Partition.Tagged",
+      "Mathlib.FieldTheory.JacobsonNoether",
+      "Mathlib.MeasureTheory.Function.AEEqOfLIntegral",
+      "Mathlib.Order.Hom.Lex",
+      "Mathlib.SetTheory.Cardinal.SchroederBernstein"
+    ],
+    "sameNeuralServiceProcesses": false,
+    "noTrialsRetried": true,
+    "allEvaluationOwnersRetained": true,
+    "neuralWarmupPolicy": "Fresh CPU services; imported and earlier current-file statements warmed outside each goal clock, same as original protocol. Cross-phase service cache history differs.",
+    "usageBefore": {
+      "attempts": 224,
+      "inputTokens": 1685713,
+      "outputTokens": 94583,
+      "unknownUsage": 5
+    },
+    "usageAfter": {
+      "attempts": 263,
+      "inputTokens": 2054252,
+      "outputTokens": 111585,
+      "unknownUsage": 5
+    },
+    "mergedSha256": {
+      "trials.jsonl": "89674b9698fdbb0abbec997a1b35668e83961682d4cb9ab2e06e8f5f87bae040",
+      "decisions.jsonl": "87a85d3d97d1fc80787f3013ca03c2a83bcd3001db9ddea332e755ea69bf2c2a",
+      "warmup.jsonl": "93a8ca662c2aec6d2292d35f28de2919aff1f6c70d59582265ee8b8db06ba21a",
+      "visited.jsonl": "3fa9c6ce972366066bb41237574369c778262e547177805551f25a74ef6f4f54",
+      "usage.json": "32ef6c482f3b4a886c5136057f6a9850b6f6938653c3e4c3311f5461e88fe105"
+    }
+  },
+  "recoveryDataset": "datasets/sparse-jev-v1/research-bayes-recovery-v1.json",
+  "recoveryNeuralProvenance": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+    "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 2,
+      "embeddingValidation": {
+        "model": {
+          "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+          "revision": "b9f33df6b8b615122872bf76eac91911fcf26468",
+          "requestedRevision": "v4.33.0",
+          "files": [
+            ".gitattributes",
+            "1_Pooling/config.json",
+            "README.md",
+            "config.json",
+            "config_sentence_transformers.json",
+            "merges.txt",
+            "model.safetensors",
+            "modules.json",
+            "onnx/model.onnx",
+            "sentence_bert_config.json",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "vocab.json"
+          ]
+        },
+        "indices": [
+          0,
+          13187,
+          26374,
+          39561,
+          52748,
+          65935,
+          79122,
+          92309,
+          105496,
+          118683,
+          131870,
+          145057,
+          158244,
+          171431,
+          184618,
+          197805,
+          210993,
+          224180,
+          237367,
+          250554,
+          263741,
+          276928,
+          290115,
+          303302,
+          316489,
+          329676,
+          342863,
+          356050,
+          369237,
+          382424,
+          395611,
+          408799
+        ],
+        "maxAbsoluteError": 2.1979212760925293e-07,
+        "minimumCosine": 0.9999998807907104,
+        "corpusSize": 408800,
+        "device": "cpu",
+        "dtype": "float32",
+        "passed": true
+      },
+      "memoryLimitBytes": 16000000000,
+      "swapLimitBytes": 0,
+      "launcherSha256": "4a068fdbe01f0773b142326697bca43bcc92db0a3aea984a81e7ffe6ac7dd296",
+      "cpuEmbedSha256": "ea501fd4d49d60ae0515748e52b6284add48e697b83445031b29b50c29c2cad6",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39",
+      "recovery": {
+        "launcherSha256": "8dbb093adb238c5f7ab485d20100d86e33ea91593c30ff4b8a610c9e2b555c27",
+        "freshServices": true,
+        "sameModelArtifacts": true
+      }
+    }
+  },
+  "successfulTrialsIndependentlyReplayed": 70,
+  "reservedEvaluationTrials": 0,
+  "limitations": [
+    "34 previously exposed development locations; one amended pilot collection, no superiority claim.",
+    "Initial cold initialization failed before any trial at five locations. Only those 25 never-attempted trials were collected after a generic warmup-budget repair; all 145 original trials and their usage are preserved.",
+    "Recovery restarted CPU neural services under the same imported/current-file statement warmup policy; cross-phase service cache history differs. Original and recovery code revisions and memory peaks are reported separately.",
+    "Neural imported and earlier current-file statements warmed outside the goal clock; costs recorded separately.",
+    "Statement, Bayes, and immutable structural preparation data shared within each source process; per-method structural query refinement isolated. Per-arm initialization attribution is order-dependent.",
+    "All arms use Jev proof-state guidance; CPU arms use native order and neural arms use Jev premise reranking under a shared three-call budget. All CPU variants share the selected native premise ordering.",
+    "Model/API failures remain in results. Third-party neural training overlap is unknown."
+  ],
+  "evidenceSha256": {
+    "run.json": "a3e7381b00fc2f37eb39499557beb6550737dba34bd0dc4a30a4f3f945c5ef0b",
+    "summary.json": "4cbe195e947161a70fe4ecb40a619a52b7b585963831b4331eacfb586f062ede",
+    "trials.jsonl": "89674b9698fdbb0abbec997a1b35668e83961682d4cb9ab2e06e8f5f87bae040",
+    "decisions.jsonl": "87a85d3d97d1fc80787f3013ca03c2a83bcd3001db9ddea332e755ea69bf2c2a",
+    "verification.json": "612e2db7ba510a4df4bc361f8b1a876a420a97987b4962daef9b9f79960e59d1",
+    "replay-2/replay.jsonl": "d306dc4050f44959c9ff2c8a516cd7ef120553fe482ab97569a6a249c3c83c92",
+    "recovery-1/audit.json": "45ebf5b676cf2ac1720f590971383fb0fbd7489d3cd24f262d850c4225df2c9a",
+    "recovery-1/original/run.json": "90d1274ea0f5117e823a38caca6a0504fd68f21fa483cf969ca90f10ccc9e265",
+    "recovery-1/original/trials.jsonl": "2f6dcd691713016bd4dca51c6a9902d4e62068b408c9a97454c9fbf60d58ce30",
+    "recovery-1/original/usage.json": "d85bd5488d4955682febd502b0c2cfed06e3a5034c8d822abdd25ebbb801f63f",
+    "partial-replay-audit.json": "c783657f8885e438e8ff9442b84332e37688c12d2bbbc32c00b62c373da5a13b"
+  },
+  "neuralProvenance": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+    "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 2,
+      "embeddingValidation": {
+        "model": {
+          "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+          "revision": "b9f33df6b8b615122872bf76eac91911fcf26468",
+          "requestedRevision": "v4.33.0",
+          "files": [
+            ".gitattributes",
+            "1_Pooling/config.json",
+            "README.md",
+            "config.json",
+            "config_sentence_transformers.json",
+            "merges.txt",
+            "model.safetensors",
+            "modules.json",
+            "onnx/model.onnx",
+            "sentence_bert_config.json",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "vocab.json"
+          ]
+        },
+        "indices": [
+          0,
+          13187,
+          26374,
+          39561,
+          52748,
+          65935,
+          79122,
+          92309,
+          105496,
+          118683,
+          131870,
+          145057,
+          158244,
+          171431,
+          184618,
+          197805,
+          210993,
+          224180,
+          237367,
+          250554,
+          263741,
+          276928,
+          290115,
+          303302,
+          316489,
+          329676,
+          342863,
+          356050,
+          369237,
+          382424,
+          395611,
+          408799
+        ],
+        "maxAbsoluteError": 2.1979212760925293e-07,
+        "minimumCosine": 0.9999998807907104,
+        "corpusSize": 408800,
+        "device": "cpu",
+        "dtype": "float32",
+        "passed": true
+      },
+      "memoryLimitBytes": 16000000000,
+      "swapLimitBytes": 0,
+      "launcherSha256": "4a068fdbe01f0773b142326697bca43bcc92db0a3aea984a81e7ffe6ac7dd296",
+      "cpuEmbedSha256": "ea501fd4d49d60ae0515748e52b6284add48e697b83445031b29b50c29c2cad6",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39"
+    }
+  },
+  "publicTrials": {
+    "path": "cpu-selector-bayes-v1-trials.jsonl",
+    "sha256": "a26adb55eeb944102635d300277d6c1195dd8b67366c250b8f9ac33915746278"
+  }
+}
