@@ -189,7 +189,7 @@ documented hypothesis. The research objective is still open.
 [Complete configurations and evidence](cpu-selector-neighbors-v1.json),
 [all per-location outcomes](cpu-selector-neighbors-v1-trials.jsonl).
 
-## Learned premise-usage model: cost measured, coverage pending
+## Learned premise-usage model: preparation and query costs
 
 The new model aggregates the statement features of all eligible proofs using
 each premise. It fits sparse smoothed likelihood profiles by counting, with
@@ -216,3 +216,38 @@ usage loading is substantially slower. Peak scope memory was 5.01 GB with no
 memory events. [Profile and failed-preflight evidence](cpu-selector-profile-usage-v1.json).
 The next live three-arm screen compares usage, target, and warmed neural retrieval
 at the same 34 development locations; no coverage result is available yet.
+
+## Usage-model screen: complete, no coverage gain
+
+All three methods used the corrected opaque-feature reader, identical tactics
+and six-second budgets, and Jev proof-state guidance without premise reranking.
+The neural service started fresh with the same catalog warmup policy as before.
+
+| Method | On-time verified | Total goal time | Retrieval time |
+|---|---:|---:|---:|
+| Target-weighted | **14/34** | 116.184 s | 5.104 s |
+| Learned usage profiles | 10/34 | 124.844 s | 2.431 s |
+| Warmed neural reference | **14/34** | 120.631 s | 10.807 s |
+
+Usage selection gained no location and lost four against each reference. Its
+paired interval versus neural is −23.5 to −2.9 percentage points. Its successful
+set is a subset of each reference's successful set in this pilot. Fast fitting
+and lookup therefore did not translate into stronger proofs. Do not promote this
+configuration or claim it improves coverage. Target and neural gained one and
+lost one against each other, with paired interval −8.8 to +8.8 points.
+
+All **102 trials** were recorded and **38 successful proofs independently
+replayed**. There were no late proofs, blocked trials, or module failures. All
+11 ranking errors remain included (5 target, 4 usage, 2 neural). The run used
+171 Jev requests, 841,290 reported input tokens, 20,924 output tokens, and unknown
+usage for eight HTTP errors. Combined peak memory was **11.42 GB** under the
+shared 16 GB zero-swap cap, with no memory-limit/OOM events. No reserved
+evaluation location was run.
+
+The next implementation broadens the premise universe to public definitions and
+constructors while keeping fitted statistics and proof owners theorem-only.
+Its coverage is unmeasured. Structural retrieval and bounded applicability
+reranking remain separate hypotheses. The research goal remains unfulfilled.
+
+[Complete evidence](cpu-selector-usage-v1.json),
+[all per-location outcomes](cpu-selector-usage-v1-trials.jsonl).
