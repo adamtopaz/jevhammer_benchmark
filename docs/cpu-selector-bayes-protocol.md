@@ -113,3 +113,37 @@ python -m jevhammer_benchmark run \
   --config '{}' --max-requests 510 --max-input-tokens 5000000 \
   --memory-limit 16000000000 --threads 2 --output runs/cpu-selector-bayes-v1
 ```
+
+## Initialization-only recovery amendment
+
+The initial collection retained 145 trials at 29 complete paired locations;
+all 60 successful proofs independently replayed (one was late). The remaining
+five modules failed before any method warmup record, trial, or Jev decision.
+The first method at each of those locations was the sparse/conclusion/Bayes
+fusion. Its cold initialization exceeded the inherited 200,000-heartbeat
+`MetaM` limit. Only infrastructure errors and method order were inspected;
+no failed proof goals were analyzed.
+
+The generic harness now gives `Method.validate` and `Method.warmup` their own
+configurable initialization budget. The default is 5,000,000 heartbeats; the
+original proposal of 1,000,000 was insufficient on a separate cold full-Mathlib
+probe. Initialization remains outside proof timing, under the module timeout
+and aggregate memory cap. Trial limits remain six seconds, 200,000 outer
+heartbeats, three shared Jev calls, and all other frozen settings. The selector
+pin and prepared artifacts are unchanged.
+
+Before recovery, re-admit all 34 original locations with exact goal hashes and
+all owner exclusions. Complete only the five locations with no previous trial
+(25 trials). Retain the original 145 trials, 224 requests, reported token usage,
+errors, and partial replay. Seed recovery usage from the original ledger and
+keep the original aggregate caps of 510 requests and 5,000,000 reported input
+tokens. Do not retry completed locations or reset usage.
+
+Recovery uses fresh CPU neural services because the original processes stopped.
+Warm imported and earlier current-file statements outside goal timing under the
+same policy, but report the changed cross-phase service cache history. Preserve
+original logs, manifests, datasets, raw records and checksums in the recovery
+audit. Check unchanged identities, configurations and original record bytes
+before combining collection phases; independently replay the combined proof
+set. Record both code revisions and resource phases. This is an amended
+pilot collection, not an uninterrupted repeat or evidence of superiority.

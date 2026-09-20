@@ -100,6 +100,10 @@ jevbench run --dataset runs/custom/dataset.json --methods myMethod --mock --outp
 rejects the run before trials. This lets selectors enforce training holdouts
 without changing the runner. Both hooks are still inside the process/resource
 limits. Their Lean state is restored; custom callbacks must manage their own IO.
+Together they receive `Method.warmupHeartbeats` (default 5,000,000), independently
+of the source context and the trial's heartbeat budget. Set it to zero to disable
+only the initialization heartbeat limit; module timeouts and memory limits still
+apply. Reports record this setting alongside warmup costs.
 
 ## Holdouts and integrations
 

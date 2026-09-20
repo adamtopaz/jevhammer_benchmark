@@ -88,13 +88,7 @@ private def trial (s : Settings) (node : Mathlib.TacticAnalysis.TacticNode)
     return { method with config }
   unless (← warmed.get).contains methodName do
     let start ← IO.monoMsNow
-    let provenance ← ctx.runMetaM {} do
-      let saved ← saveState
-      try
-        let provenance ← method.validate (s.owners.map String.toName)
-        method.warmup
-        return provenance
-      finally saved.restore
+    let provenance ← ctx.runMetaM {} <| method.runWarmup (s.owners.map String.toName)
     record s "warmup.jsonl" <| (methodInfo methodName method).mergeObj <| Json.mkObj [
       ("module", toJson s.moduleName), ("elapsedMs", toJson ((← IO.monoMsNow) - start)),
       ("provenance", provenance)]

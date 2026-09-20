@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "kind": "cold-initialization-regression",
+  "goalProofTrials": 0,
+  "modelCalls": 0,
+  "source": "Fresh processes importing Mathlib and BayesStudy; no benchmark proof goals inspected.",
+  "oldAndProposedBudget": {
+    "resources": {
+      "initial": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "11571200",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "9107243008",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "steps": [
+      {
+        "label": "unit",
+        "exitCode": 0,
+        "elapsedSeconds": 1.089393243077211,
+        "output": ""
+      },
+      {
+        "label": "configuration",
+        "exitCode": 0,
+        "elapsedSeconds": 1.2409415679285303,
+        "output": ""
+      },
+      {
+        "label": "legacy",
+        "exitCode": 0,
+        "elapsedSeconds": 84.9705104889581,
+        "output": "Expected legacy cold-start failure: (deterministic) timeout at `transform`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.(invalid MessageData.lazy, missing context)\nlegacy: elapsedMs=67895, heartbeats=1667506325\n"
+      },
+      {
+        "label": "independent",
+        "exitCode": 1,
+        "elapsedSeconds": 70.28961128706578,
+        "output": "/tmp/BayesWarmupProbe.lean:5:0: error: (deterministic) timeout at `transform`, maximum number of heartbeats (1000000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\n"
+      }
+    ]
+  },
+  "fixedBudget": {
+    "resources": {
+      "initial": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "11038720",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "5010317312",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "steps": [
+      {
+        "label": "build",
+        "exitCode": 0,
+        "elapsedSeconds": 3.7861435499507934,
+        "output": "\u2714 [878/886] Built JevHammerBenchmark.Method (400ms)\n\u2714 [879/886] Built JevHammerBenchmark.Ranker (416ms)\n\u2714 [880/886] Built JevHammerBenchmark.Methods (497ms)\n\u2714 [881/886] Built JevHammerBenchmark.Selector (519ms)\n\u2714 [882/886] Built JevHammerBenchmark.Neural (532ms)\n\u2714 [883/886] Built JevHammerBenchmark.Research (697ms)\n\u2714 [884/886] Built JevHammerBenchmark.Hook (825ms)\n\u2714 [885/886] Built JevHammerBenchmark.RerankStudy (491ms)\n\u2714 [886/886] Built JevHammerBenchmark.BayesStudy (524ms)\nBuild completed successfully (886 jobs).\n"
+      },
+      {
+        "label": "unit",
+        "exitCode": 0,
+        "elapsedSeconds": 1.0927335229935125,
+        "output": ""
+      },
+      {
+        "label": "configuration",
+        "exitCode": 0,
+        "elapsedSeconds": 1.2333085458958521,
+        "output": ""
+      },
+      {
+        "label": "independent",
+        "exitCode": 0,
+        "elapsedSeconds": 70.45388100203127,
+        "output": "independent: elapsedMs=67954, heartbeats=1677925429\n"
+      }
+    ],
+    "status": "complete"
+  },
+  "defaultWarmupHeartbeats": 5000000,
+  "trialOuterHeartbeats": 200000,
+  "trialMaxMillis": 6000,
+  "notes": [
+    "The legacy 200000 and proposed 1000000 initialization limits both failed; 5000000 passed.",
+    "IO.getNumHeartbeats reports raw units; public heartbeat budgets use 1000 raw units each.",
+    "Native regression covers inherited-budget independence, own finite limit, evaluation-owner forwarding, and Lean state restoration on success and failure.",
+    "The mathematical selector, trial configuration, artifact bytes and dependency pin are unchanged."
+  ],
+  "probeLean": "import JevHammerBenchmark.BayesStudy\nimport Mathlib\nopen Lean Meta Elab Command JevHammerBenchmark\nset_option maxHeartbeats 0\nrun_cmd liftTermElabM do\n  let _ : MonadExceptOf Exception MetaM :=\n    { (inferInstance : MonadExceptOf Exception MetaM) with tryCatch := tryCatchRuntimeEx }\n  let mode := (\u2190 IO.getEnv \"WARMUP_PROBE\").getD \"independent\"\n  let method := BayesStudy.bayesStructuralTarget\n  let before \u2190 IO.getNumHeartbeats\n  let start \u2190 IO.monoMsNow\n  if mode == \"legacy\" then\n    let failed \u2190 try\n      JevHammer.withHeartbeatBudget 200000 do\n        discard <| method.validate #[]\n        method.warmup\n      pure false\n    catch e =>\n      let msg \u2190 e.toMessageData.toString\n      unless msg.contains \"heartbeats\" do throw e\n      IO.println s!\"Expected legacy cold-start failure: {msg}\"\n      pure true\n    unless failed do throwError \"legacy cold start unexpectedly passed; diagnosis not reproduced\"\n  else\n    discard <| JevHammer.withHeartbeatBudget 200000 <| method.runWarmup #[]\n  IO.println s!\"{mode}: elapsedMs={(\u2190 IO.monoMsNow) - start}, heartbeats={(\u2190 IO.getNumHeartbeats) - before}\"\n",
+  "reproduction": [
+    "Write probeLean to a temporary .lean file and set JEVSELECTOR_PUBLIC_INDEX and JEVSELECTOR_BAYES to the artifacts from the Bayes protocol.",
+    "Run WARMUP_PROBE=legacy lake env lean <file> in a fresh process; it must catch the original 200000-heartbeat initialization timeout.",
+    "Run WARMUP_PROBE=independent lake env lean <file> in another fresh process; it must complete.",
+    "Keep both processes serial in one bounded 16 GB, zero-swap job. No Jev API key or neural service is required."
+  ]
+}

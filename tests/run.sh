@@ -2,6 +2,7 @@
 set -euo pipefail
 python -m unittest discover -s tests -v
 lake build JevHammerBenchmarkTests JevHammerBenchmark.Selector JevHammerBenchmark.Neural
+lake env lean WarmupBudgetTests.lean
 scratch=$(mktemp -d)
 trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$scratch"; else echo "Test evidence retained: $scratch" >&2; fi' EXIT
 if python -m jevhammer_benchmark discover --modules Mathlib.Data.Nat.Basic --output "$scratch/import-cycle" "$@"; then
