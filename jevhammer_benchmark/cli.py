@@ -22,7 +22,7 @@ from .resources import DEFAULT_LIMIT, ensure_bounded, resource_snapshot
 SCHEMA = 1
 CONFIG_KEYS = {"maxMillis", "maxNodes", "maxDepth", "maxCalls", "maxCandidates",
                "maxPremises", "premiseCount", "beamWidth", "tacticHeartbeats",
-               "guidePremises", "refreshPremises", "model", "timeoutSeconds"}
+               "guidePremises", "deferPremiseGuidance", "refreshPremises", "model", "timeoutSeconds"}
 
 
 def digest(data):

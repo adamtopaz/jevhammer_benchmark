@@ -7,6 +7,8 @@ lake build JevHammerBenchmark.GraphStudy
 lake env lean SelectorGuidanceTests.lean
 lake build JevHammerBenchmark.GraphPreviewStudy
 lake env lean GraphPreviewStudyTests.lean
+lake build JevHammerBenchmark.DeferredGuidanceStudy
+lake env lean DeferredGuidanceStudyTests.lean
 scratch=$(mktemp -d)
 trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$scratch"; else echo "Test evidence retained: $scratch" >&2; fi' EXIT
 if python -m jevhammer_benchmark discover --modules Mathlib.Data.Nat.Basic --output "$scratch/import-cycle" "$@"; then
@@ -70,5 +72,23 @@ for row in rows:
     assert row['stats']['selectorRankCalls'] == row['stats']['premiseRankCalls'] == row['stats']['rankCalls'] == 1
 assert all(row['stats']['model'] == 'OFFLINE-MOCK' for row in rows)
 # Mock rankings do not perform or record billable network requests.
+assert json.loads((root / 'usage.json').read_text())['attempts'] == 0
+PY
+
+# Exercise the CLI override, actual hook and independent replay. The same
+# fixture now closes with base premises before invoking its selector factory.
+python -m jevhammer_benchmark run --dataset "$scratch/guided-dataset/dataset.json" --mock --methods GuidedFixture.method --config '{"deferPremiseGuidance":true}' --max-requests 4 --output "$scratch/deferred-run" "$@"
+python -m jevhammer_benchmark replay "$scratch/deferred-run" "$@"
+python - "$scratch/deferred-run" <<'PY'
+import json, sys
+from pathlib import Path
+root = Path(sys.argv[1])
+assert json.loads((root / 'summary.json').read_text())['status'] == 'complete'
+rows = [json.loads(line) for line in (root / 'trials.jsonl').read_text().splitlines()]
+assert rows
+for row in rows:
+    assert row['solved'] and row['onTime'] and row['config']['deferPremiseGuidance']
+    assert row['stats']['rankCalls'] == row['stats']['selectorRankCalls'] == 0
+    assert row['stats']['unguidedPremiseAttempts'] == row['stats']['unguidedPremiseFinishes'] == 1
 assert json.loads((root / 'usage.json').read_text())['attempts'] == 0
 PY
