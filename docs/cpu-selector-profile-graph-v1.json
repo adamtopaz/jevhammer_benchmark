@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "incomplete",
+  "kind": "cpu-only-graph-cost",
+  "modelCalls": 0,
+  "goalProofTrials": 0,
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "profileSourceSha256": "f170df1b2f6e6351ce6ccf01a16c517bb9c2d99c99053fa5d7ba46f2654a8372",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "197894144",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "4490452992",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "profiles": {},
+  "benchmarkCommit": "2ddc19006a2529b7d95c61237331eec279ef6daf",
+  "selectorCommit": "66197c1f0ea608de7bdcc398f4347961574e5ca5",
+  "hammerCommit": "2e3df668acbef581c81adccf70e629119cd28760",
+  "benchmarkWorkingDiff": "",
+  "error": "Command '['lake', 'env', 'lean', '-j2', '-M0', '-DmaxHeartbeats=0', 'GraphCostProfile.lean']' timed out after 600 seconds",
+  "queriesRecorded": 0,
+  "limitations": [
+    "Timeout occurred before the first progress line; the exact pre-query phase is not yet established.",
+    "No proof trials or model calls occurred.",
+    "The draft reverse-edge ownership optimization is a hypothesis pending snapshot equality and fresh timings."
+  ],
+  "evidenceSha256": {
+    "run.json": "e6bf41e41b1979c52fb810d4d9e8e28304cabe47b6a95068f3a43d3ec918306b",
+    "profile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "GraphCostProfile.lean": "f170df1b2f6e6351ce6ccf01a16c517bb9c2d99c99053fa5d7ba46f2654a8372",
+    "launcher.py": "ff82d6d85dc0eb06980fe0f63d650c4368d5d04d6d5fdb080953b2e549491745"
+  }
+}

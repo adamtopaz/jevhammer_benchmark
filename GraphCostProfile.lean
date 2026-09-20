@@ -14,18 +14,32 @@ run_cmd liftTermElabM do
     { (inferInstance : MonadExceptOf Exception TermElabM) with tryCatch := tryCatchRuntimeEx }
   let some path ← IO.getEnv "JEVSELECTOR_GRAPH_PROFILE_OUTPUT"
     | throwError "missing graph profile output"
+  let phase : String → IO Unit := fun name => do
+    let log ← IO.FS.Handle.mk (path ++ ".phases.jsonl") .append
+    log.putStrLn (Json.mkObj [("phase", toJson name), ("monoMs", toJson (← IO.monoMsNow))]).compress
+    log.flush
+    IO.eprintln s!"Graph profile phase: {name}"
+  phase "loading"
   let loadStart ← IO.monoMsNow
   let idx ← Research.publicIndex
   let loadMs := (← IO.monoMsNow) - loadStart
+  IO.eprintln s!"Graph profile: statement index loaded in {loadMs}ms; validating environment"
+  phase "validation"
+  let validationStart ← IO.monoMsNow
   idx.validateEnvironment
+  let validationMs := (← IO.monoMsNow) - validationStart
+  IO.eprintln s!"Graph profile: validation completed in {validationMs}ms; building graph"
+  phase "graph"
   let graphStart ← IO.monoMsNow
   let graph ← DependencyGraph.create
   let graphInitMs := (← IO.monoMsNow) - graphStart
   IO.eprintln s!"Graph initialized: {graph.entries.size} signatures in {graphInitMs}ms"
+  phase "structural"
   let shapeStart ← IO.monoMsNow
   let shape ← StructuralIndex.create
   shape.warmup
   let shapeInitMs := (← IO.monoMsNow) - shapeStart
+  phase "queries"
   let mut rows := #[]
   let count := min 32 idx.artifact.declarations.size
   for mode in #["base", "none", "forward", "backward"] do
@@ -66,8 +80,10 @@ run_cmd liftTermElabM do
           -- Persist partial diagnostics even if a later query times out.
           IO.FS.writeFile path <| (Json.mkObj [("schema", toJson (1 : Nat)),
             ("kind", toJson "cpu-only-graph-cost"), ("loadMs", toJson loadMs),
+            ("validationMs", toJson validationMs),
             ("graphInitMs", toJson graphInitMs), ("shapeInitMs", toJson shapeInitMs),
             ("graphEntries", toJson graph.entries.size), ("modelCalls", toJson (0 : Nat)),
             ("proofTrials", toJson (0 : Nat)), ("queries", .arr rows)]).compress
           IO.eprintln s!"Graph profile {mode} query {i} repeat {repetition}: {elapsed / 1000000}ms, error={ !error.isEmpty }"
         finally saved.restore
+  phase "complete"

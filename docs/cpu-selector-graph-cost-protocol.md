@@ -44,3 +44,31 @@ heartbeat limit permits full-library initialization; production per-query
 graph/structural limits remain enforced. The checked-in source records partial
 diagnostics if a later query fails. Actual Jev latency and its opportunity cost
 within the shared three-call search budget require a separate proof experiment.
+
+## Initial outcome
+
+The first run under `2ddc190` reached the 600-second process timeout without
+recording a query. Its peak cgroup memory was 4,490,452,992 bytes with no memory
+events under the 16 GB zero-swap bound. No model calls or proof trials occurred.
+See the [preserved failure report](cpu-selector-profile-graph-v1.json).
+
+The original progress message appeared only after loading, validation and graph
+construction; the failure does not identify which phase dominated. Subsequent
+cost attempts must print separate phase markers. A reverse-edge map ownership
+optimization is being checked against canonical old/new graph snapshots before
+timing it. Preserve the original run and use a new output directory; do not
+replace its timeout with a successful retry in the published evidence.
+
+The follow-up pins selector `0ce4ccd`, whose reverse-edge update produced a
+byte-identical 54,484-entry graph against `66197c1` on the Lean import set.
+The constructor timings there were 7,410/3,778 ms (one run each), with graph
+and unresolved-proof regression checks passing. This does not yet establish a
+Mathlib speedup. The profiling source now flushes phase records to
+`queries.json.phases.jsonl` and measures environment validation separately.
+A no-output-path preflight reached its intentional error in 2.72 seconds under
+a 200,000-heartbeat elaboration limit, establishing that the updated profiling
+program reaches execution promptly. These checks used zero model calls.
+
+Keep the same 384-query recipe and all production graph bounds for the
+separate `cpu-selector-profile-graph-v2` run. Its initialization and query costs
+are the next evidence needed before a proof screen.
