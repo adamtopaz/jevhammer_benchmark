@@ -334,7 +334,7 @@ remains open.
 [Complete configurations and evidence](cpu-selector-public-closure-v1.json),
 [all per-location outcomes](cpu-selector-public-closure-v1-trials.jsonl).
 
-## Structural signatures: CPU costs, proof coverage pending
+## Structural signatures: CPU costs before the proof screen
 
 The new signature index initializes from actual imported public types, without
 proof values or fitted data. It uses Lean's lazy discrimination tree, includes
@@ -361,4 +361,43 @@ The [frozen five-arm pilot](cpu-selector-structural-protocol.md) compares public
 target, structural-only, their fusion, warmed neural, and the same structural
 fusion applied to neural. Per-method mutable caches prevent cross-arm warming
 on evaluation goals. The same 34 development goals are re-admitted; reserved
-evaluation remains unused. No structural proof-coverage result is available yet.
+evaluation remains unused. These profiles alone establish no proof-coverage gain.
+
+## Structural screen: two-goal CPU fusion lead
+
+The frozen five-arm run completed all **170 trials** at the same 34 development
+locations. All **70 successful proofs independently replayed**; none were late,
+budget-blocked, or lost to a module failure. The selector revision was `b8b0a95`
+and benchmark revision `debb49f`; no parameters changed during collection.
+
+| Method | On-time verified | Total goal time | Retrieval time |
+|---|---:|---:|---:|
+| Public-catalog target | 15/34 | 112.113 s | 5.354 s |
+| Structural signatures | 12/34 | 126.089 s | 0.666 s |
+| Public target + structural | **16/34** | 116.620 s | 6.820 s |
+| Warmed neural reference | 14/34 | 120.828 s | 10.321 s |
+| Neural + structural | 13/34 | 126.641 s | 12.245 s |
+
+CPU fusion gained one location and lost none against public target. Against
+neural it gained **two and lost none**, an observed **+5.9 percentage points**
+with paired declaration-bootstrap 95% interval **0 to +14.7 points**. Against
+neural fusion it gained three and lost none, interval **0 to +17.6 points**.
+All other arms' successes were subsets of CPU fusion in this run. This is a
+promising exposed-pilot result, not established significant superiority. It
+motivates the [134-location development comparison](cpu-selector-structural-broad-protocol.md)
+with both neural references and unchanged implementation/search parameters.
+
+Structural-only retrieval was inexpensive but weaker. Fusion's extra retrieval
+cost over sparse was 1.466 seconds across the full run, including refreshes;
+the separate full-library profile still exceeded the provisional 200 ms p95
+target. Costs and initialization must accompany any coverage claim.
+
+All **15 ranking/API failures** remain in the results (6, 3, 3, 1, 2 by arm).
+The run made **244 Jev requests**, with **1,413,999 reported input tokens**,
+**34,304 output tokens**, and **8** requests of unknown usage. Combined peak
+memory was **11.82 GB**, with no memory events under the shared **16 GB zero-swap
+cap**. CPU services stopped after replay. The 122 reserved evaluation locations
+remain unused. No individual failures were analyzed to tune the selector.
+
+[Complete configurations and evidence](cpu-selector-structural-v1.json),
+[all per-location outcomes](cpu-selector-structural-v1-trials.jsonl).
