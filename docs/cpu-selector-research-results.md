@@ -604,3 +604,52 @@ were analyzed to tune this experiment.
 
 [Complete configurations, paired intervals, calls, and costs](cpu-selector-rewrites-v1.json),
 [all 170 per-location outcomes](cpu-selector-rewrites-v1-trials.jsonl).
+
+
+## Jev-guided signature graph: no promotion
+
+The frozen four-arm screen completed **136 trials** at the same 34 development
+locations, with all **58 successful proofs independently replayed** and none late.
+Benchmark `3bde24b` pinned selector `d6f4e25` and JevHammer `2e3df66`. All methods
+retained the same tactics, six-second goal budget, three shared Jev calls, and
+Jev proof-state guidance.
+
+| Method | On-time verified | Total goal time | Retrieval time | Selector / state calls |
+|---|---:|---:|---:|---:|
+| CPU sparse + conclusion | **16/34** | 119.344 s | 6.381 s | 0 / 41 |
+| CPU + Jev signature graph | 14/34 | 118.941 s | 28.954 s | 50 / 24 |
+| Neural + conclusion, native order | 13/34 | 125.328 s | 12.214 s | 0 / 44 |
+| Neural + conclusion, Jev reranking | 15/34 | 139.740 s | 11.529 s | 0 / 23 |
+
+The reranked neural arm additionally used 50 ordinary premise-ranking calls.
+Graph-selector requests share the same three-call allowance as proof states;
+their latency is included in graph retrieval, totaling **20.900 seconds** across
+50 requests. Ordinary premise reranking is separately accounted after retrieval.
+Do not interpret retrieval totals as equal amounts of model work across arms.
+
+Graph traversal gained no successes and lost two versus CPU control. It gained
+one and lost two versus the stronger neural arm, for a paired 95% interval of
+**−11.76 to +5.88 percentage points**. It fails the frozen promotion rule. CPU
+control gained two and lost one versus that neural arm, **+2.94 points**, interval
+**−5.88 to +11.76 points**. This repeatedly exposed pilot establishes no final
+superiority. The broader result remains CPU 63/134, neural 63/134, and
+neural/conclusion fusion 64/134. Reserved proof trials remain zero.
+
+Mechanical analysis of the 50 graph responses found 384 frontier decisions:
+**326 backward, 50 no expansion, eight forward**. Of the 334 expansion choices,
+47 selected empty neighborhoods. Every selector response was parseable; two
+requests selected no nonempty expansion. The graph question exposed seed types
+and counts, without examples of reachable statements. These observations motivate
+an isolated destination-preview experiment, not a causal explanation or a claim
+that previews will improve coverage. No individual failed proof goal was inspected.
+
+All **five ranking/API failures** remain included (2/1/2/0 in table order), with
+**232 requests**, **1,972,448 reported input tokens**, **120,176 output tokens**, and
+one unknown-usage request. No trial was budget-blocked. Peak memory was
+**11,636,178,944 bytes**, with no limit/OOM events under the **16 GB zero-swap cap**.
+The CPU neural services stopped after replay.
+
+[Complete configurations, paired results, calls and costs](cpu-selector-graph-v1.json),
+[all 136 trial outcomes](cpu-selector-graph-v1-trials.jsonl).
+The checked exporter is available as `python scripts/export_graph_screen.py`
+after reproducing this run; it rejects incomplete collection or replay.

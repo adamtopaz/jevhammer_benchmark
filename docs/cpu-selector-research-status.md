@@ -26,11 +26,14 @@ separately. Faster retrieval did not produce a comparable end-to-end speedup:
 total goal times were 414.761, 403.897, and 417.450 seconds, respectively.
 See [configurations, costs, and paired results](cpu-selector-structural-broad-v1.json).
 
-The latest [34-location posting-cap experiment](cpu-selector-bayes-exact-protocol.md)
-again gave the existing CPU control a small lead, 16 versus 15 for the
-Jev-reranked neural control. Its 95% interval includes zero. None of the Bayes
-variants beat the CPU control, so none is promoted. This repeatedly exposed
-pilot is useful for development, not final superiority claims.
+The latest [34-location signature-graph experiment](cpu-selector-graph-v1.json)
+completed 136 trials, with all 58 successful proofs independently replayed.
+CPU control solved 16, Jev-guided graph 14, neural native 13, and neural reranked
+15. The graph variant gained none and lost two versus CPU, so it is not promoted.
+CPU's 16–15 lead over the stronger neural arm has a 95% interval including zero.
+This repeatedly exposed pilot is useful for development, not final superiority
+claims. The next candidate adds bounded destination-statement previews to the
+graph's model choices; it has no proof-quality result yet.
 
 All 122 reserved evaluation locations remain unused for proof trials. A
 substantial improvement still needs to be demonstrated there after development
