@@ -557,3 +557,50 @@ selector during profiling. The report records the explicit import/plugin overlay
 and binary checksums.
 
 [Complete corrected and combined profile evidence](cpu-selector-profile-combined-v1.json).
+
+## Rewrite-source proof screen: complementary coverage, lower totals
+
+The frozen comparison completed **170 trials** at the unchanged 34 development
+locations. All **74 successful proofs independently replayed**. One neural-control
+proof was late and is excluded from coverage. Benchmark `90417b6` pinned selector
+`fab11ad`; all arms retained Jev proof-state guidance, identical tactics, six
+seconds per goal, and three shared Jev calls.
+
+| Method | On-time verified | Total goal time | Retrieval time |
+|---|---:|---:|---:|
+| Public sparse + conclusion control | **16/34 (47.1%)** | 116.880 s | 6.732 s |
+| Public sparse + conclusion + rewrites | 13/34 (38.2%) | 123.830 s | 8.345 s |
+| Conclusion + rewrites, no fitted model | 14/34 (41.2%) | 120.061 s | 2.257 s |
+| Neural + conclusion control | **16/34 (47.1%)** | 131.358 s | 11.594 s |
+| Neural + conclusion + rewrites | 14/34 (41.2%) | 138.316 s | 13.521 s |
+
+CPU arms used native premise order; neural arms used the guidance flag selected
+by the preceding matched-warmup experiment. Controls and their rewrite variants
+shared that setting. Comparisons between CPU and neural therefore compare the
+selected configurations, including that guidance choice.
+
+CPU rewrite fusion gained one and lost four versus its control: **−8.8 points**,
+with paired declaration-bootstrap 95% interval **−20.59 to +2.94 points**. Neural
+rewrite fusion gained one and lost three: **−5.9 points**, interval **−17.65 to
++5.88 points**. Signature-only gained two and lost four versus the CPU control.
+The two controls gained three and lost three against each other, interval
+**−14.71 to +14.71 points**. These small development results do not establish
+superiority. They do not support promoting the rewrite fusion to a broader proof
+comparison or touching reserved evaluation. All 122 reserved sites remain unused.
+
+Signature-only retrieval was inexpensive, but its full-library initialization
+still takes roughly 56 seconds. Immutable index preparation was shared within
+source processes, so per-arm warmup attribution is order-dependent. Mutable query
+caches were isolated. The measured lookup advantage must not be presented as
+free startup or better proof coverage.
+
+All **16 ranking/API failures** remain counted (3/8/4/0/1). There were **289 Jev
+requests**, **3,062,492 reported input tokens**, **194,939 output tokens**, and three
+requests of unknown usage. State-ranking calls were **42/50/55/22/22**; the neural
+arms additionally made **49 premise-ranking calls each**. No trials were
+budget-blocked. Peak was **11.92 GB**, with no memory events under **16 GB, zero
+swap**. CPU services stopped after independent replay. No individual failed goals
+were analyzed to tune this experiment.
+
+[Complete configurations, paired intervals, calls, and costs](cpu-selector-rewrites-v1.json),
+[all 170 per-location outcomes](cpu-selector-rewrites-v1-trials.jsonl).

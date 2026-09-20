@@ -1,0 +1,619 @@
+{
+  "schema": 1,
+  "kind": "live-development-candidate-screen",
+  "benchmarkCommit": "90417b6658cf481bded215839de6b8ac68a9a72f",
+  "selectorCommit": "fab11ad748b77910d0edfe5575acce074da1a145",
+  "publicIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "combinedProfileCommit": "fab11ad748b77910d0edfe5575acce074da1a145",
+  "cacheIsolation": "separate mutable method caches from fixed True warmup",
+  "cpuControl": "JevHammerBenchmark.RerankStudy.cpuNative",
+  "neuralControl": "JevHammerBenchmark.RerankStudy.neuralReranked",
+  "sourceSelection": "full-development source coverage then retrieval; matched-warmup guidance coverage then goal time",
+  "guidePremisesPolicy": "false for CPU arms; true for neural arms; three shared Jev calls; states enabled in all arms",
+  "fusion": "flat RRF, rankOffset16, poolFactor2, maxPool256",
+  "dataset": "datasets/sparse-jev-v1/research-rewrites-v1.json",
+  "datasetSha256": "1e50c82c1f8b571a567ed1f4f056ef7735256df9960d95c3532ebc454fad35aa",
+  "summary": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "jev",
+    "methods": {
+      "JevHammerBenchmark.RewriteStudy.cpuControl": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 16,
+        "rawVerified": 16,
+        "lateVerified": 0,
+        "elapsedMs": 116880,
+        "budgetBlocked": 0,
+        "rankFailures": 3
+      },
+      "JevHammerBenchmark.RewriteStudy.cpuRewrites": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 13,
+        "rawVerified": 13,
+        "lateVerified": 0,
+        "elapsedMs": 123830,
+        "budgetBlocked": 0,
+        "rankFailures": 8
+      },
+      "JevHammerBenchmark.RewriteStudy.signatureOnly": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 14,
+        "rawVerified": 14,
+        "lateVerified": 0,
+        "elapsedMs": 120061,
+        "budgetBlocked": 0,
+        "rankFailures": 4
+      },
+      "JevHammerBenchmark.RewriteStudy.neuralControl": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 16,
+        "rawVerified": 17,
+        "lateVerified": 1,
+        "elapsedMs": 131358,
+        "budgetBlocked": 0,
+        "rankFailures": 0
+      },
+      "JevHammerBenchmark.RewriteStudy.neuralRewrites": {
+        "sites": 34,
+        "recorded": 34,
+        "onTimeVerified": 14,
+        "rawVerified": 14,
+        "lateVerified": 0,
+        "elapsedMs": 138316,
+        "budgetBlocked": 0,
+        "rankFailures": 1
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuControl",
+        "b": "JevHammerBenchmark.RewriteStudy.cpuRewrites",
+        "gained": 4,
+        "lost": 1,
+        "declarationBootstrap95": [
+          -0.029411764705882353,
+          0.20588235294117646
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuControl",
+        "b": "JevHammerBenchmark.RewriteStudy.signatureOnly",
+        "gained": 4,
+        "lost": 2,
+        "declarationBootstrap95": [
+          -0.08823529411764706,
+          0.20588235294117646
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuControl",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralControl",
+        "gained": 3,
+        "lost": 3,
+        "declarationBootstrap95": [
+          -0.14705882352941177,
+          0.14705882352941177
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuControl",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralRewrites",
+        "gained": 3,
+        "lost": 1,
+        "declarationBootstrap95": [
+          -0.058823529411764705,
+          0.17647058823529413
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuRewrites",
+        "b": "JevHammerBenchmark.RewriteStudy.signatureOnly",
+        "gained": 0,
+        "lost": 1,
+        "declarationBootstrap95": [
+          -0.08823529411764706,
+          0.0
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuRewrites",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralControl",
+        "gained": 3,
+        "lost": 6,
+        "declarationBootstrap95": [
+          -0.2647058823529412,
+          0.08823529411764706
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.cpuRewrites",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralRewrites",
+        "gained": 3,
+        "lost": 4,
+        "declarationBootstrap95": [
+          -0.17647058823529413,
+          0.11764705882352941
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.signatureOnly",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralControl",
+        "gained": 3,
+        "lost": 5,
+        "declarationBootstrap95": [
+          -0.20588235294117646,
+          0.08823529411764706
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.signatureOnly",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralRewrites",
+        "gained": 4,
+        "lost": 4,
+        "declarationBootstrap95": [
+          -0.14705882352941177,
+          0.14705882352941177
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.RewriteStudy.neuralControl",
+        "b": "JevHammerBenchmark.RewriteStudy.neuralRewrites",
+        "gained": 3,
+        "lost": 1,
+        "declarationBootstrap95": [
+          -0.058823529411764705,
+          0.17647058823529413
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 289,
+      "inputTokens": 3062492,
+      "outputTokens": 194939,
+      "unknownUsage": 3
+    }
+  },
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "11918684160",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "metrics": {
+    "JevHammerBenchmark.RewriteStudy.cpuControl": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 6732,
+      "goalMedianMs": 4256.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 42,
+      "warmupMs": [
+        3285,
+        321,
+        300,
+        3263,
+        333,
+        4121,
+        331,
+        327,
+        337,
+        325,
+        322,
+        325,
+        3346,
+        6480,
+        321,
+        334,
+        309,
+        321,
+        324,
+        281,
+        5771,
+        7549,
+        3261,
+        3281,
+        3220,
+        319,
+        319,
+        304,
+        308,
+        3260,
+        324,
+        3156,
+        298,
+        3254
+      ],
+      "requests": 42,
+      "reportedInputTokens": 248476,
+      "reportedOutputTokens": 6113,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 2,
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.RewriteStudy.cpuRewrites": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 8345,
+      "goalMedianMs": 4309.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 50,
+      "warmupMs": [
+        312,
+        4782,
+        3329,
+        317,
+        5555,
+        343,
+        5667,
+        3279,
+        4130,
+        5207,
+        3261,
+        3266,
+        314,
+        3533,
+        3150,
+        3418,
+        10945,
+        7625,
+        3147,
+        7305,
+        3013,
+        4843,
+        7283,
+        314,
+        310,
+        4758,
+        3132,
+        12899,
+        11188,
+        317,
+        3232,
+        340,
+        3207,
+        323
+      ],
+      "requests": 50,
+      "reportedInputTokens": 293258,
+      "reportedOutputTokens": 8875,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 7,
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.RewriteStudy.signatureOnly": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 2257,
+      "goalMedianMs": 4091.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 55,
+      "warmupMs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1903,
+        0,
+        1030,
+        0,
+        0,
+        0,
+        0,
+        4668,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5145,
+        0,
+        0,
+        0,
+        0,
+        1,
+        8644,
+        1579,
+        1604,
+        2974,
+        2890
+      ],
+      "requests": 55,
+      "reportedInputTokens": 355048,
+      "reportedOutputTokens": 9960,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 3,
+        "TypeSafe HTTP 400": 1
+      }
+    },
+    "JevHammerBenchmark.RewriteStudy.neuralControl": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": true,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 11594,
+      "goalMedianMs": 5123.0,
+      "premiseRankCalls": 49,
+      "stateRankCalls": 22,
+      "warmupMs": [
+        268,
+        188,
+        7739,
+        237,
+        1793,
+        225,
+        3040,
+        10007,
+        3537,
+        1340,
+        191,
+        3024,
+        5467,
+        767,
+        4100,
+        318,
+        1924,
+        1486,
+        3381,
+        5143,
+        1871,
+        1600,
+        8406,
+        295,
+        180,
+        2110,
+        300,
+        1306,
+        372,
+        376,
+        973,
+        6511,
+        4006,
+        229
+      ],
+      "requests": 71,
+      "reportedInputTokens": 1096032,
+      "reportedOutputTokens": 84859,
+      "errors": {}
+    },
+    "JevHammerBenchmark.RewriteStudy.neuralRewrites": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": true,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 13521,
+      "goalMedianMs": 5916.0,
+      "premiseRankCalls": 49,
+      "stateRankCalls": 22,
+      "warmupMs": [
+        39659,
+        1130,
+        5464,
+        7749,
+        221,
+        9122,
+        209,
+        210,
+        201,
+        198,
+        2639,
+        1586,
+        372,
+        316,
+        3202,
+        11101,
+        356,
+        282,
+        1765,
+        366,
+        306,
+        393,
+        441,
+        828,
+        2060,
+        191,
+        7141,
+        405,
+        3341,
+        1441,
+        183,
+        197,
+        309,
+        2161
+      ],
+      "requests": 71,
+      "reportedInputTokens": 1069678,
+      "reportedOutputTokens": 85132,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1
+      }
+    }
+  },
+  "successfulTrialsIndependentlyReplayed": 74,
+  "reservedEvaluationTrials": 0,
+  "limitations": [
+    "34 previously exposed development locations; one run, no superiority claim.",
+    "Neural imported and earlier current-file statements warmed outside the goal clock; costs recorded separately.",
+    "Statement and immutable structural preparation data shared within each source process; per-method structural query refinement isolated. Per-arm initialization attribution is order-dependent.",
+    "All arms use Jev proof-state guidance; CPU arms use native order and neural arms use Jev premise reranking under a shared three-call budget. Controls and rewrite variants share guidance flags.",
+    "Model/API failures remain in results. Third-party neural training overlap is unknown."
+  ],
+  "evidenceSha256": {
+    "run.json": "b74203971db37ec945fefeba0200f3a12fb0b609d080b4fa3fe94e284fafa249",
+    "summary.json": "21216b2d6bc6b1b727d69bdd17120fcae7b41e872e0f5ced68d36eb4ae2d79ee",
+    "trials.jsonl": "cbf635a4025cca5f693c22b1edcd1934ab3c88bbdce93c905c646d6c0475d8d1",
+    "decisions.jsonl": "8bb1a61441ea04611572302f20d8c7e3f411481ebcdc6ab0366d4210d048bc37",
+    "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+    "replay-1/replay.jsonl": "f6d105caa582bbed1fb2926a15cfe3bd54728feee98972a6b0a599252a18abc5"
+  },
+  "neuralProvenance": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+    "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 2,
+      "embeddingValidation": {
+        "model": {
+          "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+          "revision": "b9f33df6b8b615122872bf76eac91911fcf26468",
+          "requestedRevision": "v4.33.0",
+          "files": [
+            ".gitattributes",
+            "1_Pooling/config.json",
+            "README.md",
+            "config.json",
+            "config_sentence_transformers.json",
+            "merges.txt",
+            "model.safetensors",
+            "modules.json",
+            "onnx/model.onnx",
+            "sentence_bert_config.json",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "vocab.json"
+          ]
+        },
+        "indices": [
+          0,
+          13187,
+          26374,
+          39561,
+          52748,
+          65935,
+          79122,
+          92309,
+          105496,
+          118683,
+          131870,
+          145057,
+          158244,
+          171431,
+          184618,
+          197805,
+          210993,
+          224180,
+          237367,
+          250554,
+          263741,
+          276928,
+          290115,
+          303302,
+          316489,
+          329676,
+          342863,
+          356050,
+          369237,
+          382424,
+          395611,
+          408799
+        ],
+        "maxAbsoluteError": 2.1979212760925293e-07,
+        "minimumCosine": 0.9999998807907104,
+        "corpusSize": 408800,
+        "device": "cpu",
+        "dtype": "float32",
+        "passed": true
+      },
+      "memoryLimitBytes": 16000000000,
+      "swapLimitBytes": 0,
+      "launcherSha256": "684d2f2562bf0499306aaa282f88ea98ef0ad4e1053e28bbeafd61a92f7b8802",
+      "cpuEmbedSha256": "ea501fd4d49d60ae0515748e52b6284add48e697b83445031b29b50c29c2cad6",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39"
+    }
+  },
+  "publicTrials": {
+    "path": "cpu-selector-rewrites-v1-trials.jsonl",
+    "sha256": "4f57805d222bf6b8e10106cf178bc96ddcfb6c5f74e40db046bd2104a8b5d6e8"
+  }
+}
