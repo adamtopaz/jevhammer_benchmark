@@ -464,3 +464,25 @@ whose full-library cost is being measured before proof trials.
 
 [Complete configurations, paired intervals, exposure breakdown, and recovery audit](cpu-selector-structural-broad-v1.json),
 [all 536 per-location outcomes](cpu-selector-structural-broad-v1-trials.jsonl).
+
+## Bounded rewrite retrieval: measured costs, no proof result yet
+
+The validated rewrite mode indexes both sides of equality/iff signatures and
+matches a bounded set of goal/context subexpressions. It reads no proof values,
+fits no statistics, and calls no model. On identical 32 public statement types
+with three repeats per method:
+
+| Method | Median query | p95 query | Structural initialization |
+|---|---:|---:|---:|
+| Public sparse target | 78.65 ms | 142.45 ms | — |
+| Rewrite patterns | **16.20 ms** | **92.18 ms** | 28.03 s |
+| Public sparse + rewrite fusion | 179.97 ms | 299.02 ms | 28.00 s |
+
+Initialization includes fixed `True` warmup. Actual-shape expansion stays in
+query timing, and artifact loading is reported separately (2.78–2.92 s). The
+shared serial scope peaked at **3.63 GB**, with no memory events under **16 GB,
+zero swap**. Pure rewrite retrieval meets the provisional query-cost target;
+fusion exceeds the 200 ms p95 target. These are latency measurements, not proof
+coverage. An explicit import/plugin overlay used validated selector `ae41248`
+(documentation revision `ed067b0`) without changing the proof benchmark's pin.
+[Full profile and binary-artifact provenance](cpu-selector-profile-rewrites-v1.json).

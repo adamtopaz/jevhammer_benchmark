@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "ed067b090838060557e18e1e1efb49ebd602e88f",
+  "sampleCount": 32,
+  "repeats": 3,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "methods": {
+    "target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "target",
+      "queries": 96,
+      "loadMs": 2782,
+      "structuralInitMs": 0,
+      "medianMs": 78.645435,
+      "p95Ms": 142.448094,
+      "meanMs": 83.37804726041666,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "51900416",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2547392512",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "101de7cd06a2a74096668c2a1bdc4c320002d71e7c36b80a3b7858d613cf7087"
+    },
+    "rewrites": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "rewrites",
+      "queries": 96,
+      "loadMs": 2784,
+      "structuralInitMs": 28034,
+      "medianMs": 16.197398,
+      "p95Ms": 92.17589,
+      "meanMs": 27.382163718750004,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "2547392512",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "3600924672",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "8312b3e9855d5a94bb38570a018eae1e98fb73e13c84adb128ff883b1e89ea76"
+    },
+    "rewrites-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "rewrites-target",
+      "queries": 96,
+      "loadMs": 2917,
+      "structuralInitMs": 28004,
+      "medianMs": 179.974505,
+      "p95Ms": 299.018855,
+      "meanMs": 179.0656395,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "3600924672",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "3633213440",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "b6e67fe88bd799142f6de92cdaa91d3c978e8d7d564a5f563fd33b58d1241b17"
+    }
+  },
+  "deployment": {
+    "selectorCommit": "ed067b090838060557e18e1e1efb49ebd602e88f",
+    "implementationCommit": "ae41248",
+    "benchmarkCommit": "405f7fecac18d67277e427af3d62f52cf8701262",
+    "setupParentSha256": "1f2e4da1ab4e5629c44f3d325e16b9b553bcf0363b163dbf852b16f2ad1546f6",
+    "setupSha256": "1cd025aa9e44ffd945b847428fff1c7525affec74b8abadaf91120df34c21a57",
+    "selectorArtifacts": {
+      ".lake/build/lib/lean/JevSelector/Closing.olean": "e144ca71dd61af58782338df9413c573f456c23793f3c75f37ddb4dbe32c43c0",
+      ".lake/build/lib/lean/JevSelector/Closing.olean.server": "472e1de292f4165f6733629334f3c2830462db2673984aa27e191c44bbd9711e",
+      ".lake/build/lib/lean/JevSelector/Closing.olean.private": "82a62bc34dc01475e56079065693fa8656390ce75252f17f014574daced873aa",
+      ".lake/build/lib/lean/JevSelector/Closing.ir.sig": "9faedb33ca07ea958cb7db65ae40e9e877d08c8b7638af49450f75505fb2035b",
+      ".lake/build/lib/lean/JevSelector/Closing.ir": "52e71063afb0594b62301ea21189c096511c1f661c17559e57a2529e6572a0dd",
+      ".lake/build/lib/lean/JevSelector/Ensemble.olean": "16b6a6dae62080492041c38a587fb6812bc006803097aebdbdcad6004e7d01a8",
+      ".lake/build/lib/lean/JevSelector/Ensemble.olean.server": "0e95e33188c2325cbb132a7fbeaddcb260b417470db1a3e4fc5e4a36ce95e1a0",
+      ".lake/build/lib/lean/JevSelector/Ensemble.olean.private": "28f9f788e42cd337c002e755991a2b3599f115bc684b50c15d6365aeb85fdeb5",
+      ".lake/build/lib/lean/JevSelector/Ensemble.ir.sig": "2a8a21fdbaff9202b9eee995fb4cd7d4d14c96a985b907006903d4145435fe4f",
+      ".lake/build/lib/lean/JevSelector/Ensemble.ir": "f683c3bcca65f9d0b9c5e4b756886359b6bf8a92d1c8f83e3ccdb439181711c7",
+      ".lake/build/lib/lean/JevSelector/Features.olean": "2b0b63a05777de9d7500dbea13489ba860032814e6d6f82f3b6288f9b386aed7",
+      ".lake/build/lib/lean/JevSelector/Features.olean.server": "6422be58e638e4e4ef140b931a775ae0b5f9ca1829462cdc8cacb83d0ff81300",
+      ".lake/build/lib/lean/JevSelector/Features.olean.private": "eb6e7ea1eeb2275b31cb0e8ff8c12d80245610c30656b3989e9beacd7bdc2ede",
+      ".lake/build/lib/lean/JevSelector/Features.ir.sig": "c3c56221e27c5e4cc844c7261f367cb9cc1d60ebcefc32736a8d128817c3bd53",
+      ".lake/build/lib/lean/JevSelector/Features.ir": "127ee9e96afa2f718311de24df13608acd78dbc25abb7121c259432631b149c5",
+      ".lake/build/lib/lean/JevSelector/Index.olean": "fd346b6dd3db15cc35f04d8b091d30c51427e604c97ba5b37eb0f420171bf5d3",
+      ".lake/build/lib/lean/JevSelector/Index.olean.server": "18e6b90d9875acadc894a190b5cecb61da706aea3cb0ce89bfb73cdbe915d672",
+      ".lake/build/lib/lean/JevSelector/Index.olean.private": "8dc97fb0190178876b534b208721110faf961e0cd99248a0c35300310a966516",
+      ".lake/build/lib/lean/JevSelector/Index.ir.sig": "fc9c3f097b754acc13884fbd78bc0e069e13a2f420d276ebc54775619fedb76e",
+      ".lake/build/lib/lean/JevSelector/Index.ir": "894b15061ad19cc9c06e22e6c208119248cdff49b46aee4ff38dbe5bd6208c12",
+      ".lake/build/lib/lean/JevSelector/Profile.olean": "df5b8d93f76e61c3c1b8d08953571133b8c87ec46bc738a1cc4ace4973b9782b",
+      ".lake/build/lib/lean/JevSelector/Profile.olean.server": "64ef6a8256ef3717d6894ffd23b731a0279347ff21faeae4a105836991bb374a",
+      ".lake/build/lib/lean/JevSelector/Profile.olean.private": "8bc733800e7457134378a790e455fa12d4126d123510beb1bf90c1d20cfdb256",
+      ".lake/build/lib/lean/JevSelector/Profile.ir.sig": "5480d3fadad6fe6ea856caecb5a977639eaab698a0e92f6a8931ef9659b6106f",
+      ".lake/build/lib/lean/JevSelector/Profile.ir": "22388e9a2bf79fea875312472c2cb885aaecf338b9fd0281a0281a28802342a8",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.olean": "1b42b677854c0ff58055fc8cb98deec300c44724fe8e5c72cf32386de3ca552b",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.olean.server": "c6f5d12c627b695471a5211c32ac0205c6f2055a2d0aa9ecb7d70f13c292053e",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.olean.private": "6590df1e15e53bdb450c1eb316791648f984865a684f6a082b107530e8b17fa3",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.ir.sig": "6b849a4bcf267574b8337fdcf47fc7b172b271f9c9dda7b8970a998f58ee2dd5",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.ir": "7662d47bc4cdc47a3c1ff7fe3c2a0ad739f26ac936839192cc9c2834555f6994",
+      ".lake/build/lib/lean/JevSelector/Structural.olean": "2f8208b5313e199935eaf3d405c77ff2ada9313935be4431deaca05557285fed",
+      ".lake/build/lib/lean/JevSelector/Structural.olean.server": "5fd64115404a62f63bfa63671403d4efd3d8a8a29dd7a19e0c79638457221eef",
+      ".lake/build/lib/lean/JevSelector/Structural.olean.private": "c2180cfd7dfe2be1890738ea4712dc86a7206ec7215a11c8fbe8e32707fd5afe",
+      ".lake/build/lib/lean/JevSelector/Structural.ir.sig": "c54309811494fce84bb87a223d62a5dd58dfaa8ebfbc54be8428ec140c1a4c84",
+      ".lake/build/lib/lean/JevSelector/Structural.ir": "c295e2227ae43900004c60a554e447d8a004d0464f95a5003796ac8ff87b36db",
+      ".lake/build/lib/lean/JevSelector/Usage.olean": "418fc59f7241470d7564b961da5b48cdcc43c6b12ec67bd1cdafef87e0e89a48",
+      ".lake/build/lib/lean/JevSelector/Usage.olean.server": "27a10d41a7ce43a58b56e851074f84e35525975b09b689a80a0bcefec1bbb43c",
+      ".lake/build/lib/lean/JevSelector/Usage.olean.private": "5e27451a16b3e4fbde8041e4d5489d7059e7204b0ab67c12e5f691af7023ff66",
+      ".lake/build/lib/lean/JevSelector/Usage.ir.sig": "2ceb16dc8c21a3afd8d9f473960afb2e595ca5839226a2319d4ac171eb197818",
+      ".lake/build/lib/lean/JevSelector/Usage.ir": "ad6aab693ad7db092ef593ee48e37c2f03d6036668c2ac8af1eef565fa589640",
+      ".lake/build/lib/libjevselector_JevSelector.so": "85fa785651f6819062fc20eb84097c56a15c49c172ddee45f2760245fd806d85"
+    },
+    "sourceSha256": "3f4904cb9cbe3a2e9dbdf5d93c1b7e12d639fee39e47269d48e469d122e3d750",
+    "launcherSha256": "d27a4cdcd99abe9a2880fe6cab69b40ef903eaed250cae7e922a96369818682b",
+    "policy": "Only explicit selector import/plugin paths remapped; frozen benchmark checkout unchanged."
+  },
+  "limitations": [
+    "Same 32 public statement types and 3 repeats, including non-theorems.",
+    "No proof trials or model calls; timing does not establish coverage.",
+    "Fixed True warmup only; actual-shape lazy expansion remains in query timing.",
+    "Methods run serially in fresh processes; cgroup memory peaks are cumulative.",
+    "Profiling uses an explicit import/plugin overlay; the proof benchmark remains pinned to b8b0a95."
+  ]
+}
