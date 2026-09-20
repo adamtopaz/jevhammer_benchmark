@@ -131,3 +131,28 @@ all v3 cases, graph limits, modes and native setup unchanged. Require every
 ordered suggestion array and callback/choice count to match v3 before treating
 v4 as a performance-only comparison. Report failures rather than selectively
 retrying queries. The run remains CPU-only, with zero proof/model calls.
+
+## Completed isolated optimization
+
+V4 completed all 384 queries with **exactly the same ordered suggestions,
+callback/choice counts, and payload sizes** as v3, with zero failures. All 32
+statement groups were stable across their three repetitions in every mode.
+Graph initialization fell from 67.840 to **14.719 seconds**, and structural
+initialization from 30.687 to **6.713 seconds**. The indexed set remains 376,987
+signatures. Loading and validation took 2.956 and 0.247 seconds.
+
+| Mode | Median ms | p95 ms |
+|---|---:|---:|
+| CPU base | 112.41 | 233.24 |
+| No expansion | 122.86 | 221.70 |
+| Forward | 201.81 | 349.83 |
+| Backward | 123.16 | 220.73 |
+
+This is a substantial implementation speedup with unchanged rankings. Do not
+infer that no expansion improves tail latency over the base from a single run:
+their ordered outputs are identical and timings vary. Forward expansion still
+exceeds the provisional 200 ms p95 target; any useful coverage gain must justify
+that cost plus actual Jev latency. The bounded overhead now warrants a small
+proof screen, not a claim that the research goal has been achieved. Peak memory
+was 4,553,039,872 bytes with no memory events. See the
+[full matched report](cpu-selector-profile-graph-v4.json).
