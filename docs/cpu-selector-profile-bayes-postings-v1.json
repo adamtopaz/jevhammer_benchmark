@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "selectorCommit": "e793bad2e447f5b5aa96efd92979e074d6dfa142",
+  "benchmarkCommit": "b40fd98ed0011fec0bb5447315dc6a9d62b03f92",
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "bayesSha256": "e6c60bf2da82c61296da74a36797cfe799e07d5c5fb07a1a719bba353d8642f4",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "17186816",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "latest": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "6997962752",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "6997962752",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "profiles": {
+    "bayes-bounded": {
+      "summary": {
+        "schema": 1,
+        "kind": "query-latency-only",
+        "method": "bayes",
+        "loadMs": 19130,
+        "queries": 96,
+        "structuralInitMs": 0,
+        "maxSuggestions": 100,
+        "bayesMaxPostingsPerSymbol": 20000,
+        "includeSuggestions": true,
+        "medianMs": 119.239024,
+        "p95Ms": 131.976028,
+        "meanMs": 120.26364094791667,
+        "resources": {
+          "initial": {
+            "mode": "cgroup",
+            "memoryMax": 16000000000,
+            "swapMax": "0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "memory.peak": "5215551488",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        }
+      },
+      "elapsedSeconds": 47.65200887597166
+    },
+    "bayes-exact": {
+      "summary": {
+        "schema": 1,
+        "kind": "query-latency-only",
+        "method": "bayes",
+        "loadMs": 18786,
+        "queries": 96,
+        "structuralInitMs": 0,
+        "maxSuggestions": 100,
+        "bayesMaxPostingsPerSymbol": 0,
+        "includeSuggestions": true,
+        "medianMs": 114.970487,
+        "p95Ms": 131.795464,
+        "meanMs": 117.1740745,
+        "resources": {
+          "initial": {
+            "mode": "cgroup",
+            "memoryMax": 16000000000,
+            "swapMax": "0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "memory.peak": "5220446208",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        }
+      },
+      "elapsedSeconds": 38.588929344085045
+    },
+    "bayes-target-bounded": {
+      "summary": {
+        "schema": 1,
+        "kind": "query-latency-only",
+        "method": "bayes-target",
+        "loadMs": 18620,
+        "queries": 96,
+        "structuralInitMs": 0,
+        "maxSuggestions": 100,
+        "bayesMaxPostingsPerSymbol": 20000,
+        "includeSuggestions": true,
+        "medianMs": 278.137305,
+        "p95Ms": 357.086713,
+        "meanMs": 285.7860818229167,
+        "resources": {
+          "initial": {
+            "mode": "cgroup",
+            "memoryMax": 16000000000,
+            "swapMax": "0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "memory.peak": "5250138112",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        }
+      },
+      "elapsedSeconds": 55.60999485303182
+    },
+    "bayes-target-exact": {
+      "summary": {
+        "schema": 1,
+        "kind": "query-latency-only",
+        "method": "bayes-target",
+        "loadMs": 18859,
+        "queries": 96,
+        "structuralInitMs": 0,
+        "maxSuggestions": 100,
+        "bayesMaxPostingsPerSymbol": 0,
+        "includeSuggestions": true,
+        "medianMs": 274.827962,
+        "p95Ms": 353.408078,
+        "meanMs": 282.6933488854167,
+        "resources": {
+          "initial": {
+            "mode": "cgroup",
+            "memoryMax": 16000000000,
+            "swapMax": "0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "memory.peak": "5260435456",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        }
+      },
+      "elapsedSeconds": 55.47254933207296
+    },
+    "bayes-structural-target-bounded": {
+      "summary": {
+        "schema": 1,
+        "kind": "query-latency-only",
+        "method": "bayes-structural-target",
+        "loadMs": 18684,
+        "queries": 96,
+        "structuralInitMs": 28298,
+        "maxSuggestions": 100,
+        "bayesMaxPostingsPerSymbol": 20000,
+        "includeSuggestions": true,
+        "medianMs": 318.978712,
+        "p95Ms": 465.981065,
+        "meanMs": 320.79572633333333,
+        "resources": {
+          "initial": {
+            "mode": "cgroup",
+            "memoryMax": 16000000000,
+            "swapMax": "0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "memory.peak": "6949924864",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        }
+      },
+      "elapsedSeconds": 88.68848762603011
+    },
+    "bayes-structural-target-exact": {
+      "summary": {
+        "schema": 1,
+        "kind": "query-latency-only",
+        "method": "bayes-structural-target",
+        "loadMs": 18778,
+        "queries": 96,
+        "structuralInitMs": 28129,
+        "maxSuggestions": 100,
+        "bayesMaxPostingsPerSymbol": 0,
+        "includeSuggestions": true,
+        "medianMs": 317.840146,
+        "p95Ms": 460.656422,
+        "meanMs": 318.65085540625,
+        "resources": {
+          "initial": {
+            "mode": "cgroup",
+            "memoryMax": 16000000000,
+            "swapMax": "0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "memory.peak": "6997962752",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        }
+      },
+      "elapsedSeconds": 89.69143388490193
+    }
+  },
+  "errors": {},
+  "modelCalls": 0,
+  "goalProofTrials": 0,
+  "purpose": "Cost screen isolating query posting cap on unchanged top64-feature model.",
+  "rankingChanges": {
+    "bayes": {
+      "queries": 96,
+      "sameOrder": 9,
+      "sameFirst": 45,
+      "meanOverlapAt8": 0.625,
+      "meanOverlapAt100": 0.6224999999999999
+    },
+    "bayes-target": {
+      "queries": 96,
+      "sameOrder": 9,
+      "sameFirst": 81,
+      "meanOverlapAt8": 0.7890625,
+      "meanOverlapAt100": 0.805
+    },
+    "bayes-structural-target": {
+      "queries": 96,
+      "sameOrder": 9,
+      "sameFirst": 84,
+      "meanOverlapAt8": 0.80859375,
+      "meanOverlapAt100": 0.8440625
+    }
+  },
+  "kind": "matched-cpu-cost-and-ranking-change-screen",
+  "limitations": [
+    "Same 32 fixed public statement types with three repeats, not benchmark failed goals or independent proof trials.",
+    "Ranks compare exhaustive scoring of the stored top64-feature model against a 20000-posting cap; artifact feature pruning remains.",
+    "Fresh process per method/cap in one serial bounded job; filesystem caches may be shared, and small latency differences are not established speedups.",
+    "Rank trace generation occurs after each query timer stops. Ranking changes are not proof-quality gains.",
+    "Warmups/load costs and query costs are distinct; full preparation cost from the original Bayes report is unchanged."
+  ],
+  "evidenceSha256": {
+    "run.json": "4b7ead12a88fedd4a248b6c5620d8f64ce313c3fb64197619d7ae57ec22ae107",
+    "launcher.py": "ca33f493067dcf31d406e227db1030c6d8ddb86d9c99dfb17fc95bf857564f3b",
+    "bayes-bounded/queries.json": "134ec0a98e476f311364ddf87155bc35c2023eaea00a78d2bba0f58b4f139ef9",
+    "bayes-bounded/summary.json": "2e1a5e76e1692c154b6cc4198a424f113014e47d5bab0da961b2b9869247b039",
+    "bayes-exact/queries.json": "bccdb8e400706837be8eaeefd33d29aa843d385f5684bc6cf4a2d0b1cc1098a9",
+    "bayes-exact/summary.json": "e75f53f3f2a30dad777c64eb1499a71f77ac19cc950ef4830a6ca7502595205b",
+    "bayes-target-bounded/queries.json": "71f934d2bc2a6597bd18c13d55e82176ff974c81cf476b7b46689728d8022371",
+    "bayes-target-bounded/summary.json": "d2449d3662b85418752e074bebec6519e51aedf2eae3029077e818f469f6fc40",
+    "bayes-target-exact/queries.json": "42b297f510d2739727c5434811a4cfeb0b98a66ad56273b899cf67a367ebdb95",
+    "bayes-target-exact/summary.json": "9ca4d221d5cb0a4418c31b2b72b82912f07dc44ebeca0df2854af12f01b0d51a",
+    "bayes-structural-target-bounded/queries.json": "77490e42a02c7afde0d4da849968ea0dbfe540b0e1c5165ba5d1bad81c9e0005",
+    "bayes-structural-target-bounded/summary.json": "d67c708ddf35d2b1d8d8caed0492b5e7984135e1b7a2cb41e8c3442d4ec0553b",
+    "bayes-structural-target-exact/queries.json": "5c2e376b305183908468d0a06273e34dc0141a4c9d6696228eb7ac103961618a",
+    "bayes-structural-target-exact/summary.json": "c2701f08b5934a104a31949c1b5204d644ed5a52f3acd70bfbaf3de856353905"
+  },
+  "repeatRankingStability": {
+    "bayes-bounded": {
+      "uniqueStatements": 32,
+      "repeats": 3,
+      "unstableGroups": 0
+    },
+    "bayes-exact": {
+      "uniqueStatements": 32,
+      "repeats": 3,
+      "unstableGroups": 0
+    },
+    "bayes-target-bounded": {
+      "uniqueStatements": 32,
+      "repeats": 3,
+      "unstableGroups": 0
+    },
+    "bayes-target-exact": {
+      "uniqueStatements": 32,
+      "repeats": 3,
+      "unstableGroups": 0
+    },
+    "bayes-structural-target-bounded": {
+      "uniqueStatements": 32,
+      "repeats": 3,
+      "unstableGroups": 0
+    },
+    "bayes-structural-target-exact": {
+      "uniqueStatements": 32,
+      "repeats": 3,
+      "unstableGroups": 0
+    }
+  }
+}
