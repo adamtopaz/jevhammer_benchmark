@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "kind": "query-latency-only",
+  "selectorCommit": "fab11ad748b77910d0edfe5575acce074da1a145",
+  "sampleCount": 32,
+  "repeats": 3,
+  "maxSuggestions": 100,
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "methods": {
+    "rewrites": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "rewrites",
+      "queries": 96,
+      "loadMs": 2828,
+      "structuralInitMs": 28280,
+      "maxSuggestions": 100,
+      "medianMs": 15.989921,
+      "p95Ms": 75.104451,
+      "meanMs": 25.80548321875,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "51793920",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "3386241024",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "d1610b451eebacefe681466c2f7ad331018f6c66e885ac7fb92486e08853a9ef"
+    },
+    "structural-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "structural-target",
+      "queries": 96,
+      "loadMs": 2761,
+      "structuralInitMs": 27399,
+      "maxSuggestions": 100,
+      "medianMs": 156.038999,
+      "p95Ms": 284.070286,
+      "meanMs": 153.258533625,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "3386241024",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "4110647296",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "01d396b34fae4b231acba23a17d80d1081ba857973299d110d21082bd26e64aa"
+    },
+    "structural-rewrites": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "structural-rewrites",
+      "queries": 96,
+      "loadMs": 2948,
+      "structuralInitMs": 56401,
+      "maxSuggestions": 100,
+      "medianMs": 67.136346,
+      "p95Ms": 200.248557,
+      "meanMs": 78.19400457291667,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "4110647296",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "5124440064",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "5dac7afe408a060fdff5a5757a18a124fc3c4f4a39804b77def4f0f6de3bc2af"
+    },
+    "structural-rewrites-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "structural-rewrites-target",
+      "queries": 96,
+      "loadMs": 2778,
+      "structuralInitMs": 55870,
+      "maxSuggestions": 100,
+      "medianMs": 209.728028,
+      "p95Ms": 361.548733,
+      "meanMs": 204.97967026041667,
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "5124440064",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "5136478208",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "queriesSha256": "5a124387088a564b10a29368acf6b0ce12af98aec23c60f5326ac4474c8507ff"
+    }
+  },
+  "deployment": {
+    "selectorCommit": "fab11ad748b77910d0edfe5575acce074da1a145",
+    "rewritePriorImplementationCommit": "ae41248",
+    "traversalPolicy": "bounded application heads and arguments, binders in scope, unique expressions",
+    "benchmarkCommit": "9481a0a6160d8b193cc3c29a6f78b82235d4b37a",
+    "setupParentSha256": "1f2e4da1ab4e5629c44f3d325e16b9b553bcf0363b163dbf852b16f2ad1546f6",
+    "setupSha256": "1cd025aa9e44ffd945b847428fff1c7525affec74b8abadaf91120df34c21a57",
+    "selectorArtifacts": {
+      ".lake/build/lib/lean/JevSelector/Closing.olean": "e144ca71dd61af58782338df9413c573f456c23793f3c75f37ddb4dbe32c43c0",
+      ".lake/build/lib/lean/JevSelector/Closing.olean.server": "472e1de292f4165f6733629334f3c2830462db2673984aa27e191c44bbd9711e",
+      ".lake/build/lib/lean/JevSelector/Closing.olean.private": "82a62bc34dc01475e56079065693fa8656390ce75252f17f014574daced873aa",
+      ".lake/build/lib/lean/JevSelector/Closing.ir.sig": "9faedb33ca07ea958cb7db65ae40e9e877d08c8b7638af49450f75505fb2035b",
+      ".lake/build/lib/lean/JevSelector/Closing.ir": "52e71063afb0594b62301ea21189c096511c1f661c17559e57a2529e6572a0dd",
+      ".lake/build/lib/lean/JevSelector/Ensemble.olean": "16b6a6dae62080492041c38a587fb6812bc006803097aebdbdcad6004e7d01a8",
+      ".lake/build/lib/lean/JevSelector/Ensemble.olean.server": "0e95e33188c2325cbb132a7fbeaddcb260b417470db1a3e4fc5e4a36ce95e1a0",
+      ".lake/build/lib/lean/JevSelector/Ensemble.olean.private": "28f9f788e42cd337c002e755991a2b3599f115bc684b50c15d6365aeb85fdeb5",
+      ".lake/build/lib/lean/JevSelector/Ensemble.ir.sig": "2a8a21fdbaff9202b9eee995fb4cd7d4d14c96a985b907006903d4145435fe4f",
+      ".lake/build/lib/lean/JevSelector/Ensemble.ir": "f683c3bcca65f9d0b9c5e4b756886359b6bf8a92d1c8f83e3ccdb439181711c7",
+      ".lake/build/lib/lean/JevSelector/Features.olean": "2b0b63a05777de9d7500dbea13489ba860032814e6d6f82f3b6288f9b386aed7",
+      ".lake/build/lib/lean/JevSelector/Features.olean.server": "6422be58e638e4e4ef140b931a775ae0b5f9ca1829462cdc8cacb83d0ff81300",
+      ".lake/build/lib/lean/JevSelector/Features.olean.private": "eb6e7ea1eeb2275b31cb0e8ff8c12d80245610c30656b3989e9beacd7bdc2ede",
+      ".lake/build/lib/lean/JevSelector/Features.ir.sig": "c3c56221e27c5e4cc844c7261f367cb9cc1d60ebcefc32736a8d128817c3bd53",
+      ".lake/build/lib/lean/JevSelector/Features.ir": "127ee9e96afa2f718311de24df13608acd78dbc25abb7121c259432631b149c5",
+      ".lake/build/lib/lean/JevSelector/Index.olean": "fd346b6dd3db15cc35f04d8b091d30c51427e604c97ba5b37eb0f420171bf5d3",
+      ".lake/build/lib/lean/JevSelector/Index.olean.server": "18e6b90d9875acadc894a190b5cecb61da706aea3cb0ce89bfb73cdbe915d672",
+      ".lake/build/lib/lean/JevSelector/Index.olean.private": "8dc97fb0190178876b534b208721110faf961e0cd99248a0c35300310a966516",
+      ".lake/build/lib/lean/JevSelector/Index.ir.sig": "fc9c3f097b754acc13884fbd78bc0e069e13a2f420d276ebc54775619fedb76e",
+      ".lake/build/lib/lean/JevSelector/Index.ir": "894b15061ad19cc9c06e22e6c208119248cdff49b46aee4ff38dbe5bd6208c12",
+      ".lake/build/lib/lean/JevSelector/Profile.olean": "25613bb8b383fc62bf9a798af4ad4a3223934ab7822bb2ec81a44d5f49378e68",
+      ".lake/build/lib/lean/JevSelector/Profile.olean.server": "9babef0d0d2fe5f8f7983b239ec1523063eb638dad5bd96c1f0cac9f68ad60da",
+      ".lake/build/lib/lean/JevSelector/Profile.olean.private": "a435b01c23498f0671332d66c1b4c605d52f163056e0d6589e7f7f81098bc58f",
+      ".lake/build/lib/lean/JevSelector/Profile.ir.sig": "5480d3fadad6fe6ea856caecb5a977639eaab698a0e92f6a8931ef9659b6106f",
+      ".lake/build/lib/lean/JevSelector/Profile.ir": "08c87a9220767d23c091d071c3d80ee47310d2d687bce9ec11b9ef62049bebb1",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.olean": "1b42b677854c0ff58055fc8cb98deec300c44724fe8e5c72cf32386de3ca552b",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.olean.server": "c6f5d12c627b695471a5211c32ac0205c6f2055a2d0aa9ecb7d70f13c292053e",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.olean.private": "6590df1e15e53bdb450c1eb316791648f984865a684f6a082b107530e8b17fa3",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.ir.sig": "6b849a4bcf267574b8337fdcf47fc7b172b271f9c9dda7b8970a998f58ee2dd5",
+      ".lake/build/lib/lean/JevSelector/ProofDependencies.ir": "7662d47bc4cdc47a3c1ff7fe3c2a0ad739f26ac936839192cc9c2834555f6994",
+      ".lake/build/lib/lean/JevSelector/Structural.olean": "3d72ed0f41149c13ab5840441e5369ebcb442942f2cbff43e7937aafa9f5f325",
+      ".lake/build/lib/lean/JevSelector/Structural.olean.server": "f3055ab8c95db5d09a8c80f281d42073d6d774ceb93fc7857cf6414437f3a69c",
+      ".lake/build/lib/lean/JevSelector/Structural.olean.private": "b4f8e9d4763de42ec1bf8396e14a775b84d9e7b8361056d36a0fcf03fc61dd7d",
+      ".lake/build/lib/lean/JevSelector/Structural.ir.sig": "c54309811494fce84bb87a223d62a5dd58dfaa8ebfbc54be8428ec140c1a4c84",
+      ".lake/build/lib/lean/JevSelector/Structural.ir": "9095cb33823f55408d2869279d995f7329a77a67c3425310e3d9e93c181dd97b",
+      ".lake/build/lib/lean/JevSelector/Usage.olean": "418fc59f7241470d7564b961da5b48cdcc43c6b12ec67bd1cdafef87e0e89a48",
+      ".lake/build/lib/lean/JevSelector/Usage.olean.server": "27a10d41a7ce43a58b56e851074f84e35525975b09b689a80a0bcefec1bbb43c",
+      ".lake/build/lib/lean/JevSelector/Usage.olean.private": "5e27451a16b3e4fbde8041e4d5489d7059e7204b0ab67c12e5f691af7023ff66",
+      ".lake/build/lib/lean/JevSelector/Usage.ir.sig": "2ceb16dc8c21a3afd8d9f473960afb2e595ca5839226a2319d4ac171eb197818",
+      ".lake/build/lib/lean/JevSelector/Usage.ir": "ad6aab693ad7db092ef593ee48e37c2f03d6036668c2ac8af1eef565fa589640",
+      ".lake/build/lib/libjevselector_JevSelector.so": "422b03d9e069fa288f2cc1c6066c784f2c4de8768e33b8b46bfc681d2ed290b3"
+    },
+    "sourceSha256": "3f4904cb9cbe3a2e9dbdf5d93c1b7e12d639fee39e47269d48e469d122e3d750",
+    "launcherSha256": "54eed82e63b55887d896f850dfd9428dbea6f8b3fe47d2286412e99fdf9012f5",
+    "policy": "Only explicit selector import/plugin paths remapped; frozen benchmark checkout unchanged."
+  },
+  "limitations": [
+    "Same 32 public statement types and 3 repeats, including non-theorems.",
+    "No proof trials or model calls; timing does not establish coverage.",
+    "Fixed True warmup only; actual-shape lazy expansion remains in query timing.",
+    "Methods run serially in fresh processes; cgroup memory peaks are cumulative.",
+    "Profiling uses an explicit import/plugin overlay; the proof benchmark remains pinned to b8b0a95."
+  ]
+}

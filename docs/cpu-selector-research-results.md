@@ -530,3 +530,30 @@ the signature-only ablation. They are development choices, not unseen-goal claim
 
 [Complete configurations, paired intervals, request kinds, and costs](cpu-selector-rerank-v1.json),
 [all 136 per-location outcomes](cpu-selector-rerank-v1-trials.jsonl).
+
+## Corrected rewrite traversal and combined-source costs
+
+Selector `fab11ad` includes application heads in the bounded rewrite traversal;
+a synthetic function-equality regression fails against the previous build and
+passes against the correction. Native structural/rewrite suites, 19 Python tests,
+and combined fixture profiles pass. Full-Mathlib timing uses the same 32 public
+statement types × 3 repeats, explicitly requesting 100 suggestions:
+
+| Method | Median query | p95 query | Signature initialization |
+|---|---:|---:|---:|
+| Rewrite patterns | 15.99 ms | 75.10 ms | 28.28 s |
+| Public sparse + conclusion patterns | 156.04 ms | 284.07 ms | 27.40 s |
+| Conclusion + rewrite patterns | 67.14 ms | 200.25 ms | 56.40 s |
+| Public sparse + conclusion + rewrite patterns | 209.73 ms | 361.55 ms | 55.87 s |
+
+Both combined modes initialize two indexes. Initialization includes fixed `True`
+warmup; actual-goal lazy expansion stays in query timing. Artifact loading is
+separate (2.76–2.95 s). The shared serial scope peaked at **5.14 GB**, with no memory
+events under **16 GB and zero swap**. The provisional 200 ms p95 target is exceeded
+by both combined modes, slightly for signature-only and materially for three-source
+fusion. Proof coverage is still unmeasured. Each method used a fresh Lean process;
+no model calls were made, and the frozen proof benchmark stayed pinned to its old
+selector during profiling. The report records the explicit import/plugin overlay
+and binary checksums.
+
+[Complete corrected and combined profile evidence](cpu-selector-profile-combined-v1.json).
