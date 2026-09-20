@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "kind": "cpu-only-graph-cost",
+  "modelCalls": 0,
+  "goalProofTrials": 0,
+  "statementIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "profileSourceSha256": "916f454c32e0c5392ed76eedb62e5ad383060ea12022389a29f41d5b6577c34b",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "208728064",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "8711266304",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "profiles": {
+    "base": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 111.90755999999999,
+      "p95Ms": 231.575597,
+      "rankCallbacks": 0,
+      "maxChoices": 0,
+      "medianChoiceBytes": 0.0,
+      "errorKinds": []
+    },
+    "none": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 123.4458485,
+      "p95Ms": 246.497572,
+      "rankCallbacks": 96,
+      "maxChoices": 24,
+      "medianChoiceBytes": 5958.5,
+      "errorKinds": []
+    },
+    "forward": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 200.970524,
+      "p95Ms": 351.714132,
+      "rankCallbacks": 96,
+      "maxChoices": 24,
+      "medianChoiceBytes": 5958.5,
+      "errorKinds": []
+    },
+    "backward": {
+      "queries": 96,
+      "errors": 0,
+      "medianMs": 124.2178295,
+      "p95Ms": 225.425661,
+      "rankCallbacks": 96,
+      "maxChoices": 24,
+      "medianChoiceBytes": 5958.5,
+      "errorKinds": []
+    }
+  },
+  "benchmarkCommit": "3969df578e0aec005c587d3789f4a85f928dcd19",
+  "selectorCommit": "397bef6d03d6ef4c7cda8ada8f3f92fb567863e1",
+  "hammerCommit": "2e3df668acbef581c81adccf70e629119cd28760",
+  "benchmarkWorkingDiff": "",
+  "plugins": [
+    "libjevselector_JevSelector.so"
+  ],
+  "setupSha256": "3ba61197fb011428cb4a9e4178fb775a332046fd772402c6c3b7f414a73de93f",
+  "graphEntries": 376989,
+  "graphInitMs": 14793,
+  "loadMs": 2964,
+  "previewCandidates": 0,
+  "proofTrials": 0,
+  "shapeInitMs": 7265,
+  "validationMs": 277,
+  "comparison": {
+    "previousRun": "cpu-selector-profile-graph-v4",
+    "identicalOrderedQueries": 384,
+    "comparedFields": [
+      "mode",
+      "name",
+      "repeat",
+      "returned",
+      "rankCalls",
+      "choices",
+      "choiceBytes",
+      "error",
+      "suggestions"
+    ],
+    "previousQueriesSha256": "50cfb093f0cea516c958aa9d209822db3d0c5ca7e830988832ccaf07a2099b20"
+  },
+  "rankingChanges": {
+    "none": {
+      "validPairs": 96,
+      "sameOrder": 96,
+      "meanTop8Overlap": 1.0
+    },
+    "forward": {
+      "validPairs": 96,
+      "sameOrder": 0,
+      "meanTop8Overlap": 0.5546875
+    },
+    "backward": {
+      "validPairs": 96,
+      "sameOrder": 6,
+      "meanTop8Overlap": 0.57421875
+    }
+  },
+  "phases": [
+    {
+      "monoMs": 1056586934,
+      "phase": "loading"
+    },
+    {
+      "monoMs": 1056589898,
+      "phase": "validation"
+    },
+    {
+      "monoMs": 1056590176,
+      "phase": "graph"
+    },
+    {
+      "monoMs": 1056604969,
+      "phase": "structural"
+    },
+    {
+      "monoMs": 1056612234,
+      "phase": "queries"
+    },
+    {
+      "monoMs": 1056672862,
+      "phase": "complete"
+    }
+  ],
+  "queriesSha256": "5826414531619b6595d8b5a14f968b762127d46ac2eeabd17fb04c94987debc5",
+  "limitations": [
+    "Fixed 32 public statement types, three repeats, not proof coverage or held-out evaluation.",
+    "Deterministic injected directions: zero model calls; Jev request latency is excluded.",
+    "Immutable graph shared; structural query caches independent from fixed warmup.",
+    "No-expansion should preserve the CPU base exactly; other ranking changes do not establish quality gains.",
+    "Full initialization is reported separately from queries.",
+    "Memory peaks are cumulative within the recorded cgroup; serial profiles can share a scope."
+  ],
+  "publicQueries": {
+    "path": "cpu-selector-profile-graph-v5-queries.jsonl",
+    "sha256": "f89f6b90992b95fadd8bf885e1f6eea8d96c06a154bee19e701297a4cafd351d"
+  },
+  "repeatStability": {
+    "base": {
+      "groups": 32,
+      "unstableGroups": 0
+    },
+    "none": {
+      "groups": 32,
+      "unstableGroups": 0
+    },
+    "forward": {
+      "groups": 32,
+      "unstableGroups": 0
+    },
+    "backward": {
+      "groups": 32,
+      "unstableGroups": 0
+    }
+  }
+}

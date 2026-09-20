@@ -180,3 +180,34 @@ ranking identity, and peak memory. Both runs make zero model calls and zero
 proof trials. Keep one 16 GB zero-swap scope active at a time, with two threads.
 Do not infer proof quality from deterministic output preservation. A subsequent
 matched proof comparison must freeze its own adapters, admission and protocol.
+
+
+Both preview-cost runs completed under frozen benchmark `3969df5` and selector
+`397bef6`. v5 reproduces all 384 v4 suggestion lists and callback/payload fields.
+v6 reproduces all 384 v5 suggestion lists and callback/choice counts while adding
+the intended preview payloads. All four modes have 96 successful queries and
+zero errors; all 32 statement groups are stable across three repetitions.
+
+| Direction callback | Zero previews median / p95 | Three previews median / p95 |
+|---|---:|---:|
+| No expansion | 123.45 / 246.50 ms | 247.59 / 386.87 ms |
+| Forward | 200.97 / 351.71 ms | 243.03 / 382.96 ms |
+| Backward | 124.22 / 225.43 ms | 247.80 / 386.73 ms |
+
+The CPU base measured 111.91 / 231.58 ms in v5 and 112.69 / 224.41 ms in v6.
+Median choice-plus-question payloads grew **5,958.5 → 16,855.5 bytes**, excluding
+the separately supplied goal/context. Full graph construction was 14.793 / 14.676
+seconds and structural initialization 7.265 / 6.593 seconds; loading and validation
+remain separately reported. The graph contains 376,989 public signatures.
+
+The two profiles ran sequentially in one **16 GB zero-swap scope**, with an
+aggregate peak of **8,912,060,416 bytes** and no limit/OOM events. v6's initial
+peak already includes v5; do not add their memory peaks. No neural service,
+model call, or proof trial ran. The preview p95 exceeds the provisional 200 ms
+CPU target and must be assessed as a cost tradeoff, not relabeled as meeting it.
+Actual Jev latency and proof coverage still need their own matched screen.
+
+The public reports are [v5](cpu-selector-profile-graph-v5.json) and
+[v6](cpu-selector-profile-graph-v6.json), with companion per-query timing and
+ordered-name digests. After reproducing a profile, publish it with
+`python scripts/export_graph_cost.py RUN_DIRECTORY_NAME`.

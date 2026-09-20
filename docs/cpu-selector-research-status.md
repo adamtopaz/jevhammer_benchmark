@@ -34,6 +34,9 @@ CPU's 16–15 lead over the stronger neural arm has a 95% interval including zer
 This repeatedly exposed pilot is useful for development, not final superiority
 claims. The next candidate adds bounded destination-statement previews to the
 graph's model choices; it has no proof-quality result yet.
+Its [native CPU profile](cpu-selector-profile-graph-v6.json) preserves all 384
+fixed-direction rankings, at roughly 243–248 ms median and 383–387 ms p95,
+excluding real Jev latency. This exceeds the provisional 200 ms p95 target.
 
 All 122 reserved evaluation locations remain unused for proof trials. A
 substantial improvement still needs to be demonstrated there after development
