@@ -653,3 +653,49 @@ The CPU neural services stopped after replay.
 [all 136 trial outcomes](cpu-selector-graph-v1-trials.jsonl).
 The checked exporter is available as `python scripts/export_graph_screen.py`
 after reproducing this run; it rejects incomplete collection or replay.
+
+## Destination previews: different traversal, no coverage improvement
+
+The representation ablation completed all **170 trials** at the unchanged 34
+development locations. All **71 successful proofs independently replayed**, with
+none late or budget-blocked. Frozen benchmark `21206ba` used selector `397bef6`
+and JevHammer `2e3df66`. All arms kept the same tactics, six-second clock, three
+shared Jev calls, and Jev proof-state guidance. The preview arm supplied up to
+three destination statements per direction, each capped at 480 characters; all
+traversal bounds and deterministic neighbor ordering were unchanged.
+
+| Method | On-time verified | Total goal time | Retrieval time | Selector / state calls |
+|---|---:|---:|---:|---:|
+| CPU sparse + conclusion | **16/34** | 113.659 s | 5.929 s | 0 / 42 |
+| Original Jev signature graph | 14/34 | 118.601 s | 29.418 s | 49 / 24 |
+| Graph with destination previews | 14/34 | 125.064 s | 35.916 s | 49 / 24 |
+| Neural + conclusion, native order | 13/34 | 126.794 s | 12.025 s | 0 / 46 |
+| Neural + conclusion, Jev reranking | 14/34 | 138.778 s | 11.183 s | 0 / 23 |
+
+The preview variant gained one location and lost one against the original graph
+and against neural reranked: **−8.82 to +8.82 percentage points** in each paired
+95% interval. It gained none and lost two against CPU control. It fails the frozen
+promotion rule and will not advance to the 134-location development comparison.
+CPU's 16–14 lead over neural reranked has interval **−2.94 to +17.65 points**;
+this small, repeatedly exposed pilot does not establish final superiority.
+
+All 49 selector responses in each graph arm were parseable. Original graph chose
+**322 backward, 49 none, eight forward** over 379 frontier nodes. Previews chose
+**58 backward, 12 none, 306 forward** over 376 nodes. Empty chosen neighborhoods
+fell **44 → 7**. These aggregate diagnostics show the representation affected
+decisions, but do not explain individual proof outcomes or establish better
+premise selection. Preview selector calls consumed **25.631 seconds**, included
+in retrieval, versus **21.816 seconds** for original graph. Both made only 24
+proof-state calls, compared with CPU's 42. Ordinary neural premise reranking is
+accounted after retrieval; retrieval totals are not equal quantities of model work.
+
+All **eight ranking/API failures** remain included (2/1/1/4/0 in table order).
+The run made **306 requests**, with **2,609,654 reported input tokens**, **139,773
+output tokens**, and one request with unknown usage. Peak combined RAM was
+**11,356,164,096 bytes**, with no limit/OOM events under **16 GB, zero swap**.
+The CPU neural services stopped after replay. Reserved proof trials remain zero.
+
+[Complete configurations, paired results, calls and costs](cpu-selector-graph-preview-v1.json),
+[all 170 trial outcomes](cpu-selector-graph-preview-v1-trials.jsonl).
+Reproduce the checked export with `python scripts/export_graph_preview_screen.py`
+after completing collection and independent replay.

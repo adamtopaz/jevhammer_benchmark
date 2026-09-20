@@ -32,11 +32,18 @@ CPU control solved 16, Jev-guided graph 14, neural native 13, and neural reranke
 15. The graph variant gained none and lost two versus CPU, so it is not promoted.
 CPU's 16–15 lead over the stronger neural arm has a 95% interval including zero.
 This repeatedly exposed pilot is useful for development, not final superiority
-claims. The next candidate adds bounded destination-statement previews to the
-graph's model choices; it has no proof-quality result yet.
-Its [native CPU profile](cpu-selector-profile-graph-v6.json) preserves all 384
+claims. The subsequent [destination-preview screen](cpu-selector-graph-preview-v1.json)
+completed all 170 trials and independently replayed all 71 successes. CPU solved
+16/34, original graph and preview graph each 14/34, neural native 13/34, and
+neural reranked 14/34. Previews changed traversal directions substantially but
+gained one and lost one against the original graph. They fail the promotion rule.
+Their [native CPU profile](cpu-selector-profile-graph-v6.json) preserves all 384
 fixed-direction rankings, at roughly 243–248 ms median and 383–387 ms p95,
 excluding real Jev latency. This exceeds the provisional 200 ms p95 target.
+
+The next scheduling hypothesis tries base-selected premises before spending
+calls on premise guidance, under the same goal clock and call limit. It applies
+equally to CPU and neural methods and has no proof-quality result yet.
 
 All 122 reserved evaluation locations remain unused for proof trials. A
 substantial improvement still needs to be demonstrated there after development
