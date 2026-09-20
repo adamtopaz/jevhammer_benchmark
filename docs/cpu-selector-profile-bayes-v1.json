@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "kind": "preparation-and-query-costs-only",
+  "selectorCommit": "8b9ffbe9644afe5e982dab35088d2fd6f09449cc",
+  "benchmarkCommit": "0d158434b6799aea3f05295494572bbfa89549d9",
+  "memoryLimitBytes": 16000000000,
+  "swapLimitBytes": 0,
+  "statementPreparation": {
+    "schema": 1,
+    "status": "complete",
+    "resources": {
+      "initial": {
+        "mode": "cgroup",
+        "memoryMax": 16000000000,
+        "swapMax": "0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "7415607296",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "indexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+    "recipe": {
+      "algorithm": "statement-symbol-idf-v1",
+      "modules": [
+        "Mathlib"
+      ],
+      "scopes": [
+        "Mathlib"
+      ],
+      "proofInformation": "none",
+      "heldoutStatementStatistics": "excluded",
+      "catalogPolicy": "public-constants",
+      "trainingOwners": "eligible original theorems only",
+      "statementCatalog": "retained; runtime availability and caller filter required"
+    },
+    "declarations": 318231,
+    "eligible": 254885,
+    "candidateOnly": 63162,
+    "excluded": 288,
+    "symbols": 59171,
+    "artifactBytes": 183776793,
+    "extractionSeconds": 228.22368668194395,
+    "totalSeconds": 232.66365648503415
+  },
+  "theoremDependencyPreparation": {
+    "schema": 1,
+    "status": "complete",
+    "resources": {
+      "initial": {
+        "mode": "cgroup",
+        "memoryMax": 16000000000,
+        "swapMax": "0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "7752527872",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "dependenciesSha256": "a74115a01c104630d0491c084c02f307b2a44281fdb8e4ffc2045d6a1156d84e",
+    "examples": 254885,
+    "premises": 145736,
+    "edges": 1536554,
+    "artifactBytes": 65172571,
+    "recipe": {
+      "algorithm": "direct-proof-neighbors-v1",
+      "modules": [
+        "Mathlib"
+      ],
+      "proofInformation": "direct permitted-constant references in eligible theorem proof values",
+      "labelPolicy": "theorems",
+      "excludedProofBodies": "never read",
+      "helperProofBodies": "never traversed",
+      "definitionBodies": "never read",
+      "labelStatistics": "eligible examples only"
+    },
+    "totalSeconds": 762.1545084479731
+  },
+  "bayesPreparation": {
+    "schema": 1,
+    "status": "complete",
+    "resources": {
+      "initial": {
+        "mode": "cgroup",
+        "memoryMax": 16000000000,
+        "swapMax": "0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "8172781568",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "bayesSha256": "e6c60bf2da82c61296da74a36797cfe799e07d5c5fb07a1a719bba353d8642f4",
+    "recipe": {
+      "algorithm": "weighted-sparse-bayes-v1",
+      "signaturePrior": 20.0,
+      "observedWeight": 10.0,
+      "missingWeight": -15.0,
+      "maxFeatures": 64,
+      "signaturePriorOwners": "eligible owners only",
+      "featurePruning": "largest sparse deltas; complete label support retained",
+      "format": "one header followed by one premise record per line"
+    },
+    "examples": 254885,
+    "premises": 258016,
+    "symbols": 59171,
+    "signaturePriorOwners": 254885,
+    "featureEdges": 7587133,
+    "artifactBytes": 387851440,
+    "totalSeconds": 18.396080462960526
+  },
+  "methods": {
+    "bayes": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "bayes",
+      "loadMs": 18759,
+      "queries": 96,
+      "structuralInitMs": 0,
+      "maxSuggestions": 100,
+      "medianMs": 116.353457,
+      "p95Ms": 127.25518,
+      "meanMs": 117.02798638541667,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "8172781568",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      }
+    },
+    "bayes-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "bayes-target",
+      "loadMs": 18661,
+      "queries": 96,
+      "structuralInitMs": 0,
+      "maxSuggestions": 100,
+      "medianMs": 276.840789,
+      "p95Ms": 350.151045,
+      "meanMs": 284.10006919791664,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "8172781568",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      }
+    },
+    "bayes-structural-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "bayes-structural-target",
+      "loadMs": 18705,
+      "queries": 96,
+      "structuralInitMs": 28604,
+      "maxSuggestions": 100,
+      "medianMs": 319.300004,
+      "p95Ms": 467.189235,
+      "meanMs": 318.20374446875,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "9770303488",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      }
+    },
+    "structural-target": {
+      "schema": 1,
+      "kind": "query-latency-only",
+      "method": "structural-target",
+      "loadMs": 2917,
+      "queries": 96,
+      "structuralInitMs": 27824,
+      "maxSuggestions": 100,
+      "medianMs": 160.289495,
+      "p95Ms": 282.517058,
+      "meanMs": 156.79216015625,
+      "resources": {
+        "initial": {
+          "mode": "cgroup",
+          "memoryMax": 16000000000,
+          "swapMax": "0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "9770303488",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      }
+    }
+  },
+  "completePreparationSeconds": 1013.2142453959677,
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "15994880",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "latest": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "9770303488",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "9770303488",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "limitations": [
+    "Statement preparation timing comes from the prior public-catalog run; dependency extraction and Bayes fitting were measured fresh.",
+    "CPU profiles use the same 32 public statement types, three repeats, and 100 requested suggestions; no proof coverage or model calls.",
+    "Artifact loading and signature-index initialization are reported separately; setup is not free.",
+    "Methods ran serially in fresh processes; the shared cgroup peak is cumulative.",
+    "Full-library statistics exclude all 188 broad evaluation owners and named children; 122 reserved evaluation states remain untouched."
+  ]
+}
