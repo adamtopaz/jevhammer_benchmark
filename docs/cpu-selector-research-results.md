@@ -401,3 +401,66 @@ remain unused. No individual failures were analyzed to tune the selector.
 
 [Complete configurations and evidence](cpu-selector-structural-v1.json),
 [all per-location outcomes](cpu-selector-structural-v1-trials.jsonl).
+
+## Full development: structural CPU fusion ties plain neural, trails neural fusion
+
+The frozen comparison completed all **536 trials at 134 locations from 99
+declarations**. All **247 successful proofs independently replayed**, none were
+late or budget-blocked, and every source file re-elaborated during replay.
+Benchmark `405f7fe` used the unchanged selector `b8b0a95`; all methods retained
+Jev proof-state guidance, no premise reranking, and identical six-second budgets.
+
+| Method | On-time verified | Total goal time | Retrieval time |
+|---|---:|---:|---:|
+| Public-catalog target | 57/134 (42.5%) | 424.942 s | 22.724 s |
+| Public target + structural | **63/134 (47.0%)** | 414.761 s | 26.698 s |
+| Warmed neural reference | **63/134 (47.0%)** | 403.897 s | 54.893 s |
+| Neural + structural | **64/134 (47.8%)** | 417.450 s | 62.836 s |
+
+CPU fusion gained seven locations and lost one against public sparse: **+4.5
+percentage points**, with declaration-grouped paired bootstrap 95% interval
+**+0.75 to +8.73 points**. Against plain neural it gained seven and lost seven,
+interval **−5.15 to +5.60 points**. Against neural fusion it gained five and lost
+six, interval **−5.51 to +4.32 points**. The pilot lead did not establish a larger
+development advantage. CPU fusion is a measured improvement over sparse, with
+roughly half the neural retrieval time, but it has not beaten the strongest
+neural reference and does not satisfy the research goal.
+
+The exploratory exposure breakdown reinforces that limitation:
+
+| Development subset | Locations | Sparse | CPU fusion | Neural | Neural fusion |
+|---|---:|---:|---:|---:|---:|
+| Original selector-pilot locations | 34 | 15 | 16 | 14 | 13 |
+| Other locations of pilot owners | 19 | 9 | 10 | 9 | 9 |
+| Owners absent from selector pilot | 81 | 33 | 37 | 40 | 42 |
+
+The last subset has 65 owners and still has earlier broad-baseline exposure;
+it is not an untouched test set. Do not reinterpret these development strata as
+independent significance tests. The 122 reserved evaluation locations remain
+unused. No individual failed goals were analyzed to tune the selector.
+
+The host execution environment changed after **92 complete four-method trial
+groups (368 trials)** were recorded. The launcher and Lean workers had exited,
+while the original two neural services remained live. Recovery preserved the
+original records and all **410** prior request decisions, resumed only the 42
+untouched goals in 11 modules, and joined the same original 16 GB cgroup with
+the same neural-service processes and caches. No trial was retried and no usage
+counter was reset. Retained logs had no panic/error markers; all 134 source
+locations and successful certificates subsequently passed independent replay.
+The interruption and before/after evidence are retained in the machine report.
+
+All **32 ranking/API failures** remain included (9, 13, 5, 5 by arm). There were
+**675 Jev requests**, **3,611,284 reported input tokens**, **96,696 output tokens**,
+and **14** requests with unknown usage. Combined peak was **10.51 GB**, with no
+memory events under the shared **16 GB, zero-swap bound**. Services stopped after
+replay. This run used no Jev premise-ranking calls; state-ranking calls were
+recorded in every arm.
+
+Next, compare the selected CPU fusion and stronger neural fusion with and without
+Jev premise reranking under matched current-file/imported catalog warmup. The
+earlier reranking reference had a warmup/cache confound and cannot settle that
+comparison. Bounded rewrite-pattern retrieval is a separate validated candidate
+whose full-library cost is being measured before proof trials.
+
+[Complete configurations, paired intervals, exposure breakdown, and recovery audit](cpu-selector-structural-broad-v1.json),
+[all 536 per-location outcomes](cpu-selector-structural-broad-v1-trials.jsonl).

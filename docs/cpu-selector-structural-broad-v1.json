@@ -1,0 +1,778 @@
+{
+  "schema": 1,
+  "kind": "live-development-candidate-screen",
+  "benchmarkCommit": "405f7fecac18d67277e427af3d62f52cf8701262",
+  "selectorCommit": "b8b0a954ee12a776cd5d248d69f1f343e9ef0c22",
+  "publicIndexSha256": "e388078b747f85320c672a78570d3831bb4ce6b754d3df493ed7095afe4cd7f5",
+  "structuralProfileCommit": "2270359ae0ac96c97a914ae03a39345b1201ae42",
+  "cacheIsolation": "separate mutable method caches from fixed True warmup",
+  "dataset": "datasets/mathlib-broad-v1/research-structural-v1.json",
+  "datasetSha256": "b5b3c865fe7f42fae080cbc6d8e9f8e0a442f24b23d7bff783fd92e6b35df1b4",
+  "summary": {
+    "schema": 1,
+    "status": "complete",
+    "guidance": "jev",
+    "methods": {
+      "JevHammerBenchmark.Research.publicTarget": {
+        "sites": 134,
+        "recorded": 134,
+        "onTimeVerified": 57,
+        "rawVerified": 57,
+        "lateVerified": 0,
+        "elapsedMs": 424942,
+        "budgetBlocked": 0,
+        "rankFailures": 9
+      },
+      "JevHammerBenchmark.Research.structuralPublic": {
+        "sites": 134,
+        "recorded": 134,
+        "onTimeVerified": 63,
+        "rawVerified": 63,
+        "lateVerified": 0,
+        "elapsedMs": 414761,
+        "budgetBlocked": 0,
+        "rankFailures": 13
+      },
+      "JevHammerBenchmark.Research.neuralWarm": {
+        "sites": 134,
+        "recorded": 134,
+        "onTimeVerified": 63,
+        "rawVerified": 63,
+        "lateVerified": 0,
+        "elapsedMs": 403897,
+        "budgetBlocked": 0,
+        "rankFailures": 5
+      },
+      "JevHammerBenchmark.Research.structuralNeural": {
+        "sites": 134,
+        "recorded": 134,
+        "onTimeVerified": 64,
+        "rawVerified": 64,
+        "lateVerified": 0,
+        "elapsedMs": 417450,
+        "budgetBlocked": 0,
+        "rankFailures": 5
+      }
+    },
+    "paired": [
+      {
+        "a": "JevHammerBenchmark.Research.publicTarget",
+        "b": "JevHammerBenchmark.Research.structuralPublic",
+        "gained": 1,
+        "lost": 7,
+        "declarationBootstrap95": [
+          -0.0873015873015873,
+          -0.007462686567164179
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.Research.publicTarget",
+        "b": "JevHammerBenchmark.Research.neuralWarm",
+        "gained": 5,
+        "lost": 11,
+        "declarationBootstrap95": [
+          -0.09774436090225563,
+          0.008064516129032258
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.Research.publicTarget",
+        "b": "JevHammerBenchmark.Research.structuralNeural",
+        "gained": 6,
+        "lost": 13,
+        "declarationBootstrap95": [
+          -0.11194029850746269,
+          0.007518796992481203
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.Research.structuralPublic",
+        "b": "JevHammerBenchmark.Research.neuralWarm",
+        "gained": 7,
+        "lost": 7,
+        "declarationBootstrap95": [
+          -0.051470588235294115,
+          0.056
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.Research.structuralPublic",
+        "b": "JevHammerBenchmark.Research.structuralNeural",
+        "gained": 5,
+        "lost": 6,
+        "declarationBootstrap95": [
+          -0.05511811023622047,
+          0.04316546762589928
+        ]
+      },
+      {
+        "a": "JevHammerBenchmark.Research.neuralWarm",
+        "b": "JevHammerBenchmark.Research.structuralNeural",
+        "gained": 4,
+        "lost": 5,
+        "declarationBootstrap95": [
+          -0.05223880597014925,
+          0.03731343283582089
+        ]
+      }
+    ],
+    "usage": {
+      "attempts": 675,
+      "inputTokens": 3611284,
+      "outputTokens": 96696,
+      "unknownUsage": 14
+    }
+  },
+  "developmentBreakdown": {
+    "kind": "exploratory-development-exposure-strata",
+    "interpretation": "All groups are development data. Owners absent from the selector pilot still have earlier broad-baseline exposure. These diagnostics are not independent reserved evaluation or multiplicity-adjusted significance tests.",
+    "groups": {
+      "originalPilotLocations": {
+        "sites": 34,
+        "owners": 34,
+        "onTimeVerified": {
+          "JevHammerBenchmark.Research.publicTarget": 15,
+          "JevHammerBenchmark.Research.structuralPublic": 16,
+          "JevHammerBenchmark.Research.neuralWarm": 14,
+          "JevHammerBenchmark.Research.structuralNeural": 13
+        },
+        "paired": [
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.structuralPublic",
+            "gained": 0,
+            "lost": 1,
+            "declarationBootstrap95": [
+              -0.08823529411764706,
+              0.0
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.neuralWarm",
+            "gained": 2,
+            "lost": 1,
+            "declarationBootstrap95": [
+              -0.058823529411764705,
+              0.14705882352941177
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 3,
+            "lost": 1,
+            "declarationBootstrap95": [
+              -0.058823529411764705,
+              0.17647058823529413
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.structuralPublic",
+            "b": "JevHammerBenchmark.Research.neuralWarm",
+            "gained": 2,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.14705882352941177
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.structuralPublic",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 3,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.20588235294117646
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.neuralWarm",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 1,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.08823529411764706
+            ]
+          }
+        ]
+      },
+      "otherLocationsOfPilotOwners": {
+        "sites": 19,
+        "owners": 19,
+        "onTimeVerified": {
+          "JevHammerBenchmark.Research.publicTarget": 9,
+          "JevHammerBenchmark.Research.structuralPublic": 10,
+          "JevHammerBenchmark.Research.neuralWarm": 9,
+          "JevHammerBenchmark.Research.structuralNeural": 9
+        },
+        "paired": [
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.structuralPublic",
+            "gained": 0,
+            "lost": 1,
+            "declarationBootstrap95": [
+              -0.15789473684210525,
+              0.0
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.neuralWarm",
+            "gained": 0,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 1,
+            "lost": 1,
+            "declarationBootstrap95": [
+              -0.15789473684210525,
+              0.15789473684210525
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.structuralPublic",
+            "b": "JevHammerBenchmark.Research.neuralWarm",
+            "gained": 1,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.15789473684210525
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.structuralPublic",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 1,
+            "lost": 0,
+            "declarationBootstrap95": [
+              0.0,
+              0.15789473684210525
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.neuralWarm",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 1,
+            "lost": 1,
+            "declarationBootstrap95": [
+              -0.15789473684210525,
+              0.15789473684210525
+            ]
+          }
+        ]
+      },
+      "ownersAbsentFromSelectorPilot": {
+        "sites": 81,
+        "owners": 65,
+        "onTimeVerified": {
+          "JevHammerBenchmark.Research.publicTarget": 33,
+          "JevHammerBenchmark.Research.structuralPublic": 37,
+          "JevHammerBenchmark.Research.neuralWarm": 40,
+          "JevHammerBenchmark.Research.structuralNeural": 42
+        },
+        "paired": [
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.structuralPublic",
+            "gained": 1,
+            "lost": 5,
+            "declarationBootstrap95": [
+              -0.10714285714285714,
+              0.0
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.neuralWarm",
+            "gained": 3,
+            "lost": 10,
+            "declarationBootstrap95": [
+              -0.175,
+              0.0
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.publicTarget",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 2,
+            "lost": 11,
+            "declarationBootstrap95": [
+              -0.1927710843373494,
+              -0.033707865168539325
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.structuralPublic",
+            "b": "JevHammerBenchmark.Research.neuralWarm",
+            "gained": 4,
+            "lost": 7,
+            "declarationBootstrap95": [
+              -0.11688311688311688,
+              0.038461538461538464
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.structuralPublic",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 1,
+            "lost": 6,
+            "declarationBootstrap95": [
+              -0.12048192771084337,
+              0.0
+            ]
+          },
+          {
+            "a": "JevHammerBenchmark.Research.neuralWarm",
+            "b": "JevHammerBenchmark.Research.structuralNeural",
+            "gained": 2,
+            "lost": 4,
+            "declarationBootstrap95": [
+              -0.08433734939759036,
+              0.037037037037037035
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "recovery": {
+    "reason": "Host execution environment changed; launcher and all Lean workers exited, leaving exactly the two original neural services alive. No OOM/limit events.",
+    "completedSites": 92,
+    "completedModules": 23,
+    "remainingSites": 42,
+    "remainingModules": 11,
+    "snapshots": {
+      "trials.jsonl": {
+        "bytes": 3014465,
+        "sha256": "05f8e440b43163b68fc9c42af686be1dafffbd8a2f679f8ac16603643221742d"
+      },
+      "visited.jsonl": {
+        "bytes": 56877,
+        "sha256": "38d5eb50403624cb0857e89fd515e09fa4f3d8b73971f86a0a8f694a7fd5838b"
+      },
+      "decisions.jsonl": {
+        "bytes": 5649135,
+        "sha256": "b8c6b4c084cf4e63ef907d341c521ee9b10c22b6073380656eaebabe3fb9ad35"
+      },
+      "warmup.jsonl": {
+        "bytes": 824008,
+        "sha256": "47c8a26866334db705419617db344bc320cfc4e87a81858705c72dcac3a34973"
+      },
+      "usage.json": {
+        "bytes": 77,
+        "sha256": "b97adf80c99324324d257132677018b566c181ff30de287a2edb5847cff05e77"
+      }
+    },
+    "resourcesBefore": {
+      "memory.current": "7551635456",
+      "memory.peak": "10514747392",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "usageBefore": {
+      "attempts": 410,
+      "inputTokens": 2492410,
+      "outputTokens": 61603,
+      "unknownUsage": 8
+    },
+    "startedAt": 1789870472.235184,
+    "launcherSha256": "3e2ed5c4cf55e3097ee74753c8a6974e686d6c8246d978709c564451dc4b1a0a"
+  },
+  "resources": {
+    "initial": {
+      "mode": "cgroup",
+      "memoryMax": 16000000000,
+      "swapMax": "0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "10514747392",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "metrics": {
+    "JevHammerBenchmark.Research.publicTarget": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 22724,
+      "goalMedianMs": 3527.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 189,
+      "onTimeVerifiedWithNoPremisesReturned": 31,
+      "onTimeVerifiedWithPremisesReturned": 26,
+      "warmupMs": [
+        318,
+        3151,
+        3377,
+        323,
+        3119,
+        334,
+        3278,
+        326,
+        305,
+        334,
+        3130,
+        3133,
+        281,
+        3122,
+        3121,
+        289,
+        306,
+        282,
+        3183,
+        276,
+        317,
+        3203,
+        3219,
+        3124,
+        318,
+        3134,
+        312,
+        3145,
+        3122,
+        3116,
+        3145,
+        3166,
+        3245,
+        286
+      ],
+      "requests": 189,
+      "reportedInputTokens": 954084,
+      "reportedOutputTokens": 25021,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 3,
+        "TypeSafe HTTP 400": 6
+      }
+    },
+    "JevHammerBenchmark.Research.structuralPublic": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 26698,
+      "goalMedianMs": 2851.5,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 164,
+      "onTimeVerifiedWithNoPremisesReturned": 31,
+      "onTimeVerifiedWithPremisesReturned": 32,
+      "warmupMs": [
+        5242,
+        328,
+        321,
+        4666,
+        1456,
+        3136,
+        338,
+        3148,
+        3148,
+        4168,
+        330,
+        316,
+        7509,
+        3522,
+        316,
+        6077,
+        7040,
+        3119,
+        315,
+        7155,
+        3288,
+        311,
+        305,
+        321,
+        3149,
+        1148,
+        5773,
+        312,
+        4218,
+        310,
+        327,
+        340,
+        3197,
+        3141
+      ],
+      "requests": 164,
+      "reportedInputTokens": 936595,
+      "reportedOutputTokens": 25423,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 10,
+        "TypeSafe HTTP 400": 3
+      }
+    },
+    "JevHammerBenchmark.Research.neuralWarm": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 54893,
+      "goalMedianMs": 2955.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 168,
+      "onTimeVerifiedWithNoPremisesReturned": 31,
+      "onTimeVerifiedWithPremisesReturned": 32,
+      "warmupMs": [
+        34301,
+        184,
+        403,
+        4024,
+        221,
+        209,
+        216,
+        199,
+        202,
+        206,
+        707,
+        1229,
+        369,
+        734,
+        850,
+        4819,
+        365,
+        255,
+        244,
+        1008,
+        938,
+        380,
+        432,
+        292,
+        193,
+        994,
+        1863,
+        400,
+        2117,
+        379,
+        932,
+        188,
+        722,
+        239
+      ],
+      "requests": 168,
+      "reportedInputTokens": 841305,
+      "reportedOutputTokens": 21713,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 1,
+        "TypeSafe HTTP 400": 4
+      }
+    },
+    "JevHammerBenchmark.Research.structuralNeural": {
+      "config": {
+        "beamWidth": 4,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      },
+      "retrievalMs": 62836,
+      "goalMedianMs": 3407.0,
+      "premiseRankCalls": 0,
+      "stateRankCalls": 154,
+      "onTimeVerifiedWithNoPremisesReturned": 31,
+      "onTimeVerifiedWithPremisesReturned": 33,
+      "warmupMs": [
+        258,
+        1939,
+        6182,
+        227,
+        1220,
+        2266,
+        1806,
+        3921,
+        2837,
+        1335,
+        1200,
+        1545,
+        1015,
+        310,
+        3158,
+        298,
+        777,
+        3141,
+        2944,
+        366,
+        3510,
+        6071,
+        8428,
+        3406,
+        1210,
+        207,
+        300,
+        6173,
+        364,
+        5189,
+        987,
+        3096,
+        302,
+        1935
+      ],
+      "requests": 154,
+      "reportedInputTokens": 879300,
+      "reportedOutputTokens": 24539,
+      "errors": {
+        "TypeSafe response: rank: probabilities must sum to 1 (tolerance 0.001)": 4,
+        "TypeSafe HTTP 400": 1
+      }
+    }
+  },
+  "successfulTrialsIndependentlyReplayed": 247,
+  "reservedEvaluationTrials": 0,
+  "limitations": [
+    "134 development locations from 99 owners, including the previously screened pilot; one run, no reserved-evaluation superiority claim.",
+    "Neural imported and earlier current-file statements warmed outside the goal clock; costs recorded separately.",
+    "Statement and immutable structural preparation data shared within each source process; per-method structural query refinement isolated. Per-arm initialization attribution is order-dependent.",
+    "All arms use Jev proof-state guidance without premise reranking.",
+    "Host interruption after 92 complete sites; remaining 42 resumed without retrials in the same cgroup and same live neural services. Cumulative usage preserved.",
+    "Model/API failures remain in results. Third-party neural training overlap is unknown."
+  ],
+  "evidenceSha256": {
+    "run.json": "ec26d2f956454508bc185a28fe41f08b145f85eb9e679b92d25098c3462fb231",
+    "summary.json": "59d954f5d5d94956f60c8acde903fca553a15223026345150d7a1ba1f0adfc63",
+    "trials.jsonl": "c6c936e002aa71efac240f5550bb081138c66feec43ae2aaccb319ba6a95cf7e",
+    "decisions.jsonl": "856bdafc4797bbe8b1917a5f0188ef41f71f9270faa100cba95b13ebb5f71d92",
+    "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+    "replay-1/replay.jsonl": "02ef8595e4859ebcd5707f072a2dd76a241f8fdbe59b3e9aaf01cf8c65c4e9f0"
+  },
+  "neuralProvenance": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+    "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "float32",
+      "threads": 2,
+      "embeddingValidation": {
+        "model": {
+          "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+          "revision": "b9f33df6b8b615122872bf76eac91911fcf26468",
+          "requestedRevision": "v4.33.0",
+          "files": [
+            ".gitattributes",
+            "1_Pooling/config.json",
+            "README.md",
+            "config.json",
+            "config_sentence_transformers.json",
+            "merges.txt",
+            "model.safetensors",
+            "modules.json",
+            "onnx/model.onnx",
+            "sentence_bert_config.json",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "vocab.json"
+          ]
+        },
+        "indices": [
+          0,
+          13187,
+          26374,
+          39561,
+          52748,
+          65935,
+          79122,
+          92309,
+          105496,
+          118683,
+          131870,
+          145057,
+          158244,
+          171431,
+          184618,
+          197805,
+          210993,
+          224180,
+          237367,
+          250554,
+          263741,
+          276928,
+          290115,
+          303302,
+          316489,
+          329676,
+          342863,
+          356050,
+          369237,
+          382424,
+          395611,
+          408799
+        ],
+        "maxAbsoluteError": 2.1979212760925293e-07,
+        "minimumCosine": 0.9999998807907104,
+        "corpusSize": 408800,
+        "device": "cpu",
+        "dtype": "float32",
+        "passed": true
+      },
+      "memoryLimitBytes": 16000000000,
+      "swapLimitBytes": 0,
+      "launcherSha256": "aa9407415845b51a2a00d15cf836f4dd6a2d36f19315c123ceb76e499f2dd5fc",
+      "cpuEmbedSha256": "ea501fd4d49d60ae0515748e52b6284add48e697b83445031b29b50c29c2cad6",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39"
+    }
+  },
+  "publicTrials": {
+    "path": "cpu-selector-structural-broad-v1-trials.jsonl",
+    "sha256": "40dcd77f4c9429a729b22b18f509283057ee44302d5654010782f8e5e28f655a"
+  },
+  "breakdownImplementationSha256": "90320330f0f99f5a635f12659a9270109644c771d78513f08d1a1c8a84aee5e9"
+}
