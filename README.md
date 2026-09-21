@@ -142,6 +142,9 @@ untouched while choosing methods.
   pinned historical model/corpus metadata, and comparison limitations.
 - [CPU selector research status](docs/cpu-selector-research-status.md): broader
   CPU/neural results, retrieval costs, and why superiority remains unproven.
+- [Full LeanHammer comparison](docs/full-leanhammer-pilot-v1.md): a matched
+  34-location pilot, all proof engines enabled, independently replayed results,
+  costs, and an [optional public adapter](integrations/leanhammer/README.md).
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,
   sampling, usage, resource limits, and failure handling.
 - [Initial validation](docs/validation.md): offline checks, Mathlib preparation,
@@ -150,8 +153,10 @@ untouched while choosing methods.
 
 The current release implements the benchmark and preparation foundations. It
 has not yet established that the sparse selector matches the strongest historical
-pipeline, nor rerun a full LeanHammer comparison in this harness. Full LeanHammer
-has additional proof engines; the neural-selector adapter is not that tactic.
+pipeline. The full LeanHammer pilot favors CPU/conclusion JevHammer (16/34 versus
+12/34), but is too small and exposed to establish general superiority. Full
+LeanHammer has additional proof engines; the neural-selector adapter alone is
+not that tactic.
 
 Run the complete offline suite inside a bounded job with `bash tests/run.sh`.
 Licensed under the [Apache License, Version 2.0](LICENSE).

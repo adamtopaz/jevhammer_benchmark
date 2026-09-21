@@ -5,6 +5,13 @@ neural premise selector, but **superiority has not been established**. These
 comparisons substitute premise selectors inside JevHammer, with Jev proof-state
 guidance in every arm. They do not compare against the full LeanHammer tactic.
 
+A separate [full LeanHammer pilot](full-leanhammer-pilot-v1.md), completed on
+2026-09-21, compares complete tactics on 34 exposed development locations:
+CPU/conclusion JevHammer 16/34, neural/conclusion JevHammer 13/34, and full
+LeanHammer 12/34. All 41 successful proofs replayed. CPU gained six locations
+and lost two versus full LeanHammer; its 95% interval includes zero. This pilot
+does not change the broader selector-comparison conclusion below.
+
 The strongest broader comparison uses 134 development locations from 99
 declarations, matched tactics and search budgets, and independent proof replay:
 
