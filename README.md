@@ -145,6 +145,9 @@ untouched while choosing methods.
 - [Full LeanHammer comparison](docs/full-leanhammer-pilot-v1.md): a matched
   34-location pilot, all proof engines enabled, independently replayed results,
   costs, and an [optional public adapter](integrations/leanhammer/README.md).
+- [Confirmation cohort](datasets/full-leanhammer-confirmation-v1/README.md):
+  1,024 fresh goals from distinct declarations, a counterbalanced three-method
+  schedule, explicit training exclusions, and prespecified paired analysis.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,
   sampling, usage, resource limits, and failure handling.
 - [Initial validation](docs/validation.md): offline checks, Mathlib preparation,

@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "validationReportSha256": "b54a5e893cbd2d0fdbe1beacbb4d63eece9f093a649dc1b5d369bc1a599f3ac5",
+  "validation": {
+    "schema": 1,
+    "status": "complete",
+    "resources": {
+      "initial": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "12595200",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "memory.peak": "7873945600",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "checks": [
+      {
+        "phase": "prepare",
+        "seconds": 92.3319149720046,
+        "report": {
+          "schema": 1,
+          "status": "complete",
+          "resources": {
+            "initial": {
+              "mode": "cgroup",
+              "memoryMax": 16000000000,
+              "swapMax": "0"
+            },
+            "final": {
+              "memoryMax": 16000000000,
+              "swapMax": "0",
+              "memory.peak": "7767707648",
+              "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+            }
+          },
+          "indexSha256": "cbada42574d12fed9f6a8e5cb5e505ca69ec0a8e2ba89fd2019de2fa5c4e1825",
+          "recipe": {
+            "algorithm": "statement-symbol-idf-v1",
+            "modules": [
+              "Mathlib"
+            ],
+            "scopes": [
+              "Mathlib"
+            ],
+            "proofInformation": "none",
+            "heldoutStatementStatistics": "excluded",
+            "catalogPolicy": "public-constants",
+            "trainingOwners": "eligible original theorems only",
+            "statementCatalog": "retained; runtime availability and caller filter required"
+          },
+          "declarations": 318231,
+          "eligible": 253970,
+          "candidateOnly": 63100,
+          "excluded": 1782,
+          "symbols": 59141,
+          "artifactBytes": 183870751,
+          "extractionSeconds": 87.27119825099362,
+          "totalSeconds": 92.1596777550003
+        }
+      },
+      {
+        "phase": "Lean environment and all 1212 owner holdouts",
+        "seconds": 21.72951569700672
+      }
+    ],
+    "realJevCalls": 0,
+    "earlierSetupIssue": "Lean validation helper used getObjValAs rather than getObjVal? plus fromJson?; artifact preparation completed and was not repeated."
+  },
+  "selectorCommit": "397bef6d03d6ef4c7cda8ada8f3f92fb567863e1",
+  "discoveryReportSha256": "1885401b18daf3b8029db1b2c362c09fc5cc1a4d48e2c31b675c70082df9d0ae",
+  "nativeEngineValidation": "../../docs/full-leanhammer-pilot-validation.json",
+  "nativeEnginePolicy": "Unchanged source and binary hashes; reuse completed all-engine smoke and nine fixture replays.",
+  "holdoutOwners": 1212,
+  "evaluationOwners": 1024,
+  "oldCohortOwners": 188,
+  "proofBodiesUsed": false
+}

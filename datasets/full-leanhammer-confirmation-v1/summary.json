@@ -1,0 +1,26 @@
+{
+  "sites": 1024,
+  "owners": 1024,
+  "modules": 131,
+  "areas": {
+    "Algebra": 67,
+    "Analysis": 63,
+    "CategoryTheory": 58,
+    "Combinatorics": 61,
+    "Computability": 52,
+    "Data": 64,
+    "Dynamics": 63,
+    "FieldTheory": 64,
+    "Geometry": 57,
+    "LinearAlgebra": 58,
+    "MeasureTheory": 60,
+    "NumberTheory": 56,
+    "Order": 53,
+    "Probability": 61,
+    "RingTheory": 63,
+    "SetTheory": 60,
+    "Topology": 64
+  },
+  "discovered": 14424,
+  "eligible": 14038
+}

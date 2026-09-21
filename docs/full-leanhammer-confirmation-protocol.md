@@ -106,3 +106,22 @@ failures, neural fallbacks/unavailable suggestions, time, warmup, tokens,
 resource measurements, pins and evidence hashes. Treat incomplete collection
 as incomplete evidence. Do not pool the earlier pilot into confirmation counts.
 Single-run Jev variability and the sampled population limit generalization.
+
+## Outcome-free compatibility admission
+
+The first discovery elaborated 131/136 candidate modules successfully, with a
+4.3045 GB peak and no memory events. Five entire modules are excluded before
+sampling or any tested-tactic invocation: `Combinatorics.SimpleGraph.Extremal.Turan`,
+`Computability.Language`, `Computability.Reduce`,
+`NumberTheory.NumberField.Units.Regulator`, and `Order.BourbakiWitt` (all under
+`Mathlib`). Original-source elaboration errors concern a closed tactic sequence,
+meta-only instance access, or instance/type resolution under added imports.
+No source proof is patched. The original incomplete discovery and all logs are
+retained; compatibility metadata publishes every diagnostic checksum.
+
+Use all 131 complete modules, covering the same 17 areas, without replacement
+modules. Reapply the original site seed and one-owner cap to only their discovery
+records, retaining 1,024 locations. Computability contributes six modules,
+Combinatorics/NumberTheory/Order seven each, and the other areas eight. This
+compatibility restriction is an additional population limitation. It precedes
+all proof outcomes and does not permit dropping any subsequent trial failure.

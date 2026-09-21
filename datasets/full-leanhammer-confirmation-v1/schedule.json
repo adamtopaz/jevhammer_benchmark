@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "sites": 1024,
+  "trials": 3072,
+  "batches": [
+    {
+      "batch": 0,
+      "dataset": "batch-0.json",
+      "datasetSha256": "c7c2796d09d3e5e8e1ca27ddefe6fc2656d27e22b3613ece9d2079c24ff91dd2",
+      "sites": 169,
+      "modules": 22,
+      "order": [
+        "cpu",
+        "full",
+        "neural"
+      ],
+      "maxRequestsPerJevArm": 507,
+      "maxInputTokensPerJevArm": 5915000
+    },
+    {
+      "batch": 1,
+      "dataset": "batch-1.json",
+      "datasetSha256": "78e4b9bd42fe088d94492769d73764bf13269d9e2b7e972a79c9bd627347d9fd",
+      "sites": 176,
+      "modules": 22,
+      "order": [
+        "cpu",
+        "neural",
+        "full"
+      ],
+      "maxRequestsPerJevArm": 528,
+      "maxInputTokensPerJevArm": 6160000
+    },
+    {
+      "batch": 2,
+      "dataset": "batch-2.json",
+      "datasetSha256": "654b7c8372049079e8f5424beb7c6071a643bd90da893e09b0130be783cddb77",
+      "sites": 169,
+      "modules": 22,
+      "order": [
+        "full",
+        "cpu",
+        "neural"
+      ],
+      "maxRequestsPerJevArm": 507,
+      "maxInputTokensPerJevArm": 5915000
+    },
+    {
+      "batch": 3,
+      "dataset": "batch-3.json",
+      "datasetSha256": "3240d5bc93ebeab7788af3a9fb5dc88b1b83396f0b2020bc5309b4a0403ce873",
+      "sites": 174,
+      "modules": 22,
+      "order": [
+        "full",
+        "neural",
+        "cpu"
+      ],
+      "maxRequestsPerJevArm": 522,
+      "maxInputTokensPerJevArm": 6090000
+    },
+    {
+      "batch": 4,
+      "dataset": "batch-4.json",
+      "datasetSha256": "508eb11fadea60c52a62f3def64f1036cb27e2139da8e44e46aa9bad4eb691fa",
+      "sites": 178,
+      "modules": 22,
+      "order": [
+        "neural",
+        "cpu",
+        "full"
+      ],
+      "maxRequestsPerJevArm": 534,
+      "maxInputTokensPerJevArm": 6230000
+    },
+    {
+      "batch": 5,
+      "dataset": "batch-5.json",
+      "datasetSha256": "04489c8a53c415a3cbecd3fb56afad212c11dd2d1c49e690058139ca150e8f52",
+      "sites": 158,
+      "modules": 21,
+      "order": [
+        "neural",
+        "full",
+        "cpu"
+      ],
+      "maxRequestsPerJevArm": 474,
+      "maxInputTokensPerJevArm": 5530000
+    }
+  ]
+}
