@@ -23,7 +23,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def compare(parent):
+def compare(parent, expected_sites=34):
     metrics, successes, evidence, public = {}, {}, {}, []
     expected_dataset = None
     dataset = None
@@ -44,7 +44,7 @@ def compare(parent):
         assert read(root / "dataset.json") == dataset
         trials = rows(root / "trials.jsonl")
         expected = {s["site"] for s in dataset["sites"]}
-        assert len(expected) == len(trials) == 34
+        assert len(expected) == len(trials) == expected_sites
         assert {r["site"] for r in trials} == expected
         assert all(r["method"] == method and r["config"]["maxMillis"] == 6000 for r in trials)
         checks = rows(root / verification["directory"] / "replay.jsonl")
@@ -104,7 +104,7 @@ def compare(parent):
         pairs.append({"a": a, "b": b, "gained": len(gains), "lost": len(losses),
                       "declarationBootstrap95": [samples[25], samples[974]]})
     return {"schema": 1, "status": "complete", "kind": "full-tactic-development-pilot",
-            "sites": 34, "trials": len(public), "successfulTrialsIndependentlyReplayed": total_replayed,
+            "sites": expected_sites, "trials": len(public), "successfulTrialsIndependentlyReplayed": total_replayed,
             "datasetSha256": expected_dataset, "metrics": metrics, "paired": pairs,
             "deployment": read(parent / "deployment.json"), "evidenceSha256": evidence,
             "reservedEvaluationTrials": 0,
