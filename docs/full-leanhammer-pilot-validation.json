@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "realJevCalls": 0,
+  "leanThreads": 8,
+  "validation": [
+    {
+      "phase": "engines",
+      "rawReportSha256": "2b157161bbfa46b31eec0dd0a725211a43df347f2abda2f11c93412ad59cc5bb",
+      "schema": 1,
+      "status": "complete",
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "12845056",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "1488297984",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "checks": [
+        {
+          "label": "build",
+          "seconds": 3.0164178289996926
+        },
+        {
+          "label": "all-engine native smoke",
+          "seconds": 5.301553201999923
+        }
+      ],
+      "modelCalls": 0
+    },
+    {
+      "phase": "fixtureAndAdmission",
+      "rawReportSha256": "5d99e211421cead5e5c25c819a43d30ef43b865ddc04328113681c444a7f4ccc",
+      "schema": 1,
+      "status": "complete",
+      "resources": {
+        "initial": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "13365248",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        },
+        "final": {
+          "memoryMax": 16000000000,
+          "swapMax": "0",
+          "memory.peak": "11028897792",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+        }
+      },
+      "checks": [
+        {
+          "label": "three-arm source fixture and all nine independent replays",
+          "seconds": 84.17240850400412,
+          "fullSelectorCalls": 3,
+          "fullSelectorFallbacks": 0,
+          "unavailable": 0
+        },
+        {
+          "label": "unchanged 34 sites admitted",
+          "seconds": 142.97697622099804
+        }
+      ],
+      "realJevCalls": 0
+    }
+  ],
+  "earlierSetupIssues": [
+    "Adapter missing Inhabited instance and layout error; corrected before smoke tests.",
+    "Exact pinned Python runtime absent from Nix store; restored without version changes before local services started.",
+    "First synthetic source declaration lacked a preceding hook snapshot; added namespace command and independently verified all three sites."
+  ],
+  "reservedEvaluationTrials": 0
+}
