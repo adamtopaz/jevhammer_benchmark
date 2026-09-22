@@ -1,0 +1,1856 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "kind": "prespecified-full-tactic-confirmation",
+  "sites": 1024,
+  "trials": 3072,
+  "successfulTrialsIndependentlyReplayed": 1292,
+  "metrics": {
+    "cpu": {
+      "sites": 1024,
+      "recorded": 1024,
+      "onTimeVerified": 450,
+      "rawVerified": 450,
+      "lateVerified": 0,
+      "elapsedMs": 3143744,
+      "budgetBlocked": 0,
+      "rankFailures": 104,
+      "stateCalls": 1471,
+      "premiseCalls": 0,
+      "retrievalMs": 190369,
+      "warmupMs": 536365,
+      "usage": {
+        "attempts": 1471,
+        "inputTokens": 9509819,
+        "outputTokens": 240832,
+        "unknownUsage": 47
+      },
+      "config": {
+        "beamWidth": 4,
+        "deferPremiseGuidance": false,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      }
+    },
+    "neural": {
+      "sites": 1024,
+      "recorded": 1024,
+      "onTimeVerified": 469,
+      "rawVerified": 470,
+      "lateVerified": 1,
+      "elapsedMs": 3271963,
+      "budgetBlocked": 0,
+      "rankFailures": 88,
+      "stateCalls": 1365,
+      "premiseCalls": 0,
+      "retrievalMs": 577650,
+      "warmupMs": 504615,
+      "usage": {
+        "attempts": 1365,
+        "inputTokens": 8704268,
+        "outputTokens": 217884,
+        "unknownUsage": 45
+      },
+      "config": {
+        "beamWidth": 4,
+        "deferPremiseGuidance": false,
+        "guidePremises": false,
+        "maxCalls": 3,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 12,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 15000,
+        "timeoutSeconds": 5
+      }
+    },
+    "full": {
+      "sites": 1024,
+      "recorded": 1024,
+      "onTimeVerified": 372,
+      "rawVerified": 372,
+      "lateVerified": 0,
+      "elapsedMs": 3911933,
+      "budgetBlocked": 0,
+      "rankFailures": 0,
+      "stateCalls": 0,
+      "premiseCalls": 0,
+      "retrievalMs": 24,
+      "warmupMs": 394488,
+      "usage": {
+        "attempts": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "unknownUsage": 0
+      },
+      "upstreamSelector": {
+        "calls": 1054,
+        "elapsedMs": 503339,
+        "candidates": 105399,
+        "unavailable": 1,
+        "fallbacks": 0,
+        "errors": {}
+      },
+      "config": {
+        "beamWidth": 4,
+        "deferPremiseGuidance": false,
+        "guidePremises": false,
+        "maxCalls": 0,
+        "maxCandidates": 24,
+        "maxDepth": 3,
+        "maxMillis": 6000,
+        "maxNodes": 0,
+        "maxPremises": 100,
+        "model": "jev-1.13.0",
+        "premiseCount": 8,
+        "refreshPremises": true,
+        "tacticHeartbeats": 200000,
+        "timeoutSeconds": 5
+      }
+    }
+  },
+  "paired": [
+    {
+      "a": "cpu",
+      "b": "full",
+      "role": "primary",
+      "gained": 117,
+      "lost": 39,
+      "bothSolved": 333,
+      "neitherSolved": 535,
+      "difference": 0.076171875,
+      "moduleStratifiedBootstrap95": [
+        0.0533596837944664,
+        0.09913378248315688
+      ],
+      "declarationBootstrap95": [
+        0.052734375,
+        0.099609375
+      ],
+      "exactMcNemarP": 2.993913859951381e-10,
+      "resamples": 20000,
+      "seed": 20260921,
+      "modules": 131,
+      "areas": 17
+    },
+    {
+      "a": "neural",
+      "b": "full",
+      "role": "secondary",
+      "gained": 128,
+      "lost": 31,
+      "bothSolved": 341,
+      "neitherSolved": 524,
+      "difference": 0.0947265625,
+      "moduleStratifiedBootstrap95": [
+        0.07156862745098039,
+        0.11833171677982542
+      ],
+      "declarationBootstrap95": [
+        0.0712890625,
+        0.1181640625
+      ],
+      "exactMcNemarP": 3.335166576122482e-15,
+      "resamples": 20000,
+      "seed": 20260921,
+      "modules": 131,
+      "areas": 17,
+      "secondaryHolmMcNemarP": 6.670333152244964e-15
+    },
+    {
+      "a": "cpu",
+      "b": "neural",
+      "role": "secondary",
+      "gained": 24,
+      "lost": 43,
+      "bothSolved": 426,
+      "neitherSolved": 531,
+      "difference": -0.0185546875,
+      "moduleStratifiedBootstrap95": [
+        -0.03474903474903475,
+        -0.0028846153846153848
+      ],
+      "declarationBootstrap95": [
+        -0.0341796875,
+        -0.0029296875
+      ],
+      "exactMcNemarP": 0.027119992403126347,
+      "resamples": 20000,
+      "seed": 20260921,
+      "modules": 131,
+      "areas": 17,
+      "secondaryHolmMcNemarP": 0.027119992403126347
+    }
+  ],
+  "deployment": {
+    "schema": 1,
+    "status": "complete",
+    "benchmarkFreeze": "1d094f195531ca329dcdbaa22b9c16d84fe1bc52",
+    "pins": {
+      "Hammer": "21886b7ffbdf32017655a9d6e699f98779046533",
+      "jevhammer": "bf848e36e2f70f5ca745e0f88f6953279e7d00a6",
+      "jevselector": "397bef6d03d6ef4c7cda8ada8f3f92fb567863e1",
+      "jevhammer_benchmark": "bb2b1861f665c3854d49b3f115d6a413aab2611f"
+    },
+    "datasetSha256": "4b69c7ada9493b8698b5c8ff46888e4d369985ed4aa7b613976028020cdf5191",
+    "scheduleSha256": "d833988b3043e6e84520453f3f969d069ff8f2552d9fef3f26bb0d0bae343f3c",
+    "publicIndexSha256": "cbada42574d12fed9f6a8e5cb5e505ca69ec0a8e2ba89fd2019de2fa5c4e1825",
+    "holdoutsSha256": "7aa3c857b46547e8b0a311fc5661773ac0dac2e1f557a5ed06bcfe4618a42575",
+    "leanThreads": 8,
+    "embeddingThreads": 2,
+    "deadlineMs": 6000,
+    "maxTotalJevCalls": 6144,
+    "maxReportedInputTokens": 71680000,
+    "servicePolicy": "Fresh CPU neural services for every batch/arm; separate Lean processes per module/method; model/corpus disk caches persist. All six arm orders used once.",
+    "runtime": {
+      "python": "/nix/store/ivyrja5k4d98ifbgwa58vjv2hbr90f51-python3-3.11.16/bin/python3.11",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39",
+      "zipperpositionSha256": "aa9c7e1683bf909969dcffb1c0c46e436b1790360759a4c3f60f3bfa5865e85f",
+      "cvc5PluginSha256": "4315a89789ee21c85e71a28228a9550b464998d2cfa94ea7a3601766740dd043"
+    },
+    "cvc5PatchSha256": "85b26fb75253b07f89ab8d64ae494184ba96709a9f0a53b1ef15ad6d30d4d901",
+    "resources": {
+      "initial": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+        "memory.peak": "177885184",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+        "memory.peak": "16000000000",
+        "memory.events": "low 0\nhigh 0\nmax 942\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "startedAt": 1790025036.0196693,
+    "completedArms": [
+      {
+        "batch": 0,
+        "arm": "cpu",
+        "wallSeconds": 881.9883980669983
+      },
+      {
+        "batch": 0,
+        "arm": "full",
+        "wallSeconds": 902.1087801009999
+      },
+      {
+        "batch": 0,
+        "arm": "neural",
+        "wallSeconds": 870.8181260309939
+      },
+      {
+        "batch": 1,
+        "arm": "cpu",
+        "wallSeconds": 859.6095898299973
+      },
+      {
+        "batch": 1,
+        "arm": "neural",
+        "wallSeconds": 901.8211753890064
+      },
+      {
+        "batch": 1,
+        "arm": "full",
+        "wallSeconds": 1003.1372824879945
+      },
+      {
+        "batch": 2,
+        "arm": "full",
+        "wallSeconds": 957.9540183009958
+      },
+      {
+        "batch": 2,
+        "arm": "cpu",
+        "wallSeconds": 853.6091423909966
+      },
+      {
+        "batch": 2,
+        "arm": "neural",
+        "wallSeconds": 861.7077495880076
+      },
+      {
+        "batch": 3,
+        "arm": "full",
+        "wallSeconds": 930.4782185399963
+      },
+      {
+        "batch": 3,
+        "arm": "neural",
+        "wallSeconds": 801.5033169130038
+      },
+      {
+        "batch": 3,
+        "arm": "cpu",
+        "wallSeconds": 760.932440168006
+      },
+      {
+        "batch": 4,
+        "arm": "neural",
+        "wallSeconds": 853.5436027800024
+      },
+      {
+        "batch": 4,
+        "arm": "cpu",
+        "wallSeconds": 837.5543750609941
+      },
+      {
+        "batch": 4,
+        "arm": "full",
+        "wallSeconds": 978.8335601190047
+      },
+      {
+        "batch": 5,
+        "arm": "neural",
+        "wallSeconds": 807.4605931550032
+      },
+      {
+        "batch": 5,
+        "arm": "full",
+        "wallSeconds": 922.1306055230089
+      },
+      {
+        "batch": 5,
+        "arm": "cpu",
+        "wallSeconds": 792.69549430201
+      }
+    ],
+    "finishedAt": 1790040813.9448452
+  },
+  "datasetSha256": "4b69c7ada9493b8698b5c8ff46888e4d369985ed4aa7b613976028020cdf5191",
+  "scheduleSha256": "d833988b3043e6e84520453f3f969d069ff8f2552d9fef3f26bb0d0bae343f3c",
+  "oldReservedEvaluationTrials": 0,
+  "compatibilityAdmission": {
+    "originalDiscoverySha256": "1885401b18daf3b8029db1b2c362c09fc5cc1a4d48e2c31b675c70082df9d0ae",
+    "originalStatus": "incomplete",
+    "candidateModules": 136,
+    "admittedModules": 131,
+    "excludedModules": {
+      "Mathlib.Combinatorics.SimpleGraph.Extremal.Turan": {
+        "logSha256": "c66ea8a20daa28bcefa593b37f3eb45edd748e8ed50eaf680433a3092447ce2d",
+        "errors": [
+          ": No goals to be solved"
+        ]
+      },
+      "Mathlib.Computability.Language": {
+        "logSha256": "bcba055ac96e92396d192bbbb20ac7109ca20502d38032000f74371278377322",
+        "errors": [
+          ": Invalid definition `instKleeneAlgebra`, may not access declaration `CompleteLattice.toConditionallyCompleteLattice` imported as `meta`; consider adding `import Mathlib.Order.ConditionallyCompleteLattice.Basic`"
+        ]
+      },
+      "Mathlib.Computability.Reduce": {
+        "logSha256": "390810766cca1d6394c7608107641554450263a8d293dd0525bb668a53fbc62c",
+        "errors": [
+          ": Type mismatch",
+          ": Type mismatch",
+          ": Type mismatch",
+          ": Type mismatch"
+        ]
+      },
+      "Mathlib.NumberTheory.NumberField.Units.Regulator": {
+        "logSha256": "db1a2ee0b9b9814f76000efaef90dcd6c4935813370741507e203ea4523ea8a2",
+        "errors": [
+          "(lean.synthInstanceFailed): failed to synthesize instance of type class"
+        ]
+      },
+      "Mathlib.Order.BourbakiWitt": {
+        "logSha256": "21549d034fca867155a07cb888b2d0f1ae14a3648efc2f139903b61d234962e4",
+        "errors": [
+          ": Invalid definition `instOfCompleteLattice`, may not access declaration `CompleteLattice.toConditionallyCompleteLattice` imported as `meta`; consider adding `import Mathlib.Order.ConditionallyCompleteLattice.Basic`"
+        ]
+      }
+    },
+    "policy": "Whole-module source-elaboration failures excluded before any proof trials; fixed site seed/cap retained.",
+    "realJevCalls": 0,
+    "testedTacticCalls": 0
+  },
+  "batches": {
+    "batch-0": {
+      "schema": 1,
+      "status": "complete",
+      "kind": "confirmation-batch",
+      "sites": 169,
+      "trials": 507,
+      "successfulTrialsIndependentlyReplayed": 212,
+      "datasetSha256": "c7c2796d09d3e5e8e1ca27ddefe6fc2656d27e22b3613ece9d2079c24ff91dd2",
+      "metrics": {
+        "cpu": {
+          "sites": 169,
+          "recorded": 169,
+          "onTimeVerified": 71,
+          "rawVerified": 71,
+          "lateVerified": 0,
+          "elapsedMs": 567210,
+          "budgetBlocked": 0,
+          "rankFailures": 24,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 259,
+            "inputTokens": 1679382,
+            "outputTokens": 45861,
+            "unknownUsage": 8
+          },
+          "stateCalls": 259,
+          "premiseCalls": 0,
+          "retrievalMs": 34524,
+          "warmupMs": 97974,
+          "scopePeakBytesAtCompletion": 8701284352
+        },
+        "neural": {
+          "sites": 169,
+          "recorded": 169,
+          "onTimeVerified": 77,
+          "rawVerified": 77,
+          "lateVerified": 0,
+          "elapsedMs": 573740,
+          "budgetBlocked": 0,
+          "rankFailures": 18,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 236,
+            "inputTokens": 1586510,
+            "outputTokens": 40802,
+            "unknownUsage": 9
+          },
+          "stateCalls": 236,
+          "premiseCalls": 0,
+          "retrievalMs": 81730,
+          "warmupMs": 81652,
+          "scopePeakBytesAtCompletion": 11361316864
+        },
+        "full": {
+          "sites": 169,
+          "recorded": 169,
+          "onTimeVerified": 64,
+          "rawVerified": 64,
+          "lateVerified": 0,
+          "elapsedMs": 614609,
+          "budgetBlocked": 0,
+          "rankFailures": 0,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 0,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 0,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 200000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "unknownUsage": 0
+          },
+          "stateCalls": 0,
+          "premiseCalls": 0,
+          "retrievalMs": 4,
+          "warmupMs": 62395,
+          "upstreamSelector": {
+            "calls": 173,
+            "elapsedMs": 68898,
+            "candidates": 17300,
+            "unavailable": 0,
+            "fallbacks": 0,
+            "errors": {}
+          },
+          "scopePeakBytesAtCompletion": 11361316864
+        }
+      },
+      "paired": [
+        {
+          "a": "cpu",
+          "b": "full",
+          "gained": 18,
+          "lost": 11,
+          "declarationBootstrap95": [
+            -0.023668639053254437,
+            0.10059171597633136
+          ]
+        },
+        {
+          "a": "neural",
+          "b": "full",
+          "gained": 20,
+          "lost": 7,
+          "declarationBootstrap95": [
+            0.01775147928994083,
+            0.13609467455621302
+          ]
+        },
+        {
+          "a": "cpu",
+          "b": "neural",
+          "gained": 3,
+          "lost": 9,
+          "declarationBootstrap95": [
+            -0.07692307692307693,
+            0.0
+          ]
+        }
+      ],
+      "deployment": {
+        "schema": 1,
+        "status": "complete",
+        "batch": 0,
+        "order": [
+          "cpu",
+          "full",
+          "neural"
+        ],
+        "sites": 169,
+        "resources": {
+          "initial": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "177885184",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "11361316864",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        },
+        "completedArms": [
+          {
+            "batch": 0,
+            "arm": "cpu",
+            "wallSeconds": 881.9883980669983
+          },
+          {
+            "batch": 0,
+            "arm": "full",
+            "wallSeconds": 902.1087801009999
+          },
+          {
+            "batch": 0,
+            "arm": "neural",
+            "wallSeconds": 870.8181260309939
+          }
+        ]
+      },
+      "evidenceSha256": {
+        "cpu": {
+          "run.json": "e294047aa8fcbf155d002c19c4e66cce1c688869cebff52aaf8a3d5d5a44ccd4",
+          "dataset.json": "c7c2796d09d3e5e8e1ca27ddefe6fc2656d27e22b3613ece9d2079c24ff91dd2",
+          "summary.json": "0ad30854baacf0f61b7c013404595735a1fdaf9334258dfa5ff6f18ddf324ba5",
+          "trials.jsonl": "10c59e18a4fcd5c877b6966a4e872314ce28ec79eccee77e098e4237de5dc5a5",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "9fd12eb874f0b445b56585c986fee35730bfb132a878b34843d4e08ea4bf91ef",
+          "usage.json": "242b37406a31b197fe2c6d5173948158a5954f6a2a2265c2a53b7d77b78d8501",
+          "warmup.jsonl": "200963d056c042fd358ea33ebc0d4e82a3cd125f7ebb81f1ebebbb022efc8704"
+        },
+        "neural": {
+          "run.json": "8b1cdcd529b54483b6d04594307c722fc294f2d2635fc3be40968238b4f7e53d",
+          "dataset.json": "c7c2796d09d3e5e8e1ca27ddefe6fc2656d27e22b3613ece9d2079c24ff91dd2",
+          "summary.json": "adb8130bafcc81f70606afa7790df3b85dd0ac0bd5123925f144465fb3422d57",
+          "trials.jsonl": "f686548c9143f5a7e4f67b7df5dd4123d3558046f12ec6d84046c47b9f7aa855",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "1d8c1ca9dcddaa9ea96b0503886d865c161db8fa44b53a796645e1bec94cda66",
+          "usage.json": "75813ab62e470b20c657c0f6fddbd70db3cd3bd00864eca3a1820329ef2c8baf",
+          "warmup.jsonl": "98bc2dfb0e897463f80878df2dca70812198c8bb2d3412a566e780d9fbfbbe2c"
+        },
+        "full": {
+          "run.json": "4061aed21b3808f7568c172e4f0faed5de33b8c035a31c017f3ff26bc7434d3f",
+          "dataset.json": "c7c2796d09d3e5e8e1ca27ddefe6fc2656d27e22b3613ece9d2079c24ff91dd2",
+          "summary.json": "b79fe46e98999153887a2a852d4b675dd478e2811732425d7b66106ae4dc8962",
+          "trials.jsonl": "0dc04786e7ca61022f487d54f719eb31141348daf4a9f33f98c90b090237ef21",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "319de4bd0a3fa62c5a7e16efa653431104055103a048802dd4c6437f725a773e",
+          "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+          "warmup.jsonl": "2c34660d97a15412abd31d2019a1315facabcd407e8183e9d6f9f86448bab642",
+          "leanhammer-selector.jsonl": "104f851a660d8f9645a0edc25e3ac8857e1786806186672c793bdf84fb31cd94"
+        }
+      },
+      "reservedEvaluationTrials": 0,
+      "limitations": [
+        "One counterbalanced batch; use the prespecified combined analysis."
+      ]
+    },
+    "batch-1": {
+      "schema": 1,
+      "status": "complete",
+      "kind": "confirmation-batch",
+      "sites": 176,
+      "trials": 528,
+      "successfulTrialsIndependentlyReplayed": 209,
+      "datasetSha256": "78e4b9bd42fe088d94492769d73764bf13269d9e2b7e972a79c9bd627347d9fd",
+      "metrics": {
+        "cpu": {
+          "sites": 176,
+          "recorded": 176,
+          "onTimeVerified": 75,
+          "rawVerified": 75,
+          "lateVerified": 0,
+          "elapsedMs": 548313,
+          "budgetBlocked": 0,
+          "rankFailures": 20,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 252,
+            "inputTokens": 1631157,
+            "outputTokens": 39096,
+            "unknownUsage": 13
+          },
+          "stateCalls": 252,
+          "premiseCalls": 0,
+          "retrievalMs": 32601,
+          "warmupMs": 88118,
+          "scopePeakBytesAtCompletion": 12832464896
+        },
+        "neural": {
+          "sites": 176,
+          "recorded": 176,
+          "onTimeVerified": 75,
+          "rawVerified": 76,
+          "lateVerified": 1,
+          "elapsedMs": 592321,
+          "budgetBlocked": 0,
+          "rankFailures": 26,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 259,
+            "inputTokens": 1624306,
+            "outputTokens": 39257,
+            "unknownUsage": 16
+          },
+          "stateCalls": 259,
+          "premiseCalls": 0,
+          "retrievalMs": 111879,
+          "warmupMs": 85441,
+          "scopePeakBytesAtCompletion": 12832464896
+        },
+        "full": {
+          "sites": 176,
+          "recorded": 176,
+          "onTimeVerified": 58,
+          "rawVerified": 58,
+          "lateVerified": 0,
+          "elapsedMs": 708594,
+          "budgetBlocked": 0,
+          "rankFailures": 0,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 0,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 0,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 200000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "unknownUsage": 0
+          },
+          "stateCalls": 0,
+          "premiseCalls": 0,
+          "retrievalMs": 5,
+          "warmupMs": 65845,
+          "upstreamSelector": {
+            "calls": 183,
+            "elapsedMs": 93607,
+            "candidates": 18300,
+            "unavailable": 0,
+            "fallbacks": 0,
+            "errors": {}
+          },
+          "scopePeakBytesAtCompletion": 12832464896
+        }
+      },
+      "paired": [
+        {
+          "a": "cpu",
+          "b": "full",
+          "gained": 23,
+          "lost": 6,
+          "declarationBootstrap95": [
+            0.03977272727272727,
+            0.1590909090909091
+          ]
+        },
+        {
+          "a": "neural",
+          "b": "full",
+          "gained": 23,
+          "lost": 6,
+          "declarationBootstrap95": [
+            0.03977272727272727,
+            0.1534090909090909
+          ]
+        },
+        {
+          "a": "cpu",
+          "b": "neural",
+          "gained": 8,
+          "lost": 8,
+          "declarationBootstrap95": [
+            -0.045454545454545456,
+            0.045454545454545456
+          ]
+        }
+      ],
+      "deployment": {
+        "schema": 1,
+        "status": "complete",
+        "batch": 1,
+        "order": [
+          "cpu",
+          "neural",
+          "full"
+        ],
+        "sites": 176,
+        "resources": {
+          "initial": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "11361316864",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "12832464896",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        },
+        "completedArms": [
+          {
+            "batch": 1,
+            "arm": "cpu",
+            "wallSeconds": 859.6095898299973
+          },
+          {
+            "batch": 1,
+            "arm": "neural",
+            "wallSeconds": 901.8211753890064
+          },
+          {
+            "batch": 1,
+            "arm": "full",
+            "wallSeconds": 1003.1372824879945
+          }
+        ]
+      },
+      "evidenceSha256": {
+        "cpu": {
+          "run.json": "357a3e97a64c412323da9595444c8fa87a42f479f21a987a6f50aa81786cb60e",
+          "dataset.json": "78e4b9bd42fe088d94492769d73764bf13269d9e2b7e972a79c9bd627347d9fd",
+          "summary.json": "7cc6bad6c794340f4e68a9adaee363abe4732e1b7cb2311c59a6f6646d945b9e",
+          "trials.jsonl": "893e3e40903886ede9fb8766893be76e6ed82ce80606ec4a23101ebe480e9852",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "8c120726704025628161b7628ec9fb65c13fc6b73830356ac636f85d57a5f5cf",
+          "usage.json": "2d9532641b5d0fd6eab0c1479ba4166e6eb444e74ccd174b5f31535465d868bd",
+          "warmup.jsonl": "7ed092e6a04b027f6ccd3c12773ef22c77f95ad3f8f445e45ac0c2016716a732"
+        },
+        "neural": {
+          "run.json": "a274db97f91262a41eaefa1def92d709c6aeed7e2f0a9c2281c4377bda62eb2c",
+          "dataset.json": "78e4b9bd42fe088d94492769d73764bf13269d9e2b7e972a79c9bd627347d9fd",
+          "summary.json": "51aa86cbfd52bb8aaee7c15e05c1ebf84020fe62b085bf4e49f311074e1ec136",
+          "trials.jsonl": "f335043140cd552f0faa99bb7c4366337a2e6f90db7ffb38ec8144091c11ba75",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "e586c3312a5e1a9af000bee76c68e52b459af3de777af4bf42a5ea063a13630f",
+          "usage.json": "dd35e028505dd2a88c08317862ae9f2e11fbdb308c7880036578a4367b252e0f",
+          "warmup.jsonl": "ed69ebdcd6bd306d8241486a2553cb21512029a4515301252355ea0bd42e240d"
+        },
+        "full": {
+          "run.json": "1cf260d96bc583e516e1b3c5f7572d8fc9aad375d29a50ae10e7768b2487a75d",
+          "dataset.json": "78e4b9bd42fe088d94492769d73764bf13269d9e2b7e972a79c9bd627347d9fd",
+          "summary.json": "6d438a6a29b3dd9bff12a697a5688387a4054e61507784b01ea73a5dd4b0ada4",
+          "trials.jsonl": "bfee0cd09b5934428b153f3da46ee3eaf79ed298a209bb78d110013527c33890",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "b8c1df32fdebf12378a867e8935e9e43156af7fbf9be96ee50310bcec619769c",
+          "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+          "warmup.jsonl": "e9d318a9980d8b7ea899f4ba1da9ab1311617aba323b64e2d419632f13dec63a",
+          "leanhammer-selector.jsonl": "1b8ea5e5c6fd13ea185992c2778cd950beed25b9c82d30dda3303fac0249f64e"
+        }
+      },
+      "reservedEvaluationTrials": 0,
+      "limitations": [
+        "One counterbalanced batch; use the prespecified combined analysis."
+      ]
+    },
+    "batch-2": {
+      "schema": 1,
+      "status": "complete",
+      "kind": "confirmation-batch",
+      "sites": 169,
+      "trials": 507,
+      "successfulTrialsIndependentlyReplayed": 216,
+      "datasetSha256": "654b7c8372049079e8f5424beb7c6071a643bd90da893e09b0130be783cddb77",
+      "metrics": {
+        "cpu": {
+          "sites": 169,
+          "recorded": 169,
+          "onTimeVerified": 72,
+          "rawVerified": 72,
+          "lateVerified": 0,
+          "elapsedMs": 546808,
+          "budgetBlocked": 0,
+          "rankFailures": 9,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 217,
+            "inputTokens": 1217545,
+            "outputTokens": 38038,
+            "unknownUsage": 2
+          },
+          "stateCalls": 217,
+          "premiseCalls": 0,
+          "retrievalMs": 31741,
+          "warmupMs": 94091,
+          "scopePeakBytesAtCompletion": 14137851904
+        },
+        "neural": {
+          "sites": 169,
+          "recorded": 169,
+          "onTimeVerified": 79,
+          "rawVerified": 79,
+          "lateVerified": 0,
+          "elapsedMs": 544430,
+          "budgetBlocked": 0,
+          "rankFailures": 9,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 188,
+            "inputTokens": 982782,
+            "outputTokens": 32198,
+            "unknownUsage": 2
+          },
+          "stateCalls": 188,
+          "premiseCalls": 0,
+          "retrievalMs": 94655,
+          "warmupMs": 88337,
+          "scopePeakBytesAtCompletion": 14137851904
+        },
+        "full": {
+          "sites": 169,
+          "recorded": 169,
+          "onTimeVerified": 65,
+          "rawVerified": 65,
+          "lateVerified": 0,
+          "elapsedMs": 637702,
+          "budgetBlocked": 0,
+          "rankFailures": 0,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 0,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 0,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 200000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "unknownUsage": 0
+          },
+          "stateCalls": 0,
+          "premiseCalls": 0,
+          "retrievalMs": 3,
+          "warmupMs": 69293,
+          "upstreamSelector": {
+            "calls": 174,
+            "elapsedMs": 88103,
+            "candidates": 17400,
+            "unavailable": 0,
+            "fallbacks": 0,
+            "errors": {}
+          },
+          "scopePeakBytesAtCompletion": 12832464896
+        }
+      },
+      "paired": [
+        {
+          "a": "cpu",
+          "b": "full",
+          "gained": 13,
+          "lost": 6,
+          "declarationBootstrap95": [
+            -0.005917159763313609,
+            0.08875739644970414
+          ]
+        },
+        {
+          "a": "neural",
+          "b": "full",
+          "gained": 19,
+          "lost": 5,
+          "declarationBootstrap95": [
+            0.029585798816568046,
+            0.14201183431952663
+          ]
+        },
+        {
+          "a": "cpu",
+          "b": "neural",
+          "gained": 1,
+          "lost": 8,
+          "declarationBootstrap95": [
+            -0.07692307692307693,
+            -0.005917159763313609
+          ]
+        }
+      ],
+      "deployment": {
+        "schema": 1,
+        "status": "complete",
+        "batch": 2,
+        "order": [
+          "full",
+          "cpu",
+          "neural"
+        ],
+        "sites": 169,
+        "resources": {
+          "initial": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "12832464896",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "14137851904",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        },
+        "completedArms": [
+          {
+            "batch": 2,
+            "arm": "full",
+            "wallSeconds": 957.9540183009958
+          },
+          {
+            "batch": 2,
+            "arm": "cpu",
+            "wallSeconds": 853.6091423909966
+          },
+          {
+            "batch": 2,
+            "arm": "neural",
+            "wallSeconds": 861.7077495880076
+          }
+        ]
+      },
+      "evidenceSha256": {
+        "cpu": {
+          "run.json": "5640a846d6ec729d61256161f9c4eddda6a12397bd28938a20b71a6b1e290331",
+          "dataset.json": "654b7c8372049079e8f5424beb7c6071a643bd90da893e09b0130be783cddb77",
+          "summary.json": "4c6b6705207f3f8906cca249769ec75c0847610f607c5d588a412b556458e126",
+          "trials.jsonl": "1fe63ce4b860c58f22ca82f91e09401cf88549a98672f75e3299f9caaeb375ae",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "f5d8ecbc9c289d1e3b53a05798d7f4d0c5abcd8fb74135a2d6b7bb75a31495a1",
+          "usage.json": "0e4cdcc295ff3b80b27ce5228088fea833ef19fbadff51372e145e777aa9420b",
+          "warmup.jsonl": "f1372b472bc50ec817049dcd98dde82ca6b414c3a65fe9ee1fb4160c275c19af"
+        },
+        "neural": {
+          "run.json": "59440e8b7a28b7d355cea3d18e99c13936d45bd9b61b0ed5dc189292f0e30af3",
+          "dataset.json": "654b7c8372049079e8f5424beb7c6071a643bd90da893e09b0130be783cddb77",
+          "summary.json": "5a9961eaaccf9a4a197d216f8f81000bc12c3f92e34c4d2a170c19bb1bb091d1",
+          "trials.jsonl": "0ee2efde7d3fd6e268fa78c1e0cae793fe2de174affbc0a58b8fcd8a0358e42b",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "d7b00049baead3a4b41266b17f6441dd2d4561277c3fb337a57918b88d699d14",
+          "usage.json": "3a66fc6be42c4bc3903f4acbfabfe2f21cd9b3d33cba8b5b40788ca9a1e86372",
+          "warmup.jsonl": "f24c839d89362b952166d800674938de5fe4fcfd6bdb423f4c5b334660b82e95"
+        },
+        "full": {
+          "run.json": "46c7371f09c6677ad9879b9bf2c6a3a13fb727b4fd8ab81e6f8ce16d33d578c8",
+          "dataset.json": "654b7c8372049079e8f5424beb7c6071a643bd90da893e09b0130be783cddb77",
+          "summary.json": "5c8b5a38811081d5daaf3cfab9ac74c5f1d96403502fe89fd8449c9b248f4c22",
+          "trials.jsonl": "24c48473b52a9a5b6a78cd4b0231b92dd85bc9830001a9a68aa17b4108d0fda5",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "f00c9e2392b32d7a840cbadf3896b02639e0af5357d182f8b07aa343a180632f",
+          "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+          "warmup.jsonl": "3bcd02d77389fbb2dc960a8960bf3119a225b09a90e83322db58a427c96504e6",
+          "leanhammer-selector.jsonl": "8a309e6e2710b06a26bd1162b71ef89051dc8b25c860cd98063ed02ea6f2742a"
+        }
+      },
+      "reservedEvaluationTrials": 0,
+      "limitations": [
+        "One counterbalanced batch; use the prespecified combined analysis."
+      ]
+    },
+    "batch-3": {
+      "schema": 1,
+      "status": "complete",
+      "kind": "confirmation-batch",
+      "sites": 174,
+      "trials": 522,
+      "successfulTrialsIndependentlyReplayed": 245,
+      "datasetSha256": "3240d5bc93ebeab7788af3a9fb5dc88b1b83396f0b2020bc5309b4a0403ce873",
+      "metrics": {
+        "cpu": {
+          "sites": 174,
+          "recorded": 174,
+          "onTimeVerified": 88,
+          "rawVerified": 88,
+          "lateVerified": 0,
+          "elapsedMs": 459767,
+          "budgetBlocked": 0,
+          "rankFailures": 18,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 253,
+            "inputTokens": 1733122,
+            "outputTokens": 38276,
+            "unknownUsage": 8
+          },
+          "stateCalls": 253,
+          "premiseCalls": 0,
+          "retrievalMs": 30541,
+          "warmupMs": 87013,
+          "scopePeakBytesAtCompletion": 14662635520
+        },
+        "neural": {
+          "sites": 174,
+          "recorded": 174,
+          "onTimeVerified": 88,
+          "rawVerified": 88,
+          "lateVerified": 0,
+          "elapsedMs": 499764,
+          "budgetBlocked": 0,
+          "rankFailures": 14,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 234,
+            "inputTokens": 1423091,
+            "outputTokens": 33034,
+            "unknownUsage": 8
+          },
+          "stateCalls": 234,
+          "premiseCalls": 0,
+          "retrievalMs": 93442,
+          "warmupMs": 84705,
+          "scopePeakBytesAtCompletion": 14137851904
+        },
+        "full": {
+          "sites": 174,
+          "recorded": 174,
+          "onTimeVerified": 69,
+          "rawVerified": 69,
+          "lateVerified": 0,
+          "elapsedMs": 633938,
+          "budgetBlocked": 0,
+          "rankFailures": 0,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 0,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 0,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 200000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "unknownUsage": 0
+          },
+          "stateCalls": 0,
+          "premiseCalls": 0,
+          "retrievalMs": 6,
+          "warmupMs": 66487,
+          "upstreamSelector": {
+            "calls": 176,
+            "elapsedMs": 84774,
+            "candidates": 17600,
+            "unavailable": 0,
+            "fallbacks": 0,
+            "errors": {}
+          },
+          "scopePeakBytesAtCompletion": 14137851904
+        }
+      },
+      "paired": [
+        {
+          "a": "cpu",
+          "b": "full",
+          "gained": 25,
+          "lost": 6,
+          "declarationBootstrap95": [
+            0.05172413793103448,
+            0.16666666666666666
+          ]
+        },
+        {
+          "a": "neural",
+          "b": "full",
+          "gained": 23,
+          "lost": 4,
+          "declarationBootstrap95": [
+            0.05747126436781609,
+            0.16666666666666666
+          ]
+        },
+        {
+          "a": "cpu",
+          "b": "neural",
+          "gained": 6,
+          "lost": 6,
+          "declarationBootstrap95": [
+            -0.040229885057471264,
+            0.034482758620689655
+          ]
+        }
+      ],
+      "deployment": {
+        "schema": 1,
+        "status": "complete",
+        "batch": 3,
+        "order": [
+          "full",
+          "neural",
+          "cpu"
+        ],
+        "sites": 174,
+        "resources": {
+          "initial": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "14137851904",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "14662635520",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        },
+        "completedArms": [
+          {
+            "batch": 3,
+            "arm": "full",
+            "wallSeconds": 930.4782185399963
+          },
+          {
+            "batch": 3,
+            "arm": "neural",
+            "wallSeconds": 801.5033169130038
+          },
+          {
+            "batch": 3,
+            "arm": "cpu",
+            "wallSeconds": 760.932440168006
+          }
+        ]
+      },
+      "evidenceSha256": {
+        "cpu": {
+          "run.json": "4acb66708b0ba69d122d1642f78a6fd3f684477a7ca32974cfe9fd39b207eb0e",
+          "dataset.json": "3240d5bc93ebeab7788af3a9fb5dc88b1b83396f0b2020bc5309b4a0403ce873",
+          "summary.json": "e2259f6770e3fc946133fd7f3625ba7f532d668f3f56ac98243b7026712183e7",
+          "trials.jsonl": "4aea93ecaded23b4b77297b825e4f17ac645a227f88a3c9d6697d71330561b37",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "fba6762a0114dccfc58cc7d6aee4c6f91be9e375035eb3521993e5c8ef35d8da",
+          "usage.json": "798288ad60beb77e7bbef5b1398bf8d67534ff1961e2e4ebcc112a92e053a4ec",
+          "warmup.jsonl": "c09c513aad0df6a8425a753a26d2df9008350496ccbd5f693aae9b00e825e8c4"
+        },
+        "neural": {
+          "run.json": "9b77d892c712644834231e17b4acc4236fa536199044ffadcfd4aaa02c2b69bf",
+          "dataset.json": "3240d5bc93ebeab7788af3a9fb5dc88b1b83396f0b2020bc5309b4a0403ce873",
+          "summary.json": "92a3d1de6fb24743dbdb9a3322c0f3f61f21776ccc3a4ba3228643ebaf6ab6f7",
+          "trials.jsonl": "8d5dea2326e7898aad9567c608aa6031fd20be477bd78b7595c54a6779280b3a",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "ca8dbf8c00c36cf4fa53f294160ff7a027ddd5000ed17cef6fc56b0a621e1ea1",
+          "usage.json": "1f419f357f3e8d770f6bb494d7867ecd1a3bb2729c025629960b1cb0ecb2ecf0",
+          "warmup.jsonl": "bf383e2fe9e3d5eed5227e0c62b2b3447964e0e843689b6bd58efc994bebd813"
+        },
+        "full": {
+          "run.json": "ad8e198c85e757d83111729d59bf9d29fcc2cb1384088cfa6f120121746fe602",
+          "dataset.json": "3240d5bc93ebeab7788af3a9fb5dc88b1b83396f0b2020bc5309b4a0403ce873",
+          "summary.json": "9b5e21a530450646659855c546005a75bc85cc838fa91ab373edf70b63fdfee6",
+          "trials.jsonl": "a52518b1b79d6f55a4a89ae97de1c99b4eeb3d473dd98d5e2f238f7c0b2f8166",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "6f8850c0fd1075df90cccf14744a498094eeb076046a6f842f0fd7132a15d8ae",
+          "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+          "warmup.jsonl": "28f283ad07a10624716f987571e62492d2b8d38960fef9750491b35cd9a79f94",
+          "leanhammer-selector.jsonl": "2d563363fa52f1df1e41b34e6344e17f42a999c46c924891ae7b993d200b3cc7"
+        }
+      },
+      "reservedEvaluationTrials": 0,
+      "limitations": [
+        "One counterbalanced batch; use the prespecified combined analysis."
+      ]
+    },
+    "batch-4": {
+      "schema": 1,
+      "status": "complete",
+      "kind": "confirmation-batch",
+      "sites": 178,
+      "trials": 534,
+      "successfulTrialsIndependentlyReplayed": 230,
+      "datasetSha256": "508eb11fadea60c52a62f3def64f1036cb27e2139da8e44e46aa9bad4eb691fa",
+      "metrics": {
+        "cpu": {
+          "sites": 178,
+          "recorded": 178,
+          "onTimeVerified": 79,
+          "rawVerified": 79,
+          "lateVerified": 0,
+          "elapsedMs": 516493,
+          "budgetBlocked": 0,
+          "rankFailures": 14,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 260,
+            "inputTokens": 1618023,
+            "outputTokens": 43588,
+            "unknownUsage": 5
+          },
+          "stateCalls": 260,
+          "premiseCalls": 0,
+          "retrievalMs": 30038,
+          "warmupMs": 87140,
+          "scopePeakBytesAtCompletion": 15147712512
+        },
+        "neural": {
+          "sites": 178,
+          "recorded": 178,
+          "onTimeVerified": 86,
+          "rawVerified": 86,
+          "lateVerified": 0,
+          "elapsedMs": 531046,
+          "budgetBlocked": 0,
+          "rankFailures": 7,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 228,
+            "inputTokens": 1467726,
+            "outputTokens": 36634,
+            "unknownUsage": 3
+          },
+          "stateCalls": 228,
+          "premiseCalls": 0,
+          "retrievalMs": 103284,
+          "warmupMs": 88811,
+          "scopePeakBytesAtCompletion": 14662635520
+        },
+        "full": {
+          "sites": 178,
+          "recorded": 178,
+          "onTimeVerified": 65,
+          "rawVerified": 65,
+          "lateVerified": 0,
+          "elapsedMs": 671928,
+          "budgetBlocked": 0,
+          "rankFailures": 0,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 0,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 0,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 200000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "unknownUsage": 0
+          },
+          "stateCalls": 0,
+          "premiseCalls": 0,
+          "retrievalMs": 1,
+          "warmupMs": 71118,
+          "upstreamSelector": {
+            "calls": 185,
+            "elapsedMs": 91506,
+            "candidates": 18500,
+            "unavailable": 0,
+            "fallbacks": 0,
+            "errors": {}
+          },
+          "scopePeakBytesAtCompletion": 15147712512
+        }
+      },
+      "paired": [
+        {
+          "a": "cpu",
+          "b": "full",
+          "gained": 18,
+          "lost": 4,
+          "declarationBootstrap95": [
+            0.028089887640449437,
+            0.12921348314606743
+          ]
+        },
+        {
+          "a": "neural",
+          "b": "full",
+          "gained": 24,
+          "lost": 3,
+          "declarationBootstrap95": [
+            0.06179775280898876,
+            0.1797752808988764
+          ]
+        },
+        {
+          "a": "cpu",
+          "b": "neural",
+          "gained": 1,
+          "lost": 8,
+          "declarationBootstrap95": [
+            -0.07303370786516854,
+            -0.0056179775280898875
+          ]
+        }
+      ],
+      "deployment": {
+        "schema": 1,
+        "status": "complete",
+        "batch": 4,
+        "order": [
+          "neural",
+          "cpu",
+          "full"
+        ],
+        "sites": 178,
+        "resources": {
+          "initial": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "14662635520",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "15147712512",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        },
+        "completedArms": [
+          {
+            "batch": 4,
+            "arm": "neural",
+            "wallSeconds": 853.5436027800024
+          },
+          {
+            "batch": 4,
+            "arm": "cpu",
+            "wallSeconds": 837.5543750609941
+          },
+          {
+            "batch": 4,
+            "arm": "full",
+            "wallSeconds": 978.8335601190047
+          }
+        ]
+      },
+      "evidenceSha256": {
+        "cpu": {
+          "run.json": "ba92dbdcaaa04e1fd7898eec14d35435849bfa9a086d24e02cf26123fe81c969",
+          "dataset.json": "508eb11fadea60c52a62f3def64f1036cb27e2139da8e44e46aa9bad4eb691fa",
+          "summary.json": "1b12274c18cd86a5c4955c6e1b9c5d7b4130e6c0b23e79c4d2d0c261484dc639",
+          "trials.jsonl": "f6d95f16db9d292faf72effa0fcb01b56e9f6b3fb6b116bb3f82bd38d2d76513",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "f7efc04b075cdb1764120bb72476373aab794553325ea875a7aeab0d96f17e0b",
+          "usage.json": "1b272843809dae1cb12d7b35f2d88461693a7626e6b437407afff4ea7cf1308c",
+          "warmup.jsonl": "5c8002dbda2181d725559e83e2f12bdc7cbaa0ca30aa130f8b70ce44ec3f32d9"
+        },
+        "neural": {
+          "run.json": "1d1c0dc1747da536b4361f713f625a3abe0b2d767ff2ce9b05f70927e8e7f4b7",
+          "dataset.json": "508eb11fadea60c52a62f3def64f1036cb27e2139da8e44e46aa9bad4eb691fa",
+          "summary.json": "a9be76ad0eb094f62cd9b5924532f02df01a0c77ad794b6aa363d35a129d199c",
+          "trials.jsonl": "1989576bd1c5e70307ca025d8dc9cfa3c37e6e2308d19fe15e152212f756124f",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "e2fae73205d424ce539b2e7cf4fe4b028aff94c3b57eec9b881c9e0263008bfa",
+          "usage.json": "8ef9dd402514a0fbeb0b273e71611f3368fd95f992b79b5c5367a5b06c286bc9",
+          "warmup.jsonl": "4b884da6b0a27e940a6185092a7b070c82b3c0487603993c0b97aa9424386392"
+        },
+        "full": {
+          "run.json": "2466042c90672eb385d14ddc021d78afbe0544b0b0d6788be682b4901899e1e4",
+          "dataset.json": "508eb11fadea60c52a62f3def64f1036cb27e2139da8e44e46aa9bad4eb691fa",
+          "summary.json": "9de1ec2101141b43f9e2c6d659ac0b5973a790211b65218dafe6813b129b6305",
+          "trials.jsonl": "50ece9ea50818fd77082a8372d40b2686d64873e8fb5f118a8e02ba9859fdd25",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "ed3d0b61588aa94596ee46106ceab353c4b232ef00a8c92c01c33576d324552f",
+          "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+          "warmup.jsonl": "a1e596134d14bbbcdaa354f98582cf39f95761e64db22ddbd4171a700b48deca",
+          "leanhammer-selector.jsonl": "175990720c8b2f6079baf01cbb0f33a52466254a67c7f57cfeb37b0ef41e4626"
+        }
+      },
+      "reservedEvaluationTrials": 0,
+      "limitations": [
+        "One counterbalanced batch; use the prespecified combined analysis."
+      ]
+    },
+    "batch-5": {
+      "schema": 1,
+      "status": "complete",
+      "kind": "confirmation-batch",
+      "sites": 158,
+      "trials": 474,
+      "successfulTrialsIndependentlyReplayed": 180,
+      "datasetSha256": "04489c8a53c415a3cbecd3fb56afad212c11dd2d1c49e690058139ca150e8f52",
+      "metrics": {
+        "cpu": {
+          "sites": 158,
+          "recorded": 158,
+          "onTimeVerified": 65,
+          "rawVerified": 65,
+          "lateVerified": 0,
+          "elapsedMs": 505153,
+          "budgetBlocked": 0,
+          "rankFailures": 19,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 230,
+            "inputTokens": 1630590,
+            "outputTokens": 35973,
+            "unknownUsage": 11
+          },
+          "stateCalls": 230,
+          "premiseCalls": 0,
+          "retrievalMs": 30924,
+          "warmupMs": 82029,
+          "scopePeakBytesAtCompletion": 16000000000
+        },
+        "neural": {
+          "sites": 158,
+          "recorded": 158,
+          "onTimeVerified": 64,
+          "rawVerified": 64,
+          "lateVerified": 0,
+          "elapsedMs": 530662,
+          "budgetBlocked": 0,
+          "rankFailures": 14,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 3,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 12,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 15000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 220,
+            "inputTokens": 1619853,
+            "outputTokens": 35959,
+            "unknownUsage": 7
+          },
+          "stateCalls": 220,
+          "premiseCalls": 0,
+          "retrievalMs": 92660,
+          "warmupMs": 75669,
+          "scopePeakBytesAtCompletion": 15147712512
+        },
+        "full": {
+          "sites": 158,
+          "recorded": 158,
+          "onTimeVerified": 51,
+          "rawVerified": 51,
+          "lateVerified": 0,
+          "elapsedMs": 645162,
+          "budgetBlocked": 0,
+          "rankFailures": 0,
+          "config": {
+            "beamWidth": 4,
+            "deferPremiseGuidance": false,
+            "guidePremises": false,
+            "maxCalls": 0,
+            "maxCandidates": 24,
+            "maxDepth": 3,
+            "maxMillis": 6000,
+            "maxNodes": 0,
+            "maxPremises": 100,
+            "model": "jev-1.13.0",
+            "premiseCount": 8,
+            "refreshPremises": true,
+            "tacticHeartbeats": 200000,
+            "timeoutSeconds": 5
+          },
+          "usage": {
+            "attempts": 0,
+            "inputTokens": 0,
+            "outputTokens": 0,
+            "unknownUsage": 0
+          },
+          "stateCalls": 0,
+          "premiseCalls": 0,
+          "retrievalMs": 5,
+          "warmupMs": 59350,
+          "upstreamSelector": {
+            "calls": 163,
+            "elapsedMs": 76451,
+            "candidates": 16299,
+            "unavailable": 1,
+            "fallbacks": 0,
+            "errors": {}
+          },
+          "scopePeakBytesAtCompletion": 16000000000
+        }
+      },
+      "paired": [
+        {
+          "a": "cpu",
+          "b": "full",
+          "gained": 20,
+          "lost": 6,
+          "declarationBootstrap95": [
+            0.02531645569620253,
+            0.15822784810126583
+          ]
+        },
+        {
+          "a": "neural",
+          "b": "full",
+          "gained": 19,
+          "lost": 6,
+          "declarationBootstrap95": [
+            0.02531645569620253,
+            0.13924050632911392
+          ]
+        },
+        {
+          "a": "cpu",
+          "b": "neural",
+          "gained": 5,
+          "lost": 4,
+          "declarationBootstrap95": [
+            -0.03164556962025317,
+            0.04430379746835443
+          ]
+        }
+      ],
+      "deployment": {
+        "schema": 1,
+        "status": "complete",
+        "batch": 5,
+        "order": [
+          "neural",
+          "full",
+          "cpu"
+        ],
+        "sites": 158,
+        "resources": {
+          "initial": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "15147712512",
+            "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+          },
+          "final": {
+            "memoryMax": 16000000000,
+            "swapMax": "0",
+            "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1025308-i1025309.scope",
+            "memory.peak": "16000000000",
+            "memory.events": "low 0\nhigh 0\nmax 942\noom 0\noom_kill 0\noom_group_kill 0"
+          }
+        },
+        "completedArms": [
+          {
+            "batch": 5,
+            "arm": "neural",
+            "wallSeconds": 807.4605931550032
+          },
+          {
+            "batch": 5,
+            "arm": "full",
+            "wallSeconds": 922.1306055230089
+          },
+          {
+            "batch": 5,
+            "arm": "cpu",
+            "wallSeconds": 792.69549430201
+          }
+        ]
+      },
+      "evidenceSha256": {
+        "cpu": {
+          "run.json": "7f9aa0f3c817d50a0e1a56c0c4becdb8576f1d54dbc851c84c0f9e64389e0e19",
+          "dataset.json": "04489c8a53c415a3cbecd3fb56afad212c11dd2d1c49e690058139ca150e8f52",
+          "summary.json": "47c5596f07c960c5b4267cd88199a02d301e3afd470eb0b946e8befbde19f25a",
+          "trials.jsonl": "85f125dba8fd2f3ffc3091079bb696221d9def2fc2fb6eb08f43682443b06794",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "181bb1565b8af72a7f2dac8df21083ce6b99e4902a14940ab3356e5fb11d0c47",
+          "usage.json": "9138b10522d8c1983176a7cbb547794af631fab6d1a33c8705731514de5b5dd3",
+          "warmup.jsonl": "95e2284de2ccf3fe3185273e4047be75a4a41da68ed636ca1d71b33658f96156"
+        },
+        "neural": {
+          "run.json": "aa9d4d4fe3393ec9da08c50b5ff75a0a12d96d068c1e4c66aefee54e8d1a5a3f",
+          "dataset.json": "04489c8a53c415a3cbecd3fb56afad212c11dd2d1c49e690058139ca150e8f52",
+          "summary.json": "13ba9b1702a3f6056d7ccb4c529316575100cdcf4fc7347726937c70a7ab1150",
+          "trials.jsonl": "eef332253ddf22cb1869a927bf4275ec0461eace7df4002b8517cbcaa42250c1",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "3521facca1cd31bed2872a3bfa45a6966cfe496efc704462a32e68c136eade2d",
+          "usage.json": "8d545a09839c69d383ccfac2daa58af67d9307dd5e6b08a15b9c6515c19ad806",
+          "warmup.jsonl": "c74152cd73e82352134ec421d6e15af9d5829bbad31c2b5e870da4ca67abab88"
+        },
+        "full": {
+          "run.json": "87d01d3a540aae703687f4b15815dae2d0ca5982502635df38c6a87df15841a4",
+          "dataset.json": "04489c8a53c415a3cbecd3fb56afad212c11dd2d1c49e690058139ca150e8f52",
+          "summary.json": "526878fcc1bbd01f0937132b78be2681be201b95c997b45b317d14ab36bbbf76",
+          "trials.jsonl": "43f9b94bf07df9d9a48cb49dabc9aa8870ab088ce4de9489daea8cf390fd212c",
+          "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+          "replay-1/replay.jsonl": "c242261effb6f181c4925b7221092004c566ead3ba8da2be3b14efc2d901a2c0",
+          "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+          "warmup.jsonl": "28dacacb3a9a6e1a5963b2a13e293260b6e88af60a451ed77d5389ddb3607a21",
+          "leanhammer-selector.jsonl": "cd699177d4735f1c1e522a3c102ee2ff88c31fa6b59655839474d5782dfc8580"
+        }
+      },
+      "reservedEvaluationTrials": 0,
+      "limitations": [
+        "One counterbalanced batch; use the prespecified combined analysis."
+      ]
+    }
+  },
+  "limitations": [
+    "Stratified size-filtered Mathlib population, not uniform all-Mathlib sampling.",
+    "Five source-incompatible modules excluded before sampling; no proof-trial failures dropped.",
+    "Single fresh Jev decision sequence per location and method.",
+    "Third-party neural training overlap is unknown.",
+    "Exact McNemar is an unclustered sensitivity check; primary inference uses stratified module bootstrap.",
+    "Six counterbalanced arm orders; disk caches persist, initialization excluded and reported."
+  ],
+  "publicTrials": {
+    "path": "full-leanhammer-confirmation-v1-trials.jsonl",
+    "sha256": "ee4592d7f8f417f024cdf1ebf139fa1b6df803b781124fec9d34884ccab0434c"
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/lakefile.lean b/lakefile.lean
+index f7cd8e2..dfd4e0e 100644
+--- a/lakefile.lean
++++ b/lakefile.lean
+@@ -121,7 +121,7 @@ def libs : Array (Target FilePath) :=
+   if Platform.isWindows then
+     #[ffi.o, libcadical, libcvc5, libcvc5parser, libgmp, libpicpoly, libpicpolyxx]
+   else
+-    #[ffi.o, libcadical, libcvc5, libcvc5parser, libgmp, libgmpxx, libpicpoly, libpicpolyxx]
++    #[ffi.o, libcadical, libcvc5, libcvc5parser, libgmpxx, libpicpoly, libpicpolyxx]
+ 
+ @[default_target]
+ lean_lib cvc5 where

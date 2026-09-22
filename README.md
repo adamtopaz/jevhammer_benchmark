@@ -141,25 +141,29 @@ untouched while choosing methods.
 - [Neural selector](integrations/neural/README.md): optional explicit service,
   pinned historical model/corpus metadata, and comparison limitations.
 - [CPU selector research status](docs/cpu-selector-research-status.md): broader
-  CPU/neural results, retrieval costs, and why superiority remains unproven.
+  CPU/neural results, retrieval costs, and the remaining selector-quality gap.
 - [Full LeanHammer comparison](docs/full-leanhammer-pilot-v1.md): a matched
   34-location pilot, all proof engines enabled, independently replayed results,
   costs, and an [optional public adapter](integrations/leanhammer/README.md).
 - [Confirmation cohort](datasets/full-leanhammer-confirmation-v1/README.md):
   1,024 fresh goals from distinct declarations, a counterbalanced three-method
   schedule, explicit training exclusions, and prespecified paired analysis.
+- [Completed 1,024-goal confirmation](docs/full-leanhammer-confirmation-v1.md):
+  CPU JevHammer 450, neural JevHammer 469, full LeanHammer 372; all successful
+  proofs replayed, with paired confidence intervals, costs and resource events.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,
   sampling, usage, resource limits, and failure handling.
 - [Initial validation](docs/validation.md): offline checks, Mathlib preparation,
   and CPU costs; separate from live proof-quality comparisons.
 - [Contributing](CONTRIBUTING.md) and [research plans](notes/README.md).
 
-The current release implements the benchmark and preparation foundations. It
-has not yet established that the sparse selector matches the strongest historical
-pipeline. The full LeanHammer pilot favors CPU/conclusion JevHammer (16/34 versus
-12/34), but is too small and exposed to establish general superiority. Full
-LeanHammer has additional proof engines; the neural-selector adapter alone is
-not that tactic.
+The fresh confirmation study favors CPU/conclusion JevHammer over full LeanHammer
+by 7.62 percentage points (module-bootstrap 95% interval +5.34 to +9.91) under
+the tested six-second, 16 GB limits. Neural/conclusion JevHammer scored highest;
+CPU-selector superiority over it remains unachieved. These are intermediate-goal
+results for the pinned configurations, not a universal ranking or a comparison
+with the historical monolithic pipeline. Full LeanHammer has additional proof
+engines; the neural-selector adapter alone is not that tactic.
 
 Run the complete offline suite inside a bounded job with `bash tests/run.sh`.
 Licensed under the [Apache License, Version 2.0](LICENSE).

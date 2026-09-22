@@ -1,9 +1,25 @@
 # CPU selector versus neural premise selection
 
-The current CPU selector is competitive with the pinned LeanHammer-style
-neural premise selector, but **superiority has not been established**. These
-comparisons substitute premise selectors inside JevHammer, with Jev proof-state
-guidance in every arm. They do not compare against the full LeanHammer tactic.
+The fresh [1,024-goal confirmation](full-leanhammer-confirmation-v1.md) found
+**CPU/conclusion JevHammer 450/1,024 (43.95%)**, **neural/conclusion JevHammer
+469/1,024 (45.80%)**, and **full LeanHammer 372/1,024 (36.33%)**. Every counted
+proof was produced within six seconds and independently replayed. Both JevHammer
+arms use Jev for proof-state selection.
+
+CPU JevHammer exceeded full LeanHammer by **7.62 percentage points**, with a
+prespecified stratified module-bootstrap 95% interval of **+5.34 to +9.91**.
+However, the secondary comparison favored neural over CPU by 1.86 points
+(95% interval +0.29 to +3.47). **The objective of CPU-selector superiority over
+the neural approach remains unmet.** CPU retrieval was faster: 190.369 seconds
+in aggregate versus 577.650 for neural/conclusion, while total goal times were
+3,143.744 and 3,271.963 seconds. The CPU artifact took 92.16 seconds to prepare.
+
+This confirmation covers 1,024 distinct held-out owners in 131 modules across
+17 subject areas, with six counterbalanced method orders. Five source-incompatible
+modules were excluded before outcomes. All jobs respected the 16 GB, zero-swap
+cap; it recorded memory pressure during the final full LeanHammer arm, without
+OOM kills. The report publishes all trials, uncertainty, usage and limitations.
+No methods were tuned on this cohort. Earlier evidence below remains separate.
 
 A separate [full LeanHammer pilot](full-leanhammer-pilot-v1.md), completed on
 2026-09-21, compares complete tactics on 34 exposed development locations:
@@ -12,7 +28,7 @@ LeanHammer 12/34. All 41 successful proofs replayed. CPU gained six locations
 and lost two versus full LeanHammer; its 95% interval includes zero. This pilot
 does not change the broader selector-comparison conclusion below.
 
-The strongest broader comparison uses 134 development locations from 99
+The earlier broader selector comparison uses 134 development locations from 99
 declarations, matched tactics and search budgets, and independent proof replay:
 
 | Premise selection | On-time verified proofs |
@@ -52,7 +68,8 @@ The next scheduling hypothesis tries base-selected premises before spending
 calls on premise guidance, under the same goal clock and call limit. It applies
 equally to CPU and neural methods and has no proof-quality result yet.
 
-All 122 reserved evaluation locations remain unused for proof trials. A
-substantial improvement still needs to be demonstrated there after development
-selection. Third-party neural training overlap is unknown; local preparation
-excluded all cohort owners. Local workloads use a 16 GB, zero-swap limit.
+All 122 older reserved evaluation locations remain unused for proof trials.
+The new confirmation cohort now supplies a separate held-out reference; future
+development must not treat it as unseen validation after tuning on its results.
+Third-party neural training overlap is unknown; local preparation excluded all
+cohort owners. Local workloads use a 16 GB, zero-swap limit.

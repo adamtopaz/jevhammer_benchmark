@@ -1,0 +1,2 @@
+# Preserve blank context lines in this checksum-verified upstream patch.
+docs/full-leanhammer-cvc5-gmp.patch whitespace=-blank-at-eol
