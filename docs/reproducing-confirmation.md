@@ -9,7 +9,7 @@ CPU neural inference, eight Lean workers, a six-second goal deadline and one
 ## Check the published statistics
 
 ```sh
-git clone --branch research/cpu-selector https://github.com/adamtopaz/jevhammer_benchmark
+git clone --branch main https://github.com/adamtopaz/jevhammer_benchmark
 cd jevhammer_benchmark
 git rev-parse HEAD
 python3 scripts/analyze_published_confirmation.py

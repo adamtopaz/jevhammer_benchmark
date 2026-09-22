@@ -47,7 +47,7 @@ Requires Lean **4.33.0**, Lake, Python **3.10+**, and Git. Mathlib and all Lean
 dependencies are pinned in the Lake manifest.
 
 ```sh
-git clone --branch research/cpu-selector https://github.com/adamtopaz/jevhammer_benchmark
+git clone --branch main https://github.com/adamtopaz/jevhammer_benchmark
 cd jevhammer_benchmark
 lake update
 lake exe cache get
