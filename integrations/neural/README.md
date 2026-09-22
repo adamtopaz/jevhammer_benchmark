@@ -1,5 +1,12 @@
 # Optional neural premise-selector arm
 
+For the completed three-method confirmation, use the
+[reproduction guide](../../docs/reproducing-confirmation.md). This directory
+contains its pinned CPU package lock, embedding endpoint and validation script.
+The confirmation's neural/conclusion method disables premise reranking; Jev
+guides proof-state selection. The standalone adapter below is a different
+configuration.
+
 `JevHammerBenchmark.Neural.neural` uses the pinned upstream
 [premise-selection client](https://github.com/hanwenzhu/premise-selection)
 with an explicitly chosen compatible
@@ -38,6 +45,7 @@ incomplete. Choose `--timeout` to bound this operational risk.
 This is a neural-premise-selection comparison, **not full LeanHammer** (which
 has additional proof engines). It is also not yet a reproduction of historical
 coverage: imports, tactic configuration, fallbacks, and service deployment must
-be matched and newly measured. The public harness has not yet run that live
-migration comparison. Third-party training overlap is recorded as unknown,
+be matched and newly measured. The current full-tactic comparison is in the
+[confirmation report](../../docs/full-leanhammer-confirmation-v1.md); historical
+monolithic scores are not attributed to these packages. Third-party training overlap is recorded as unknown,
 separately from JevSelector's explicit fitted-row holdouts.

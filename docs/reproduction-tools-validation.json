@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "pythonTests": 17,
+  "realJevCalls": 0,
+  "mathlibBenchmarkTrials": 0,
+  "scope": "Portable helper validation using existing pinned build and cached assets; no fresh dependency installation or repeated full benchmark.",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "11542528",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "11252973568",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "steps": [
+    {
+      "name": "embedding-validation",
+      "seconds": 36.53665680400445
+    },
+    {
+      "name": "service-health",
+      "seconds": 32.60508434299845
+    },
+    {
+      "name": "lean-preflight",
+      "seconds": 32.23321938699519
+    },
+    {
+      "name": "published-statistics",
+      "seconds": 5.339113328998792
+    }
+  ],
+  "embeddingValidation": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "indices": [
+      0,
+      13187,
+      26374,
+      39561,
+      52748,
+      65935,
+      79122,
+      92309,
+      105496,
+      118683,
+      131870,
+      145057,
+      158244,
+      171431,
+      184618,
+      197805,
+      210993,
+      224180,
+      237367,
+      250554,
+      263741,
+      276928,
+      290115,
+      303302,
+      316489,
+      329676,
+      342863,
+      356050,
+      369237,
+      382424,
+      395611,
+      408799
+    ],
+    "maxAbsoluteError": 2.1979212760925293e-07,
+    "minimumCosine": 0.9999998807907104,
+    "corpusSize": 408800,
+    "device": "cpu",
+    "dtype": "float32",
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "cpuEmbedSha256": "6a796d4773ca423ced1db92a54bdeb11a88749c1b9dd130127f77c9e4f0a5c51",
+    "passed": true
+  },
+  "evidenceSha256": {
+    "report.json": "5057b0e3d23ba77899e873f6b9ebe2a223263dfec26943405a805ca17eeb0d52",
+    "embedding-validation.json": "3707e6d7b6dbb4f80455748154936ab5f9f4e4fa08c39d07b573cb5e6385584f",
+    "embedding-validation.log": "5c8e048e92204e84a9d3d2c5279ca400ad0d2b37f85d7e442876f94fb9ce4229",
+    "lean-preflight.log": "8529c94d146658ba5b3a633dd97293f841abdec63700dd8a81f6a95bbc423bb0",
+    "published-statistics.log": "878ec82b202e4cdf33817ffec87e20c8f87c293d348e435612c89b15b5640719",
+    "service-health.log": "5bdbcd38471c6d9493649abfee87f09172e08b40f40925cfc8e6358e7a778642"
+  },
+  "fullLiveOrchestrationRepeated": false
+}

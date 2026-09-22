@@ -46,11 +46,13 @@ test before a comparison. Then use the standard Python benchmark CLI with
 with `--import LeanHammerComparison`. The runner is installed from the pinned
 base benchmark revision, or run with an identical Python source snapshot.
 
-The local study freezes the previously exposed 34-site pilot, after re-admitting
-the exact same source locations and goal hashes. It runs 102 trials total, with
-fresh controls and independent replay. No reserved evaluation locations are
-used. This is a development pilot, not a final superiority claim. No individual
-failed goal is examined or used to adjust the configuration.
+The completed [1,024-goal confirmation](../../docs/full-leanhammer-confirmation-v1.md)
+uses 131 modules, six counterbalanced batches and all 3,072 trials, separately
+from the earlier 34-location pilot. See the
+[reproduction guide](../../docs/reproducing-confirmation.md) for pinned CPU
+services, inference validation, preparation, source admission, native-engine
+preflight and full run/export commands. The [selection guide](../../docs/benchmark-selection.md)
+explains intermediate goals, exclusions, holdouts and sampling.
 
 On this Nix host, the pre-existing cvc5 build uses Lean's own GMP library instead
 of linking a duplicate static GMP; Zipperposition's loader was adapted to the

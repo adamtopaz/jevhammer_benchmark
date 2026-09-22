@@ -8,6 +8,11 @@ The [protocol](../../docs/full-leanhammer-confirmation-protocol.md) was committe
 before discovery and fixes the methods, timing, resource limits, sampling and
 statistical analysis. No method was tuned on this cohort.
 
+The study is now complete: see the [results](../../docs/full-leanhammer-confirmation-v1.md),
+[selection explanation](../../docs/benchmark-selection.md) and
+[full reproduction guide](../../docs/reproducing-confirmation.md). The latter
+includes portable CPU services, all-owner preflight and the 18-arm launcher.
+
 ## Files
 
 - `modules.json`: the original 136-module candidate list.

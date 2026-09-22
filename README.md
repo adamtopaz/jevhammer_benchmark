@@ -6,11 +6,40 @@ selectors, tactic sets, and search configurations at actual intermediate Lean
 goals. Successful proofs are saved as expression certificates and independently
 kernel-checked against the original source goals, without API calls.
 
-Live comparison arms use **Jev for proof-state guidance**. Offline mock ranking
+JevHammer comparison arms use **Jev for proof-state guidance**. Offline mock ranking
 is available for infrastructure tests and is explicitly labeled in reports.
 The repository includes Sine Qua Non baselines, a prepared
 [JevSelector](https://github.com/adamtopaz/jevselector) adapter, and an opt-in
-neural premise-service adapter. No new performance-parity claim is made here.
+neural premise-service adapter, plus an optional full LeanHammer comparison.
+
+## Results: 1,024 fresh Mathlib goals
+
+The completed confirmation attempted **3,072 trials** at 1,024 intermediate
+goals from distinct declarations across 131 modules and 17 subject areas. Each
+method had a six-second end-to-end deadline and the same 16 GB, zero-swap cap.
+
+| Method | On-time, independently verified proofs | Success rate |
+|---|---:|---:|
+| JevHammer + CPU sparse/conclusion selector | 450/1,024 | 43.95% |
+| JevHammer + neural/conclusion selector | 469/1,024 | 45.80% |
+| Full LeanHammer + upstream neural selector | 372/1,024 | 36.33% |
+
+The prespecified CPU-versus-full-LeanHammer difference is **+7.62 percentage
+points**, with a module-bootstrap 95% interval of **+5.34 to +9.91**. Neural
+JevHammer scored highest; CPU-selector superiority over it remains unachieved.
+Both JevHammer arms use Jev for proof-state selection. Full LeanHammer retains
+all its proof engines and makes no Jev calls. All 1,292 successful proofs replayed;
+one late neural proof is excluded from the table. The memory cap was reached,
+with no OOM kills. These results describe the pinned configurations and sampled
+intermediate goals, not complete theorem synthesis or all Lean problems.
+
+- [Results, costs, paired outcomes and limitations](docs/full-leanhammer-confirmation-v1.md).
+- [How modules, proof states and holdouts were selected](docs/benchmark-selection.md).
+- [Recompute the statistics or reproduce the experiment](docs/reproducing-confirmation.md).
+- [Frozen protocol](docs/full-leanhammer-confirmation-protocol.md),
+  [dataset and schedule](datasets/full-leanhammer-confirmation-v1/README.md),
+  [machine-readable report](docs/full-leanhammer-confirmation-v1.json) and
+  [all 3,072 trial records](docs/full-leanhammer-confirmation-v1-trials.jsonl).
 
 ## Install and run offline
 
@@ -18,7 +47,7 @@ Requires Lean **4.33.0**, Lake, Python **3.10+**, and Git. Mathlib and all Lean
 dependencies are pinned in the Lake manifest.
 
 ```sh
-git clone https://github.com/adamtopaz/jevhammer_benchmark
+git clone --branch research/cpu-selector https://github.com/adamtopaz/jevhammer_benchmark
 cd jevhammer_benchmark
 lake update
 lake exe cache get
