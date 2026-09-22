@@ -2,6 +2,7 @@ module
 public meta import Hammer
 public meta import JevHammerBenchmark.Research
 public meta import JevHammerBenchmark.Ranker
+public meta import AvailablePremises
 public meta section
 namespace LeanHammerComparison
 open Lean Meta Elab Tactic LibrarySuggestions JevHammerBenchmark
@@ -68,6 +69,18 @@ elab "jevbench_full_leanhammer" : tactic => do
 
 def cpu : Method := Research.structuralPublic
 def neural : Method := Research.structuralNeural
+
+/-- Same search and fusion as cpu; the sparse fit sees only currently imported
+Mathlib statements. Earlier current-file candidates are supplied live at query
+time and cannot alter fitted statistics or imported postings. -/
+def strict : Method := {
+  cpu with
+  selector := JevSelector.fuse #[
+    (fun goal cfg => do (← AvailablePremises.index).targetSelector goal cfg),
+    Research.structuralSelector "available-imports-fusion"] {}
+  selectorName := "Available imported statements only: target IDF + conclusion, live current-file candidates"
+  warmup := do discard <| Research.structuralIndex "available-imports-fusion"
+  validate := AvailablePremises.initializeModel }
 
 /-- JevHammer dispatches exactly one closing tactic to reuse the harness's
 atomicity/certificate gates. It performs no Jev search or premise retrieval. -/

@@ -25,7 +25,9 @@ example (p q : Prop) (h : p) (f : p → q) : q := by
 open Lean Meta Elab Command JevHammerBenchmark in
 run_cmd liftTermElabM do
   unless toJson LeanHammerComparison.cpu.config == toJson LeanHammerComparison.neural.config &&
-      LeanHammerComparison.cpu.tacticSetName == LeanHammerComparison.neural.tacticSetName do
+      toJson LeanHammerComparison.cpu.config == toJson LeanHammerComparison.strict.config &&
+      LeanHammerComparison.cpu.tacticSetName == LeanHammerComparison.neural.tacticSetName &&
+      LeanHammerComparison.cpu.tacticSetName == LeanHammerComparison.strict.tacticSetName do
     throwError "JevHammer controls do not match"
   let full := LeanHammerComparison.full
   unless full.config.maxCalls == 0 && full.config.maxNodes == 0 &&

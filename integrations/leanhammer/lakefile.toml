@@ -24,3 +24,10 @@ rev = "bb2b1861f665c3854d49b3f115d6a413aab2611f"
 
 [[lean_lib]]
 name = "LeanHammerComparison"
+
+[[lean_lib]]
+name = "AvailablePremises"
+precompileModules = true
+
+[[lean_lib]]
+name = "AvailableFixture"

@@ -23,12 +23,12 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def compare(parent, expected_sites=34):
+def compare(parent, expected_sites=34, arms=("cpu", "neural", "full")):
     metrics, successes, evidence, public = {}, {}, {}, []
     expected_dataset = None
     dataset = None
     total_replayed = 0
-    for arm in ("cpu", "neural", "full"):
+    for arm in arms:
         root = parent / arm
         manifest, summary, verification = [read(root / n) for n in
                                             ("run.json", "summary.json", "verification.json")]

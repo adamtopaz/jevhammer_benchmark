@@ -79,6 +79,11 @@ features and IDF statistics, not proof bodies. Lean validates compiled statement
 identities and all 1,212 explicit owner exclusions before evaluation. Available
 premises can be selected at runtime subject to availability and caller filters.
 This is a fitted-owner holdout; third-party neural training overlap is unknown.
+It does not exclude related or downstream declarations from statement statistics.
+The original CPU catalog also contains unavailable statements, filtered at query
+time. Consequently this is not a dependency-isolated or chronological holdout.
+The [available-premise follow-up](available-premises-protocol.md) removes that
+exposure from the CPU fit and imported postings.
 
 Modules are sorted by SHA-256 of `jevbench-full-confirmation-order-v1:MODULE`
 and distributed round-robin into six batches, keeping whole modules together.

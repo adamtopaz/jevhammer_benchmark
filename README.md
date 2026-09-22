@@ -33,6 +33,12 @@ one late neural proof is excluded from the table. The memory cap was reached,
 with no OOM kills. These results describe the pinned configurations and sampled
 intermediate goals, not complete theorem synthesis or all Lean problems.
 
+The CPU holdout excludes tested declarations from fitting, but related and
+downstream statements still contribute to its original statistics and catalog.
+An [available-premise follow-up](docs/available-premises-protocol.md) tests a
+stricter imports-only fit and postings, with earlier current-file premises read
+live. Pretrained-model training overlap remains unknown in both studies.
+
 - [Results, costs, paired outcomes and limitations](docs/full-leanhammer-confirmation-v1.md).
 - [How modules, proof states and holdouts were selected](docs/benchmark-selection.md).
 - [Recompute the statistics or reproduce the experiment](docs/reproducing-confirmation.md).

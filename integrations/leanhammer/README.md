@@ -1,13 +1,14 @@
 # Full LeanHammer comparison
 
 This optional Lake project adds full LeanHammer to the public benchmark runner.
-The main benchmark library does not acquire a LeanHammer dependency. All three
+The main benchmark library does not acquire a LeanHammer dependency. All
 methods use the same Lean 4.33.0 / Mathlib snapshot and source-bound certificate
 replay. The base runner revision and all dependencies are pinned in the manifest.
 
 | Method | Engine and premises |
 |---|---|
 | `LeanHammerComparison.cpu` | JevHammer, target-weighted sparse + conclusion matching |
+| `LeanHammerComparison.strict` | Same JevHammer search; sparse statistics/postings from available imported signatures only, plus conclusion matching |
 | `LeanHammerComparison.neural` | JevHammer, neural + conclusion matching |
 | `LeanHammerComparison.full` | Full LeanHammer with upstream neural selection and normal Sine fallback |
 
@@ -53,6 +54,14 @@ from the earlier 34-location pilot. See the
 services, inference validation, preparation, source admission, native-engine
 preflight and full run/export commands. The [selection guide](../../docs/benchmark-selection.md)
 explains intermediate goals, exclusions, holdouts and sampling.
+
+The [available-premise follow-up](../../docs/reproducing-available-premises.md)
+adds the strict method and a fresh original-CPU control. Its fit uses no external
+statement artifact; set `JEVSELECTOR_HOLDOUTS` to the full study exclusions.
+Earlier current-file candidates are read live and do not enter fitted statistics.
+Run `lake build AvailableFixture` and `lake lean AvailablePremisesTests.lean`
+for the preparation/isolation tests. These fixture imports are not part of the
+benchmark method's import closure.
 
 On this Nix host, the pre-existing cvc5 build uses Lean's own GMP library instead
 of linking a duplicate static GMP; Zipperposition's loader was adapted to the

@@ -142,6 +142,14 @@ unknown. The older 122 reserved goals remain untouched. This result neither
 establishes a universal best tactic nor attributes historical monolithic scores
 to the current packages.
 
+The CPU fitting holdout excludes evaluated owners and named children, but not
+related or downstream theorem statements. Those statements can affect symbol
+frequencies and length statistics, and unavailable catalog rows can affect
+bounded posting selection before availability filtering. Proof bodies are never
+read by this recipe, but the evaluation is not dependency-isolated. The
+[available-premise sensitivity study](available-premises-protocol.md) tests
+imports-only fitting and postings on the same exposed goals.
+
 ## Reproduction and evidence
 
 - [Frozen cohort, holdouts, schedule and reproduction instructions](../datasets/full-leanhammer-confirmation-v1/README.md).
