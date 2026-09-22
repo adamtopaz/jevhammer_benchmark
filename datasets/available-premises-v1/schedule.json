@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "sites": 1024,
+  "trials": 4096,
+  "batches": [
+    {
+      "batch": 0,
+      "dataset": "batch-0.json",
+      "datasetSha256": "48e2a5cddc189e2f6816169c4b3cdd7b92ecacb2bbd54172de6841eacd891b1b",
+      "sites": 252,
+      "modules": 33,
+      "order": [
+        "strict",
+        "cpu",
+        "full",
+        "neural"
+      ],
+      "maxRequestsPerJevArm": 756,
+      "maxInputTokensPerJevArm": 8820000
+    },
+    {
+      "batch": 1,
+      "dataset": "batch-1.json",
+      "datasetSha256": "3e68032ce2fdfea49dffd503c6618da79f16cb23faaf5bb4f38547be9c3550bb",
+      "sites": 257,
+      "modules": 33,
+      "order": [
+        "cpu",
+        "neural",
+        "strict",
+        "full"
+      ],
+      "maxRequestsPerJevArm": 771,
+      "maxInputTokensPerJevArm": 8995000
+    },
+    {
+      "batch": 2,
+      "dataset": "batch-2.json",
+      "datasetSha256": "4684aa41c24675bacce5cec4b08bc75146cf64082bee3c71841663fd1f064eca",
+      "sites": 258,
+      "modules": 33,
+      "order": [
+        "neural",
+        "full",
+        "cpu",
+        "strict"
+      ],
+      "maxRequestsPerJevArm": 774,
+      "maxInputTokensPerJevArm": 9030000
+    },
+    {
+      "batch": 3,
+      "dataset": "batch-3.json",
+      "datasetSha256": "0cdc1cb5950a3e033fca2450012bc5506bf2237848dedf3761fc72b671d32e92",
+      "sites": 257,
+      "modules": 32,
+      "order": [
+        "full",
+        "strict",
+        "neural",
+        "cpu"
+      ],
+      "maxRequestsPerJevArm": 771,
+      "maxInputTokensPerJevArm": 8995000
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "realJevCalls": 0,
+  "proofTrials": 0,
+  "originalDatasetSha256": "4b69c7ada9493b8698b5c8ff46888e4d369985ed4aa7b613976028020cdf5191",
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "19726336",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "1936699392",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "visited": 1024,
+  "datasetSha256": "7ca01272075d17d3bedaba9611a060196d827af03bded053d60db6120150330d",
+  "rawAdmissionSha256": "1325f29e7b528b9c7ee01db519f14a7767a799afe9ed52857a43f688578f8ac9"
+}

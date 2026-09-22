@@ -1,0 +1,48 @@
+{
+  "status": "complete",
+  "realJevCalls": 0,
+  "proofTrials": 0,
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "16404480",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "memory.peak": "7998222336",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "checks": [
+    {
+      "name": "isolation",
+      "seconds": 1.8808399990002727,
+      "marker": "AVAILABLE_PREMISES_TESTS_PASSED"
+    },
+    {
+      "name": "reference-fit",
+      "seconds": 42.57590914600041,
+      "marker": "AVAILABLE_PREMISES_REFERENCE_MATCH:15958:318231"
+    },
+    {
+      "name": "all-holdouts-and-native-engines",
+      "seconds": 12.119573171999946
+    }
+  ],
+  "schema": 1,
+  "pythonTests": 20,
+  "originalStatisticsRecomputed": true,
+  "evidenceSha256": {
+    "logs/engines.log": "e849458cc06682f85d532b47926a5b2773f476705c786903580bed6821862710",
+    "logs/engines.setup.log": "73804172dbccb628d18e4ee0380800a6066750b48cfe30566c71ba8f2207eac8",
+    "logs/holdouts.log": "7bfbcbe7c33e14be4e34ae7d7f3802ef917e0b44f918dd649c381d27da0ca0b0",
+    "logs/holdouts.setup.log": "8c6580b82a568f1306e0f72217944db7305a4281097e022764207f014824250e",
+    "logs/isolation.log": "949f01590096d7cfec8e4caab8bc3f85a6d10a6da152ebb1537649862c7e7423",
+    "logs/isolation.setup.log": "515b4ef2809a4e910ab7c7983e3cc6b9f482ec463b42e32703b550b15e469a9a",
+    "logs/reference-fit.log": "82bfc6528656adb39fb5d7585ef305370d096902a673510946192161f0cd7955",
+    "logs/reference-fit.setup.log": "df9986b69d8aada934478ec8d4632ffc5b4ad466fa10b72e0a8fdfa899f6d8e3"
+  }
+}
