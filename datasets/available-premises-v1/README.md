@@ -1,5 +1,10 @@
 # Available-premise sensitivity cohort
 
+The study completed on 2026-09-22 (Edmonton): all 4,096 trials were retained and
+all successful proofs replayed. On-time counts are strict CPU 438, original CPU
+448, neural JevHammer 466 and full LeanHammer 371. See the
+[results and limitations](../../docs/available-premises-v1.md).
+
 Exactly the same 1,024 sites, owners and goal texts as
 [`full-leanhammer-confirmation-v1`](../full-leanhammer-confirmation-v1/README.md),
 re-admitted under the strict method's imports with no proof trials or model calls.

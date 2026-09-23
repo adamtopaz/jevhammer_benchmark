@@ -2,6 +2,9 @@
 
 Protocol specified before follow-up proof trials, 2026-09-22.
 
+Publication note: collection is complete. The [results](available-premises-v1.md)
+retain all 4,096 trials and report the prespecified comparisons below.
+
 The original CPU selector excluded evaluated owners from fitted statistics,
 but used other Mathlib statements, including later/downstream declarations.
 This follow-up measures a stricter preparation policy without tuning the tactic

@@ -55,8 +55,9 @@ services, inference validation, preparation, source admission, native-engine
 preflight and full run/export commands. The [selection guide](../../docs/benchmark-selection.md)
 explains intermediate goals, exclusions, holdouts and sampling.
 
-The [available-premise follow-up](../../docs/reproducing-available-premises.md)
-adds the strict method and a fresh original-CPU control. Its fit uses no external
+The [completed available-premise follow-up](../../docs/available-premises-v1.md)
+adds the strict method and a fresh original-CPU control; see its
+[reproduction guide](../../docs/reproducing-available-premises.md). Its fit uses no external
 statement artifact; set `JEVSELECTOR_HOLDOUTS` to the full study exclusions.
 Earlier current-file candidates are read live and do not enter fitted statistics.
 Run `lake build AvailableFixture` and `lake lean AvailablePremisesTests.lean`

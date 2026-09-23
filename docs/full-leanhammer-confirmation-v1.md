@@ -1,5 +1,9 @@
 # JevHammer versus full LeanHammer: 1,024-goal confirmation
 
+A [completed available-premise sensitivity study](available-premises-v1.md)
+now repeats this cohort with stricter CPU preparation and fresh controls. Its
+results are separate; the original results below are unchanged.
+
 Completed on 2026-09-21 in Edmonton (2026-09-22 01:33 UTC). On **1,024 fresh
 intermediate Mathlib goals**, CPU/conclusion JevHammer solved **450 (43.95%)**,
 neural/conclusion JevHammer **469 (45.80%)**, and full LeanHammer **372 (36.33%)**
@@ -147,7 +151,7 @@ related or downstream theorem statements. Those statements can affect symbol
 frequencies and length statistics, and unavailable catalog rows can affect
 bounded posting selection before availability filtering. Proof bodies are never
 read by this recipe, but the evaluation is not dependency-isolated. The
-[available-premise sensitivity study](available-premises-protocol.md) tests
+[completed available-premise sensitivity study](available-premises-v1.md) tests
 imports-only fitting and postings on the same exposed goals.
 
 ## Reproduction and evidence

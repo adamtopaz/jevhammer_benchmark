@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "kind": "available-premises-deployment-audit",
+  "serviceProvenance": {
+    "model": {
+      "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+      "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+    },
+    "corpus": {
+      "id": "l3lab/lean-premises",
+      "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+      "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+    },
+    "serverRevision": "af21f771dc1ae25a04044a571f96f712b1ea934a",
+    "trainingOverlap": "unknown; third-party pretrained reference, not certified proof-disjoint",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "float32",
+      "embeddingThreads": 2,
+      "leanThreads": 8,
+      "embeddingValidation": {
+        "model": {
+          "id": "l3lab/all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2",
+          "revision": "b9f33df6b8b615122872bf76eac91911fcf26468"
+        },
+        "indices": [
+          0,
+          13187,
+          26374,
+          39561,
+          52748,
+          65935,
+          79122,
+          92309,
+          105496,
+          118683,
+          131870,
+          145057,
+          158244,
+          171431,
+          184618,
+          197805,
+          210993,
+          224180,
+          237367,
+          250554,
+          263741,
+          276928,
+          290115,
+          303302,
+          316489,
+          329676,
+          342863,
+          356050,
+          369237,
+          382424,
+          395611,
+          408799
+        ],
+        "maxAbsoluteError": 2.1979212760925293e-07,
+        "minimumCosine": 0.9999998807907104,
+        "corpusSize": 408800,
+        "device": "cpu",
+        "dtype": "float32",
+        "corpus": {
+          "id": "l3lab/lean-premises",
+          "revision": "e79b5207564003baf97876230c46f74496c68dcb",
+          "embeddingLabel": "all-distilroberta-v1-lr2e-4-bs256-nneg3-ml-ne2-v4.33.0.npy"
+        },
+        "cpuEmbedSha256": "6a796d4773ca423ced1db92a54bdeb11a88749c1b9dd130127f77c9e4f0a5c51",
+        "passed": true
+      },
+      "memoryLimitBytes": 16000000000,
+      "swapLimitBytes": 0,
+      "cpuEmbedSha256": "6a796d4773ca423ced1db92a54bdeb11a88749c1b9dd130127f77c9e4f0a5c51",
+      "pythonLockSha256": "9f2b7b8be434625884068f51a532d2607dc872b9ba2cc950c041d4e92d1fca39"
+    }
+  },
+  "serviceProvenanceSha256": {
+    "batch-0/service-cpu/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-0/service-full/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-0/service-neural/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-0/service-strict/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-1/service-cpu/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-1/service-full/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-1/service-neural/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-1/service-strict/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-2/service-cpu/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-2/service-full/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-2/service-neural/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-2/service-strict/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-3/service-cpu/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-3/service-full/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-3/service-neural/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb",
+    "batch-3/service-strict/provenance.json": "479d7dc2ac6ec6c3933d24d30238730785b4061e4ee0ea10fa2bcfc4a95d27eb"
+  },
+  "pins": {
+    "\u00abpremise-selection\u00bb": "5d24284dab7d61e3b80bfd5efc6bf2597bafe97b",
+    "jevselector": "397bef6d03d6ef4c7cda8ada8f3f92fb567863e1",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "jevhammer": "bf848e36e2f70f5ca745e0f88f6953279e7d00a6",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "jevpilot": "0d5973766a48ba1be44c9f61e994a6956f9ec4b1",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "quote4": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "Hammer": "21886b7ffbdf32017655a9d6e699f98779046533",
+    "Duper": "34f6d228626adf1921f9fb314b0b6bd02c1a82b5",
+    "Smt": "e87b5c9c88eaf669f3cb85c73a6e75972a9c1018",
+    "auto": "eb9c694863439fb55800228bc4c7babe42b089bf",
+    "cvc5": "7e3365990661b697ccb30e92d6912f4cc6589322",
+    "jevhammer_benchmark": "bb2b1861f665c3854d49b3f115d6a413aab2611f"
+  },
+  "leanToolchain": "leanprover/lean4:v4.33.0",
+  "nativeBinarySha256": {
+    "zipperpositionSha256": "aa9c7e1683bf909969dcffb1c0c46e436b1790360759a4c3f60f3bfa5865e85f",
+    "cvc5PluginSha256": "4315a89789ee21c85e71a28228a9550b464998d2cfa94ea7a3601766740dd043"
+  },
+  "nativeBinariesMatchOriginalStudy": true,
+  "cvc5PatchSha256": "85b26fb75253b07f89ab8d64ae494184ba96709a9f0a53b1ef15ad6d30d4d901",
+  "rawEvidenceSha256": {
+    "deployment.json": "1843d6b5fc78905a1f2fe9c829ee11d7a4a7fa8c59a74d6e8f34486c558bf956",
+    "logs/engines.log": "e849458cc06682f85d532b47926a5b2773f476705c786903580bed6821862710",
+    "logs/holdouts.log": "7bfbcbe7c33e14be4e34ae7d7f3802ef917e0b44f918dd649c381d27da0ca0b0"
+  },
+  "publicationSha256": {
+    "available-premises-v1.json": "592583be4421420bfce093461b6b2699c71196b5d3969cdaf8ca833a4eb70593",
+    "available-premises-v1-trials.jsonl": "f985d8cb11fab0e465add10ba4c392e8ec638887b53a2112d7b3a6d874fb0fd9"
+  }
+}

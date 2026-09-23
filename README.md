@@ -12,7 +12,41 @@ The repository includes Sine Qua Non baselines, a prepared
 [JevSelector](https://github.com/adamtopaz/jevselector) adapter, and an opt-in
 neural premise-service adapter, plus an optional full LeanHammer comparison.
 
-## Results: 1,024 fresh Mathlib goals
+## Latest results: available-premise preparation
+
+The completed follow-up restricts the CPU selector's fitted statistics and
+imported retrieval postings to statements available before each tested theorem.
+It repeats the same **1,024 intermediate Mathlib goals**, with four methods,
+six-second end-to-end deadlines and a shared 16 GB, zero-swap cap.
+
+| Method | On-time, independently verified proofs | Success rate |
+|---|---:|---:|
+| JevHammer + strict imported-statements CPU/conclusion selector | 438/1,024 | 42.77% |
+| JevHammer + original CPU sparse/conclusion selector | 448/1,024 | 43.75% |
+| JevHammer + neural/conclusion selector | 466/1,024 | 45.51% |
+| Full LeanHammer + upstream neural selector | 371/1,024 | 36.23% |
+
+Strict CPU is **0.98 percentage points below original CPU** (module-bootstrap
+95% interval **−2.14 to +0.19**); this does not establish equivalence. It remains
+**6.54 points ahead of full LeanHammer** (95% interval **+4.16 to +8.97**).
+Neural JevHammer scores highest. All 1,726 successful trial proofs replayed;
+three late proofs are excluded. Peak memory was 15.559 GB, with no cap hits or
+OOM events. No tuning, retries or goal exclusions followed the outcomes.
+
+This is a sensitivity study on previously exposed goals, not unseen validation.
+Earlier current-file premises remain available through live retrieval but do
+not enter the strict fit. Jev and neural-selector pretraining overlap remain
+unknown; this does not certify the whole stack as uncontaminated.
+
+- [Results, paired outcomes, costs and limitations](docs/available-premises-v1.md).
+- [Reproduction and offline statistical checks](docs/reproducing-available-premises.md).
+- [Frozen protocol](docs/available-premises-protocol.md),
+  [cohort and schedule](datasets/available-premises-v1/README.md),
+  [machine-readable report](docs/available-premises-v1.json),
+  [all 4,096 trials](docs/available-premises-v1-trials.jsonl), and
+  [deployment audit](docs/available-premises-v1-deployment.json).
+
+## Original confirmation: 1,024 fresh Mathlib goals
 
 The completed confirmation attempted **3,072 trials** at 1,024 intermediate
 goals from distinct declarations across 131 modules and 17 subject areas. Each
@@ -35,9 +69,9 @@ intermediate goals, not complete theorem synthesis or all Lean problems.
 
 The CPU holdout excludes tested declarations from fitting, but related and
 downstream statements still contribute to its original statistics and catalog.
-An [available-premise follow-up](docs/available-premises-protocol.md) tests a
-stricter imports-only fit and postings, with earlier current-file premises read
-live. Pretrained-model training overlap remains unknown in both studies.
+The [completed available-premise follow-up](docs/available-premises-v1.md) above
+tests a stricter imports-only fit and postings, with earlier current-file premises
+read live. Pretrained-model training overlap remains unknown in both studies.
 
 - [Results, costs, paired outcomes and limitations](docs/full-leanhammer-confirmation-v1.md).
 - [How modules, proof states and holdouts were selected](docs/benchmark-selection.md).
@@ -186,19 +220,21 @@ untouched while choosing methods.
 - [Completed 1,024-goal confirmation](docs/full-leanhammer-confirmation-v1.md):
   CPU JevHammer 450, neural JevHammer 469, full LeanHammer 372; all successful
   proofs replayed, with paired confidence intervals, costs and resource events.
+- [Available-premise sensitivity study](docs/available-premises-v1.md):
+  strict CPU 438, original CPU 448, neural JevHammer 466, full LeanHammer 371;
+  all four methods rerun on the same 1,024 goals, with stricter CPU preparation.
 - [Protocol and output format](docs/protocol.md): isolation, timing, replay,
   sampling, usage, resource limits, and failure handling.
 - [Initial validation](docs/validation.md): offline checks, Mathlib preparation,
   and CPU costs; separate from live proof-quality comparisons.
 - [Contributing](CONTRIBUTING.md) and [research plans](notes/README.md).
 
-The fresh confirmation study favors CPU/conclusion JevHammer over full LeanHammer
-by 7.62 percentage points (module-bootstrap 95% interval +5.34 to +9.91) under
-the tested six-second, 16 GB limits. Neural/conclusion JevHammer scored highest;
-CPU-selector superiority over it remains unachieved. These are intermediate-goal
-results for the pinned configurations, not a universal ranking or a comparison
-with the historical monolithic pipeline. Full LeanHammer has additional proof
-engines; the neural-selector adapter alone is not that tactic.
+The follow-up favors strict CPU/conclusion JevHammer over full LeanHammer by
+6.54 percentage points under the tested six-second, 16 GB limits. Neural/conclusion
+JevHammer scored highest; CPU-selector superiority over it remains unachieved.
+These are intermediate-goal results for pinned configurations on an exposed
+cohort, not a universal ranking. Full LeanHammer has additional proof engines;
+the neural-selector adapter alone is not that tactic.
 
 Run the complete offline suite inside a bounded job with `bash tests/run.sh`.
 Licensed under the [Apache License, Version 2.0](LICENSE).
