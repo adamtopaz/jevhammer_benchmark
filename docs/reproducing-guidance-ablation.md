@@ -4,6 +4,16 @@ Read the [frozen protocol](guidance-ablation-protocol.md) first. This comparison
 uses 256 previously exposed Mathlib goals, five ranking policies, the strict
 CPU selector, and the same search/tactic configuration in every arm.
 
+The [completed run](guidance-ablation-v1.md) returned `jev: 107`, `fixed: 103`,
+`random17: 99`, `random29: 106`, and `random43: 102`. Check the public data with:
+
+```sh
+python3 scripts/analyze_guidance_ablation.py --check docs/guidance-ablation-v1.json
+```
+
+This needs only Python's standard library and checks the exported statistics,
+not a new kernel replay. Live reproduction can vary with timing and Jev responses.
+
 Use the pinned Lean 4.33 optional `integrations/leanhammer` project, including
 its native-library setup from the [comparison guide](reproducing-confirmation.md).
 This ablation imports the existing comparison module to preserve its tactic

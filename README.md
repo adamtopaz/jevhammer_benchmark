@@ -9,15 +9,41 @@ kernel-checked against the original source goals, without API calls.
 The main JevHammer comparison arms use **Jev for proof-state guidance**. Fixed and
 seeded-random ranking policies are available for matched ablations; offline mock
 ranking is separately labeled and intended only for infrastructure tests.
-The reported success rates measure the **whole tactic**. Most solves make no Jev
-call, and the existing comparisons do not isolate a benefit from Jev over fixed
-or random state ordering. See the [guidance attribution audit](docs/guidance-attribution.md)
-and [older combined-guidance ablations](docs/historical-guidance.md).
+The large comparison's success rates measure the **whole tactic**. Most solves
+make no Jev call. A new [matched state-guidance ablation](docs/guidance-ablation-v1.md)
+finds a small gain over the specified random average, but no clear advantage over
+fixed order. See the [attribution audit](docs/guidance-attribution.md) and
+[older combined-guidance ablations](docs/historical-guidance.md).
 The repository includes Sine Qua Non baselines, a prepared
 [JevSelector](https://github.com/adamtopaz/jevselector) adapter, and an opt-in
 neural premise-service adapter, plus an optional full LeanHammer comparison.
 
-## Latest results: available-premise preparation
+## State-guidance ablation: 256 goals
+
+With identical CPU premise selection, tactics, and six-second search budgets:
+
+| State ranking | Solved |
+|---|---:|
+| Fresh Jev | 107/256 (41.80%) |
+| Fixed order | 103/256 (40.23%) |
+| Random seed 17 | 99/256 (38.67%) |
+| Random seed 29 | 106/256 (41.41%) |
+| Random seed 43 | 102/256 (39.84%) |
+
+Jev gains 7 goals and loses 3 against fixed order: **+1.56 percentage points**,
+with a co-primary 97.5% module-bootstrap interval **[−0.76, +3.80]**. Against the
+three-seed random average: **+1.82 points [+0.52, +3.14]**, conditional on those
+seeds and this Jev run. This first pass does **not establish superiority over
+fixed order**. All arms solve the same 90 goals before any ranking decision.
+
+All 1,280 trials and 518 proof replays completed; one late proof is excluded from
+coverage. Jev made 376 API attempts, with 31 ranking failures falling back to
+fixed order, and used 12.6% more total goal time than fixed order. Peak RAM was
+2.18 GB under a 16 GB, zero-swap cap. See the [full report](docs/guidance-ablation-v1.md),
+[frozen protocol](docs/guidance-ablation-protocol.md), and
+[reproduction guide](docs/reproducing-guidance-ablation.md).
+
+## Whole-tactic comparison: available-premise preparation
 
 The completed follow-up restricts the CPU selector's fitted statistics and
 imported retrieval postings to statements available before each tested theorem.

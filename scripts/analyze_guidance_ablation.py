@@ -96,6 +96,7 @@ def export(parent, plan, output):
         (b["batch"], a) for b in schedule["batches"] for a in b["order"]]
     public, decisions, preparations, evidence = [], [], [], {}
     usage = {a: Counter() for a in ARMS}
+    request_errors, request_count = Counter(), 0
     config = None
     first_decisions, fits = defaultdict(dict), defaultdict(dict)
     for batch in schedule["batches"]:
@@ -147,6 +148,22 @@ def export(parent, plan, output):
             assert summary["methods"][METHOD]["onTimeVerified"] == sum(r["onTime"] and r["site"] in verified for r in raw)
             if policy != "jev":
                 assert not any(summary["usage"].values()) and not (root / "decisions.jsonl").exists()
+            else:
+                requests = rows(root / "decisions.jsonl")
+                assert len(requests) == summary["usage"]["attempts"]
+                request_count += len(requests)
+                reported = [(r["usage"] or {}) for r in requests]
+                assert sum(u.get("input_tokens") or 0 for u in reported) == summary["usage"]["inputTokens"]
+                assert sum(u.get("output_tokens") or 0 for u in reported) == summary["usage"]["outputTokens"]
+                assert sum(u.get("input_tokens") is None or u.get("output_tokens") is None for u in reported) == summary["usage"]["unknownUsage"]
+                for request in requests:
+                    error = request["response"].get("error")
+                    if error:
+                        # Publish categories, never arbitrary server-response text.
+                        category = "HTTP 400" if error == "TypeSafe HTTP 400" else (
+                            "rank probabilities do not sum to one" if error.startswith(
+                                "TypeSafe response: rank: probabilities must sum to 1") else "other API error")
+                        request_errors[category] += 1
             usage[arm].update(summary["usage"])
             warmups = rows(root / "warmup.jsonl")
             assert Counter(w["module"] for w in warmups) == Counter({m: 1 for m in part["sources"]})
@@ -155,7 +172,7 @@ def export(parent, plan, output):
                 assert p["kind"] == "available-imported-statements-v1" and p["holdoutOwners"] == 1212
                 assert p["proofInformation"] == "none" and w["module"] not in p["importedModules"]
                 fits[w["module"]][arm] = p
-                preparations.append({"arm": arm, "module": w["module"], "elapsedMs": w["elapsedMs"], "provenance": p})
+                preparations.append({"arm": arm, "module": w["module"], "elapsedMs": w["elapsedMs"]})
             for resource in manifest["resources"].values():
                 assert resource["memoryMax"] <= 16000000000 and resource["swapMax"] == "0"
             evidence[f"batch-{batch['batch']}/{arm}"] = {n: sha(root / n) for n in
@@ -163,25 +180,34 @@ def export(parent, plan, output):
                  "usage.json", "warmup.jsonl", verification["directory"] + "/replay.jsonl")}
             if (root / "rankings.jsonl").exists():
                 evidence[f"batch-{batch['batch']}/{arm}"]["rankings.jsonl"] = sha(root / "rankings.jsonl")
+            if (root / "decisions.jsonl").exists():
+                evidence[f"batch-{batch['batch']}/{arm}"]["decisions.jsonl"] = sha(root / "decisions.jsonl")
     assert all(set(v) == set(ARMS) and all(p == v["jev"] for p in v.values()) for v in fits.values())
     result = analyze(data["sites"], public)
     trials_path = output.with_name(output.stem + "-trials.jsonl")
     rankings_path = output.with_name(output.stem + "-rankings.jsonl")
-    if any(p.exists() for p in (output, trials_path, rankings_path)):
+    preparation_path = output.with_name(output.stem + "-preparation.json")
+    if any(p.exists() for p in (output, trials_path, rankings_path, preparation_path)):
         raise ValueError("refusing to overwrite an existing report")
     trials_path.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in public))
     rankings_path.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in decisions))
+    write_json(preparation_path, {"schema": 1, "identicalAcrossArms": True,
+        "modules": {m: values["jev"] for m, values in fits.items()}})
     diagnostics = {a: {"bothReachFirstDecision": sum(a in d and "jev" in d for d in first_decisions.values()),
                        "identicalFirstChoices": sum(a in d and "jev" in d and d[a] == d["jev"] for d in first_decisions.values())}
                    for a in ARMS if a != "jev"}
     report = {"schema": 1, "kind": "proof-state-guidance-ablation-v1", "status": "complete", "sites": 256,
         "trials": 1280, **result, "config": config, "usage": usage, "preparation": preparations,
         "firstDecisionDiagnostics": diagnostics, "deployment": deployment, "evidenceSha256": evidence,
+        "analysisSha256": sha(Path(__file__)),
+        "requestAudit": {"recordedJevRequests": request_count, "responseErrors": request_errors,
+                         "usageReconciledWithRequestRecords": True},
         "publicTrials": {"path": trials_path.name, "sha256": sha(trials_path)},
         "publicRankings": {"path": rankings_path.name, "sha256": sha(rankings_path)},
+        "publicPreparation": {"path": preparation_path.name, "sha256": sha(preparation_path)},
         "selectedSites": [{k: s[k] for k in ("site", "module", "declaration")} for s in data["sites"]],
         "limitations": ["First pass on previously exposed goals, with one Jev/fixed run and three fixed random seeds.",
-            "Cluster subsample of 33 modules/17 areas, including two single-module strata; not all Mathlib.",
+            "Cluster subsample of 33 modules/17 areas, including one single-module stratum; not all Mathlib.",
             "Random-average intervals condition on the three seeds; model/run variability is not fully estimated.",
             "Two co-primary comparisons use 97.5% intervals; 95% intervals and per-seed contrasts are descriptive.",
             "Jev pretraining overlap unknown. Initialization excluded from goal time and reported separately.",
@@ -192,10 +218,16 @@ def export(parent, plan, output):
 
 def check(path):
     report = read(path)
-    for field in ("publicTrials", "publicRankings"):
+    for field in ("publicTrials", "publicRankings", "publicPreparation"):
         assert sha(path.parent / report[field]["path"]) == report[field]["sha256"]
     actual = analyze(report["selectedSites"], rows(path.parent / report["publicTrials"]["path"]))
     assert all(report[k] == v for k, v in actual.items())
+    fits = read(path.parent / report["publicPreparation"]["path"])["modules"]
+    assert set(fits) == {s["module"] for s in report["selectedSites"]}
+    assert Counter((p["module"], p["arm"]) for p in report["preparation"]) == Counter(
+        {(m, a): 1 for m in fits for a in ARMS})
+    assert all(m not in p["importedModules"] and p["holdoutOwners"] == 1212
+               and p["proofInformation"] == "none" for m, p in fits.items())
     return report
 
 

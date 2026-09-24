@@ -1,0 +1,3294 @@
+{
+  "schema": 1,
+  "kind": "proof-state-guidance-ablation-v1",
+  "status": "complete",
+  "sites": 256,
+  "trials": 1280,
+  "metrics": {
+    "jev": {
+      "sites": 256,
+      "onTimeVerified": 107,
+      "rawVerified": 107,
+      "lateVerified": 0,
+      "elapsedMs": 782608,
+      "stateRankCalls": 376,
+      "rankFailures": 31,
+      "budgetBlocked": 0,
+      "solvesWithoutRanking": 90,
+      "solvesAfterRanking": 17,
+      "solvesWithAllRankingsFailed": 0
+    },
+    "fixed": {
+      "sites": 256,
+      "onTimeVerified": 103,
+      "rawVerified": 103,
+      "lateVerified": 0,
+      "elapsedMs": 695333,
+      "stateRankCalls": 393,
+      "rankFailures": 0,
+      "budgetBlocked": 0,
+      "solvesWithoutRanking": 90,
+      "solvesAfterRanking": 13,
+      "solvesWithAllRankingsFailed": 0
+    },
+    "random17": {
+      "sites": 256,
+      "onTimeVerified": 99,
+      "rawVerified": 100,
+      "lateVerified": 1,
+      "elapsedMs": 739902,
+      "stateRankCalls": 395,
+      "rankFailures": 0,
+      "budgetBlocked": 0,
+      "solvesWithoutRanking": 90,
+      "solvesAfterRanking": 9,
+      "solvesWithAllRankingsFailed": 0
+    },
+    "random29": {
+      "sites": 256,
+      "onTimeVerified": 106,
+      "rawVerified": 106,
+      "lateVerified": 0,
+      "elapsedMs": 718367,
+      "stateRankCalls": 384,
+      "rankFailures": 0,
+      "budgetBlocked": 0,
+      "solvesWithoutRanking": 90,
+      "solvesAfterRanking": 16,
+      "solvesWithAllRankingsFailed": 0
+    },
+    "random43": {
+      "sites": 256,
+      "onTimeVerified": 102,
+      "rawVerified": 102,
+      "lateVerified": 0,
+      "elapsedMs": 720122,
+      "stateRankCalls": 387,
+      "rankFailures": 0,
+      "budgetBlocked": 0,
+      "solvesWithoutRanking": 90,
+      "solvesAfterRanking": 12,
+      "solvesWithAllRankingsFailed": 0
+    }
+  },
+  "paired": [
+    {
+      "a": "jev",
+      "b": "fixed",
+      "role": "co-primary",
+      "gained": 7,
+      "lost": 3,
+      "bothSolved": 100,
+      "difference": 0.015625,
+      "moduleStratifiedBootstrap95": [
+        -0.003937007874015748,
+        0.03515625
+      ],
+      "moduleStratifiedBootstrap97_5": [
+        -0.007633587786259542,
+        0.03802281368821293
+      ],
+      "resamples": 20000,
+      "seed": 20260924,
+      "modules": 33,
+      "areas": 17,
+      "singleModuleAreas": [
+        "Topology"
+      ]
+    },
+    {
+      "a": "jev",
+      "b": "randomMean",
+      "role": "co-primary",
+      "difference": 0.018229166666666668,
+      "moduleStratifiedBootstrap95": [
+        0.006587615283267457,
+        0.029810298102981025
+      ],
+      "moduleStratifiedBootstrap97_5": [
+        0.005249343832020997,
+        0.031372549019607836
+      ],
+      "resamples": 20000,
+      "seed": 20260924,
+      "modules": 33,
+      "areas": 17,
+      "singleModuleAreas": [
+        "Topology"
+      ]
+    },
+    {
+      "a": "jev",
+      "b": "random17",
+      "role": "descriptive",
+      "gained": 8,
+      "lost": 0,
+      "bothSolved": 99,
+      "difference": 0.03125,
+      "moduleStratifiedBootstrap95": [
+        0.01937984496124031,
+        0.04330708661417323
+      ],
+      "moduleStratifiedBootstrap97_5": [
+        0.01893939393939394,
+        0.04435483870967742
+      ],
+      "resamples": 20000,
+      "seed": 20260924,
+      "modules": 33,
+      "areas": 17,
+      "singleModuleAreas": [
+        "Topology"
+      ]
+    },
+    {
+      "a": "jev",
+      "b": "random29",
+      "role": "descriptive",
+      "gained": 5,
+      "lost": 4,
+      "bothSolved": 102,
+      "difference": 0.00390625,
+      "moduleStratifiedBootstrap95": [
+        -0.012145748987854251,
+        0.020242914979757085
+      ],
+      "moduleStratifiedBootstrap97_5": [
+        -0.015873015873015872,
+        0.023529411764705882
+      ],
+      "resamples": 20000,
+      "seed": 20260924,
+      "modules": 33,
+      "areas": 17,
+      "singleModuleAreas": [
+        "Topology"
+      ]
+    },
+    {
+      "a": "jev",
+      "b": "random43",
+      "role": "descriptive",
+      "gained": 7,
+      "lost": 2,
+      "bothSolved": 100,
+      "difference": 0.01953125,
+      "moduleStratifiedBootstrap95": [
+        0.0,
+        0.03802281368821293
+      ],
+      "moduleStratifiedBootstrap97_5": [
+        0.0,
+        0.03968253968253968
+      ],
+      "resamples": 20000,
+      "seed": 20260924,
+      "modules": 33,
+      "areas": 17,
+      "singleModuleAreas": [
+        "Topology"
+      ]
+    }
+  ],
+  "randomMeanSolves": 102.33333333333333,
+  "successfulTrialsIndependentlyReplayed": 518,
+  "config": {
+    "beamWidth": 4,
+    "deferPremiseGuidance": false,
+    "guidePremises": false,
+    "maxCalls": 3,
+    "maxCandidates": 24,
+    "maxDepth": 3,
+    "maxMillis": 6000,
+    "maxNodes": 12,
+    "maxPremises": 100,
+    "model": "jev-1.13.0",
+    "premiseCount": 8,
+    "refreshPremises": true,
+    "tacticHeartbeats": 15000,
+    "timeoutSeconds": 5
+  },
+  "usage": {
+    "jev": {
+      "attempts": 376,
+      "inputTokens": 2455317,
+      "outputTokens": 61004,
+      "unknownUsage": 16
+    },
+    "fixed": {
+      "attempts": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "unknownUsage": 0
+    },
+    "random17": {
+      "attempts": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "unknownUsage": 0
+    },
+    "random29": {
+      "attempts": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "unknownUsage": 0
+    },
+    "random43": {
+      "attempts": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "unknownUsage": 0
+    }
+  },
+  "preparation": [
+    {
+      "arm": "jev",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "elapsedMs": 1701
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "elapsedMs": 6231
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "elapsedMs": 5552
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "elapsedMs": 5548
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "elapsedMs": 1710
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "elapsedMs": 6269
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "elapsedMs": 5590
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "elapsedMs": 5513
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "elapsedMs": 1724
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "elapsedMs": 6160
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "elapsedMs": 5445
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "elapsedMs": 5532
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "elapsedMs": 1684
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "elapsedMs": 6323
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "elapsedMs": 5493
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "elapsedMs": 5617
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "elapsedMs": 1696
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "elapsedMs": 6216
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "elapsedMs": 5458
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "elapsedMs": 5675
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "elapsedMs": 3497
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "elapsedMs": 4362
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "elapsedMs": 6604
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "elapsedMs": 6731
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "elapsedMs": 3568
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "elapsedMs": 4396
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "elapsedMs": 6581
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "elapsedMs": 6732
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "elapsedMs": 3549
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "elapsedMs": 4370
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "elapsedMs": 6580
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "elapsedMs": 6775
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "elapsedMs": 3498
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "elapsedMs": 4345
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "elapsedMs": 6537
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "elapsedMs": 6794
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "elapsedMs": 3509
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "elapsedMs": 4325
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "elapsedMs": 6581
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "elapsedMs": 6748
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "elapsedMs": 3618
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "elapsedMs": 4170
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "elapsedMs": 2408
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "elapsedMs": 2000
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "elapsedMs": 3590
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "elapsedMs": 4153
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "elapsedMs": 2360
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "elapsedMs": 1985
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "elapsedMs": 3589
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "elapsedMs": 4142
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "elapsedMs": 2422
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "elapsedMs": 2000
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "elapsedMs": 3568
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "elapsedMs": 4130
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "elapsedMs": 2418
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "elapsedMs": 2176
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "elapsedMs": 3686
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "elapsedMs": 4310
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "elapsedMs": 2478
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "elapsedMs": 2067
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "elapsedMs": 1392
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "elapsedMs": 1264
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "elapsedMs": 7761
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "elapsedMs": 1354
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "elapsedMs": 1301
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "elapsedMs": 7828
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "elapsedMs": 1322
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "elapsedMs": 1276
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "elapsedMs": 7728
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "elapsedMs": 1314
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "elapsedMs": 1276
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "elapsedMs": 7753
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "elapsedMs": 1315
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "elapsedMs": 1297
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "elapsedMs": 7732
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "elapsedMs": 1541
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "elapsedMs": 2366
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "elapsedMs": 3944
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "elapsedMs": 1542
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "elapsedMs": 2365
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "elapsedMs": 3925
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "elapsedMs": 1530
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "elapsedMs": 2394
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "elapsedMs": 3940
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "elapsedMs": 1561
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "elapsedMs": 2383
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "elapsedMs": 3947
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "elapsedMs": 1542
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "elapsedMs": 2400
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "elapsedMs": 3919
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "elapsedMs": 1275
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Computability.Ackermann",
+      "elapsedMs": 1283
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "elapsedMs": 3340
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "elapsedMs": 1278
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Computability.Ackermann",
+      "elapsedMs": 1272
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "elapsedMs": 3319
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "elapsedMs": 1294
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Computability.Ackermann",
+      "elapsedMs": 1279
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "elapsedMs": 3333
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "elapsedMs": 1274
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Computability.Ackermann",
+      "elapsedMs": 1286
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "elapsedMs": 3370
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "elapsedMs": 1259
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Computability.Ackermann",
+      "elapsedMs": 1272
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "elapsedMs": 3323
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "elapsedMs": 2306
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "elapsedMs": 1535
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Order.InitialSeg",
+      "elapsedMs": 1089
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "elapsedMs": 2334
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "elapsedMs": 1565
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Order.InitialSeg",
+      "elapsedMs": 1084
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "elapsedMs": 2317
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "elapsedMs": 1533
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Order.InitialSeg",
+      "elapsedMs": 1096
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "elapsedMs": 2307
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "elapsedMs": 1540
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Order.InitialSeg",
+      "elapsedMs": 1081
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "elapsedMs": 2316
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "elapsedMs": 1550
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Order.InitialSeg",
+      "elapsedMs": 1076
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "elapsedMs": 3246
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "elapsedMs": 1520
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "elapsedMs": 5404
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "elapsedMs": 3342
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "elapsedMs": 1535
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "elapsedMs": 5402
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "elapsedMs": 3271
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "elapsedMs": 1515
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "elapsedMs": 5386
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "elapsedMs": 3255
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "elapsedMs": 1508
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "elapsedMs": 5425
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "elapsedMs": 3239
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "elapsedMs": 1530
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "elapsedMs": 5399
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "elapsedMs": 3129
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "elapsedMs": 1414
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "elapsedMs": 1441
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "elapsedMs": 3124
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "elapsedMs": 1413
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "elapsedMs": 1453
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "elapsedMs": 3146
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "elapsedMs": 1401
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "elapsedMs": 1438
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "elapsedMs": 3144
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "elapsedMs": 1399
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "elapsedMs": 1450
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "elapsedMs": 3196
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "elapsedMs": 1402
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "elapsedMs": 1460
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "elapsedMs": 1937
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "elapsedMs": 1458
+    },
+    {
+      "arm": "random17",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "elapsedMs": 4009
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "elapsedMs": 1947
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "elapsedMs": 1443
+    },
+    {
+      "arm": "fixed",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "elapsedMs": 4013
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "elapsedMs": 1953
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "elapsedMs": 1454
+    },
+    {
+      "arm": "random29",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "elapsedMs": 4000
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "elapsedMs": 1967
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "elapsedMs": 1440
+    },
+    {
+      "arm": "jev",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "elapsedMs": 4024
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "elapsedMs": 1955
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "elapsedMs": 1438
+    },
+    {
+      "arm": "random43",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "elapsedMs": 4003
+    }
+  ],
+  "firstDecisionDiagnostics": {
+    "fixed": {
+      "bothReachFirstDecision": 164,
+      "identicalFirstChoices": 164
+    },
+    "random17": {
+      "bothReachFirstDecision": 164,
+      "identicalFirstChoices": 164
+    },
+    "random29": {
+      "bothReachFirstDecision": 164,
+      "identicalFirstChoices": 164
+    },
+    "random43": {
+      "bothReachFirstDecision": 164,
+      "identicalFirstChoices": 164
+    }
+  },
+  "deployment": {
+    "schema": 1,
+    "status": "complete",
+    "kind": "proof-state-guidance-ablation-v1",
+    "benchmarkFreeze": "fee6c9bbdfc718e08586f66c44be519502077548",
+    "datasetSha256": "96a3577223111f011e36b2c4f70816db201150a2520881d8f85226efa5a4d881",
+    "scheduleSha256": "c33a5d1ceb297706e7bf45252b0d6558753c126dc43c743c44603993b88305e8",
+    "holdoutsSha256": "7aa3c857b46547e8b0a311fc5661773ac0dac2e1f557a5ed06bcfe4618a42575",
+    "launcherSha256": "936783346ecd6a643ffdf67a452d58167fc648ceeb33591c3293553d0f457611",
+    "protocolSha256": "374262698341a1e0843a832b050ca4282d0982e8e8ecdaf577e478e358107621",
+    "maxTotalJevCalls": 768,
+    "maxReportedInputTokens": 8960000,
+    "startedAt": 1790259878.9302807,
+    "resources": {
+      "initial": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p691551-i691552.scope",
+        "memory.peak": "23781376",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "final": {
+        "memoryMax": 16000000000,
+        "swapMax": "0",
+        "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p691551-i691552.scope",
+        "memory.peak": "2181558272",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "completedArms": [
+      {
+        "batch": 0,
+        "arm": "jev",
+        "wallSeconds": 170.6523077949969,
+        "onTimeVerified": 13
+      },
+      {
+        "batch": 0,
+        "arm": "fixed",
+        "wallSeconds": 172.4574104360072,
+        "onTimeVerified": 11
+      },
+      {
+        "batch": 0,
+        "arm": "random43",
+        "wallSeconds": 170.7036197330017,
+        "onTimeVerified": 11
+      },
+      {
+        "batch": 0,
+        "arm": "random17",
+        "wallSeconds": 172.09130335200462,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 0,
+        "arm": "random29",
+        "wallSeconds": 175.29775529599283,
+        "onTimeVerified": 11
+      },
+      {
+        "batch": 1,
+        "arm": "fixed",
+        "wallSeconds": 192.06723606900778,
+        "onTimeVerified": 9
+      },
+      {
+        "batch": 1,
+        "arm": "random17",
+        "wallSeconds": 199.8161277830077,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 1,
+        "arm": "jev",
+        "wallSeconds": 201.2231084160012,
+        "onTimeVerified": 9
+      },
+      {
+        "batch": 1,
+        "arm": "random29",
+        "wallSeconds": 200.3785594219953,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 1,
+        "arm": "random43",
+        "wallSeconds": 195.60746959901007,
+        "onTimeVerified": 9
+      },
+      {
+        "batch": 2,
+        "arm": "random17",
+        "wallSeconds": 125.00225985099678,
+        "onTimeVerified": 17
+      },
+      {
+        "batch": 2,
+        "arm": "random29",
+        "wallSeconds": 125.6896250229911,
+        "onTimeVerified": 17
+      },
+      {
+        "batch": 2,
+        "arm": "fixed",
+        "wallSeconds": 120.61752350600727,
+        "onTimeVerified": 17
+      },
+      {
+        "batch": 2,
+        "arm": "random43",
+        "wallSeconds": 128.25837551799486,
+        "onTimeVerified": 17
+      },
+      {
+        "batch": 2,
+        "arm": "jev",
+        "wallSeconds": 133.31818199899863,
+        "onTimeVerified": 17
+      },
+      {
+        "batch": 3,
+        "arm": "random29",
+        "wallSeconds": 70.6670833130047,
+        "onTimeVerified": 11
+      },
+      {
+        "batch": 3,
+        "arm": "random43",
+        "wallSeconds": 74.0816517899948,
+        "onTimeVerified": 9
+      },
+      {
+        "batch": 3,
+        "arm": "random17",
+        "wallSeconds": 73.14137555399793,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 3,
+        "arm": "jev",
+        "wallSeconds": 76.88131769999745,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 3,
+        "arm": "fixed",
+        "wallSeconds": 72.70050639400142,
+        "onTimeVerified": 9
+      },
+      {
+        "batch": 4,
+        "arm": "random43",
+        "wallSeconds": 93.12110545599717,
+        "onTimeVerified": 15
+      },
+      {
+        "batch": 4,
+        "arm": "jev",
+        "wallSeconds": 95.18763978801144,
+        "onTimeVerified": 15
+      },
+      {
+        "batch": 4,
+        "arm": "random29",
+        "wallSeconds": 91.99521042399283,
+        "onTimeVerified": 13
+      },
+      {
+        "batch": 4,
+        "arm": "fixed",
+        "wallSeconds": 90.8496861619933,
+        "onTimeVerified": 13
+      },
+      {
+        "batch": 4,
+        "arm": "random17",
+        "wallSeconds": 96.63154885399854,
+        "onTimeVerified": 14
+      },
+      {
+        "batch": 5,
+        "arm": "random29",
+        "wallSeconds": 88.41157638399454,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 5,
+        "arm": "random17",
+        "wallSeconds": 91.3524211019976,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 5,
+        "arm": "random43",
+        "wallSeconds": 92.24179306199949,
+        "onTimeVerified": 7
+      },
+      {
+        "batch": 5,
+        "arm": "fixed",
+        "wallSeconds": 84.83895208699687,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 5,
+        "arm": "jev",
+        "wallSeconds": 103.47891829400032,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 6,
+        "arm": "random43",
+        "wallSeconds": 105.66265583899803,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 6,
+        "arm": "random29",
+        "wallSeconds": 101.99066779400164,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 6,
+        "arm": "jev",
+        "wallSeconds": 106.3457836979942,
+        "onTimeVerified": 11
+      },
+      {
+        "batch": 6,
+        "arm": "random17",
+        "wallSeconds": 102.58115960600844,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 6,
+        "arm": "fixed",
+        "wallSeconds": 97.22038387400971,
+        "onTimeVerified": 12
+      },
+      {
+        "batch": 7,
+        "arm": "jev",
+        "wallSeconds": 106.59008911601268,
+        "onTimeVerified": 6
+      },
+      {
+        "batch": 7,
+        "arm": "random43",
+        "wallSeconds": 96.16394080899772,
+        "onTimeVerified": 7
+      },
+      {
+        "batch": 7,
+        "arm": "fixed",
+        "wallSeconds": 90.8237064369896,
+        "onTimeVerified": 6
+      },
+      {
+        "batch": 7,
+        "arm": "random29",
+        "wallSeconds": 94.65075904900732,
+        "onTimeVerified": 7
+      },
+      {
+        "batch": 7,
+        "arm": "random17",
+        "wallSeconds": 96.73040138100623,
+        "onTimeVerified": 6
+      },
+      {
+        "batch": 8,
+        "arm": "fixed",
+        "wallSeconds": 99.75732856300601,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 8,
+        "arm": "jev",
+        "wallSeconds": 99.30672391899861,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 8,
+        "arm": "random17",
+        "wallSeconds": 94.44597442301165,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 8,
+        "arm": "random43",
+        "wallSeconds": 84.17859706000309,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 8,
+        "arm": "random29",
+        "wallSeconds": 85.67074681499798,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 9,
+        "arm": "random17",
+        "wallSeconds": 82.04209937799897,
+        "onTimeVerified": 8
+      },
+      {
+        "batch": 9,
+        "arm": "fixed",
+        "wallSeconds": 69.70379412200418,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 9,
+        "arm": "random29",
+        "wallSeconds": 77.69556845200714,
+        "onTimeVerified": 11
+      },
+      {
+        "batch": 9,
+        "arm": "jev",
+        "wallSeconds": 87.19141232599213,
+        "onTimeVerified": 10
+      },
+      {
+        "batch": 9,
+        "arm": "random43",
+        "wallSeconds": 78.20412202698935,
+        "onTimeVerified": 9
+      }
+    ],
+    "finishedAt": 1790265514.662663
+  },
+  "evidenceSha256": {
+    "batch-0/jev": {
+      "run.json": "2de4949af23270f911bff124e35cdb9e506664564209623b48d804ce3632cfb6",
+      "dataset.json": "18048aa7cb425f8fd320d77a424030670f7b0a398cfc5ec80533206f6c4151e2",
+      "summary.json": "bcd18349aaf3e67f19bd861778f6ef12d2a50ce7d9989e066977902b603ea97f",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "e39e44324bd86ec6c30ca39e319e8ec663afa93673ecad564294dd9cef002f6e",
+      "usage.json": "d59846d642a49f3cfc6ef47e04ee823928f9005e4e61b85f6905cf9736106b0f",
+      "warmup.jsonl": "5cae1b5841350c27079044a58a47859793e432c2e69b0e0dcbe6d695c595530f",
+      "replay-1/replay.jsonl": "e9038c80551d8643caad412fa09d27f8a0315eb2efe6200a67ab5c3f9d6eeb47",
+      "rankings.jsonl": "0034463eb06ec807293c1992d1d60eb93e85d41cf97b12e27234eaf94c8079b9",
+      "decisions.jsonl": "a92ac8addcfc91afded5e413a82cc7938b2945a9f0eeea3c7c2c16224a4e9398"
+    },
+    "batch-0/fixed": {
+      "run.json": "07e78372ad7a3c2bdb558f1cdf05b018eb675d3c377c5f9d8bcef11c9f575771",
+      "dataset.json": "18048aa7cb425f8fd320d77a424030670f7b0a398cfc5ec80533206f6c4151e2",
+      "summary.json": "99b899c9ae9141c191758ce07f0efb1c5328953875d5cdf892861efa5b5ad861",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "9139b154d7d152ce253eae893542c5e4b201419b0be4f866a9bfa0ce0be3f6aa",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "c06b4d487c862732f26605a318377baa76b57d75b8bf4a7c1d04a3d3c9b5d763",
+      "replay-1/replay.jsonl": "39e49c631338c7e39ef34acad3c9a4368b7a936ffb963b2cc10fdead4c7b4869",
+      "rankings.jsonl": "133e8f569d79a1af157966e5a97f57c8766e1ccf86a0fbb4a9dd0a74b177e948"
+    },
+    "batch-0/random43": {
+      "run.json": "4fd6e1ee5775ca51ff9fcf2a9d029acaf063572275d706ea2f1480213781b3c4",
+      "dataset.json": "18048aa7cb425f8fd320d77a424030670f7b0a398cfc5ec80533206f6c4151e2",
+      "summary.json": "eb99019a27edd29a3ccaa4a5e88f481d139c78dc4fbdfe60e4f0ea33cc451bc0",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "d310260555133d1e11bbb16dc30aea80ed03a230780f8aa6a554cec2499f2969",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "399ea6c905ceadc5f72eb565ce00002b5bfcbb537e93d277db475fc17ab8309d",
+      "replay-1/replay.jsonl": "074dd89521aa0ec1c75c943e1f7f17f2f5d6ab43461bcf4864bea984b348444f",
+      "rankings.jsonl": "ff19e579dfe2f8136e75c8a30dc534e072ff03c582b6ad1557fbd310e599e915"
+    },
+    "batch-0/random17": {
+      "run.json": "e87cb54a4109186ab90d34b42a9857a63894068c3212269af362e8b350543ef7",
+      "dataset.json": "18048aa7cb425f8fd320d77a424030670f7b0a398cfc5ec80533206f6c4151e2",
+      "summary.json": "44253c77818b825d9fc6081bc4b326219ddef3fbd344e9931d9273a2828aa609",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "215e011053b465a3905408ffd4b4a01cd202f16b178810e28456b03eef2355e8",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "bdc7f89d13020cc5b5a9742ac8ddf3607e8baeccfa7033d4e368f7cf597cfc17",
+      "replay-1/replay.jsonl": "30f59e66f5bf395d25774d1d8bdc7fdecc475cf7cfd33b69da01951da6236e82",
+      "rankings.jsonl": "b7c1b300edad2b351f52c5e11d1011a74a63e1122221db951f779bd410efa8b8"
+    },
+    "batch-0/random29": {
+      "run.json": "3178eebdb6b862f8c5a58250674dd37e96e1d2279564e6d55a61faffd01fe91c",
+      "dataset.json": "18048aa7cb425f8fd320d77a424030670f7b0a398cfc5ec80533206f6c4151e2",
+      "summary.json": "5456bf1acada60e98eeeef92caaa0348cc16f8bffd393cbeb9e1773f353d09fe",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "6f24e5807c720053535312128ec863cbb33b33f0de0d3e03447f4f2b442e1930",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "3cd835159dc1da49f0ee63d58f42e808c8d5d0d42e0fa4b7829919e7a32e9ddc",
+      "replay-1/replay.jsonl": "074dd89521aa0ec1c75c943e1f7f17f2f5d6ab43461bcf4864bea984b348444f",
+      "rankings.jsonl": "5b8cb310ed5b25c9d8060910631d3d882148d0455352219874bdaeae73682cf6"
+    },
+    "batch-1/fixed": {
+      "run.json": "763ce7555db356a286c33209c0b73fcbe151b70b1817e97ecbd7c731fa53a3c4",
+      "dataset.json": "2cb3118ed5a9c9e9d174ebacbd8093fc56f05490e59a8c5b87baa10b568a8571",
+      "summary.json": "fe748053011665641a71b31b0d68a603903a9ea4068f3787050db65ab9d8a3f0",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "b80124fa5cf147b43f79462c44e80cda36eae85ac0d68d6e4d60c85066ea4653",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "93f816c2c074020c37149324bb31ff3abd772bca69b45efc7dfed3ddb71c6f19",
+      "replay-1/replay.jsonl": "8a71b1bd102dc6efcc1db8b2dc0822e45e563dfefde29f94578d31317d4b37ac",
+      "rankings.jsonl": "876cc81a0bc536bbfe176c736e97e50f0377559218dc3546f391c9184556aaa9"
+    },
+    "batch-1/random17": {
+      "run.json": "aa544fb1ad9b49482aa758b60e382899e6afd5821dd03e8e422832816712e917",
+      "dataset.json": "2cb3118ed5a9c9e9d174ebacbd8093fc56f05490e59a8c5b87baa10b568a8571",
+      "summary.json": "6882ef1015e3f99f25defd8639274ad91baf6217c67df26d1ab9369a24f45509",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "67401cb387fb1548567c2bd00a748ce79b9637132d80029d5b2195844d60f0d8",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "85deb85740a6e88874b093fb94b9b994e15e17e8fe8ebfc196e4999f394ed744",
+      "replay-1/replay.jsonl": "33bef2d39139cc7a3d97f3c5e09b0798fd8e73355cdefcb312a196890c64012a",
+      "rankings.jsonl": "75f04227967d3ac56853a108046c3bb9788d91d40b87cfe173f36d4857e31d7a"
+    },
+    "batch-1/jev": {
+      "run.json": "bd18e26ebba193d1cf50cb866d198fc2b1554d65d819c426a449dce9f12aa9dd",
+      "dataset.json": "2cb3118ed5a9c9e9d174ebacbd8093fc56f05490e59a8c5b87baa10b568a8571",
+      "summary.json": "2496860a847b5fb6de9c08a72a9591165b37b4f715d2f5c2dffb14ff97383650",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "97f930065e0e135a3a76c3f5092b3143680a430c5d19302cdb6f982e60832046",
+      "usage.json": "758f6b7e75f06a778a8be7a8d2c59e86c18591d845c98d0dbf7d12dbdb0686da",
+      "warmup.jsonl": "52309341715c288000fff5bea056b6e6d750f54d9eed6aa531583b7741e28b85",
+      "replay-1/replay.jsonl": "33bef2d39139cc7a3d97f3c5e09b0798fd8e73355cdefcb312a196890c64012a",
+      "rankings.jsonl": "dfbe250de94ece497b4417ba9a297073cd3287dac0dbeaf3d6563be3eb0abd69",
+      "decisions.jsonl": "cfa8b6c9c0096b9d7e8b1dcb91246be3cf9fa3ddb6799b53c0f33c26f099de07"
+    },
+    "batch-1/random29": {
+      "run.json": "8bf0622306808c92987ee94dc8661ffac6af11cde2d690c717e42a7014d8bace",
+      "dataset.json": "2cb3118ed5a9c9e9d174ebacbd8093fc56f05490e59a8c5b87baa10b568a8571",
+      "summary.json": "344d6b706b39ac542bdbd393ed89175b0a67b60970ca3395d770e7d0031d331c",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "4357e2aadf24ff80ef781d8fcb5b81d38c36bcd2ea6618a2e5ab358cc8142ca2",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "1926f729539d06a62f167c38cdd05d8f85d34f3fb439e62a6fa90b38136c2dfc",
+      "replay-1/replay.jsonl": "f8b7941e2a00a6b4754c8b1de5df4d4c5eed259dda51ae4783126cd19111a1d8",
+      "rankings.jsonl": "de1731b49ef812a807966a9b7a26bbcd4eacd28c8a312b40f5a75f97fba624e0"
+    },
+    "batch-1/random43": {
+      "run.json": "e8e5f3d0367bc1a5846980e1a9122b73ec6549b2f41d37e8c1408f155fbb521f",
+      "dataset.json": "2cb3118ed5a9c9e9d174ebacbd8093fc56f05490e59a8c5b87baa10b568a8571",
+      "summary.json": "57b0014828739940e1d0591e3bb4b1a052f72752fb390c5ecb12c05624e9dcf0",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "29923d0b6d975d25e3dd6ff10d101d384dbf7adb5e5416d9432ae55d5ecfd349",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "7feacb88c456150cd362c53a980ff96b1c96e9961b18547b963a6b2c9a0fdbd2",
+      "replay-1/replay.jsonl": "f5f3ed7bf483c69f8e3d2c07566214d8d7f9e97ac759f84ec0900df19b46b28b",
+      "rankings.jsonl": "079d72a055c660aa0034f659d171526bfa5cb09d60312421ccfb3bef798daa07"
+    },
+    "batch-2/random17": {
+      "run.json": "151406a0d2b633dbcc81bc2e8dced91c9183126334089ecf9d8a4fb5b7641461",
+      "dataset.json": "49c80645ae3d0bb180ad3711fd3e4193e3b98d2dfb46e51d6cf386ee551c0611",
+      "summary.json": "5340d98460232b18875632515704159a1e2131cb688e283317a302f9528d1393",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "bf12579722f9f72cd509b024d80e2893dcfbbe951e788d71197149bc03a7ab9a",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "fce7901597d9c3ee69cc3e417e6cbed70b996d8aa0e2d36dd45cdc52a350ab88",
+      "replay-1/replay.jsonl": "a7b7cc918b7cee09c052eff671201be4111802fd687e4a9581b4c4d2bf121c9e",
+      "rankings.jsonl": "76defd14e3e8905785b72699659bf3f8b5f479265e8894c11c53aab3019c13f3"
+    },
+    "batch-2/random29": {
+      "run.json": "8d06d617e59ceeea4833d5c363e9f3a1bb1fd4bba26c6961d71686f3948d109e",
+      "dataset.json": "49c80645ae3d0bb180ad3711fd3e4193e3b98d2dfb46e51d6cf386ee551c0611",
+      "summary.json": "4934e8438d5977cb2af5f3a62af8d65a09ea4b6901bb985e2229287d171127b2",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "8ef87dbd684c1bcc65bef5d7c639e248541a24a54f67a792ae81a2b425517a08",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "1bb25b487d3e58b698991c3e7bb9f7ad6b5fc54b856a29e82c17c04fbf88e372",
+      "replay-1/replay.jsonl": "a7b7cc918b7cee09c052eff671201be4111802fd687e4a9581b4c4d2bf121c9e",
+      "rankings.jsonl": "b77959da755067cd50c830178f239dcefee129e9264769ca8c9db9af8fc72885"
+    },
+    "batch-2/fixed": {
+      "run.json": "a2065e5bbe9ac75e8652433dc4bbe14f835991769a5bbfd9474ee55d996a38aa",
+      "dataset.json": "49c80645ae3d0bb180ad3711fd3e4193e3b98d2dfb46e51d6cf386ee551c0611",
+      "summary.json": "b8bf6db8da209809743017e6a9fe3c7230822c5e1bc30cd1000bbe75fc04414e",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "bd1bb2cd73e6c89669cd20bb35c26c2594e5cc6b0c70914c9ae2a541e156266f",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "d372b389610f0df58132d36fe14a17659df0bd77cc75f7820a8bf5120e9b5ede",
+      "replay-1/replay.jsonl": "a7b7cc918b7cee09c052eff671201be4111802fd687e4a9581b4c4d2bf121c9e",
+      "rankings.jsonl": "68c71d58499bb264b3f49dee3d30bfe89780e9f1e484bee657b75cb501058d09"
+    },
+    "batch-2/random43": {
+      "run.json": "0c3c100c935828f73faf525597187a2d59ff1b6fafaa6db21253eafeba9c1ab8",
+      "dataset.json": "49c80645ae3d0bb180ad3711fd3e4193e3b98d2dfb46e51d6cf386ee551c0611",
+      "summary.json": "c2243efd6a4d129464a398499cd79e8053476285391a2bfe5dd01a0ee506f1f3",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "2d66bde0717ab1263f6fd96510ef81d48198cfe6737267a2163004def5cc1aa3",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "989e2d9d3e58c4b315835aa8babe44591ed8079c91f87bea5f2a58b299722645",
+      "replay-1/replay.jsonl": "a7b7cc918b7cee09c052eff671201be4111802fd687e4a9581b4c4d2bf121c9e",
+      "rankings.jsonl": "e234aabf63d64aff72fab8720717a570ae73c40f70969010997dc6d33f246539"
+    },
+    "batch-2/jev": {
+      "run.json": "be97efc4d1066c2193dd49889d06625e996f1b79130307845baf63ce64c2faa2",
+      "dataset.json": "49c80645ae3d0bb180ad3711fd3e4193e3b98d2dfb46e51d6cf386ee551c0611",
+      "summary.json": "2c873a8c21ab3723e80309973cc137c9c35a0c42cfa9147d9b0b986289631818",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "442e62355fd38805568c987e936c57100c67f172015cf934737d39673cb9e6c9",
+      "usage.json": "95c5e188a3c565883d16a076a1da07c5568dd0dc7de4d4318756d4aaff633766",
+      "warmup.jsonl": "42ff5961f55d898db75200bdc026c290e738edc009a855031a267e7e9fc077da",
+      "replay-1/replay.jsonl": "a7b7cc918b7cee09c052eff671201be4111802fd687e4a9581b4c4d2bf121c9e",
+      "rankings.jsonl": "55382661c4ff991f6a156f2a06685ba9973ebec42f6c1426ed3a44afb5a4e2b1",
+      "decisions.jsonl": "e70c08ef43573d480cdc5a3809ae6cfb9c4b15a8dbfb791419bdb606ef50d54e"
+    },
+    "batch-3/random29": {
+      "run.json": "a6a200992f25b88ede30b0f6009fc651301f565d44691cbb673503fe8d8500d9",
+      "dataset.json": "92cf08d23f1e29722d89c3f60071bef02ed64aaea1bce5f8f7bf9bfa11c744f1",
+      "summary.json": "1c55027e75377cbc25b09d41f8d5fa91013fafc031715a91bd589c8aba0009f0",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "602099388b7ffb05a52bd23c419d88b63e8de9e5f2bd2ccc4be2e35028c9f2f3",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "ca888d12929df0fd9e450ea0c0b736f2bf7591838ccc321ca268302198cf31b3",
+      "replay-1/replay.jsonl": "74ad03057391b603a92507f2fd9378e9ef34a91dabd492e7270a357e8c5d4cfc",
+      "rankings.jsonl": "db02bae86df5648c97428654e580b366f1880c77f2772dc706ef389c9a4356ab"
+    },
+    "batch-3/random43": {
+      "run.json": "68e6c74202c38ad8b5285e76bded1823fc97c1e5f44785dea8cd6e56b57d6c80",
+      "dataset.json": "92cf08d23f1e29722d89c3f60071bef02ed64aaea1bce5f8f7bf9bfa11c744f1",
+      "summary.json": "7f12aaee09244bb4fd27aa7ec1a4a50c80d278dfee7c288e22a766f972862335",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "202e96de904ebfa743bf8767533fe8cdad1cf24775942178a5527dc5ddee2e5a",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "95b3f5a6fc89591cc9a94ec32fa44baf06c3e1d893d0d0a92ef3015c8640de81",
+      "replay-1/replay.jsonl": "063d85d57b6e4e5bd51a67e310b25e92af0264c46d5ac9e4f3a5bb17532821de",
+      "rankings.jsonl": "3190c38a5787abce5072c9591bede713b24b3e10f22604fd6915692c76fe8ee0"
+    },
+    "batch-3/random17": {
+      "run.json": "09c3ab33d56dfa14445e34ddb7081831abd005d42209351378547d8cc43e4770",
+      "dataset.json": "92cf08d23f1e29722d89c3f60071bef02ed64aaea1bce5f8f7bf9bfa11c744f1",
+      "summary.json": "8de33a0c28079ac4bf182c51eb4f81c2a0bb4ff8ece21d97c42ab4d84917e3c9",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "6c9962a395787a8f575e72b32d5f49f92322eb26ea35b5bb6f612ba712cffa79",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "75c62e3159275d2457bb430e712678b55b5dbe81a9ea33e9ec1870ae4d49f4e4",
+      "replay-1/replay.jsonl": "a7bf68b650056fceb29f86af8447273601677b79440da0c70ff779374970c0e1",
+      "rankings.jsonl": "87c4198f5da39ad5543d2ca01ba4d6504baead2f203286e3393284148b83c4ec"
+    },
+    "batch-3/jev": {
+      "run.json": "cbb4ca2c78fc9de55933ba3da6004788f037ab5d132ef22693c0443e4bc908de",
+      "dataset.json": "92cf08d23f1e29722d89c3f60071bef02ed64aaea1bce5f8f7bf9bfa11c744f1",
+      "summary.json": "40e1393bd7c523ad3267a9e169eaed2db6ebca4b526fa2c30f6c46cddade7980",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "bcf61945413be25cb39b5da96a1da01dccf637e826b393ce5a023fcef6148c2e",
+      "usage.json": "23978ddff4181257e70d74ecd3508f40798b340318eb6b924af6c7cc662574d3",
+      "warmup.jsonl": "0ff225100391137d3ef0ec4d2c6c1a03c13027c835a2841e36570454e3fdd406",
+      "replay-1/replay.jsonl": "a7bf68b650056fceb29f86af8447273601677b79440da0c70ff779374970c0e1",
+      "rankings.jsonl": "6b56d3566e343c78818cf54d342f6a7af3184f543014a79ac7acdb1dcf505085",
+      "decisions.jsonl": "a0f342c265515db751137dbf59de49ab3a762faf5d62303f503d3b85212cc778"
+    },
+    "batch-3/fixed": {
+      "run.json": "1fd295be2b8a18122319353249962999f1861f0b8fbfa26bebba4c296182ede5",
+      "dataset.json": "92cf08d23f1e29722d89c3f60071bef02ed64aaea1bce5f8f7bf9bfa11c744f1",
+      "summary.json": "eac084234e9f7cbb94ff89ce9708aa57122d8306bdc07963920e9d073600b201",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "72cbc2fabb5bdfb2e4e09f2deb6c573dbb4ec775192b2ebf1ade60439c78c894",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "5eeeb607e239e5176cd20506b965759983a335e90f9e7e19369aa6e952bb14bc",
+      "replay-1/replay.jsonl": "063d85d57b6e4e5bd51a67e310b25e92af0264c46d5ac9e4f3a5bb17532821de",
+      "rankings.jsonl": "17a20123d3f214ef0f6f3fddb17020d893ae514246c2cb66a7f46b0de8d9f4ff"
+    },
+    "batch-4/random43": {
+      "run.json": "7c49c39d385c6eae9e7da29c24915f4cb0104faf6364e4bd528edda2d30ab629",
+      "dataset.json": "0af40c30a6d20171dd2dff41bb7ca6486363efb5dbc501e5d5b86de624584534",
+      "summary.json": "67facf90ec6fdba0a8022c276c78b084f5326f9ac0f20d1d100d01b0ec9fc29d",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "2dd69fb3228fe29f7561b5487dc070c8a931cc8d08568213a60cc669d84a554f",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "93eb8000b8b13ce2b6248578f893ca11eac284bd4ba72654cc6348d22c031832",
+      "replay-1/replay.jsonl": "425e7ea5eed859a4cf07ff8a1c5633aa80a9972a708c2f307c0fab05bd3ddae1",
+      "rankings.jsonl": "781218502755307ef80b00990b8b6cf77bda06cdc066aee0e7ec1120ebb9da94"
+    },
+    "batch-4/jev": {
+      "run.json": "80ccca3490c6909d12c994c853325371d8cfe3e59402a03af75aabff79241e7d",
+      "dataset.json": "0af40c30a6d20171dd2dff41bb7ca6486363efb5dbc501e5d5b86de624584534",
+      "summary.json": "0a53fdb4de1609e30ec474f60c510438ed03eb4fb1fa902a6eb033088236e9c2",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "1227942e9e721e424e65f69a9d28707a402ea8c011e1cc458300245897f6a1d5",
+      "usage.json": "a7d7bc9f1b7a125ca2df9eec96336e96b63d19f46e2740a8f918dae69fd71542",
+      "warmup.jsonl": "8c1df19c3369cf650f2c346859f66003e89660642b44dde05bda30e0d18e909b",
+      "replay-1/replay.jsonl": "425e7ea5eed859a4cf07ff8a1c5633aa80a9972a708c2f307c0fab05bd3ddae1",
+      "rankings.jsonl": "a4aa43dad9e17deafd98b7c461a5adfb6eae8ebc6109ec1a204c9a63cbf988f8",
+      "decisions.jsonl": "526a64a706e12b44c5d916e8c132876e8480e07d9574f9b7cf1ac929821b9c8e"
+    },
+    "batch-4/random29": {
+      "run.json": "b385529da8b25d0881086a8638ecd278d00a62b026b9b5b1275871551b4ce6d4",
+      "dataset.json": "0af40c30a6d20171dd2dff41bb7ca6486363efb5dbc501e5d5b86de624584534",
+      "summary.json": "5026db4ee93e2ff7a6801bd345332fb4238e2993acdfa0c0104655db1aa5a710",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "e9d0e0b7c788d1dbec21bdad7bfd3a51ba06cc346fbff760988dfe3d65dc812e",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "dbe1784f0d65e3928b3c84ff23e66a32a0b6bacb270a772484bd44bb99900c7c",
+      "replay-1/replay.jsonl": "6e6608985bf0084be879c4abfe36d9231ee6566aee64bdeb499ab7bbac57981a",
+      "rankings.jsonl": "32113865a0a57409efd94d2f43dd20397b6788bd0d0a2b3b799ae448887a7953"
+    },
+    "batch-4/fixed": {
+      "run.json": "4b3ab6a843ee497af948db70fa1cc1413fae95141b3d4a33c9cd240a795ee704",
+      "dataset.json": "0af40c30a6d20171dd2dff41bb7ca6486363efb5dbc501e5d5b86de624584534",
+      "summary.json": "0b3eae9f9ebf2fc31f083150e13b7943e0eb6d60ba064975f0d462b888068016",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "8bdd45067ca1d436d779c560ade0cd55a1a951a203ea75bf9e90632c743aa6ce",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "1b074f6905ce80a1a3f0524033fdd0c46c182dff599c0e5e4e5fe121d800f769",
+      "replay-1/replay.jsonl": "6e6608985bf0084be879c4abfe36d9231ee6566aee64bdeb499ab7bbac57981a",
+      "rankings.jsonl": "25744b121db596e5f92a5c99c0c1b71827c365f2d32a41592fae26853bd0fd17"
+    },
+    "batch-4/random17": {
+      "run.json": "d051bdf8d6b24b9e4f834d1c4465751ae9f0504acf48e2874bb696d6bd51b609",
+      "dataset.json": "0af40c30a6d20171dd2dff41bb7ca6486363efb5dbc501e5d5b86de624584534",
+      "summary.json": "bb70d33108685afab4611b5ec40db0dc679622f16eb0b5deae1879920358ea9f",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "08c3374ed41dd129133ba504540d5301338db033b992a895f86b95ad4007057f",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "d111e57f3ff95e49c5d1b1e1c12d74b72083546281566270c51d1dc50dd8004d",
+      "replay-1/replay.jsonl": "4ab79bc1a6544f03d2370f807b75d34cf69cfdd96f79848c43d86e1ff18563eb",
+      "rankings.jsonl": "c974420c9fe9d488a92c48b9ae206b0b47df2e44b669032dd7f5081005d91d52"
+    },
+    "batch-5/random29": {
+      "run.json": "bd8d3b9d162f66e3e3edf9cfae03c582ce2b477e45e9df4d12f5407f4c5e2ebc",
+      "dataset.json": "f81fb4a4b7d1dbf8158758587e1d1804709652a7f81f1af9c6a74420e055a6ea",
+      "summary.json": "e312742965ced1652b67d2bec635e8c5aa2a24473855f9e061eb045cfa030c71",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "8f4a1022596b209ee219a45f6acc0713613ebc8e5234cc29508a11502aad1325",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "4c85af6d9851bb83d46fba67a1af97d17f8299e6f160c1508a64a42e01836868",
+      "replay-1/replay.jsonl": "c90be7648f8f94be876bae919e370da57b258613e7f0d437b9f1c23ae37e2f83",
+      "rankings.jsonl": "ed58bbf68b611e136fbbdf2b59be65b3ddcad6c4d9c92f98761adf5ac6fc4454"
+    },
+    "batch-5/random17": {
+      "run.json": "08b78d893dcd97c1471f1958e0806791e704ef6bf095cd59e9a9f3bb2fd807f8",
+      "dataset.json": "f81fb4a4b7d1dbf8158758587e1d1804709652a7f81f1af9c6a74420e055a6ea",
+      "summary.json": "29fa4ddde8301d8c540f1c7f1831708c02ea9a348a824954c8a0903e02eec1c4",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "7b9985408a1993b13d2fa807b7ea8f41bcf7b2d9ee325a92604da8aa0bde394b",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "933b0c5ce0b7f9c7ec021b97b8505e1d912d083bf66c4ef7c9062462d925a3d7",
+      "replay-1/replay.jsonl": "c90be7648f8f94be876bae919e370da57b258613e7f0d437b9f1c23ae37e2f83",
+      "rankings.jsonl": "9f47ea962b5bd5d105afd6300ad025df8e62acbb7fecd54b111348888cc9eaf3"
+    },
+    "batch-5/random43": {
+      "run.json": "4508041a199fc8bfaa50d04df687ca03d229797dfd76e08e504c0adc8228e72e",
+      "dataset.json": "f81fb4a4b7d1dbf8158758587e1d1804709652a7f81f1af9c6a74420e055a6ea",
+      "summary.json": "c4f40ce950c274a4292c815341aeff3cd4127422ba7e8ce64c118ad3d7acde64",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "29e4cfc77246978a429f4e2089e0c632b987f533130a2623ea79681a500141be",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "3432d9626f08ce4bfcda5e124207f7c18b6e46a99c31c49746bcd2641799c0c7",
+      "replay-1/replay.jsonl": "1371700fdc75164a67bbb16112a0b80c4f8f643d44587479330a13b81a053ba8",
+      "rankings.jsonl": "518b238e857a5366ccc908216bb2f41007d0a4cbaf8ff65dcea6de3cf48d5959"
+    },
+    "batch-5/fixed": {
+      "run.json": "59650efaed4947eabe0440e95828548d87d1d940b1e515fbc6efff7427a59753",
+      "dataset.json": "f81fb4a4b7d1dbf8158758587e1d1804709652a7f81f1af9c6a74420e055a6ea",
+      "summary.json": "620107f576bde603b00e08190874c54cf7c2c951bce104586abeddf14e81b0ae",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "c1681ca985b2b8d8105f2395a5e95308e21f07860c85c45bbe7b84954cc3f182",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "67ef9b2e60890fa348d9f8803571fffa01bae332f51f289f8c4dfbbac60b83e4",
+      "replay-1/replay.jsonl": "c90be7648f8f94be876bae919e370da57b258613e7f0d437b9f1c23ae37e2f83",
+      "rankings.jsonl": "e8532fb759f7786de4309ec98b411a8471ca0b4defc25361ab556fcb6e0ed512"
+    },
+    "batch-5/jev": {
+      "run.json": "20c6f44159f4168fd1a92b242f3959e471161325966f3c82811f995be0945561",
+      "dataset.json": "f81fb4a4b7d1dbf8158758587e1d1804709652a7f81f1af9c6a74420e055a6ea",
+      "summary.json": "1806ab5bd54529ab6f58624c952603a07bb8e878cc23ef239687623475a2e94a",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "95b8cea0fc1374d9129383e212637fe9e21d9eafe05c5da28c294a2c73c6be33",
+      "usage.json": "5876cce898d8cf045a544812a61a07dcbe06a483b5df8dc58e42ba52623c00d1",
+      "warmup.jsonl": "a8f9e0a7d823ecacbf241bfad49c669c8a810dd1eacc4f5de5f59d94cc6d1a2e",
+      "replay-1/replay.jsonl": "c90be7648f8f94be876bae919e370da57b258613e7f0d437b9f1c23ae37e2f83",
+      "rankings.jsonl": "341c51170365d3558989a64eaf2a637744d5e8c16cc0f62e1238e8389bf11129",
+      "decisions.jsonl": "06cd4c1f68f7a3dd190b6ab66bef76a9a05d935c504b46fe053f6619fd8853cf"
+    },
+    "batch-6/random43": {
+      "run.json": "e95827b1cb3902ee4f966b9d1e78f967867d357742f183cf7986e860938e4d9e",
+      "dataset.json": "17615202089efb48cfedcf741ecb4d53cf31bb284a1a9a289b93a24d2ba7d414",
+      "summary.json": "7345ec6ba1abdb43899591c505e80290ee7bb8f2b1e020d1f34da650aba3f365",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "3926f56e0cefad529dde3a773e61c2b6ac9c3942c9dd0a04598fa831625a01b8",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "78b5820a36400aa7d5c1a24fcbb98e50fabb97bad1ea797559f92f6a19370ff4",
+      "replay-1/replay.jsonl": "ad9be4106c020f4771b9c837e76a5a633fd9cdb9802b9ac79b593ba4957df9f9",
+      "rankings.jsonl": "047f04a4575076bd659d1ffecb9db923d6cb29aaa99c527f57ccfdec4e921d4e"
+    },
+    "batch-6/random29": {
+      "run.json": "9888cb73bb303180d54a09266cddec7f2c545b58261a083ad99f451e663cb89b",
+      "dataset.json": "17615202089efb48cfedcf741ecb4d53cf31bb284a1a9a289b93a24d2ba7d414",
+      "summary.json": "2b3c92b088548e09dd8b63d1e6d6fbf8856d565a0a3ee31e81b3fdc37ef014b0",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "9cca5b29322d6433c52330a59057696af0403c34903f497b1af262bba56a7644",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "44903eedcd393b5f74ffcf16c0c4947f01c816b6738cadb7817c480476136c00",
+      "replay-1/replay.jsonl": "ad9be4106c020f4771b9c837e76a5a633fd9cdb9802b9ac79b593ba4957df9f9",
+      "rankings.jsonl": "14372b33279b957797357ed7d9c3f57525daeda6f6327ab79bb9d9339ce8bc2f"
+    },
+    "batch-6/jev": {
+      "run.json": "97b3d8b654e4222108bbb7f137101931b9aa9f6bef7038d37b74bbdba8b1bdb7",
+      "dataset.json": "17615202089efb48cfedcf741ecb4d53cf31bb284a1a9a289b93a24d2ba7d414",
+      "summary.json": "e859d80f60aa6b39ac5fd1d1b5f9db7aac70d8ae91df5a223154b27ac9c91b90",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "c34ac51c100839411747e5f34c11a3b7dd4d387154d4edad3a1b2ee164512b7f",
+      "usage.json": "de774ef1f7287125ce150380bd04e5a2fd8553ea07edd3d40872115fa44df3c0",
+      "warmup.jsonl": "164ca358b0d89c49b700dafd61b952913d1165390598867be5d6207955c0bea8",
+      "replay-1/replay.jsonl": "f381bd5858760fe49f2790e6dddc3913a994868293dc192ac054f55e3b1f9184",
+      "rankings.jsonl": "d019930e4d313a51f7345349b67c7dcc7c4f26e454cd94c45d1b19391610d8c7",
+      "decisions.jsonl": "ea778335d36b6bc7a602ecb5a20758e4646ac64a98ab36f14f49bd1440bbcc18"
+    },
+    "batch-6/random17": {
+      "run.json": "5e472d78ecd1f37ad5e4bf61452e97ca2d4190cce98891d784196e431e133fa0",
+      "dataset.json": "17615202089efb48cfedcf741ecb4d53cf31bb284a1a9a289b93a24d2ba7d414",
+      "summary.json": "70c0e4abb89bcffe35dd523f77ad038d14846bd2dc7b2862b9a19c44d0198a28",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "791e1804638369ee62bc27001003e30f833a860710e16f4c268e7a15462727fd",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "525e27a907cc98cd6d458aff6d5267b1f2397c7cb3a2859172c192d318e8d880",
+      "replay-1/replay.jsonl": "ad9be4106c020f4771b9c837e76a5a633fd9cdb9802b9ac79b593ba4957df9f9",
+      "rankings.jsonl": "363fe314ad14588cfe77ee17c7ae6271980afbb29986b03d97516cfaa46e3007"
+    },
+    "batch-6/fixed": {
+      "run.json": "438a9f7f701f86972dc238ea5307b7c2b7abe360ee3b27ebced8bb7693107511",
+      "dataset.json": "17615202089efb48cfedcf741ecb4d53cf31bb284a1a9a289b93a24d2ba7d414",
+      "summary.json": "85e7c7dd1a68362ff0392feb3e4d10d5c3aae3dfc2d1f61e0aa5ef15163eb523",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "e0c33b8c1b720c9a83ea0ed3ae88c9cb2ce2921fc40a732a751a8ac256273479",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "6058757cccb3508429916dc09498f56c9c96c5ea8d8d4e2f3807b7e886d34054",
+      "replay-1/replay.jsonl": "93ec19c28dfff6cda0a6aea5287b1f9ea114965dd8305f9b1eb4ce4b736a2b4c",
+      "rankings.jsonl": "78f54867b7ae584e8230c2dcd0acaa85812b0cb00cd021839196a2ef7615993a"
+    },
+    "batch-7/jev": {
+      "run.json": "0330c62ce33996a49ebc2648fc1585117270e45bf76fe6e199ab08dee806e313",
+      "dataset.json": "6a93ff04fe9f327b17370647cda38727c46492b4f56fc1ed1666f459de8c915c",
+      "summary.json": "0f1ad6216bd7678b0581f4bf4ca2a855a2fced36efbbcbd61c6e920af7bacb02",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "3ca629bdbe453b8f0790cf22427d319d813075e8475ffe9381346a0925c6818a",
+      "usage.json": "7b1d0c3b5ea1a93f4af7c2eeeeea15610960d2bc1ba4bdbde759804b58848308",
+      "warmup.jsonl": "7cdaa88e572838c15a34ba294ffdc931634835ddfd5a0fdd32f1e5d2aef08c04",
+      "replay-1/replay.jsonl": "ec9a8d8ab009f35285e4c2500f767f95b62e2b1fd395a8e7d320e872fe344bdb",
+      "rankings.jsonl": "f7db8d5f99a1613dd5cd74565fe6760a4f00e4015f7c5fba77eb0a1970cd373e",
+      "decisions.jsonl": "d777efd34930040f580d62ff9cd98a9db099ce07db485910cb8cce744c426b6d"
+    },
+    "batch-7/random43": {
+      "run.json": "ce51bb6308fdcef3d501914ad194ea165d7448a0cb12d9e6d193b3615e536186",
+      "dataset.json": "6a93ff04fe9f327b17370647cda38727c46492b4f56fc1ed1666f459de8c915c",
+      "summary.json": "ab6710009708fdf4d5bc46ccc470407ba9d25fc3c19a81610b1e45a12013a438",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "afe358748e5b9d3c9ab0095be345e844995b696c9457bd1a4c9a3427eeff7991",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "d01729491ffdc26639d640e5f7c151ac1a178c4ce29314788c59df48c760509c",
+      "replay-1/replay.jsonl": "afc36175b4c017806d3e911a220cf081a591dc3ad9e7755413271e9f24697443",
+      "rankings.jsonl": "4e823617366f8df8fcfc157830e20f7db6adf7b45d502aab11d0bb01ffaf0df9"
+    },
+    "batch-7/fixed": {
+      "run.json": "cd059e5b9c3736017382f8c90f433d304b5117cc2f730accfd412ce985afd52c",
+      "dataset.json": "6a93ff04fe9f327b17370647cda38727c46492b4f56fc1ed1666f459de8c915c",
+      "summary.json": "4f7556098c4f4bd1a7ad7dbbf559b42249e5bd658f3ba0f36762c570a5253078",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "c66315794eb892709ce4afb95fa300eea8cc0cc364a61f3302cf665353fd9e2a",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "3792a1971d79ac593d131d67c845dd5829328830c190e02f6bd3253093fb5fbb",
+      "replay-1/replay.jsonl": "ec9a8d8ab009f35285e4c2500f767f95b62e2b1fd395a8e7d320e872fe344bdb",
+      "rankings.jsonl": "38816063fad8a0b6832fc67dcb5333e32b7b5c385a4dfce26bb0cb1dd3e99095"
+    },
+    "batch-7/random29": {
+      "run.json": "84f4d61addcc74961ece331f6b362035d384a41eaf32208aa375d7bd3776c80f",
+      "dataset.json": "6a93ff04fe9f327b17370647cda38727c46492b4f56fc1ed1666f459de8c915c",
+      "summary.json": "056be63a2f8f2ea618b6f29c0ede431413e36c7e47735f5dee6cbca0106e5c96",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "4d2804dd6f36e484afc8e1d415339dfc6ba927188a038a7bd5dc851a15443609",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "fa0efd11d2a080dcb5ad2810342fa5e93557758a44b5b8191be65af36801c754",
+      "replay-1/replay.jsonl": "afc36175b4c017806d3e911a220cf081a591dc3ad9e7755413271e9f24697443",
+      "rankings.jsonl": "98ed632a77362b3b406f89971b2d5d84603efb4545efd4029340654f58ef2e0e"
+    },
+    "batch-7/random17": {
+      "run.json": "fde43800f3461cd916ad0b1fbb31c32dac13036df250092046a70f5154645024",
+      "dataset.json": "6a93ff04fe9f327b17370647cda38727c46492b4f56fc1ed1666f459de8c915c",
+      "summary.json": "7e4b15d0d2256df819564b6c683c9e35472cf92acf25facbe84dabbb758b880d",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "f518be84f9bdfe2b30ee0558ac6751df4f5ce149b182075857a55892f1b5fe72",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "5959b5307653df44c4c41a5eb401b19a6ac048c95da973c7780fe74bc4ee8753",
+      "replay-1/replay.jsonl": "ec9a8d8ab009f35285e4c2500f767f95b62e2b1fd395a8e7d320e872fe344bdb",
+      "rankings.jsonl": "502fa33883a50b9b223013420c238d95a560a9eb9dd25b0acbb9bc7c91ac24a5"
+    },
+    "batch-8/fixed": {
+      "run.json": "c1542a7e5fb7463b13f7cef37dd9e5429c62e89c9a90cfa47e99e2feb7029929",
+      "dataset.json": "71fb5c91e1c7879f5b534a3ca5f2541e970b4f57cb20028aee4590199caad2a8",
+      "summary.json": "3c2c6207a8d6fc300345925c7df11cdfb40a7ebfda8265b7a4860ebe638665e9",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "fce8128126d470c2206599df28344a623350856995a4a5ca4c1ff9ddf5e87627",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "3eddb73fb2057c9546a1944b0cab7c8045d7e3ab37994dcc5c43be2f3085c1ad",
+      "replay-1/replay.jsonl": "dc5694000628aa346e4beb2d9bc6c7d061ef8f4fbb88dbd6652a0c1f25deee2d",
+      "rankings.jsonl": "f50b916d753a26a37848c50eefcd672a33139f6ef678f085ee65b8b999c29cfc"
+    },
+    "batch-8/jev": {
+      "run.json": "b1b8327d47e5d2600d3d7cc1c425fc5b28ecfc27ef9454f0df05d61dfec8684e",
+      "dataset.json": "71fb5c91e1c7879f5b534a3ca5f2541e970b4f57cb20028aee4590199caad2a8",
+      "summary.json": "be27754378eddfb0352667eb5c83976bd15c94513bedf2a8fe08ffcec20ce1b3",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "077c1c30a867f5af95bd5bf9d309d101b1f51186328518198765628b14d2234f",
+      "usage.json": "54bef5ed0332e97d84d2addfce2556472b63be716eb6a962acb8853a5977e144",
+      "warmup.jsonl": "90ce63a756dfdb393269c10e5d841cf8c9c622072c48908b96d1fa90f0e68bcb",
+      "replay-1/replay.jsonl": "dc5694000628aa346e4beb2d9bc6c7d061ef8f4fbb88dbd6652a0c1f25deee2d",
+      "rankings.jsonl": "9d202ff0297ffd6d356ef8f0a4c346d2f126a21c04b299fc78224d0a09eea4c5",
+      "decisions.jsonl": "a9d31e369321da2bb7a8f1acc548cc45d63a7a2f329444067f5cf2f1ae3fa3a7"
+    },
+    "batch-8/random17": {
+      "run.json": "7c04e37824612244a280cb1592e6090db0971a91e892829defb9c234de8d3649",
+      "dataset.json": "71fb5c91e1c7879f5b534a3ca5f2541e970b4f57cb20028aee4590199caad2a8",
+      "summary.json": "4a841bcac7ff9e88a9a1ec2c6a4cc6eaaaf15705217dcb710428fe5522619f3c",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "cab9ec495ad0e8f971388b69446543ff7205f4acc6ad467530da9d42e580122b",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "3fc4ee6f8732b9d8ebc2c89dd6141feea9ab0cb20c7b1ce465efe7785bfe396b",
+      "replay-1/replay.jsonl": "dc5694000628aa346e4beb2d9bc6c7d061ef8f4fbb88dbd6652a0c1f25deee2d",
+      "rankings.jsonl": "f2483b156b8b8ae96e4be5543880a70802f6bddb83637060fb7890b120ad9b32"
+    },
+    "batch-8/random43": {
+      "run.json": "b6e0dd1d9a955fe4dbe267c6f6f731085f552ba2b6a1dc7f5d96a69238cc4a66",
+      "dataset.json": "71fb5c91e1c7879f5b534a3ca5f2541e970b4f57cb20028aee4590199caad2a8",
+      "summary.json": "d0dfe776d35376ff6fe02932730461c599370ef673f6fc5ccc305048ba0abf59",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "9d4bf12ab18f956b4ac7ad5f39e62645278acac3eb5be2964bac8afdf4635014",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "29f9b367a935895af1cfc80b1a5d23e65b2d11b094312a67e033afec0c80a52b",
+      "replay-1/replay.jsonl": "dc5694000628aa346e4beb2d9bc6c7d061ef8f4fbb88dbd6652a0c1f25deee2d",
+      "rankings.jsonl": "f0c2f4c75e6f783a78e6611225150a2081fa32f125cd280f3d03d3db0e5d8fb2"
+    },
+    "batch-8/random29": {
+      "run.json": "50ff30156d7a9d87eea3a2de2234abbf85c6a5b15bda989cb955513e23fc398d",
+      "dataset.json": "71fb5c91e1c7879f5b534a3ca5f2541e970b4f57cb20028aee4590199caad2a8",
+      "summary.json": "9607f196d870982bf6e3d4acf9715a5642300294dfa95d66501c8d97878186b8",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "66be09d4211de0b7c39b9edc7f50eb47b1fed26bfcc0288a5e7e0713cbd1ccac",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "9e406868aba664ec5219cdce07debd3b636d246436b614bf63ed2981633c4a1e",
+      "replay-1/replay.jsonl": "dc5694000628aa346e4beb2d9bc6c7d061ef8f4fbb88dbd6652a0c1f25deee2d",
+      "rankings.jsonl": "8904f93170981e13ecdaa906dbd49610a27f8d718f771d34b71c89bb982be42c"
+    },
+    "batch-9/random17": {
+      "run.json": "8b745dd952d659537e266d18e6aff2473267dfe259674044cd64b99c4029b47d",
+      "dataset.json": "06c0e1c6ea462861a6a3d4319aaea25d85012f92916d0bad361e080b0626024f",
+      "summary.json": "38b83c98080e4008b6dd564334482d1ea53d3370365f18391534ad0ba4cdee8e",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "d18eca9f1aabaf66eaa387cb6cf847e7a237fb35946794fc4d8954951708ae4d",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "8191e33487c72cf995c080d27ec37e7183c1d4569bd39c1efc9369013d53fc61",
+      "replay-1/replay.jsonl": "3a590812458e6a24eae12876600ebf08d368cd8baece8594a1096002cbe9b47e",
+      "rankings.jsonl": "2c600abea149c92a121a0661949963e0393c030d71a20370a7742d1d47d443d9"
+    },
+    "batch-9/fixed": {
+      "run.json": "0ee727caecc7c4b8cda11f6ed4aa2a41764fa5346763a9367e2e63d7937e56a3",
+      "dataset.json": "06c0e1c6ea462861a6a3d4319aaea25d85012f92916d0bad361e080b0626024f",
+      "summary.json": "75748a1e3b63dd11910df2df52f163e14b96da2c151597f8d6f510d8f5e7ff8a",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "5521ec9c1dc4570781e67c7d6535bb48ad404e7bb95182cffc60ad77a9f61d37",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "131a916b24e3531910e56c521ca2d4421aca019568be78d243f33c31cad10700",
+      "replay-1/replay.jsonl": "3c3cdfa8f3dd73fb90b9cba782a83834bf2812317dc58ceb59185b39baa7a626",
+      "rankings.jsonl": "2d1c578480c30039551719c1e9426978c4689d1aa43bbe90f15241dcbe20cb4b"
+    },
+    "batch-9/random29": {
+      "run.json": "c9b74136eb89a51547a83b47d551c6cb08b685645223b4c8750900a96745f105",
+      "dataset.json": "06c0e1c6ea462861a6a3d4319aaea25d85012f92916d0bad361e080b0626024f",
+      "summary.json": "8cceb295c86ae3ca32fa48cf22deb7c607188abe3146216a15ba8f14aeeaea32",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "810f1ed2caf23ac5f8bfd8a4623e51b425ca98700322a8a4de78b0174b0b34a8",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "43c279afa5a5d8de8783cc3c4d0dfea8804e3f748450c6f995c167eda88cb25c",
+      "replay-1/replay.jsonl": "d75a734280975ee68eec04b8702c3afacbc28ef451c209f4fc2f065a38b37cb1",
+      "rankings.jsonl": "901e71d8e3045ce1450b880183502605cbe2f973175e2234dd41a5046479cb13"
+    },
+    "batch-9/jev": {
+      "run.json": "2939f46eaed686c09f71126d449f76b2cfc9c055a5df706e858f6e0044a551ba",
+      "dataset.json": "06c0e1c6ea462861a6a3d4319aaea25d85012f92916d0bad361e080b0626024f",
+      "summary.json": "e7b98590b9ec43f5f40792eea51be7c270994c8f9d590bfbd59374ef6fa3c0d1",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "c17ba1410d91ff477a07712f4afc4a4c74d2ce97d9840dcab5936609bfcdb925",
+      "usage.json": "84c70c3f07d0e09dd611b20e41ced2cb617a80c379d266254523a292d96a6323",
+      "warmup.jsonl": "5a2bb617c42bf52378063d31ae5437954c0f926b4a4337ae83eeb4de732de997",
+      "replay-1/replay.jsonl": "3c3cdfa8f3dd73fb90b9cba782a83834bf2812317dc58ceb59185b39baa7a626",
+      "rankings.jsonl": "8a8fe5fba49d78933cec22583d898a7945891f5ae689894beb07d9e8ee73eed2",
+      "decisions.jsonl": "ee6f33f508408d62212a1486df6100839a2c490bab4e8b661430dd7854fe3ad0"
+    },
+    "batch-9/random43": {
+      "run.json": "85523df5c2f6ef3c1d621e20550ab67f024daa76234a9df30dd53765d079f420",
+      "dataset.json": "06c0e1c6ea462861a6a3d4319aaea25d85012f92916d0bad361e080b0626024f",
+      "summary.json": "d747a305c1c085c1948904f9103d72dab0de31746f56cb665b412365d54004f0",
+      "verification.json": "8edef401dc0fde9860bc845ab25ad2cb07ed62766ad3ba77c6dfaed1c5360ac1",
+      "trials.jsonl": "886995d4c61ac80b7dd63b926b89da4e1f005e527c8fd46ce28073b0319f189e",
+      "usage.json": "e3b664b69689af24ee305c5b273c4689d7fcbd3f82216ac4363cdd406d5fbb77",
+      "warmup.jsonl": "f1286fc46a1077ed7a04ff2c66ee68a72b3ec70348c02a2ae8e31a902c49420b",
+      "replay-1/replay.jsonl": "4ea8df525ed0abd7b66146be996d05d6281948700c1926dee8eba4e7fd05087c",
+      "rankings.jsonl": "3e57b34c15463d1d82b1ed0f5d16baf11e85890d15d7c837a1596e5174199f2e"
+    }
+  },
+  "analysisSha256": "f90c7d6b37659fedc7295339fc756ae47f1f15cf52c38481d2ac07a82acbf6e1",
+  "requestAudit": {
+    "recordedJevRequests": 376,
+    "responseErrors": {
+      "rank probabilities do not sum to one": 15,
+      "HTTP 400": 16
+    },
+    "usageReconciledWithRequestRecords": true
+  },
+  "publicTrials": {
+    "path": "guidance-ablation-v1-trials.jsonl",
+    "sha256": "337063ae4564c3acdebe9419744252c44e4d8792f7949d5f711b9706461ce142"
+  },
+  "publicRankings": {
+    "path": "guidance-ablation-v1-rankings.jsonl",
+    "sha256": "74df03a79b4542c047d310f9e2aa479fd9d635397b1fca90125221442e8620bc"
+  },
+  "publicPreparation": {
+    "path": "guidance-ablation-v1-preparation.json",
+    "sha256": "856a496424d1277f2ae647e685ae3d4bf13ffed85a7be74a16e71c5fffce3e21"
+  },
+  "selectedSites": [
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:13448:13485:14516450674648079196",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.natTrailingDegree_mul'"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:11160:11229:15783738871996061725",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.le_trailingDegree_mul"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:12354:12409:4908003717300598984",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.coeff_mul_natTrailingDegree_add_natTrailingDegree"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:4283:4294:3716195301260704603",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.coeff_natTrailingDegree_eq_zero"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:5702:5764:3515620965698474620",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.natTrailingDegree_le_of_trailingDegree_le"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:7483:7539:2504985512848480065",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.trailingDegree_C_mul_X_pow"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:10847:10903:12940210125539533909",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.natTrailingDegree_mul_X_pow"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:7688:7720:9637506905281072598",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.le_trailingDegree_C_mul_X_pow"
+    },
+    {
+      "site": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree:9938:9979:15299844284008295830",
+      "module": "Mathlib.Algebra.Polynomial.Degree.TrailingDegree",
+      "declaration": "Polynomial.le_natTrailingDegree"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:23381:23428:4256784459017173523",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "ConvexOn.le_max_of_mem_Icc"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:3089:3207:7300597916063253887",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "ConvexOn.map_sum_le"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:5707:5711:7728169556663379730",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "StrictConvexOn.map_sum_lt"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:20612:20652:16171979502794247014",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "ConvexOn.exists_ge_of_centerMass"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:13756:14225:11077593735960464930",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "StrictConvexOn.map_sum_eq_iff"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:3954:3982:11666676538256884487",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "ConvexOn.map_add_sum_le"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:2355:2450:4318595957545604041",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "ConvexOn.map_centerMass_le"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:15611:15619:8241285309891212028",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "StrictConvexOn.map_sum_eq_iff'"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.Jensen:9534:9546:14919105712986009686",
+      "module": "Mathlib.Analysis.Convex.Jensen",
+      "declaration": "StrictConvexOn.map_sum_eq_iff_of_pos"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Monoidal.Action.End:3979:3989:4152636232089256343",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "declaration": "CategoryTheory.MonoidalCategory.MonoidalLeftAction.actionOfMonoidalFunctorToEndofunctorMop"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Monoidal.Action.End:7428:7517:3673722585430446385",
+      "module": "Mathlib.CategoryTheory.Monoidal.Action.End",
+      "declaration": "CategoryTheory.MonoidalCategory.MonoidalRightAction.actionOfMonoidalFunctorToEndofunctor"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:5324:5362:6996580085882975697",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.isRkFinite_ground"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:7322:7346:5633946193082647120",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.IsRkFinite.insert"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:5851:5952:14562653977967277961",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.isRkFinite_closure_iff"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:3189:3260:12894862787617495931",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.IsRkFinite.subset"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:6054:6108:4970257005482730584",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.IsRkFinite.union"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:2707:2712:16559707739423704985",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.IsRkFinite.exists_finset_isBasis'"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:7654:7700:15051139506808662495",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.IsRkFinite.sdiff_singleton_iff"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:8437:8473:11020248304812719111",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.IsRkFinite.iUnion"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Matroid.Rank.Finite:4844:4848:7969961859900920161",
+      "module": "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "declaration": "Matroid.isRkFinite_singleton"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:2688:2723:8718790997221704249",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.bind"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:1380:1430:10680411920029666122",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.to_part"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:3846:3850:12869051489004034050",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.comp'"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:5549:5588:14098150434146507061",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.of_part"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:6661:6723:6905844551645308222",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.vec_iff"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:4801:4820:3291145119209238973",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.rfindOpt"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:3526:3541:6511263573402209920",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.cons"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:2907:2964:731907525301094081",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.map"
+    },
+    {
+      "site": "Mathlib.Computability.PartrecBasis:6172:6197:1540930932400731604",
+      "module": "Mathlib.Computability.PartrecBasis",
+      "declaration": "Nat.Partrec'.part_iff₁"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:24150:24253:11609387216421050601",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.Ioc_filter_dvd_card_eq_div"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:15760:15799:11566231520653923254",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.factorization_gcd"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:14248:14268:12535286829592246241",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.ordCompl_dvd_ordCompl_iff_dvd"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:16791:16825:1292756185244424524",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.prod_primeFactors_gcd_mul_prod_primeFactors_mul"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:14658:14662:7622239003357831849",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.dvd_iff_prime_pow_dvd_dvd"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:9538:9571:7043877778173484249",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.ordCompl_self_pow"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:24658:24687:11889296930634362225",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.card_multiples'"
+    },
+    {
+      "site": "Mathlib.Data.Nat.Factorization.Basic:8976:9012:10277363600769757030",
+      "module": "Mathlib.Data.Nat.Factorization.Basic",
+      "declaration": "Nat.factorization_ordCompl"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:6547:6589:12639680880447905311",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.frequently_measure_inter_ne_zero"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:12222:12295:1719497438865191068",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.iterate"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:9606:9639:15702165100069117607",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.ae_forall_image_mem_imp_frequently_image_mem"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:3101:3156:8685617370479014694",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.id"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:4691:4714:3431026576825520870",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.exists_mem_iterate_mem"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:7512:7763:15095987204881384200",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.measure_mem_forall_ge_image_notMem_eq_zero"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:8356:8461:5417590623547170993",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.ae_mem_imp_frequently_image_mem"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Conservative:11082:11126:15924681584018906715",
+      "module": "Mathlib.Dynamics.Ergodic.Conservative",
+      "declaration": "MeasureTheory.Conservative.ae_frequently_mem_of_mem_nhds"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:4122:4319:9641542169780695092",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.isIntegrallyClosed_dvd_iff"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:5065:5096:2590671677157830361",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.IsIntegrallyClosed.degree_le_of_ne_zero"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:4497:4634:7929177052733779639",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.ker_eval"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:3116:3139:1603395039866675289",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.isIntegrallyClosed_dvd"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:10480:10539:8365534047864556132",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.ToAdjoin.injective"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:7876:7922:4255807205226026753",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.IsIntegrallyClosed.isIntegral_iff_leadingCoeff_dvd"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:1817:1866:3525198493659199710",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "minpoly.isIntegrallyClosed_eq_field_fractions"
+    },
+    {
+      "site": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed:9984:9989:17081146304489945123",
+      "module": "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "declaration": "IsIntegrallyClosed.minpoly_smul"
+    },
+    {
+      "site": "Mathlib.Geometry.Euclidean.Congruence:5354:5407:1208914517916433090",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "declaration": "EuclideanGeometry.angle_angle_side"
+    },
+    {
+      "site": "Mathlib.Geometry.Euclidean.Congruence:2184:2204:11752550385860591197",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "declaration": "EuclideanGeometry.side_side_side"
+    },
+    {
+      "site": "Mathlib.Geometry.Euclidean.Congruence:2664:2674:318495446506840797",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "declaration": "EuclideanGeometry.side_angle_side"
+    },
+    {
+      "site": "Mathlib.Geometry.Euclidean.Congruence:5701:5852:7425154108289246084",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "declaration": "EuclideanGeometry.angle_eq_of_congruent"
+    },
+    {
+      "site": "Mathlib.Geometry.Euclidean.Congruence:3572:3652:6090292342440863092",
+      "module": "Mathlib.Geometry.Euclidean.Congruence",
+      "declaration": "EuclideanGeometry.angle_side_angle"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:12177:12221:17045126306675909463",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.freeDFinsuppEquiv_apply"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:3524:3630:13534228309340761314",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.dfinsuppFamily"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:5941:5948:16508229932156175720",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.dfinsuppFamily_single_left_apply"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:5321:5354:18231165998938558190",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.dfinsuppFamily_single"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:1943:1948:1563147864108317986",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.dfinsupp_ext"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:6981:6985:17108434987384449779",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.dfinsuppFamily_add"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:4580:4590:2420373982184408823",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.support_dfinsuppFamily_subset"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Multilinear.DFinsupp:9184:9330:559329632863733576",
+      "module": "Mathlib.LinearAlgebra.Multilinear.DFinsupp",
+      "declaration": "MultilinearMap.fromDFinsuppEquiv_apply"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:16265:16314:5247158992630315809",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.MemLp.exists_boundedContinuous_integral_rpow_sub_le"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:18465:18508:17652409299703606839",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.Lp.boundedContinuousFunction_dense"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:13181:13441:12850254865002638990",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.MemLp.exists_boundedContinuous_eLpNorm_sub_le"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:20068:20106:9084776758351213307",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "ContinuousMap.toLp_denseRange"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:11490:11500:15173607369555600551",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.MemLp.exists_hasCompactSupport_integral_rpow_sub_le"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:9296:9349:16218819919745804132",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.MemLp.exists_hasCompactSupport_eLpNorm_sub_le"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:17692:17770:15908566448880908772",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.Integrable.exists_boundedContinuous_integral_sub_le"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.ContinuousMapDense:6902:6975:3883942281879585772",
+      "module": "Mathlib.MeasureTheory.Function.ContinuousMapDense",
+      "declaration": "MeasureTheory.exists_continuous_eLpNorm_sub_le_of_closed"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:4593:4597:3787618206116959540",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.zeta_mul_vonMangoldt"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:2763:2772:9466218591339953341",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.vonMangoldt_nonneg"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:3233:3268:12575364490154455174",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.vonMangoldt_ne_zero_iff"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:5509:5537:15222955521505174678",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.sum_moebius_mul_log_eq"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:4845:4858:4204497355508845271",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.moebius_mul_log_eq_vonMangoldt"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:4438:4443:3787618206116959540",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.vonMangoldt_mul_zeta"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:5918:5942:12266566301769954621",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.vonMangoldt_le_log"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt:4093:4316:8881813479556828805",
+      "module": "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "declaration": "ArithmeticFunction.vonMangoldt_sum"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:7399:7453:9953436875183111082",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.eq_or_principal"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:21683:21686:13197066021963984775",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "RelEmbedding.collapse"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:23135:23164:9676832239301632808",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.mem_range_of_le"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:8455:8462:16869347168098592748",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.leAdd"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:5724:5769:13933186976239575360",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.subsingleton_of_trichotomous_of_irrefl"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:5138:5172:10562098957688102876",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.trans"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:24192:24202:10870998749597793852",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.isMin_apply_iff"
+    },
+    {
+      "site": "Mathlib.Order.InitialSeg:24939:25058:10930491027164029578",
+      "module": "Mathlib.Order.InitialSeg",
+      "declaration": "InitialSeg.lt_apply_iff"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:7611:7615:17498268057541679128",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "indepFun_pi_of_bcf"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:9125:9196:7189219012727760393",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "indepFun_of_bcf"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:4135:4189:3842840406520626514",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "IndepFun.singleton_indepSets_of_indicator"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:7035:7053:18039173352691901660",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "indepFun_pi_of_prod_bcf"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:5521:5582:9124044315956420676",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "pi_indepFun_pi_of_prod_bcf"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:8635:8712:15820040277103097511",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "pi_indepFun_of_bcf"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:10258:10282:16663288230640016810",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "indicator_indepFun_pi_of_prod_bcf"
+    },
+    {
+      "site": "Mathlib.Probability.Independence.BoundedContinuousFunction:8134:8138:1388375409210102813",
+      "module": "Mathlib.Probability.Independence.BoundedContinuousFunction",
+      "declaration": "pi_indepFun_of_prod_bcf"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:1327:1334:784132259290732284",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.teichmullerAux_sModEq"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:8592:8595:8970684982970966085",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.quotientMulEquiv"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:6861:6865:9890366153331316068",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.teichmuller₀_mapMonoidHom_idealQuotientMk"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:4379:4446:17364369095679404631",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.teichmuller"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:1710:1745:10784444658074537837",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.teichmullerCauchy"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:3268:3409:15294569435066843079",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.teichmullerFun_spec'"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:2711:2840:1454538645638171675",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.teichmullerFun_sModEq"
+    },
+    {
+      "site": "Mathlib.RingTheory.Teichmuller:7101:7142:16209995618238356528",
+      "module": "Mathlib.RingTheory.Teichmuller",
+      "declaration": "Perfection.mk_teichmuller"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:19005:19011:15419573070555907597",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.nfp_mul_opow_omega0_add"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:9373:9395:10257520061709657059",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.derivFamily_eq_enumOrd"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:17241:17338:4953935180760169610",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.nfp_mul_eq_opow_omega0"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:4043:4073:7602999044424076033",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.nfpFamily_fp"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:14821:14824:5623708518092608128",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.nfp_zero"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:7381:7414:3569094048735950080",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.derivFamily_fp"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:16538:16591:3817196708915365638",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.deriv_add_eq_mul_omega0_add"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.FixedPoint:3678:3712:7989247236450214568",
+      "module": "Mathlib.SetTheory.Ordinal.FixedPoint",
+      "declaration": "Ordinal.nfpFamily_le_fp"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:10288:10320:1748789201987894254",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valued.isOpen_ball"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:1668:1677:17201613643706056141",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valuation.map_eq_one_of_forall_lt"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:12608:12634:14888293457752113946",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valued.isClopen_sphere"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:7895:7925:2945548611955617154",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valued.mem_nhds_zero"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:2584:2593:17215967056875529860",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valuation.subgroups_basis"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:9846:9909:2759556843823891193",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valued.cauchy_iff"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:11793:11836:979317713487563939",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valued.isClosed_closedBall"
+    },
+    {
+      "site": "Mathlib.Topology.Algebra.Valued.ValuationTopology:8459:8471:15201566755016737832",
+      "module": "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "declaration": "Valued.locally_const"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:1881:1884:4647721300393762068",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearEquiv.ofEq_rfl"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:11215:11236:17303382166037244933",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearMap.codRestrict₂_apply"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:6954:7039:9154910601214959570",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearEquiv.ofInjective_symm_apply"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:8453:8471:245937831079368737",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "Submodule.equivSubtypeMap"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:3334:3337:12288698772882597902",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearEquiv.ofSubmodule'_toLinearMap"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:11035:11044:15872340749974795937",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearMap.codRestrict₂"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:7903:7986:13861222458379310942",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearEquiv.apply_ofBijective_symm_apply"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:4646:4693:16918327494524812683",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearEquiv.eq_bot_of_equiv"
+    },
+    {
+      "site": "Mathlib.Algebra.Module.Submodule.Equiv:10456:10460:9608271235785921751",
+      "module": "Mathlib.Algebra.Module.Submodule.Equiv",
+      "declaration": "LinearMap.codRestrictOfInjective_comp"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:4725:4786:10001109658676806953",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_convexCombPair_right"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:4002:4394:9973477405421799162",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_convexCombPair_left"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:7348:7427:2967332627371470846",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_convexCombPair_convexCombPair_le"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:13421:13501:2164221022330821470",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.instIsConvexDist"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:5751:5813:14483403156460860289",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_convexCombPair_convexCombPair"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:13897:13957:5434017561616298987",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.IsConvexDist.subtype"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:3764:3808:5095123720977102944",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_sConvexComb_right_le"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:2809:2950:14298001296212149842",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_iConvexComb_le"
+    },
+    {
+      "site": "Mathlib.Analysis.Convex.MetricSpace:3594:3637:9935062311326711630",
+      "module": "Mathlib.Analysis.Convex.MetricSpace",
+      "declaration": "Convexity.dist_sConvexComb_left_le"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Category.Cat.Limit:5575:5579:17552845026548410334",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "declaration": "CategoryTheory.Cat.HasLimits.limitConeIsLimit"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Category.Cat.Limit:4351:4355:7497665944815570432",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "declaration": "CategoryTheory.Cat.HasLimits.limitConeLift"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Category.Cat.Limit:2334:2338:7890237233364440514",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "declaration": "CategoryTheory.Cat.HasLimits.instCategoryLimitCompObjects"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Category.Cat.Limit:1716:1721:16610625049453546822",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "declaration": "CategoryTheory.Cat.HasLimits.homDiagram"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Category.Cat.Limit:6489:6492:7868386465838932990",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "declaration": "CategoryTheory.Cat.instPreservesLimitsObjects"
+    },
+    {
+      "site": "Mathlib.CategoryTheory.Category.Cat.Limit:5063:5070:11484864010398781524",
+      "module": "Mathlib.CategoryTheory.Category.Cat.Limit",
+      "declaration": "CategoryTheory.Cat.HasLimits.limit_π_homDiagram_eqToHom"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:5083:5140:13974109134369195368",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "PowerSeries.WithPiTopology.hasSum_pow_pentagonal_sub_pentagonalSeries"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:3329:3342:8137637082584140816",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "PowerSeries.coeff_pentagonalSeries_eq_zero"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:2251:2294:9151450567258936534",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "_private.Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries.0.Pentagonal.tendsto_order_neg_X_pow"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:3478:3501:6562912663592986653",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "PowerSeries.coeff_pentagonalSeries_pentagonal"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:1956:1991:8977563151572602426",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "_private.Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries.0.Pentagonal.tendsto_order_pow_mul_prod_one_sub_pow"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:6992:7040:3664942947542708904",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "PowerSeries.coeff_prod_one_sub_X_pow_eventually_eq"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:7506:7545:3512194648381693151",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "PowerSeries.WithPiTopology.hasProd_one_sub_X_pow"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:5829:5911:8284843673741741412",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "_private.Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries.0.PowerSeries.WithPiTopology.tprod_one_sub_X_pow'"
+    },
+    {
+      "site": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries:4137:4141:2534991172602295448",
+      "module": "Mathlib.Combinatorics.Enumerative.Pentagonal.PowerSeries",
+      "declaration": "PowerSeries.WithPiTopology.hasSum_pentagonalSeries"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:13665:13803:17860599016774686833",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "Nat.Partrec.Code.primrec_pappAck_step"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:7957:7976:8665312769072475716",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "ack_succ_right_le_ack_succ_left"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:8429:8482:10248614389651765752",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "ack_add_one_sq_lt_ack_add_three"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:3864:3882:1430765771243827091",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "one_lt_ack_succ_left"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:8322:8325:6264194029191947472",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "_private.Mathlib.Computability.Ackermann.0.sq_le_two_pow_add_one_minus_three"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:3085:3101:9514346017716752011",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "ack_two"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:10464:10487:2664025946524166689",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "exists_lt_ack_of_nat_primrec"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:3671:3684:3172165522264149003",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "ack_pos"
+    },
+    {
+      "site": "Mathlib.Computability.Ackermann:5365:5368:7688681043298162285",
+      "module": "Mathlib.Computability.Ackermann",
+      "declaration": "add_lt_ack"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:9015:9020:2997137898280189952",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.w_map_wMk"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:9862:9865:16618405537027987646",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.map_objAppend1"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:10812:10834:16024854957624900273",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.wDest'_wMk'"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:10632:10652:6995860969506633217",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.wDest'_wMk"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:4263:4281:6859967387225524583",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.mvfunctorW"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:3839:3842:11988145807691883479",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.comp_wPathCasesOn"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:2325:2334:17315128196473944164",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.wPathCasesOn"
+    },
+    {
+      "site": "Mathlib.Data.PFunctor.Multivariate.W:3548:3551:7825748737675468189",
+      "module": "Mathlib.Data.PFunctor.Multivariate.W",
+      "declaration": "MvPFunctor.wPathCasesOn_eta"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:8203:8289:6728335393690312574",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "Ergodic.ae_empty_or_univ_of_ae_le_preimage'"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:5241:5400:10481197000574905530",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "MeasureTheory.MeasurePreserving.ergodic_conjugate_iff"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:7759:7802:16156514593119293183",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "Ergodic.ae_empty_or_univ_of_preimage_ae_le'"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:8709:8766:3813036560432460725",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "Ergodic.ae_empty_or_univ_of_image_ae_le'"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:3936:3940:2375136371707497379",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "PreErgodic.zero_measure"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:9524:9528:15397313430442181854",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "Ergodic.zero_measure"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:5057:5072:13491081660607874427",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "MeasureTheory.MeasurePreserving.preErgodic_conjugate_iff"
+    },
+    {
+      "site": "Mathlib.Dynamics.Ergodic.Ergodic:7098:7102:9558679940077618594",
+      "module": "Mathlib.Dynamics.Ergodic.Ergodic",
+      "declaration": "QuasiErgodic.zero_measure"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:9070:9263:9924191577200988283",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.hasExponent_of_finiteDimensional"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:11325:11363:7168892642129000260",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.iterateFrobenius"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:13169:13201:14333777897576463318",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.iterateFrobeniusₛₗ"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:10490:10648:4624081935176325450",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "_private.Mathlib.FieldTheory.PurelyInseparable.Exponent.0.IsPurelyInseparable.algebraMap_iterateFrobeniusAux"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:6000:6044:12848106661803405983",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.algebraMap_elemReduct_eq"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:5049:5139:11149034152456658930",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.minpoly_eq"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:4301:4331:7692633298086562521",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.elemExponent_eq_zero_of_mem_range"
+    },
+    {
+      "site": "Mathlib.FieldTheory.PurelyInseparable.Exponent:3133:3205:3177320090863745824",
+      "module": "Mathlib.FieldTheory.PurelyInseparable.Exponent",
+      "declaration": "IsPurelyInseparable.exponent_min"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:22422:22449:9373665130694305070",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "StructureGroupoid.restriction_mem_maximalAtlas_subtype"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:23758:24317:2313705955034043587",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "OpenPartialHomeomorph.toStructomorph"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:8669:8754:5687197916570613115",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "_private.Mathlib.Geometry.Manifold.HasGroupoid.0.restr_mem_maximalAtlas_aux1"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:7086:7263:4232234319161456604",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "StructureGroupoid.mem_maximalAtlas_of_eqOnSource"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:10507:10513:14346706550445083139",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "OpenPartialHomeomorph.singletonChartedSpace"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:19729:19756:1197606905535715080",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "Structomorph.trans"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:5520:5564:8283502146956582506",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "StructureGroupoid.compatible_of_mem_maximalAtlas"
+    },
+    {
+      "site": "Mathlib.Geometry.Manifold.HasGroupoid:11841:11904:6040295191729979496",
+      "module": "Mathlib.Geometry.Manifold.HasGroupoid",
+      "declaration": "OpenPartialHomeomorph.singleton_hasGroupoid"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic:2464:2559:3460439976316887802",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "declaration": "Matrix.GeneralLinearGroup.center_eq_range_scalar"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic:3107:3132:18291413750243761072",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "declaration": "Matrix.GeneralLinearGroup.map_center_le"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic:874:907:17667390955419347091",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "declaration": "Matrix.planeConformalMatrix"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic:1388:1396:4666056772443685176",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "declaration": "Matrix.GeneralLinearGroup.mem_center_iff_val_mem_range_scalar"
+    },
+    {
+      "site": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic:3718:3960:9206469719933554294",
+      "module": "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic",
+      "declaration": "Matrix.SpecialLinearGroup.toGL_mem_center_iff"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:7966:7994:5678409923512413550",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "_private.Mathlib.MeasureTheory.Function.L2Space.0.MeasureTheory.L2.add_left'"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:1818:1825:16388832029925074638",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "MeasureTheory.memLp_two_iff_integrable_sq_norm"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:5928:5964:4823577114831857006",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "MeasureTheory.L2.integral_inner_eq_sq_eLpNorm"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:7272:7324:1745807383036051707",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "MeasureTheory.L2.mem_L1_inner"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:5221:5307:4685346190541212352",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "MeasureTheory.L2.eLpNorm_inner_lt_top"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:3300:3322:3474809993748891868",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "MeasureTheory.Integrable.inner_const"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:13683:13736:12113213453639142310",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "MeasureTheory.ContinuousMap.inner_toLp"
+    },
+    {
+      "site": "Mathlib.MeasureTheory.Function.L2Space:6876:6898:18262847887704665232",
+      "module": "Mathlib.MeasureTheory.Function.L2Space",
+      "declaration": "_private.Mathlib.MeasureTheory.Function.L2Space.0.MeasureTheory.L2.norm_sq_eq_re_inner"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:11677:11807:1594948090528483694",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "Subgroup.relIndex_strictPeriods"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:5533:6091:12784630649830660881",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "isCusp_SL2Z_iff"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:15767:15775:9998357530489272395",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "Subgroup.strictWidthInfty_eq_one_of_T_mem"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:13914:13925:762013982561877323",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "Subgroup.strictPeriods_eq_zmultiples_one_of_T_mem"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:3911:3959:2286588158581588198",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "Subgroup.Commensurable.isCusp_iff"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:9462:9467:14426795610647650491",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "surjective_cosetToCuspOrbit"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:17035:17122:14448931497846442427",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "Subgroup.two_mul_widthInfty_mem_strictPeriods"
+    },
+    {
+      "site": "Mathlib.NumberTheory.ModularForms.Cusps:21368:21400:9722664620562116642",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "declaration": "CongruenceSubgroup.strictPeriods_Gamma"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:4116:4171:10464099994172253953",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.card_mono"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:4353:4388:3372665788129276174",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.card_one"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:4271:4307:4850274767233685036",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.card_zero"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:3939:3961:11946291977889455461",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.card_type"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:2976:2992:10647351303918273383",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.type_lex_prod"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:4550:4602:18006818297276036292",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.instLeftDistribClass"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:3478:3481:13050437572639928753",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.instMonoid"
+    },
+    {
+      "site": "Mathlib.Order.Types.Arithmetic:2131:2134:15453529631076681311",
+      "module": "Mathlib.Order.Types.Arithmetic",
+      "declaration": "OrderType.instAddMonoid"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:4781:4788:8371619580630324072",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.gaussian_charFunDual_congr"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:7084:7114:7826273005066573521",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.isGaussian_iff_gaussian_charFun"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:5557:5565:3936808868002094775",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.IsGaussian.ext_iff_covarianceBilinDual"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:2263:2293:646945282832262375",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.IsGaussian.charFunDual_eq'"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:9334:9342:3580522189370615947",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.IsGaussian.ext_iff"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:5203:5247:13117737173369045837",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.IsGaussian.ext_covarianceBilinDual"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:5934:5940:47341927705079604",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.IsGaussian.charFun_eq'"
+    },
+    {
+      "site": "Mathlib.Probability.Distributions.Gaussian.CharFun:8139:8190:18061429172684928684",
+      "module": "Mathlib.Probability.Distributions.Gaussian.CharFun",
+      "declaration": "ProbabilityTheory.gaussian_charFun_congr"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:11211:11248:9530238179497488182",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.span_pair_add_mul_left"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:10521:10531:2989768712668466288",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.span_pair_add_right_mul"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:3329:3333:995076617399748958",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.span_eq_bot"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:5861:6005:6528828758210028223",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.span_range_eq_span_range_support"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:11088:11126:18344672807024515744",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.span_pair_add_mul_right"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:12656:12715:7762650855873130261",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "IsIdempotentElem.ker_toSpanSingleton_one_sub_eq_span"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:4503:4525:5706878035742412238",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.mem_span_singleton_sup"
+    },
+    {
+      "site": "Mathlib.RingTheory.Ideal.Span:1351:1355:16861543285269953139",
+      "module": "Mathlib.RingTheory.Ideal.Span",
+      "declaration": "Ideal.span_univ"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.Principal:14217:14246:15412883947371653735",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "declaration": "Ordinal.isPrincipal_mul_two"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.Principal:12095:12119:800923772907865657",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "declaration": "Ordinal.isPrincipal_add_iff_zero_or_omega0_opow"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.Principal:8573:8687:15000795112554090064",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "declaration": "Ordinal.isPrincipal_add_iff_add_left_eq_self"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.Principal:15691:15767:18408698515456522645",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "declaration": "Ordinal.isPrincipal_mul_iff_mul_left_eq"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.Principal:19204:19403:5858249318499538896",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "declaration": "Ordinal.isPrincipal_mul_iff_le_two_or_omega0_opow_opow"
+    },
+    {
+      "site": "Mathlib.SetTheory.Ordinal.Principal:17713:17888:16140651464900310939",
+      "module": "Mathlib.SetTheory.Ordinal.Principal",
+      "declaration": "Ordinal.mul_omega0_opow_opow"
+    }
+  ],
+  "limitations": [
+    "First pass on previously exposed goals, with one Jev/fixed run and three fixed random seeds.",
+    "Cluster subsample of 33 modules/17 areas, including one single-module stratum; not all Mathlib.",
+    "Random-average intervals condition on the three seeds; model/run variability is not fully estimated.",
+    "Two co-primary comparisons use 97.5% intervals; 95% intervals and per-seed contrasts are descriptive.",
+    "Jev pretraining overlap unknown. Initialization excluded from goal time and reported separately.",
+    "API failures and timing differences are retained; a call preceding a solve is not causal attribution."
+  ]
+}
