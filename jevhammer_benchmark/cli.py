@@ -225,7 +225,7 @@ def prepare_sources(project, output, sources, imports):
 
 def phase(project, output, dataset, name, *, methods=(), overrides=None, mock=True,
           max_requests=0, max_tokens=0, heartbeats=200000, timeout=600, threads=2,
-          certificates="", lean_options=()):
+          certificates="", lean_options=(), ranking_policy="jev", ranking_seed=0):
     failures = {}
     for module, source in dataset["sources"].items():
         sites = [r["site"] for r in dataset.get("sites", []) if r["module"] == module]
@@ -236,12 +236,13 @@ def phase(project, output, dataset, name, *, methods=(), overrides=None, mock=Tr
                         injectedBytes=source["injectedBytes"], sites=sites,
                         owners=sorted({r["declaration"] for r in dataset.get("sites", [])}),
                         methods=list(methods), overrides=overrides or {}, mock=mock,
+                        rankingPolicy=ranking_policy, rankingSeed=ranking_seed,
                         maxRequests=max_requests, maxInputTokens=max_tokens,
                         outerHeartbeats=heartbeats, certificates=str(certificates))
         config = output / "settings" / f"{name}-{module}.json"
         write_json(config, settings)
         env = dict(os.environ, JEVHAMMER_BENCH_CONFIG=str(config))
-        if name != "run" or mock:
+        if name != "run" or mock or ranking_policy != "jev":
             env.pop("TYPESAFE_API_KEY", None)
         try:
             lean_file(project,
@@ -393,7 +394,19 @@ def replay_run(project, directory, dataset, timeout=600, threads=2):
     return checks
 
 
+def ranking_options(args):
+    policy, seed = getattr(args, "ranking_policy", "jev"), getattr(args, "ranking_seed", 0)
+    if policy not in {"jev", "fixed", "random"} or seed < 0:
+        raise ValueError("expected a valid ranking policy and a nonnegative seed")
+    if args.mock and policy != "jev":
+        raise ValueError("--mock and --ranking-policy are mutually exclusive")
+    if seed and policy != "random":
+        raise ValueError("--ranking-seed requires --ranking-policy random")
+    return policy, seed
+
+
 def run(args):
+    policy, seed = ranking_options(args)
     resources = ensure_bounded(args)
     project, output = args.project.absolute(), fresh_output(args.output)
     dataset = read_json(args.dataset)
@@ -402,7 +415,7 @@ def run(args):
     overrides = json.loads(args.config)
     if not isinstance(overrides, dict) or set(overrides) - CONFIG_KEYS:
         raise ValueError("--config contains unknown JevHammer fields")
-    if not args.mock and (not os.environ.get("TYPESAFE_API_KEY") or
+    if not args.mock and policy == "jev" and (not os.environ.get("TYPESAFE_API_KEY") or
                           args.max_requests <= 0 or args.max_input_tokens <= 0):
         raise ValueError("live runs require TYPESAFE_API_KEY and positive request/token budgets")
     build(project, output, dataset["imports"][1:])
@@ -412,7 +425,8 @@ def run(args):
     write_json(output / "dataset.json", dataset)
     write_json(output / "usage.json", {"attempts": 0, "inputTokens": 0, "outputTokens": 0, "unknownUsage": 0})
     manifest = {"schema": SCHEMA, "status": "running", "methods": methods,
-                "configOverrides": overrides, "guidance": "mock" if args.mock else "jev",
+                "configOverrides": overrides, "guidance": "mock" if args.mock else policy,
+                "rankingSeed": seed,
                 "datasetSha256": digest(Path(args.dataset).read_bytes()),
                 "maxRequests": args.max_requests, "maxInputTokens": args.max_input_tokens,
                 "outerHeartbeats": args.heartbeats, "threads": args.threads,
@@ -422,7 +436,8 @@ def run(args):
         failures = phase(project, output, dataset, "run", methods=methods, overrides=overrides,
                          mock=args.mock, max_requests=args.max_requests, max_tokens=args.max_input_tokens,
                          heartbeats=args.heartbeats, timeout=args.timeout, threads=args.threads,
-                         lean_options=dataset.get("leanOptions", []))
+                         lean_options=dataset.get("leanOptions", []),
+                         ranking_policy=policy, ranking_seed=seed)
         manifest["failures"] = failures
         validate_visits(dataset, rows(output / "visited.jsonl"))
         expected = Counter((r["site"], m) for r in dataset["sites"] for m in methods)
@@ -479,11 +494,15 @@ def report(directory):
             paired.append({"a": a, "b": b, "gained": len(gains), "lost": len(losses),
                            "declarationBootstrap95": [distribution[25], distribution[974]]})
     result = {"schema": SCHEMA, "status": status, "guidance": manifest["guidance"],
+              "rankingSeed": manifest.get("rankingSeed", 0),
               "methods": summaries, "paired": paired, "usage": read_json(directory / "usage.json")}
     write_json(directory / "summary.json", result)
     lines = ["# JevHammer benchmark", "", f"Status: **{status}**.", ""]
     if manifest["guidance"] == "mock":
         lines += ["**Offline mock ranking: infrastructure results, not measured Jev performance.**", ""]
+    elif manifest["guidance"] in {"fixed", "random"}:
+        lines += [f"Ranking baseline: **{manifest['guidance']}**, seed {manifest.get('rankingSeed', 0)}. "
+                  "No Jev calls; rankCalls/stateRankCalls count local ranking decisions.", ""]
     lines += ["| Method | On-time verified | Raw verified | Recorded trials | Goal time (s) |",
               "|---|---:|---:|---:|---:|"]
     for name, value in summaries.items():
@@ -578,6 +597,10 @@ def parser():
             p.add_argument("--methods", nargs="+", default=["JevHammerBenchmark.Methods.sine"])
             p.add_argument("--config", default="{}", help="JSON JevHammer.Config overrides")
             p.add_argument("--mock", action="store_true", help="offline ranking for infrastructure tests only")
+            p.add_argument("--ranking-policy", choices=["jev", "fixed", "random"], default="jev",
+                           help="real ranking ablation: fixed/random use no model or API key")
+            p.add_argument("--ranking-seed", type=int, default=0,
+                           help="nonnegative seed for random ranking, independently seeded by source site")
             p.add_argument("--max-requests", type=int, default=0)
             p.add_argument("--max-input-tokens", type=int, default=0)
             p.add_argument("--heartbeats", type=int, default=200000)

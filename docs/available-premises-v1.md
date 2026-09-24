@@ -1,5 +1,9 @@
 # Available-premise sensitivity study: 1,024 Mathlib goals
 
+These are whole-tactic results, not an ablation of Jev guidance: 353 of the strict
+CPU arm's 438 on-time solves made no Jev call. A call on the other 85 does not
+establish that Jev improved their outcomes. See the [attribution audit](guidance-attribution.md).
+
 Completed on 2026-09-22 in Edmonton (2026-09-23 01:33 UTC). Restricting the CPU
 selector's preparation to imported statements available before each tested
 theorem produced **438/1,024 on-time verified proofs (42.77%)**. A fresh run of

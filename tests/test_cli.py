@@ -3,11 +3,30 @@ import sys
 import tempfile
 from pathlib import Path
 import unittest
-from jevhammer_benchmark.cli import inject, select_sites, validate_visits, split, read_json, write_json, package_directory, process, load_exclusions
+from jevhammer_benchmark.cli import inject, select_sites, validate_visits, split, read_json, write_json, package_directory, process, load_exclusions, ranking_options, phase
+from unittest.mock import patch
 from types import SimpleNamespace
 
 
 class Driver(unittest.TestCase):
+    def test_ranking_policy_validation_and_secret_isolation(self):
+        for policy, seed, mock in [("random", 19, False), ("fixed", 0, False), ("jev", 0, False)]:
+            self.assertEqual(ranking_options(SimpleNamespace(ranking_policy=policy, ranking_seed=seed, mock=mock)), (policy, seed))
+        for policy, seed, mock in [("random", -1, False), ("fixed", 5, False), ("random", 0, True), ("bad", 0, False)]:
+            with self.assertRaises(ValueError):
+                ranking_options(SimpleNamespace(ranking_policy=policy, ranking_seed=seed, mock=mock))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "settings").mkdir()
+            dataset = {"sources": {"M": {"injectedBytes": 0}},
+                       "sites": [{"site": "s", "module": "M", "declaration": "M.x"}]}
+            with patch.dict("os.environ", {"TYPESAFE_API_KEY": "fixture-secret"}), \
+                    patch("jevhammer_benchmark.cli.lean_file") as lean:
+                phase(root, root, dataset, "run", mock=False, ranking_policy="random", ranking_seed=19)
+                self.assertNotIn("TYPESAFE_API_KEY", lean.call_args.args[3])
+            settings = read_json(root / "settings/run-M.json")
+            self.assertEqual((settings["rankingPolicy"], settings["rankingSeed"]), ("random", 19))
+
     def test_zero_exit_panic_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

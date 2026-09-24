@@ -1,5 +1,9 @@
 # JevHammer versus full LeanHammer: 1,024-goal confirmation
 
+These are whole-tactic results, not an ablation of Jev guidance: 361 of the CPU
+arm's 450 on-time solves made no Jev call. A call on the other 89 does not
+establish that Jev improved their outcomes. See the [attribution audit](guidance-attribution.md).
+
 A [completed available-premise sensitivity study](available-premises-v1.md)
 now repeats this cohort with stricter CPU preparation and fresh controls. Its
 results are separate; the original results below are unchanged.

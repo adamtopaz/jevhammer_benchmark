@@ -3,6 +3,7 @@ set -euo pipefail
 python -m unittest discover -s tests -v
 lake build JevHammerBenchmarkTests JevHammerBenchmark.Selector JevHammerBenchmark.Neural
 lake env lean WarmupBudgetTests.lean
+lake env lean RankingPolicyTests.lean
 lake build JevHammerBenchmark.GraphStudy
 lake env lean SelectorGuidanceTests.lean
 lake build JevHammerBenchmark.GraphPreviewStudy
@@ -73,6 +74,30 @@ for row in rows:
 assert all(row['stats']['model'] == 'OFFLINE-MOCK' for row in rows)
 # Mock rankings do not perform or record billable network requests.
 assert json.loads((root / 'usage.json').read_text())['attempts'] == 0
+PY
+
+# Real local ranking baselines retain state decisions and premise refresh, with
+# no API credential or network request, and produce independently replayed proofs.
+python -m jevhammer_benchmark discover --source StateRankingFixture=tests/fixtures/StateRanking.lean --count 4 --output "$scratch/state-dataset" "$@"
+for policy in fixed random; do
+  python -m jevhammer_benchmark run --dataset "$scratch/state-dataset/dataset.json" --methods StateRankingFixture.method --ranking-policy "$policy" --output "$scratch/state-$policy" "$@"
+done
+python - "$scratch" <<'PY'
+import json, sys
+from pathlib import Path
+for policy in ('fixed', 'random'):
+    root = Path(sys.argv[1]) / ('state-' + policy)
+    assert json.loads((root / 'summary.json').read_text())['status'] == 'complete'
+    rows = [json.loads(s) for s in (root / 'trials.jsonl').read_text().splitlines()]
+    assert len(rows) == 1
+    row = rows[0]
+    assert row['solved'] and row['onTime'] and row['guidance'] == policy
+    assert row['stats']['stateRankCalls'] == row['stats']['rankCalls'] == 1
+    assert row['stats']['refreshes'] == 1
+    assert row['stats']['premiseRankCalls'] == row['stats']['rankFailures'] == 0
+    assert json.loads((root / 'usage.json').read_text())['attempts'] == 0
+    assert not (root / 'decisions.jsonl').exists()
+    assert json.loads((root / 'verification.json').read_text())['status'] == 'complete'
 PY
 
 # Exercise the CLI override, actual hook and independent replay. The same

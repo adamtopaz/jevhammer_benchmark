@@ -19,6 +19,8 @@ structure Settings where
   methods : Array String := #[]
   overrides : Json := Json.mkObj []
   mock : Bool := true
+  rankingPolicy : String := "jev"
+  rankingSeed : Nat := 0
   maxRequests : Nat := 0
   maxInputTokens : Nat := 0
   outerHeartbeats : Nat := 200000
@@ -103,7 +105,7 @@ private def trial (s : Settings) (node : Mathlib.TacticAnalysis.TacticNode)
       JevHammer.withHeartbeatBudget s.outerHeartbeats do
         let original ← getEnv
         let ranker ← budgetedRanker s.outputDir site methodName method.config
-          s.maxRequests s.maxInputTokens s.mock blocked
+          s.maxRequests s.maxInputTokens s.mock blocked s.rankingPolicy s.rankingSeed
         JevHammer.solve node.tacI.goalsBefore method.selector ranker stats
           method.config method.tactics method.selectorFactory
         node.tacI.goalsBefore.toArray.mapM (closeProof original)
@@ -114,7 +116,8 @@ private def trial (s : Settings) (node : Mathlib.TacticAnalysis.TacticNode)
     ("module", toJson s.moduleName), ("method", toJson methodName),
     ("solved", toJson error.isEmpty),
     ("onTime", toJson (error.isEmpty && elapsed <= method.config.maxMillis)),
-    ("elapsedMs", toJson elapsed), ("guidance", toJson (if s.mock then "mock" else "jev")),
+    ("elapsedMs", toJson elapsed), ("guidance", toJson (if s.mock then "mock" else s.rankingPolicy)),
+    ("rankingSeed", toJson s.rankingSeed),
     ("budgetBlocked", toJson (← blocked.get)),
     ("error", toJson error), ("stats", toJson (← stats.get)),
     ("certificates", .arr certificates)]

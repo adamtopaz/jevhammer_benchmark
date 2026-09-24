@@ -6,8 +6,13 @@ selectors, tactic sets, and search configurations at actual intermediate Lean
 goals. Successful proofs are saved as expression certificates and independently
 kernel-checked against the original source goals, without API calls.
 
-JevHammer comparison arms use **Jev for proof-state guidance**. Offline mock ranking
-is available for infrastructure tests and is explicitly labeled in reports.
+The main JevHammer comparison arms use **Jev for proof-state guidance**. Fixed and
+seeded-random ranking policies are available for matched ablations; offline mock
+ranking is separately labeled and intended only for infrastructure tests.
+The reported success rates measure the **whole tactic**. Most solves make no Jev
+call, and the existing comparisons do not isolate a benefit from Jev over fixed
+or random state ordering. See the [guidance attribution audit](docs/guidance-attribution.md)
+and [older combined-guidance ablations](docs/historical-guidance.md).
 The repository includes Sine Qua Non baselines, a prepared
 [JevSelector](https://github.com/adamtopaz/jevselector) adapter, and an opt-in
 neural premise-service adapter, plus an optional full LeanHammer comparison.

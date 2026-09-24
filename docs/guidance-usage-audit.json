@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "interpretation": "Request use is descriptive, not causal attribution.",
+  "studies": {
+    "full-leanhammer-confirmation-v1": {
+      "trialSha256": "ee4592d7f8f417f024cdf1ebf139fa1b6df803b781124fec9d34884ccab0434c",
+      "methods": {
+        "cpu": {
+          "sites": 1024,
+          "onTimeVerified": 450,
+          "solvesWithoutStateRanking": 361,
+          "solvesAfterStateRankingAttempt": 89,
+          "solvesWithAllRankingAttemptsFailed": 2,
+          "trialsWithStateRankingAttempt": 652
+        },
+        "full": {
+          "sites": 1024,
+          "onTimeVerified": 372,
+          "solvesWithoutStateRanking": 372,
+          "solvesAfterStateRankingAttempt": 0,
+          "solvesWithAllRankingAttemptsFailed": 0,
+          "trialsWithStateRankingAttempt": 0
+        },
+        "neural": {
+          "sites": 1024,
+          "onTimeVerified": 469,
+          "solvesWithoutStateRanking": 373,
+          "solvesAfterStateRankingAttempt": 96,
+          "solvesWithAllRankingAttemptsFailed": 4,
+          "trialsWithStateRankingAttempt": 639
+        }
+      }
+    },
+    "available-premises-v1": {
+      "trialSha256": "f985d8cb11fab0e465add10ba4c392e8ec638887b53a2112d7b3a6d874fb0fd9",
+      "methods": {
+        "cpu": {
+          "sites": 1024,
+          "onTimeVerified": 448,
+          "solvesWithoutStateRanking": 361,
+          "solvesAfterStateRankingAttempt": 87,
+          "solvesWithAllRankingAttemptsFailed": 1,
+          "trialsWithStateRankingAttempt": 653
+        },
+        "full": {
+          "sites": 1024,
+          "onTimeVerified": 371,
+          "solvesWithoutStateRanking": 371,
+          "solvesAfterStateRankingAttempt": 0,
+          "solvesWithAllRankingAttemptsFailed": 0,
+          "trialsWithStateRankingAttempt": 0
+        },
+        "neural": {
+          "sites": 1024,
+          "onTimeVerified": 466,
+          "solvesWithoutStateRanking": 373,
+          "solvesAfterStateRankingAttempt": 93,
+          "solvesWithAllRankingAttemptsFailed": 3,
+          "trialsWithStateRankingAttempt": 638
+        },
+        "strict": {
+          "sites": 1024,
+          "onTimeVerified": 438,
+          "solvesWithoutStateRanking": 353,
+          "solvesAfterStateRankingAttempt": 85,
+          "solvesWithAllRankingAttemptsFailed": 2,
+          "trialsWithStateRankingAttempt": 660
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "sites": 1024,
+  "modules": 31,
+  "declarations": 429,
+  "deadlineMs": 6000,
+  "gained": 88,
+  "lost": 29,
+  "difference": 0.0576171875,
+  "metrics": {
+    "neural_search_jev": {
+      "onTime": 459,
+      "raw": 462,
+      "freshCalls": 2010,
+      "cachedDecisions": 52
+    },
+    "neural_search": {
+      "onTime": 400,
+      "raw": 400,
+      "freshCalls": 0,
+      "cachedDecisions": 0
+    }
+  },
+  "schema": 1,
+  "kind": "archived-combined-premise-and-state-guidance",
+  "publicTrials": {
+    "path": "trials.jsonl",
+    "sha256": "be03a3f15db5c95ceec91b0ea6f4a8c7a4091883972eaa9ded120d6b1c1eb6b3"
+  },
+  "sourceSha256": {
+    "Advanced.lean": "24ae3c02a56ed16ce49b7f5619e10a3123f1479f8002eced0ca462e76138c2ed",
+    "JevHammerBackend.lean": "e6fb7a6dac99d833610a78abd2b1af3709c4724dde6a5879e260d9062c211c24",
+    "AtEachStep.lean": "7fad332cc8fa3b0034b487fc443b960ab33c4bddf089e4437abba4dfdfe1ad7a"
+  },
+  "archivedDeclarationBootstrap95": [
+    0.03182256509161042,
+    0.08292682926829269
+  ],
+  "archivedReplayRecord": {
+    "certificates": 1604,
+    "network": false,
+    "mathlibCommit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "targetImportsForReplayOnly": true,
+    "targetPrivateImportClosure": true,
+    "verifierSha256": "f385c9776d6ea3866b66a26fbabc43b186141f1a2f59c7616e7c2dc1809add41",
+    "certificateVerifierSha256": "c3bc418ea39f1776ddc96169e1417ca8b88cce148316a903be0bf725359b9fc8",
+    "definitionalBinderAnnotationNormalization": false,
+    "exactExpressionDAG": true
+  },
+  "archiveSha256": {
+    "trials.jsonl": "794b08c62ef79f201e353398c71643bd5982af5ba9e5a1a572279e44db4218f5",
+    "manifest.json": "e948be32f55c987b0f4d3a1567cae917983b6038936e34056fbbad36bcae1662",
+    "metadata.json": "629f85bd6470629d43d5ab16ae7d2d2483ec23087b40a3712617bff3acb85a01",
+    "evaluation-protocol.json": "a3fdde0f283b6d0a3046c89cc4c08acf08319fc122a7880bf72e3a99b7ba894a",
+    "hammer-comparison.json": "11a4fdfa4312bf8fb1808707f9d925b784404329c8ee5d674adf517e47c8b3ac",
+    "replay-certificates/verification.json": "1d1198b9699a42465d209dc5828f89132fde39e16d0fff494c026b09776e79a5"
+  },
+  "limitations": [
+    "Different monolithic engine and cohort from the current public tactic.",
+    "Disables both premise and continuation ranking; not a state-only ablation.",
+    "No-ranker control skips decision accounting, unlike the new slot-matched controls.",
+    "Jev used 52 cached decisions with recorded latency charged.",
+    "Neural/Jev pretraining overlap unknown; fixed 31-module sample.",
+    "Metadata audit only; archived offline replay record is not a new kernel replay."
+  ]
+}
