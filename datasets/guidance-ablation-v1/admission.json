@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "realJevCalls": 0,
+  "proofTrials": 0,
+  "resources": {
+    "initial": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p682632-i682633.scope",
+      "memory.peak": "20045824",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    "final": {
+      "memoryMax": 16000000000,
+      "swapMax": "0",
+      "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/run-p682632-i682633.scope",
+      "memory.peak": "1650655232",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  },
+  "visited": 256,
+  "datasetSha256": "96a3577223111f011e36b2c4f70816db201150a2520881d8f85226efa5a4d881"
+}

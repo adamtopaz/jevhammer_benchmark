@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "sites": 256,
+  "trials": 1280,
+  "protocolSha256": "374262698341a1e0843a832b050ca4282d0982e8e8ecdaf577e478e358107621",
+  "arms": {
+    "jev": [
+      "jev",
+      0
+    ],
+    "fixed": [
+      "fixed",
+      0
+    ],
+    "random17": [
+      "random",
+      17
+    ],
+    "random29": [
+      "random",
+      29
+    ],
+    "random43": [
+      "random",
+      43
+    ]
+  },
+  "batches": [
+    {
+      "batch": 0,
+      "dataset": "batch-0.json",
+      "datasetSha256": "18048aa7cb425f8fd320d77a424030670f7b0a398cfc5ec80533206f6c4151e2",
+      "sites": 30,
+      "modules": 4,
+      "order": [
+        "jev",
+        "fixed",
+        "random43",
+        "random17",
+        "random29"
+      ],
+      "maxRequests": 90,
+      "maxInputTokens": 1050000
+    },
+    {
+      "batch": 1,
+      "dataset": "batch-1.json",
+      "datasetSha256": "2cb3118ed5a9c9e9d174ebacbd8093fc56f05490e59a8c5b87baa10b568a8571",
+      "sites": 33,
+      "modules": 4,
+      "order": [
+        "fixed",
+        "random17",
+        "jev",
+        "random29",
+        "random43"
+      ],
+      "maxRequests": 99,
+      "maxInputTokens": 1155000
+    },
+    {
+      "batch": 2,
+      "dataset": "batch-2.json",
+      "datasetSha256": "49c80645ae3d0bb180ad3711fd3e4193e3b98d2dfb46e51d6cf386ee551c0611",
+      "sites": 32,
+      "modules": 4,
+      "order": [
+        "random17",
+        "random29",
+        "fixed",
+        "random43",
+        "jev"
+      ],
+      "maxRequests": 96,
+      "maxInputTokens": 1120000
+    },
+    {
+      "batch": 3,
+      "dataset": "batch-3.json",
+      "datasetSha256": "92cf08d23f1e29722d89c3f60071bef02ed64aaea1bce5f8f7bf9bfa11c744f1",
+      "sites": 18,
+      "modules": 3,
+      "order": [
+        "random29",
+        "random43",
+        "random17",
+        "jev",
+        "fixed"
+      ],
+      "maxRequests": 54,
+      "maxInputTokens": 630000
+    },
+    {
+      "batch": 4,
+      "dataset": "batch-4.json",
+      "datasetSha256": "0af40c30a6d20171dd2dff41bb7ca6486363efb5dbc501e5d5b86de624584534",
+      "sites": 25,
+      "modules": 3,
+      "order": [
+        "random43",
+        "jev",
+        "random29",
+        "fixed",
+        "random17"
+      ],
+      "maxRequests": 75,
+      "maxInputTokens": 875000
+    },
+    {
+      "batch": 5,
+      "dataset": "batch-5.json",
+      "datasetSha256": "f81fb4a4b7d1dbf8158758587e1d1804709652a7f81f1af9c6a74420e055a6ea",
+      "sites": 23,
+      "modules": 3,
+      "order": [
+        "random29",
+        "random17",
+        "random43",
+        "fixed",
+        "jev"
+      ],
+      "maxRequests": 69,
+      "maxInputTokens": 805000
+    },
+    {
+      "batch": 6,
+      "dataset": "batch-6.json",
+      "datasetSha256": "17615202089efb48cfedcf741ecb4d53cf31bb284a1a9a289b93a24d2ba7d414",
+      "sites": 25,
+      "modules": 3,
+      "order": [
+        "random43",
+        "random29",
+        "jev",
+        "random17",
+        "fixed"
+      ],
+      "maxRequests": 75,
+      "maxInputTokens": 875000
+    },
+    {
+      "batch": 7,
+      "dataset": "batch-7.json",
+      "datasetSha256": "6a93ff04fe9f327b17370647cda38727c46492b4f56fc1ed1666f459de8c915c",
+      "sites": 23,
+      "modules": 3,
+      "order": [
+        "jev",
+        "random43",
+        "fixed",
+        "random29",
+        "random17"
+      ],
+      "maxRequests": 69,
+      "maxInputTokens": 805000
+    },
+    {
+      "batch": 8,
+      "dataset": "batch-8.json",
+      "datasetSha256": "71fb5c91e1c7879f5b534a3ca5f2541e970b4f57cb20028aee4590199caad2a8",
+      "sites": 24,
+      "modules": 3,
+      "order": [
+        "fixed",
+        "jev",
+        "random17",
+        "random43",
+        "random29"
+      ],
+      "maxRequests": 72,
+      "maxInputTokens": 840000
+    },
+    {
+      "batch": 9,
+      "dataset": "batch-9.json",
+      "datasetSha256": "06c0e1c6ea462861a6a3d4319aaea25d85012f92916d0bad361e080b0626024f",
+      "sites": 23,
+      "modules": 3,
+      "order": [
+        "random17",
+        "fixed",
+        "random29",
+        "jev",
+        "random43"
+      ],
+      "maxRequests": 69,
+      "maxInputTokens": 805000
+    }
+  ]
+}
